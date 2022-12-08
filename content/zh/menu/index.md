@@ -1,4 +1,4 @@
----
+﻿---
 headless: true
 ---
 
@@ -590,6 +590,7 @@ headless: true
 	    -   [提交升级]({{< relref "./docs/DatabaseOMGuide/提交升级.md" >}})
 	    -   [升级版本回滚]({{< relref "./docs/DatabaseOMGuide/升级版本回滚.md" >}})
         -   [异常处理]({{< relref "./docs/DatabaseOMGuide/异常处理.md" >}})
+        -   [集群管理组件增量升级]({{< relref "./docs/DatabaseOMGuide/集群管理组件增量升级.md" >}})
 	-   [常见故障定位指南]({{< relref "./docs/DatabaseOMGuide/常见故障定位指南.md" >}})
 	    -   [常见故障定位手段]({{< relref "./docs/DatabaseOMGuide/常见故障定位手段.md" >}})
 	    -   [常见故障定位案例]({{< relref "./docs/DatabaseOMGuide/常见故障定位案例.md" >}})

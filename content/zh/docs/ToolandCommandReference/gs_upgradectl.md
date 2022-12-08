@@ -326,3 +326,23 @@ Once the check done, please execute following command to commit upgrade:
 gs_upgradectl -t commit-upgrade -X /data/node2.xml
 Successfully upgrade all nodes.
 ```
+
+**示例六：**使用gs\_upgradectl脚本执行集群管理组件增量升级。
+```
+gs_upgradectl -t upgrade-cm --upgarde-package /data/openGauss-3.1.0-CentOS-64bit-cm.tar.gz
+Start ot perform the upgrade of CM component in cluster.
+Ready to transform CM package to all nodes.
+Send CM package to all nodes successfully.
+Start to record origin cluster state.
+cluster origin state is : [Normal]
+Start to prepare CM componet files on all nodes.
+Prepare upgrade CM component files successfully.
+Start to upgrade CM component on all nodes.
+Upgrade CM component files successfully.
+Finial check cluster:
+Cluster state check unavailale.
+Cluster state is : [Normal]
+Cluster state is : [Normal]
+Cluster state is : [Normal]
+The cluster status check is available.
+Upgrade CM component successfully.
