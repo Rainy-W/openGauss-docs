@@ -25,7 +25,6 @@ headless: true
 	-   [软硬件配置要求]({{< relref "./docs/Technicalwhitepaper/软硬件配置要求.md" >}})
 	-   [数据库核心技术]({{< relref "./docs/Technicalwhitepaper/数据库核心技术.md" >}})
 	-   [技术指标]({{< relref "./docs/Technicalwhitepaper/技术指标.md" >}})
-	-   [术语表]({{< relref "./docs/Glossary/Glossary.md" >}})
 -   [特性描述]({{< relref "./docs/CharacteristicDescription/CharacteristicDescription.md" >}})
 	-   [高性能]({{< relref "./docs/CharacteristicDescription/高性能.md" >}})
 		-   [CBO优化器]({{< relref "./docs/CharacteristicDescription/CBO优化器.md" >}})
@@ -167,8 +166,6 @@ headless: true
         -   [提交升级]({{< relref "./docs/UpgradeGuide/提交升级.md" >}})
         -   [升级版本回滚]({{< relref "./docs/UpgradeGuide/升级版本回滚.md" >}})
     -   [异常处理]({{< relref "./docs/UpgradeGuide/异常处理.md" >}})
-
-			-   [谓词下推引起的查询报错]({{< relref "./docs/Developerguide/谓词下推引起的查询报错.md" >}})
 -   [数据迁移]({{< relref "./docs/DataMigration/DataMigration.md" >}})
 	-   [迁移MySQL数据库至openGauss]({{< relref "./docs/DataMigration/迁移MySQL数据库至openGauss.md" >}})
 		-   [全量迁移]({{< relref "./docs/DataMigration/全量迁移.md" >}})
