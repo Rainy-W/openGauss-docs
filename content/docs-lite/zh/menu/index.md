@@ -25,7 +25,6 @@ headless: true
 	-   [软硬件配置要求]({{< relref "./docs/Technicalwhitepaper/软硬件配置要求.md" >}})
 	-   [数据库核心技术]({{< relref "./docs/Technicalwhitepaper/数据库核心技术.md" >}})
 	-   [技术指标]({{< relref "./docs/Technicalwhitepaper/技术指标.md" >}})
-	-   [术语表]({{< relref "./docs/Glossary/Glossary.md" >}})
 -   [特性描述]({{< relref "./docs/CharacteristicDescription/CharacteristicDescription.md" >}})
 	-   [高性能]({{< relref "./docs/CharacteristicDescription/高性能.md" >}})
 		-   [CBO优化器]({{< relref "./docs/CharacteristicDescription/CBO优化器.md" >}})
