@@ -29,7 +29,6 @@ headless: true
 		-   [Maintainability]({{< relref "./docs/Technicalwhitepaper/maintainability.md" >}})
 		-   [Database Security]({{< relref "./docs/Technicalwhitepaper/database-security.md" >}})
 	-   [Technical Specifications]({{< relref "./docs/Technicalwhitepaper/technical-specifications.md" >}})
-	-   [Glossary]({{< relref "./docs/Technicalwhitepaper/glossary.md" >}}
 -   [Characteristic Description]({{< relref "./docs/CharacteristicDescription/CharacteristicDescription.md" >}})
 	-   [High Performance]({{< relref "./docs/CharacteristicDescription/high-performance.md" >}})
 		-   [CBO Optimizer]({{< relref "./docs/CharacteristicDescription/cbo-optimizer.md" >}})
