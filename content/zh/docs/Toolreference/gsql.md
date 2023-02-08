@@ -2186,6 +2186,77 @@ omm@[local] openGauss=#
 
 根据需要，可以通过书写?、\(_R_+|\)、\(_R_|\)和_R_?来分别模拟PATTERN字符.、_R_\*和_R_?。$不需要作为一个正则表达式字符，因为PATTERN必须匹配整个名称，而不是像正则表达式的常规用法那样解释（换句话说，$会被自动地追加到PATTERN上）。如果不希望该PATTERN的匹配位置被固定，可以在开头或者结尾写上\*。注意在双引号内，所有的正则表达式特殊字符会失去其特殊含义并且按照其字面意思进行匹配。另外，在操作符名称PATTERN中（即\\do的PATTERN参数），正则表达式特殊字符也按照字面意思进行匹配。
 
+### 批处理模式<a name="ZH-CN_TOPIC_0000001179940232"></a>
+
+openGauss支持从文本文件执行SQL语句。openGauss提供了gsql工具实现SQL语句的批量处理。
+
+以下场景建议使用批处理：
+
+-   如果您重复运行查询（例如，每天或每周），将其设为脚本可以让您避免每次进行重复输入。
+-   您可以通过复制和编辑脚本文件从现有的相似查询生成新查询。
+-   对于多行语句或多语句序列，如果中间出现错误，不必重新键入所有内，只需编辑脚本以更正错误，然后再次执行它。
+-   您可以将脚本分发给其他人，以便他们也可以运行这些语句。
+-   某些情况不允许交互式使用时，您必须使用批处理模式。
+
+#### 语法格式<a name="section3644161111459"></a>
+
+```
+gsql -d dbname -p port -f filename
+```
+
+#### 参数说明<a name="section3770135115014"></a>
+
+-   **dbname**
+
+    指定想要连接的数据库名称。
+
+-   **port**
+
+    指定数据库服务器的端口号。
+
+-   **-f filename**
+
+    使用文件作为命令源而不是交互式输入。该参数指定读取文本文件的路径以及名称。
+
+#### 示例<a name="section231191615452"></a>
+
+1.  创建本地sql文本文件。文件内容如下：
+
+    ```
+    CREATE TABLE customer
+    (
+        c_customer_sk             integer,
+        c_customer_id             char(5),
+        c_first_name              char(6),
+        c_last_name               char(8),
+        Amount                    integer
+    );
+    
+    INSERT INTO customer(c_customer_sk, c_customer_id, c_first_name,Amount) VALUES (3769, 'hello', 'Grace', 1000);
+    INSERT INTO customer (c_customer_sk, c_first_name) VALUES (3769, 'Grace');
+    INSERT INTO customer (c_customer_sk, c_customer_id, c_first_name) VALUES (3769, 'hello', DEFAULT);
+    INSERT INTO customer (c_customer_sk, c_customer_id, c_first_name,Amount) VALUES 
+        (6885, 'maps', 'Joes',2200),
+        (4321, 'tpcds', 'Lily',3000),
+        (9527, 'world', 'James',5000);
+    ```
+
+2.  使用如下命令执行sql.txt中的SQL语句。
+
+    ```
+    gsql -d postgres -p 21013 -f /home/user/sql.txt
+    ```
+
+    结果如下。
+
+    ```
+    CREATE TABLE
+    INSERT 0 1
+    INSERT 0 1
+    INSERT 0 1
+    INSERT 0 3
+    ```
+
 ### 常见问题处理<a name="section1780814211263"></a>
 
 **连接性能问题**
