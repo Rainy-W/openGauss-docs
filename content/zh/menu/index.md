@@ -1,4 +1,4 @@
-﻿---
+---
 headless: true
 ---
 
@@ -139,6 +139,31 @@ headless: true
     -   [搭建编译环境]({{< relref "./docs/Compilationguide/搭建编译环境.md" >}})
     -   [版本编译]({{< relref "./docs/Compilationguide/版本编译.md" >}})
     -   [FAQ]({{< relref "./docs/Compilationguide/FAQ.md" >}})
+-   [安装指南]({{< relref "./docs/installation/installation.md" >}})
+    - [安装概述]({{< relref "./docs/installation/安装概述.md" >}})
+    - [极简版安装]({{< relref "./docs/installation/极简版安装.md" >}})
+      - [安装准备]({{< relref "./docs/installation/安装准备.md" >}})
+        - [获取安装包]({{< relref "./docs/installation/获取安装包.md" >}})
+        - [准备软硬件安装环境]({{< relref "./docs/installation/准备软硬件安装环境.md" >}})
+      - [服务器安装]({{< relref "./docs/installation/服务器安装.md" >}})
+        - [单节点安装]({{< relref "./docs/installation/单节点安装.md" >}})
+        - [一主一备节点安装]({{< relref "./docs/installation/一主一备节点安装.md" >}})
+      - [容器安装]({{< relref "./docs/installation/容器安装.md" >}})
+        - [单节点安装]({{< relref "./docs/installation/单节点安装_容器.md" >}})
+    - [企业版安装]({{< relref "./docs/installation/企业版安装.md" >}})
+      - [安装准备]({{< relref "./docs/installation/安装准备_企业版.md" >}})
+        - [了解安装流程]({{< relref "./docs/installation/了解安装流程.md" >}})
+        - [获取安装包]({{< relref "./docs/installation/获取安装包_企业版.md" >}})
+        - [准备软硬件安装环境]({{< relref "./docs/installation/准备软硬件安装环境_企业版.md" >}})
+        - [了解安装用户及用户组]({{< relref "./docs/installation/了解安装用户及用户组.md" >}})
+      - [安装openGauss]({{< relref "./docs/installation/安装openGauss.md" >}})
+        - [创建XML配置文件]({{< relref "./docs/installation/创建XML配置文件.md" >}})
+        - [初始化安装环境]({{< relref "./docs/installation/初始化安装环境.md" >}})
+        - [执行安装]({{< relref "./docs/installation/执行安装.md" >}})
+        - [安装验证]({{< relref "./docs/installation/安装验证.md" >}})
+      - [初始化数据库]({{< relref "./docs/installation/初始化数据库.md" >}})
+      - [可选_设置备机可读]({{< relref "./docs/installation/可选_设置备机可读.md" >}})
+    - [卸载openGauss]({{< relref "./docs/installation/卸载openGauss.md" >}})
 -   [数据迁移]({{< relref "./docs/DataMigration/DataMigration.md" >}})
 	-   [MySQL兼容性说明]({{< relref "./docs/DataMigration/MySQL兼容性说明.md" >}})
 	-   [MySQL语法兼容性评估工具]({{< relref "./docs/DataMigration/MySQL语法兼容性评估工具.md" >}})	
