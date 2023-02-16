@@ -2399,6 +2399,6 @@ headless: true
 	-   [常见问题解答FAQs]({{< relref "./docs/Appendices/常见问题解答FAQs.md" >}})
 		-   [产品FAQ]({{< relref "./docs/Appendices/产品FAQ.md" >}})
 		-   [使用FAQ]({{< relref "./docs/Appendices/使用FAQ.md" >}})	
-	-   [错误日志信息参考]({{< relref "./docs/Appendices/常见问题解答FAQs.md" >}})
-		-   [内核错误信息]({{< relref "./docs/Appendices/产品FAQ.md" >}})	
+	-   [错误日志信息参考]({{< relref "./docs/Appendices/错误日志信息参考.md" >}})
+		-   [内核错误信息]({{< relref "./docs/Appendices/内核错误信息.md" >}})	
 	-   [术语表]({{< relref "./docs/Appendices/术语表.md" >}})
