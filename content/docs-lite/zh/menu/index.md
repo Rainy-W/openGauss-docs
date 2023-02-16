@@ -251,7 +251,7 @@ headless: true
         -   [案例：改写SQL消除in-clause]({{< relref "./docs/PerformanceTuning/案例-改写SQL消除in-clause.md" >}})
 
 
--   [工具与命令参考]({{< relref "./docs/Toolreference/Toolreference.md" >}})
+-   [工具命令参考]({{< relref "./docs/Toolreference/Toolreference.md" >}})
 	-   [简介]({{< relref "./docs/Toolreference/简介.md" >}})
 	-   [客户端工具]({{< relref "./docs/Toolreference/客户端工具.md" >}})
 	    -   [gsql]({{< relref "./docs/Toolreference/gsql.md" >}})
@@ -276,4 +276,9 @@ headless: true
 		-   [gstrace]({{< relref "./docs/Toolreference/gstrace.md" >}})
 		-   [pg\_config]({{< relref "./docs/Toolreference/pg_config.md" >}})
 		-   [pg\_controldata]({{< relref "./docs/Toolreference/pg_controldata.md" >}})
-		-   [pg\_resetxlog]({{< relref "./docs/Toolreference/pg_resetxlog.md" >}}) 
+		-   [pg\_resetxlog]({{< relref "./docs/Toolreference/pg_resetxlog.md" >}})  
+-   [附录]({{< relref "./docs/Appendices/附录.md" >}})
+	-   [openGauss资源获取]({{< relref "./docs/Appendices/openGauss资源获取.md" >}})	
+	-   [错误日志信息参考]({{< relref "./docs/Appendices/错误日志信息参考.md" >}})
+		-   [内核错误信息]({{< relref "./docs/Appendices/内核错误信息.md" >}})	
+	-   [术语表]({{< relref "./docs/Appendices/术语表.md" >}})
