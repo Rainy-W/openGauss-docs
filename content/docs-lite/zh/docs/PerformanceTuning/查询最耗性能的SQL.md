@@ -1,8 +1,8 @@
-# 查询最耗性能的SQL<a name="ZH-CN_TOPIC_0245374525"></a>
+# 查询最耗性能的SQL<a name="ZH-CN_TOPIC_0289900933"></a>
 
 系统中有些SQL语句运行了很长时间还没有结束，这些语句会消耗很多的系统性能，请根据本章内容查询长时间运行的SQL语句。
 
-## 操作步骤<a name="zh-cn_topic_0237121490_zh-cn_topic_0073253542_zh-cn_topic_0040046535_section43790015111840"></a>
+## 操作步骤<a name="zh-cn_topic_0283136757_zh-cn_topic_0237121490_zh-cn_topic_0073253542_zh-cn_topic_0040046535_section43790015111840"></a>
 
 1.  以操作系统用户omm登录数据库节点。
 2.  使用如下命令连接数据库。
@@ -16,7 +16,7 @@
     连接成功后，系统显示类似如下信息：
 
     ```
-    gsql ((openGauss 1.0 build 290d125f) compiled at 2020-05-08 02:59:43 commit 2143 last mr 131
+    gsql((openGauss x.x.x build f521c606) compiled at 2021-09-16 14:55:22 commit 2935 last mr 6385 release)
     Non-SSL connection (SSL connection is recommended when requiring high-security)
     Type "help" for help.
     
@@ -76,8 +76,9 @@
 
         查询结果中包含了当前被阻塞的查询语句，该查询语句所请求的锁资源可能被其他会话持有，正在等待持有会话释放锁资源。
 
-        >![](public_sys-resources/icon-note.gif) **说明：**   
-        >只有当查询阻塞在系统内部锁资源时，waiting字段才显示为true。尽管等待锁资源是数据库系统最常见的阻塞行为，但是在某些场景下查询也会阻塞在等待其他系统资源上，例如写文件、定时器等。但是这种情况的查询阻塞，不会在视图pg\_stat\_activity中体现。  
+        >![](public_sys-resources/icon-note.gif) **说明：** 
+        >
+        >只有当查询阻塞在系统内部锁资源时，waiting字段才显示为true。尽管等待锁资源是数据库系统最常见的阻塞行为，但是在某些场景下查询也会阻塞在等待其他系统资源上，例如写文件、定时器等。但是这种情况的查询阻塞，不会在视图pg\_stat\_activity中体现。
 
 
 

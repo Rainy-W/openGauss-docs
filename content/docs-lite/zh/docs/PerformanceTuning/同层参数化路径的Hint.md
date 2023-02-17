@@ -12,6 +12,7 @@ predpush_same_level(src1 src2 ..., dest)
 ```
 
 >![](public_sys-resources/icon-note.gif) **说明：** 
+>
 >本参数仅在rewrite\_rule中的predpushforce选项打开时生效。
 
 ## 示例<a name="section5736356154"></a>

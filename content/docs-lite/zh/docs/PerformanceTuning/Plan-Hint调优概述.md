@@ -1,10 +1,10 @@
-# Plan Hint调优概述<a name="ZH-CN_TOPIC_0245374567"></a>
+# Plan Hint调优概述<a name="ZH-CN_TOPIC_0289900090"></a>
 
-Plan Hint为用户提供了直接影响执行计划生成的手段，用户可以通过指定join顺序、join、scan方法、指定结果行数等多个手段来进行执行计划的调优，以提升查询的性能。
+Plan Hint为用户提供了直接影响执行计划生成的手段，用户可以通过指定join顺序，join、scan方法，指定结果行数，等多个手段来进行执行计划的调优，以提升查询的性能。
 
 openGauss还提供了SQL PATCH功能，在不修改业务语句的前提下通过创建SQL PATCH的方式使得Hint生效。详见《特性描述》中的“可维护性 \> 支持SQL PATCH”章节。
 
-## 功能描述<a name="zh-cn_topic_0237121532_section54351718142011"></a>
+## 功能描述<a name="zh-cn_topic_0283137554_zh-cn_topic_0237121532_section54351718142011"></a>
 
 Plan Hint支持在SELECT关键字后通过如下形式指定：
 
@@ -17,30 +17,31 @@ Plan Hint支持在SELECT关键字后通过如下形式指定：
 例如：
 
 ```
-select /*+ <plan_hint1> <plan_hint2> */ * from t1, (select /*+ <plan_hint3> */ from t2) where 1=1;
+select /*+ <plan_hint1> <plan_hint2> */ * from t1, (select /*+ <plan_hint3> */ * from t2) where 1=1;
 ```
 
 其中<plan\_hint1\>，<plan\_hint2\>为外层查询的hint，<plan\_hint3\>为内层子查询的hint。
 
->![](public_sys-resources/icon-notice.gif) **须知：**   
->如果在视图定义（CREATE VIEW）时指定hint，则在该视图每次被应用时会使用该hint。  
->当使用random plan功能（参数plan\_mode\_seed不为0）时，查询指定的plan hint不会被使用。  
+>![](public_sys-resources/icon-notice.gif) **须知：** 
+>
+>如果在视图定义（CREATE VIEW）时指定hint，则在该视图每次被应用时会使用该hint。
+>当使用random plan功能（参数plan\_mode\_seed不为0）时，查询指定的plan hint不会被使用。
 
-## 支持范围<a name="zh-cn_topic_0237121532_section1748920122313"></a>
+## 支持范围<a name="zh-cn_topic_0283137554_zh-cn_topic_0237121532_section1748920122313"></a>
 
 当前版本Plan Hint支持的范围如下，后续版本会进行增强。
 
--   指定Join顺序的Hint - leading hint
--   指定Join方式的Hint，仅支持除semi/anti join、unique plan之外的常用hint。
--   指定结果集行数的Hint
--   指定Scan方式的Hint，仅支持常用的tablescan、indexscan和indexonlyscan的hint。
--   指定子链接块名的Hint
+-   指定Join顺序的Hint - leading hint。
+-   指定Join方式的Hint，仅支持除semi/anti join，unique plan之外的常用hint。
+-   指定结果集行数的Hint。
+-   指定Scan方式的Hint，仅支持常用的tablescan，indexscan和indexonlyscan的hint。
+-   指定子链接块名的Hint。
 
-## 注意事项<a name="zh-cn_topic_0237121532_section19195171972812"></a>
+## 注意事项<a name="zh-cn_topic_0283137554_zh-cn_topic_0237121532_section19195171972812"></a>
 
 不支持Agg、Sort、Setop和Subplan的hint。
 
-## 示例<a name="zh-cn_topic_0237121532_section671421102912"></a>
+## 示例<a name="zh-cn_topic_0283137554_zh-cn_topic_0237121532_section671421102912"></a>
 
 本章节使用同一个语句进行示例，便于Plan Hint支持的各方法作对比，示例语句及不带hint的原计划如下所示：
 
@@ -258,5 +259,5 @@ group by i_product_name
 ;
 ```
 
-![](figures/zh-cn_image_0253028833.png)
+![](figures/zh-cn_image_0289900927.png)
 
