@@ -180,7 +180,7 @@ headless: true
             -   [SMP适用场景与限制]({{< relref "./docs/PerformanceTuning/SMP适用场景与限制.md" >}})
             -   [资源对SMP性能的影响]({{< relref "./docs/PerformanceTuning/资源对SMP性能的影响.md" >}})
             -   [其他因素对SMP性能的影响]({{< relref "./docs/PerformanceTuning/其他因素对SMP性能的影响.md" >}})
-            -   [SMP 使用建议]({{< relref "./docs/PerformanceTuning/SMP-使用建议.md" >}})
+            -   [SMP 使用建议]({{< relref "./docs/PerformanceTuning/SMP使用建议.md" >}})
         -   [资源负载管理]({{< relref "./docs/PerformanceTuning/资源负载管理.md" >}})
             - [资源负载管理概述]({{< relref "./docs/PerformanceTuning/资源负载管理概述.md" >}})
             - [资源管理准备]({{< relref "./docs/PerformanceTuning/资源管理准备.md" >}})
