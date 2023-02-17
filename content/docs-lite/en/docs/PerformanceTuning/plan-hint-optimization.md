@@ -1,10 +1,10 @@
-# Plan Hint Optimization<a name="EN-US_TOPIC_0245374567"></a>
+# Plan Hint Optimization<a name="EN-US_TOPIC_0289900090"></a>
 
 In plan hints, you can specify a join order, join and scan operations, and the number of rows in a result to tune an execution plan, improving query performance.
 
-## Function<a name="en-us_topic_0237121532_section54351718142011"></a>
+## Function<a name="en-us_topic_0283137554_en-us_topic_0237121532_section54351718142011"></a>
 
-The hint syntax  follow after a  **SELECT**  keyword and is written in the following format:
+The hint syntax must follow immediately after a  **SELECT**  keyword and is written in the following format:
 
 ```
 /*+ <plan hint>*/
@@ -12,19 +12,19 @@ The hint syntax  follow after a  **SELECT**  keyword and is written in the follo
 
 You can specify multiple hints for a query plan and separate them by spaces. A hint specified for a query plan does not apply to its subquery plans. To specify a hint for a subquery, add the hint following the  **SELECT**  of this subquery.
 
-For example:
+Example:
 
 ```
-select /*+ <plan_hint1> <plan_hint2> */ * from t1, (select /*+ <plan_hint3> */ from t2) where 1=1;
+select /*+ <plan_hint1> <plan_hint2> */ * from t1, (select /*+ <plan_hint3> */ * from t2) where 1=1;
 ```
 
 In the preceding command, <_plan\_hint1_\> and <_plan\_hint2_\> are the hints of a query, and <_plan\_hint3_\> is the hint of its subquery.
 
->![](public_sys-resources/icon-notice.gif) **NOTICE:**   
->If a hint is specified in the  **CREATE VIEW**  statement, the hint will be applied each time this view is used.  
->If the random plan function is enabled \(**plan\_mode\_seed**  is set to a value other than 0\), the specified hint will not be used.  
+>![](public_sys-resources/icon-notice.gif) **NOTICE:** 
+>If a hint is specified in the  **CREATE VIEW**  statement, the hint will be applied each time this view is used.
+>If the random plan function is enabled \(**plan\_mode\_seed**  is set to a value other than 0\), the specified hint will not be used.
 
-## Scope<a name="en-us_topic_0237121532_section1748920122313"></a>
+## Scope<a name="en-us_topic_0283137554_en-us_topic_0237121532_section1748920122313"></a>
 
 Currently, the following hints are supported:
 
@@ -34,11 +34,11 @@ Currently, the following hints are supported:
 -   Scan operation hints, supporting only  **tablescan**,  **indexscan**, and  **indexonlyscan**
 -   Sublink name hints
 
-## Precautions<a name="en-us_topic_0237121532_section19195171972812"></a>
+## Precautions<a name="en-us_topic_0283137554_en-us_topic_0237121532_section19195171972812"></a>
 
 Hints do not support  **Agg**,  **Sort**,  **Setop**, or  **Subplan**.
 
-## Example<a name="en-us_topic_0237121532_section671421102912"></a>
+## Examples<a name="en-us_topic_0283137554_en-us_topic_0237121532_section671421102912"></a>
 
 The following is the original plan and is used for comparing with the optimized ones:
 
@@ -256,5 +256,5 @@ group by i_product_name
 ;
 ```
 
-![](figures/en-us_image_0253028833.png)
+![](figures/3-15-4-9.png)
 

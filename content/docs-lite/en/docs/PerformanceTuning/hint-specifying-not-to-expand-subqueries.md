@@ -20,7 +20,7 @@ explain select * from t1 where t1.a in (select t2.a from t2);
 
 Plan:
 
-![](figures/en-us_image_0000001144259139.png)
+![](figures/en-us_image_0000001209615959.png)
 
 After  **no\_expand**  is added:
 
@@ -30,5 +30,5 @@ explain select * from t1 where t1.a in (select /*+ no_expand*/ t2.a from t2);
 
 Plan:
 
-![](figures/en-us_image_0000001143979187.png)
+![](figures/en-us_image_0000001209736009.png)
 

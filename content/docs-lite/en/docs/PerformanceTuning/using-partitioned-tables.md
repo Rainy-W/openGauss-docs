@@ -1,6 +1,6 @@
 # Using Partitioned Tables<a name="EN-US_TOPIC_0000001119972376"></a>
 
-Partitioned tables split what is logically one table into smaller physical blocks based on a specific scheme. The table based on the logic is called a partitioned table, and each physical block is called a partition. A partitioned table is a logical table and does not store data. Data is actually stored in partitions. A partitioned table has the following advantages over an ordinary table:
+A partitioned table is a logical table that is divided into several physical partitions based on a specific plan. The table based on the logic is called a partitioned table, and each physical block is called a partition. A partitioned table is a logical table and does not store data. Data is actually stored in partitions. A partitioned table has the following advantages over an ordinary table:
 
 1.  High query performance: You can specify partitions when querying partitioned tables, improving query efficiency.
 2.  High availability: If a certain partition in a partitioned table is faulty, data in the other partitions is still available.

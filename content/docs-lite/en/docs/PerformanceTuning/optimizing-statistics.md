@@ -1,10 +1,10 @@
-# Optimizing Statistics<a name="EN-US_TOPIC_0245374561"></a>
+# Optimizing Statistics<a name="EN-US_TOPIC_0289899879"></a>
 
-## Background<a name="en-us_topic_0237121526_en-us_topic_0073253803_en-us_topic_0062578363_section5394576019248"></a>
+## Background<a name="en-us_topic_0283137257_en-us_topic_0237121526_en-us_topic_0073253803_en-us_topic_0062578363_section5394576019248"></a>
 
 openGauss generates optimal execution plans based on the cost estimation. Optimizers need to estimate the number of data rows and the cost based on statistics collected using  **ANALYZE**. Therefore, the statistics is vital for the estimation of the number of rows and cost. Global statistics are collected using  **ANALYZE**:  **relpages**  and  **reltuples**  in the  **pg\_class**  table;  **stadistinct**,  **stanullfrac**,  **stanumbersN**,  **stavaluesN**, and  **histogram\_bounds**  in the  **pg\_statistic**  table.
 
-## Example 1: Poor Query Performance Due to the Lack of Statistics<a name="en-us_topic_0237121526_en-us_topic_0073253803_en-us_topic_0062578363_section3078446519518"></a>
+## Example 1: Poor Query Performance Due to the Lack of Statistics<a name="en-us_topic_0283137257_en-us_topic_0237121526_en-us_topic_0073253803_en-us_topic_0062578363_section3078446519518"></a>
 
 In most cases, the lack of statistics about tables or columns involved in the query greatly affects the query performance.
 

@@ -28,7 +28,6 @@ For query statements and DML statements executed in PBE mode, the optimizer gene
 Forcibly use the custom plan.
 
 ```
-set enable_fast_query_shipping = off;
 create table t (a int, b int, c int);
 prepare p as select /*+ use_cplan */ * from t where a = $1;
 explain execute p(1);
@@ -36,7 +35,7 @@ explain execute p(1);
 
 In the following plan, the filtering condition is the actual value of the input parameter, that is, the plan is a custom plan.
 
-![](figures/en-us_image_0000001097419094.png)
+![](figures/en-us_image_0000001209735947.png)
 
 Forcibly use the generic plan.
 
@@ -46,7 +45,7 @@ prepare p as select /*+ use_gplan */ * from t where a = $1;
 explain execute p(1);
 ```
 
-In the following plan, the filtering condition is the input parameter to be added, that is, the plan is a Generic plan.
+In the following plan, the filtering condition is the input parameter to be added, that is, the plan is a custom plan.
 
-![](figures/en-us_image_0000001097739076.png)
+![](figures/en-us_image_0000001209457383.png)
 

@@ -17,7 +17,7 @@ set(param value)
 -   Currently, the following parameters can be set and take effect by using Hint:
     -   Boolean
 
-        **enable\_bitmapscan, enable\_hashagg, enable\_hashjoin, enable\_indexscan, enable\_indexonlyscan, enable\_material, enable\_mergejoin, enable\_nestloop, enable\_index\_nestloop, enable\_seqscan, enable\_sort, enable\_tidscan, partition\_iterator\_elimination, partition\_page\_estimation, enable\_functional\_dependency,** and **var\_eq\_const\_selectivity**
+        **enable\_bitmapscan, enable\_hashagg, enable\_hashjoin, enable\_indexscan, enable\_indexonlyscan, enable\_material, enable\_mergejoin, enable\_nestloop, enable\_index\_nestloop, enable\_seqscan, enable\_sort, enable\_tidscan, partition\_iterator\_elimination, partition\_page\_estimation, var\_eq\_const\_selectivity,** and **enable\_functional\_dependency**
 
     -   Integer
 
@@ -26,10 +26,10 @@ set(param value)
     -   Floating point
 
         **cost\_weight\_index**,  **default\_limit\_rows**,  **seq\_page\_cost**,  **random\_page\_cost**,  **cpu\_tuple\_cost**,  **cpu\_index\_tuple\_cost**,  **cpu\_operator\_cost**, and  **effective\_cache\_size**
-        
-    -   Enumeration type
-    
-    ​       **try_vector_engine_strategy**
+
+    -   Enumeration
+
+        try\_vector\_engine\_strategy
 
 
 

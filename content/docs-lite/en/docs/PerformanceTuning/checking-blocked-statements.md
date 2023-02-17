@@ -1,8 +1,8 @@
-# Checking Blocked Statements<a name="EN-US_TOPIC_0245374526"></a>
+# Checking Blocked Statements<a name="EN-US_TOPIC_0289900192"></a>
 
 During database running, query statements are blocked in some service scenarios and run for an excessively long time. In this case, you can forcibly terminate the faulty session.
 
-## Procedure<a name="en-us_topic_0237121491_en-us_topic_0073253543_en-us_topic_0040046536_section19654526113952"></a>
+## Procedure<a name="en-us_topic_0283137653_en-us_topic_0237121491_en-us_topic_0073253543_en-us_topic_0040046536_section19654526113952"></a>
 
 1.  Log in as the OS user  **omm**  to a database node.
 2.  Run the following command to connect to the database:
@@ -16,11 +16,11 @@ During database running, query statements are blocked in some service scenarios 
     If information similar to the following is displayed, the connection succeeds:
 
     ```
-    gsql ((openGauss 1.0 build 290d125f) compiled at 2020-05-08 02:59:43 commit 2143 last mr 131
+    gsql((openGauss x.x.x build f521c606) compiled at 2021-09-16 14:55:22 commit 2935 last mr 6385 release)
     Non-SSL connection (SSL connection is recommended when requiring high-security)
     Type "help" for help.
     
-    postgres=# 
+    openGauss=# 
     ```
 
 3.  View blocked query statements and details about the tables and schemas that block the query statements.
@@ -64,7 +64,8 @@ During database running, query statements are blocked in some service scenarios 
     The connection to the server was lost. Attempting reset: Succeeded.
     ```
 
-    >![](public_sys-resources/icon-note.gif) **NOTE:**   
-    >If the  **PG\_TERMINATE\_BACKEND**  function is used to terminate the background threads of the session, the  **gsql**  client will be reconnected rather than be logged out.  
+    >![](public_sys-resources/icon-note.gif) **NOTE:** 
+    >
+    >If the  **PG\_TERMINATE\_BACKEND**  function is used to terminate the background threads of the session, the  **gsql**  client will be reconnected rather than be logged out.
 
 

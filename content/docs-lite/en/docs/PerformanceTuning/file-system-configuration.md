@@ -1,8 +1,8 @@
-# File System Configuration<a name="EN-US_TOPIC_0283136945"></a>
+# File System Configuration<a name="EN-US_TOPIC_0289900419"></a>
 
 To improve the I/O efficiency of the database, NVMe disks are used as data disks. The file system type is XFS and the data block size is 8 KB. The procedure is as follows:
 
-1.  <a name="en-us_topic_0263913268_li13131455153313"></a>Check the file system type of the current data disk.
+1.  <a name="en-us_topic_0283136945_en-us_topic_0263913268_li13131455153313"></a>Check the file system type of the current data disk.
     1.  Run the following command to query the attached NVMe disk:
 
         ```
@@ -24,9 +24,9 @@ To improve the I/O efficiency of the database, NVMe disks are used as data disks
         xfs_info
         ```
 
-        For example, run the  **xfs\_info /data1**  command. As shown in  [Figure 1](#en-us_topic_0263913268_fig16848819124216), the block size is 8 KB and does not need to be changed. If the block size does not meet the requirement of 8 KB, you need to format the block again. Before formatting, back up the data.
+        For example, run the  **xfs\_info /data1**  command. As shown in  [Figure 1](#fig790551418911), the block size is 8 KB and does not need to be changed. If the block size does not meet the requirement of 8 KB, you need to format the block again. Before formatting, back up the data.
 
-        **Figure  1**  Viewing the NVMe disk information<a name="en-us_topic_0263913268_fig16848819124216"></a>  
+        **Figure  1**  Viewing the NVMe disk information<a name="fig790551418911"></a>  
         ![](figures/viewing-the-nvme-disk-information.png "viewing-the-nvme-disk-information")
 
 2.  Back up the data on the disk to be modified to other disks or servers.
@@ -40,5 +40,5 @@ To improve the I/O efficiency of the database, NVMe disks are used as data disks
     mount /dev/nvme0n1 /data1
     ```
 
-4.  Perform  [step 1](#en-us_topic_0263913268_li13131455153313)  and check whether the block size has been changed to 8 KB.
+4.  Perform  [step 1](#en-us_topic_0283136945_en-us_topic_0263913268_li13131455153313)  and check whether the block size has been changed to 8 KB.
 

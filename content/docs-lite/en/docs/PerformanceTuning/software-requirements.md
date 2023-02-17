@@ -1,4 +1,4 @@
-# Software Requirements<a name="EN-US_TOPIC_0283137485"></a>
+# Software Requirements<a name="EN-US_TOPIC_0289900685"></a>
 
 -   **[Operating System](operating-system.md)**  
 
