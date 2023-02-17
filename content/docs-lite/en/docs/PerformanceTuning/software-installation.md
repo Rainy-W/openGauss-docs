@@ -1,4 +1,4 @@
-# Software Installation<a name="EN-US_TOPIC_0283136952"></a>
+# Software Installation<a name="EN-US_TOPIC_0289900367"></a>
 
 1.  Install JDK.
     1.  Download and install JDK.
@@ -14,7 +14,7 @@
 
 2.  Install numactl.
 
-    Run the following command to install numactl.
+    Run the following command to install numactl:
 
     ```
     yum install –y numactl
@@ -22,7 +22,7 @@
 
 3.  Install ANT.
 
-    1.  Run the following command to install ANT.
+    1.  Run the following command to install ANT:
 
         ```
         yum install –y ant

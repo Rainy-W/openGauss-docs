@@ -1,4 +1,4 @@
-# SQL Optimization<a name="EN-US_TOPIC_0245374542"></a>
+# SQL Optimization<a name="EN-US_TOPIC_0289900921"></a>
 
 The aim of SQL optimization is to maximize the utilization of resources, including CPU, memory, and disk I/O. All optimization methods are intended for resource utilization. To maximize resource utilization is to run SQL statements as efficiently as possible to achieve the highest performance at a lower cost. For example, when performing a typical point query, you can use a Seq Scan and a filter \(that is, read every tuple and point query conditions for match\). You can also use an Index Scan, which can be implemented at a lower cost but achieve the same effect.
 
@@ -21,5 +21,6 @@ You can determine a proper openGauss deployment solution and table definition ba
 -   **[Resetting Key Parameters During SQL Tuning](resetting-key-parameters-during-sql-tuning.md)**  
 
 -   **[Hint-based Tuning](hint-based-tuning.md)**  
+
 
 

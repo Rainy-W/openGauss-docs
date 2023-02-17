@@ -1,4 +1,4 @@
-# Interrupt Optimization<a name="EN-US_TOPIC_0283137668"></a>
+# Interrupt Optimization<a name="EN-US_TOPIC_0289900743"></a>
 
 1.  When the CPU usage of the openGauss database is greater than 90%, the CPU becomes a bottleneck. In this case, you need to enable offloading to offload network slices to the NIC.
 

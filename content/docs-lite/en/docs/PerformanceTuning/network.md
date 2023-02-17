@@ -1,8 +1,8 @@
-# Network<a name="EN-US_TOPIC_0245374524"></a>
+# Network<a name="EN-US_TOPIC_0289900966"></a>
 
 You can run the  **sar**  or  **ifconfig**  command to check the network status on each node in openGauss and analyze whether performance bottlenecks caused by network faults occur.
 
-## Checking Network Status<a name="en-us_topic_0237121489_en-us_topic_0073253549_en-us_topic_0040046507_section31965288163424"></a>
+## Checking Network Status<a name="en-us_topic_0283137150_en-us_topic_0237121489_en-us_topic_0073253549_en-us_topic_0040046507_section31965288163424"></a>
 
 Check the server network status using either of the following two methods:
 

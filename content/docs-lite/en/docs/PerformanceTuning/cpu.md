@@ -1,14 +1,11 @@
-# CPU<a name="EN-US_TOPIC_0245374521"></a>
-You can run the  **top**  command to check the CPU usage of each node in openGauss and analyze whether performance bottleneck caused by heavy CPU load exists. The **top** command is used to monitor the Linux OS status. It is a common performance analysis tool and can display the resource usage of each process in the system in real time.
- 
-Description
+# CPU<a name="EN-US_TOPIC_0289900497"></a>
 
-- **-d**: number of seconds, indicating the interval for updating the page displayed by running the **top** command. The default value is 5 seconds.
-- **-b**: executes the **top** command in batches.
-- **-n**: This parameter is used together with **-b** to indicate the number of times that the **top** command is executed.
-- **-p**: specifies a PID for observation.
+You can run the  **top**  command to check the CPU usage of each node in openGauss and analyze whether performance bottleneck caused by heavy CPU load exists.
+The **top** command is used to monitor the Linux OS status. It is a common performance analysis tool and can display the resource usage of each process in the system in real time.
+Parameter description:
+-**-d**: number of seconds, indicating the interval for updating the page displayed by running the **top** command. The default value is 5 seconds. **-b**: executes the **top** command in batches. **-n**: This parameter is used together with **-b** to indicate the number of times that the **top** command is executed. **-p**: specifies a PID for observation.
 
-## Checking CPU Usage<a name="en-us_topic_0237121486_en-us_topic_0073253546_en-us_topic_0040046498_section5417561019132"></a>
+## Checking CPU Usage<a name="en-us_topic_0283136982_en-us_topic_0237121486_en-us_topic_0073253546_en-us_topic_0040046498_section5417561019132"></a>
 
 You can query the CPU usage of the server in the following ways:
 
@@ -34,7 +31,7 @@ In the command output, focus on the CPU usage occupied by each process.
 
 **us**  indicates the CPU percentage occupied by the user space,  **sy**  indicates the CPU percentage occupied by the kernel space, and  **id**  indicates the idle CPU percentage. If  **id**  is less than 10%, the CPU load is high. In this case, you can reduce the CPU load by reducing the number of tasks on nodes.
 
-## Analyzing Performance Parameters<a name="en-us_topic_0237121486_en-us_topic_0073253546_en-us_topic_0040046498_section1965795485640"></a>
+## Analyzing Performance Parameters<a name="en-us_topic_0283136982_en-us_topic_0237121486_en-us_topic_0073253546_en-us_topic_0040046498_section1965795485640"></a>
 
 1.  Run the  **top-H**  command to check the CPU usage. The following is displayed:
 
@@ -93,7 +90,7 @@ In the command output, focus on the CPU usage occupied by each process.
              54954 omm  20   0  684m 424m 131m S    0  5.4   0:06.54 gaussdb                   
             ```
 
-        2.  Run the following command to view the function invocation stack for each thread in the process. Check the thread number for the ID of the thread that occupies high CPU usage in the last step.
+        2.  Run the following command to view the function invocation stack for each thread in the process. Check the ID of the thread that occupies high CPU usage in the previous step. If the  **gstack**  command does not exist in the OS by default, you can install it.
 
             ```
             gstack  54954

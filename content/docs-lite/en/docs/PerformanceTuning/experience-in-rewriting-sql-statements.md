@@ -1,4 +1,4 @@
-# Experience in Rewriting SQL Statements<a name="EN-US_TOPIC_0245374564"></a>
+# Experience in Rewriting SQL Statements<a name="EN-US_TOPIC_0289899939"></a>
 
 Based on the SQL execution mechanism and a large number of practices, SQL statements can be optimized by following certain rules to enable the database to execute SQL statements more quickly and obtain correct results. You can comply with these rules to improve service query efficiency.
 

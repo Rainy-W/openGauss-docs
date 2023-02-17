@@ -1,6 +1,6 @@
-# Optimizing Subqueries<a name="EN-US_TOPIC_0245374560"></a>
+# Optimizing Subqueries<a name="EN-US_TOPIC_0289900705"></a>
 
-## Background<a name="en-us_topic_0237121525_en-us_topic_0118337169_s7525ddd98a4f4ee784a4ca2ffbec1296"></a>
+## Background<a name="en-us_topic_0283137293_en-us_topic_0237121525_en-us_topic_0118337169_s7525ddd98a4f4ee784a4ca2ffbec1296"></a>
 
 When an application runs a SQL statement to operate the database, a large number of subqueries are used because they are more clear than table join. Especially in complicated query statements, subqueries have more complete and independent semantics, which makes SQL statements clearer and easier to understand. Therefore, subqueries are widely used.
 
@@ -12,8 +12,8 @@ In openGauss, subqueries can also be called sublinks based on the location of su
     In conclusion, a subquery is a RangeTblEntry and a sublink is an expression in the query parsing tree. A sublink can be found in constraint conditions and expressions. In openGauss, sublinks can be classified into the following types:
 
     -   exist\_sublink: corresponds to the  **EXIST**  and  **NOT EXIST**  statements.
-    -   any\_sublink: corresponding to the  _op_** ALL\(SELECT...\)**  statement.  _op_  can be the  **IN**,  **<**,  **\>**, or  **=**  operator.
-    -   all\_sublink: corresponding to the  _op_** ALL\(SELECT...\)**  statement.  _op_  can be the  **IN**,  **<**,  **\>**, or  **=**  operator.
+    -   any\_sublink: corresponds to the  _op_** ALL\(SELECT...\)**  statement.  _op_  can be the  **IN**,  **<**,  **\>**, or  **=**  operator.
+    -   all\_sublink: corresponds to the  _op_** ALL\(SELECT...\)**  statement.  _op_  can be the  **IN**,  **<**,  **\>**, or  **=**  operator.
     -   rowcompare\_sublink: corresponds to the  **RECORD **_op_** \(SELECT...\)**  statement.
     -   expr\_sublink: corresponds to the  **\(SELECT**_ with a single target list item..._**\)**  statement.
     -   array\_sublink: corresponds to the  **ARRAY\(SELECT...\)**  statement.
@@ -25,7 +25,7 @@ In openGauss, subqueries can also be called sublinks based on the location of su
 
         The execution of a subquery is independent from attributes of the outer query. In this way, a subquery can be executed before outer queries.
 
-        For example:
+        Example:
 
         ```
         select t1.c1,t1.c2
@@ -54,7 +54,7 @@ In openGauss, subqueries can also be called sublinks based on the location of su
 
         The execution of a subquery depends on some attributes \(used as  **AND**  conditions of the subquery\) of outer queries. In the following example,  **t1.c1**  in the  **t2.c1 = t1.c1**  condition is a correlated attribute. Such a subquery depends on outer queries and needs to be executed once for each outer query.
 
-        For example:
+        Example:
 
         ```
         select t1.c1,t1.c2
@@ -77,13 +77,13 @@ In openGauss, subqueries can also be called sublinks based on the location of su
 
 
 
-## Sublink Optimization on openGauss<a name="en-us_topic_0237121525_en-us_topic_0118337169_section8751034123616"></a>
+## Sublink Optimization on openGauss<a name="en-us_topic_0283137293_en-us_topic_0237121525_en-us_topic_0118337169_section8751034123616"></a>
 
 To optimize a sublink, a subquery is pulled up to join with tables in outer queries, preventing the subquery from being converted into a plan involving subplans and broadcast. You can run the  **EXPLAIN**  statement to check whether a sublink is converted into such a plan.
 
-For example:
+Example:
 
-![](figures/en-us_image_0246254080.png)
+![](figures/en-us_image_0283137269.png)
 
 Replace the execution plan on the right of the arrow with the following execution plan:
 
@@ -104,7 +104,7 @@ Filter: (c1 = t1.c1)
         -   The subquery cannot contain columns in the outer query \(columns in more outer queries are allowed\).
         -   The subquery cannot contain volatile functions.
 
-        ![](figures/en-us_image_0246254081.png)
+        ![](figures/en-us_image_0283137289.png)
 
         Replace the execution plan on the right of the arrow with the following execution plan:
 
@@ -132,29 +132,22 @@ Filter: (c1 = t1.c1)
         -   The subquery cannot contain a  **SET**,  **SORT**,  **LIMIT**,  **WindowAgg**, or  **HAVING**  operation.
         -   The subquery cannot contain volatile functions.
 
-        ![](figures/en-us_image_0246254082.png)
+        ![](figures/en-us_image_0283137454.png)
 
         Replace the execution plan on the right of the arrow with the following execution plan:
 
+        ```
         QUERY PLAN
-
         -----------------------------------
-
         Hash Join
-
-        Hash Cond: \(t1.c1 = t2.c1\)
-
-        -\>  Seq Scan on t1
-
-        -\>  Hash
-
-        -\>  HashAggregate
-
+        Hash Cond: (t1.c1 = t2.c1)
+        ->  Seq Scan on t1
+        ->  Hash
+        ->  HashAggregate
         Group By Key: t2.c1
-
-        -\>  Seq Scan on t2
-
-        \(7 rows\)
+        ->  Seq Scan on t2
+        (7 rows)
+        ```
 
     -   Pulling up an equivalent correlated query containing aggregate functions
 
@@ -210,7 +203,7 @@ Filter: (c1 = t1.c1)
             ));
             ```
 
-            If another condition is added to the subquery in the previous example, the subquery cannot be pulled up because the subquery references to the column in the outer query. For example:
+            If another condition is added to the subquery in the previous example, the subquery cannot be pulled up because the subquery references to the column in the outer query. Example:
 
             ```
             select * from t3 where t3.c1=(
@@ -223,9 +216,9 @@ Filter: (c1 = t1.c1)
 
     -   Pulling up a sublink in the  **OR**  clause
 
-        If the  **WHERE**  condition contains an  **EXIST**  correlated sublink connected by  **OR**,
+        If the  **WHERE**  condition contains an  **EXIST**  correlated sublink connected by  **OR**:
 
-        for example:
+        Example:
 
         ```
         select a, c from t1
@@ -233,7 +226,7 @@ Filter: (c1 = t1.c1)
         exists (select * from t4 where t1.c = t4.c);
         ```
 
-        the process of pulling up such a sublink is as follows:
+        The process of pulling up such a sublink is as follows:
 
         1.  Extract  **opExpr**  from the  **OR**  clause in the  **WHERE **condition. The value is  **t1.a = \(select avg\(a\) from t3 where t1.b = t3.b\)**.
         2.  The  **opExpr**  contains a subquery. If the subquery can be pulled up, the subquery is rewritten as  **select avg\(a\), t3.b from t3 group by t3.b**, generating the  **NOT NULL**  condition  **t3.b is not null**. The  **opExpr**  is replaced with this  **NOT NULL**  condition. In this case, the SQL statement changes to:
@@ -247,9 +240,7 @@ Filter: (c1 = t1.c1)
         3.  Extract the  **EXISTS**  sublink  **exists \(select \* from t4 where t1.c = t4.c\)**  from the  **OR**  clause to check whether the sublink can be pulled up. If it can be pulled up, it is converted into  **select t4.c from t4 group by t4.c**, generating the  **NOT NULL**  condition  **t4.c is not null**. In this case, the SQL statement changes to:
 
             ```
-            select a, c
-            from t1 left join (select avg(a) avg, t3.b from t3 group by t3.b)  as t3 on (t1.a = avg and t1.b = t3.b)
-            left join (select t4.c from t4 group by t4.c) where t3.b is not null or t4.c is not null;
+            select t1.a, t1.c from t1 left join (select avg(a) avg, t3.b from t3 group by t3.b) as t3 on (t1.a = avg and t1.b = t3.b) left join (select t5.c from t5 group by t5.c) as t5 on (t1.c = t5.c) where t3.b is not null or t5.c is not null;
             ```
 
 
@@ -261,7 +252,7 @@ Filter: (c1 = t1.c1)
 
     If a correlated subquery joins with two tables in outer queries, the subquery cannot be pulled up. You need to change the outer query into a  **WITH**  clause and then perform the join.
 
-    For example:
+    Example:
 
     ```
     select distinct t1.a, t2.a
@@ -283,7 +274,7 @@ Filter: (c1 = t1.c1)
 
     -   The subquery \(without  **COUNT**\) in the target list cannot be pulled up.
 
-        For example:
+        Example:
 
         ```
         explain (costs off)
@@ -311,10 +302,10 @@ Filter: (c1 = t1.c1)
 
         The correlated subquery is displayed in the target list \(query return list\). Values need to be returned even if the condition  **t1.c1=t2.c1**  is not met. Therefore, use left outer join to join  **T1**  and  **T2**  so that SSQ can return padding values when the condition  **t1.c1=t2.c1**  is not met.
 
-        >![](public_sys-resources/icon-note.gif) **NOTE:**   
-        >ScalarSubQuery \(SSQ\) and Correlated-ScalarSubQuery \(CSSQ\) are described as follows:  
-        >-   SSQ: a sublink that returns a scalar value of a single row with a single column  
-        >-   CSSQ: an SSQ containing correlation conditions  
+        >![](public_sys-resources/icon-note.gif) **NOTE:** 
+        >ScalarSubQuery \(SSQ\) and Correlated-ScalarSubQuery \(CSSQ\) are described as follows:
+        >-   SSQ: a sublink that returns a scalar value of a single row with a single column
+        >-   CSSQ: an SSQ containing correlation conditions
 
         The preceding SQL statement can be changed into:
 
@@ -348,7 +339,7 @@ Filter: (c1 = t1.c1)
 
     -   The subquery \(with  **COUNT**\) in the target list cannot be pulled up.
 
-        For example:
+        Example:
 
         ```
         select (select count(*) from t2 where t2.c1=t1.c1) cnt, t1.c1, t3.c1
@@ -418,7 +409,7 @@ Filter: (c1 = t1.c1)
 
     -   Non-equivalent correlated subqueries cannot be pulled up.
 
-        For example:
+        Example:
 
         ```
         select t1.c1, t1.c2
@@ -458,12 +449,12 @@ Filter: (c1 = t1.c1)
             ```
 
 
-    >![](public_sys-resources/icon-notice.gif) **NOTICE:**   
-    >-   If the AGG type is  **COUNT\(\*\)**,  **0**  is used for data padding when  **CASE-WHEN**  is not matched. If the type is not  **COUNT\(\*\)**,  **NULL**  is used.  
-    >-   CTE rewriting works better by using share scan.  
+    >![](public_sys-resources/icon-notice.gif) **NOTICE:** 
+    >-   If the AGG type is  **COUNT\(\*\)**,  **0**  is used for data padding when  **CASE-WHEN**  is not matched. If the type is not  **COUNT\(\*\)**,  **NULL**  is used.
+    >-   CTE rewriting works better by using sharescan.
 
 
-## More Optimization Examples<a name="en-us_topic_0237121525_en-us_topic_0118337169_s3ec9cccc30fd42868396c57d931f3089"></a>
+## More Optimization Examples<a name="en-us_topic_0283137293_en-us_topic_0237121525_en-us_topic_0118337169_s3ec9cccc30fd42868396c57d931f3089"></a>
 
 Modify the  **SELECT**  statement by changing the subquery to a  **JOIN**  relationship between the primary table and the parent query or modifying the subquery to improve the query performance. Ensure that the subquery to be used is semantically correct.
 

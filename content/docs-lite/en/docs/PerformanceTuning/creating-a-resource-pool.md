@@ -66,7 +66,7 @@ After resource load management is enabled, the system automatically creates  **d
 </td>
 <td class="cellrowborder" valign="top" width="28.44715528447155%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0066854608_p32218723173126"><a name="en-us_topic_0066854608_p32218723173126"></a><a name="en-us_topic_0066854608_p32218723173126"></a>–1</p>
 </td>
-<td class="cellrowborder" valign="top" width="45.175482451754824%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0066854608_p59579767173126"><a name="en-us_topic_0066854608_p59579767173126"></a><a name="en-us_topic_0066854608_p59579767173126"></a>Maximum number of concurrent queries allowed by the resource pool. The value <strong>-1</strong> indicates that the maximum number of concurrent queries cannot exceed INT_MAX.</p>
+<td class="cellrowborder" valign="top" width="45.175482451754824%" headers="mcps1.2.4.1.3 "><p id="en-us_topic_0066854608_p59579767173126"><a name="en-us_topic_0066854608_p59579767173126"></a><a name="en-us_topic_0066854608_p59579767173126"></a>Maximum number of concurrent queries allowed by the resource pool. The value <strong id="en-us_topic_0058967672_b8423527061741"><a name="en-us_topic_0058967672_b8423527061741"></a><a name="en-us_topic_0058967672_b8423527061741"></a>–1</strong> indicates that the number of concurrent queries is not limited.</p>
 </td>
 </tr>
 <tr id="en-us_topic_0066854608_row66455862173126"><td class="cellrowborder" valign="top" width="26.37736226377362%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0066854608_p14215762173126"><a name="en-us_topic_0066854608_p14215762173126"></a><a name="en-us_topic_0066854608_p14215762173126"></a>max_dop</p>
@@ -94,7 +94,7 @@ After resource load management is enabled, the system automatically creates  **d
 </td>
 <td class="cellrowborder" valign="top" width="28.44715528447155%" headers="mcps1.2.4.1.2 "><p id="p17885150133211"><a name="p17885150133211"></a><a name="p17885150133211"></a>0</p>
 </td>
-<td class="cellrowborder" valign="top" width="45.175482451754824%" headers="mcps1.2.4.1.3 "><p id="p2268117153212"><a name="p2268117153212"></a><a name="p2268117153212"></a>Upper limit of IOPS. It is counted by ones for column storage and by 10 thousands for row storage. The value <strong>0</strong> indicates that the maximum number of concurrent queries cannot exceed INT_MAX.</p>
+<td class="cellrowborder" valign="top" width="45.175482451754824%" headers="mcps1.2.4.1.3 "><p id="p2268117153212"><a name="p2268117153212"></a><a name="p2268117153212"></a>Upper limit of IOPS. It is counted by ones for column storage and by 10 thousands for row storage. The value <strong id="b08267492447"><a name="b08267492447"></a><a name="b08267492447"></a>0</strong> indicates there is no limit.</p>
 </td>
 </tr>
 <tr id="row112023317329"><td class="cellrowborder" valign="top" width="26.37736226377362%" headers="mcps1.2.4.1.1 "><p id="p41211633153214"><a name="p41211633153214"></a><a name="p41211633153214"></a>io_priority</p>
@@ -108,20 +108,21 @@ After resource load management is enabled, the system automatically creates  **d
 </td>
 <td class="cellrowborder" valign="top" width="28.44715528447155%" headers="mcps1.2.4.1.2 "><p id="p882521311305"><a name="p882521311305"></a><a name="p882521311305"></a>installation</p>
 </td>
-<td class="cellrowborder" valign="top" width="45.175482451754824%" headers="mcps1.2.4.1.3 "><p id="p1582641383018"><a name="p1582641383018"></a><a name="p1582641383018"></a>Name of the logical cluster to which the resource pool belongs. This parameter is invalid in a standalone system.</p>
+<td class="cellrowborder" valign="top" width="45.175482451754824%" headers="mcps1.2.4.1.3 "><p id="p1582641383018"><a name="p1582641383018"></a><a name="p1582641383018"></a>Name of the logical cluster to which the resource pool belongs</p>
 </td>
 </tr>
 <tr id="row490512216308"><td class="cellrowborder" valign="top" width="26.37736226377362%" headers="mcps1.2.4.1.1 "><p id="p79052022113010"><a name="p79052022113010"></a><a name="p79052022113010"></a>is_foreign</p>
 </td>
 <td class="cellrowborder" valign="top" width="28.44715528447155%" headers="mcps1.2.4.1.2 "><p id="p7905102214309"><a name="p7905102214309"></a><a name="p7905102214309"></a>f</p>
 </td>
-<td class="cellrowborder" valign="top" width="45.175482451754824%" headers="mcps1.2.4.1.3 "><p id="p15905022123018"><a name="p15905022123018"></a><a name="p15905022123018"></a>Specifies that the resource pool is not used for users outside the logical cluster. This parameter is invalid in a standalone system.</p>
+<td class="cellrowborder" valign="top" width="45.175482451754824%" headers="mcps1.2.4.1.3 "><p id="p15905022123018"><a name="p15905022123018"></a><a name="p15905022123018"></a>Specifies that the resource pool is not used for users outside the logical cluster.</p>
 </td>
 </tr>
 </tbody>
 </table>
 
 >![](public_sys-resources/icon-notice.gif) **NOTICE:** 
+>
 >**default\_pool**  cannot be modified in openGauss.
 
 ## Prerequisites<a name="section17352165513395"></a>
@@ -155,7 +156,7 @@ You are familiar with the  [CREATE RESOURCE POOL](create-resource-pool.md),  [AL
 
     >![](public_sys-resources/icon-note.gif) **NOTE:** 
     >-   If you do not specify an associated Cgroup when creating a resource pool, the resource pool will be associated with the default Cgroup, which is the Timeshare Cgroup  **Medium**  under the  **DefaultClass**  Cgroup.
-    >-   The value of **control\_group** is case-sensitive and must be contained in single quotation marks or double quotation marks.
+    >-   The value of  **control\_group**  is case-sensitive and must be contained in single quotation marks \(''\).
     >-   If a database user specifies the Timeshare string \(**Rush**,  **High**,  **Medium**, or  **Low**\) in the syntax, for example,  **control\_group**  is set to  **High**, the resource pool will be associated with the  **High**  Timeshare Cgroup under  **DefaultClass**.
     >-   **control\_group**  allows you to create a Workload Cgroup, for example,  **class1:wd**  whose Cgroup level can also be appended, such as  **class1:wd:2**. The Cgroup level must be within 1 to 10, but it is not used for Cgroup differentiation. In earlier versions, you can create Workload Cgroups with the same name and differentiate them by their levels. In the latest version, Cgroup names must be unique. If you have created duplicate Workload Cgroups in an earlier version, delete them to avoid confusion.
 
@@ -207,7 +208,7 @@ DROP RESOURCE POOL
     (7 rows)
     ```
 
--   View information about Cgroups associated with a resource pool. For details, see  **[statistics-information-functions](statistics-information-functions.md)**.
+-   View information about Cgroups associated with a resource pool. For details, see  **[gs\_control\_group\_info\(p...](statistics-information-functions.md#en-us_topic_0283136951_en-us_topic_0237121998_li111931884019)**.
 
     In the following example,  **resource\_pool\_a1**  is the name of the resource pool.
 

@@ -9,11 +9,11 @@ The query performance can be greatly improved by converting the subquery in the 
 ```
 openGauss=#  set rewrite_rule='none';
 SET
-postgres=# create table t1(c1 int,c2 int);
+openGauss=# create table t1(c1 int,c2 int);
 CREATE TABLE
-postgres=# create table t2(c1 int,c2 int);
+openGauss=# create table t2(c1 int,c2 int);
 CREATE TABLE
-postgres=#  explain (verbose on, costs off) select c1,(select avg(c2) from t2 where t2.c2=t1.c2) from t1 where t1.c1<100 order by t1.c2;
+openGauss=#  explain (verbose on, costs off) select c1,(select avg(c2) from t2 where t2.c2=t1.c2) from t1 where t1.c1<100 order by t1.c2;
                   QUERY PLAN
 -----------------------------------------------
  Sort
@@ -71,7 +71,7 @@ select t1.c1 from t1 join \(select t2.c1 from t2 where t2.c1 is not null group b
 To ensure semantic equivalence, the subquery  **tt**  must ensure that each  **group by t2.c1**  has only one line of output. Enable the  **uniquecheck**  query rewriting parameter to ensure that the query can be pulled up and equivalent. If more than one row of data is output at run time, an error is reported.
 
 ```
-postgres=# set rewrite_rule='uniquecheck';
+openGauss=# set rewrite_rule='uniquecheck';
 SET
 openGauss=#  explain verbose select t1.c1 from t1 where t1.c1 = (select t2.c1 from t2 where t1.c1=t2.c1);
                                      QUERY PLAN

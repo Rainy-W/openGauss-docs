@@ -1,8 +1,8 @@
-# Determining the Scope of Performance Tuning<a name="EN-US_TOPIC_0245374519"></a>
+# Determining the Scope of Performance Tuning<a name="EN-US_TOPIC_0289900998"></a>
 
-Database performance tuning often happens when users are not satisfied with the service execution efficiency and want to improve the efficiency. The database performance is affected by many factors as described in section  [Performance Elements](#en-us_topic_0237121484_en-us_topic_0073259659_en-us_topic_0040046511_section218827915473). Therefore, performance tuning is a complex process and sometimes cannot be systematically described or explained. It depends more on the database administrator's experience. However, this section still attempts to illustrate the performance tuning methods that can be referred to by application development personnel and new openGauss database administrators.
+Database performance tuning often happens when users are not satisfied with the service execution efficiency and want to improve the efficiency. The database performance is affected by many factors as described in section  [Performance Elements](#en-us_topic_0283136943_en-us_topic_0237121484_en-us_topic_0073259659_en-us_topic_0040046511_section218827915473). Therefore, performance tuning is a complex process and sometimes cannot be systematically described or explained. It depends more on the database administrator's experience. However, this section still attempts to illustrate the performance tuning methods that can be referred to by application development personnel and new openGauss administrators.
 
-## Performance Elements<a name="en-us_topic_0237121484_en-us_topic_0073259659_en-us_topic_0040046511_section218827915473"></a>
+## Performance Elements<a name="en-us_topic_0283136943_en-us_topic_0237121484_en-us_topic_0073259659_en-us_topic_0040046511_section218827915473"></a>
 
 There are multiple performance factors that affect the database performance. Knowing these factors can help you identify and analyze performance-associated issues.
 
@@ -27,7 +27,7 @@ There are multiple performance factors that affect the database performance. Kno
     The database optimization can affect the performance of the whole system. Before executing the SQL statements, configuring database parameters, designing tables, and performing data distribution, enable the database query optimizer can help you obtain the most efficient execution plan.
 
 
-## Determining the Tuning Scope<a name="en-us_topic_0237121484_en-us_topic_0073259659_section6664793616450"></a>
+## Determining the Tuning Scope<a name="en-us_topic_0283136943_en-us_topic_0237121484_en-us_topic_0073259659_section6664793616450"></a>
 
 Performance tuning depends on the usage of hardware resources, such as the CPU, memory, I/O, and network of each node in openGauss. Check whether these resources are fully utilized, and whether any bottlenecks exist, and then perform performance tuning as required.
 

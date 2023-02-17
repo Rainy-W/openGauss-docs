@@ -1,4 +1,4 @@
-# Network Configuration<a name="EN-US_TOPIC_0283137708"></a>
+# Network Configuration<a name="EN-US_TOPIC_0289900835"></a>
 
 -   **[NIC Multi-Queue Interruption Settings](nic-multi-queue-interruption-settings.md)**  
 

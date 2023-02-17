@@ -1,8 +1,8 @@
-# Querying SQL Statements That Affect Performance Most<a name="EN-US_TOPIC_0245374525"></a>
+# Querying SQL Statements That Affect Performance Most<a name="EN-US_TOPIC_0289900933"></a>
 
 This section describes how to query SQL statements whose execution takes a long time, leading to poor system performance.
 
-## Procedure<a name="en-us_topic_0237121490_en-us_topic_0073253542_en-us_topic_0040046535_section43790015111840"></a>
+## Procedure<a name="en-us_topic_0283136757_en-us_topic_0237121490_en-us_topic_0073253542_en-us_topic_0040046535_section43790015111840"></a>
 
 1.  Log in as the OS user  **omm**  to a database node.
 2.  Run the following command to connect to the database:
@@ -16,11 +16,11 @@ This section describes how to query SQL statements whose execution takes a long 
     If information similar to the following is displayed, the connection succeeds:
 
     ```
-    gsql ((openGauss 1.0 build 290d125f) compiled at 2020-05-08 02:59:43 commit 2143 last mr 131
+    gsql((openGauss x.x.x build f521c606) compiled at 2021-09-16 14:55:22 commit 2935 last mr 6385 release)
     Non-SSL connection (SSL connection is recommended when requiring high-security)
     Type "help" for help.
     
-    postgres=# 
+    openGauss=# 
     ```
 
 3.  Query the statements that are run for a long time in the database.
@@ -76,8 +76,8 @@ This section describes how to query SQL statements whose execution takes a long 
 
         The query statement is displayed. It is requesting a lock resource that may be held by another session, and is waiting for the lock resource to be released by the session.
 
-        >![](public_sys-resources/icon-note.gif) **NOTE:**   
-        >Only when the query is blocked by internal lock resources, the  **waiting**  column is  **true**. In most cases, blocks happen when query statements are waiting for lock resources to be released. However, query statements may be blocked due to write and timers operations. Such blocked queries are not displayed in the  **pg\_stat\_activity**  view.  
+        >![](public_sys-resources/icon-note.gif) **NOTE:** 
+        >Only when the query is blocked by internal lock resources, the  **waiting**  column is  **true**. In most cases, blocks happen when query statements are waiting for lock resources to be released. However, query statements may be blocked due to write and timers operations. Such blocked queries are not displayed in the  **pg\_stat\_activity**  view.
 
 
 
