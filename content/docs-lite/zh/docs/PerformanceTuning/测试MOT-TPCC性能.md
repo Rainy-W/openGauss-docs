@@ -1,6 +1,6 @@
-# 测试MOT-TPCC性能<a name="ZH-CN_TOPIC_0280525151"></a>
+# 测试MOT-TPCC性能<a name="ZH-CN_TOPIC_0289900962"></a>
 
-## TPC-C简介<a name="section46845508"></a>
+## TPC-C简介<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_section46845508"></a>
 
 TPC-C基准是衡量联机事务处理（OLTP）系统性能的行业标准基准。它基于一个复杂的数据库和许多不同的事务类型。这些事务类型在此基准上执行。TPC-C基准测试既不依赖硬件，也不依赖软件，因此可以在每个测试平台上运行。基准模型的官方概述，见tpc.org网站（[http://www.tpc.org/default5.asp](http://www.tpc.org/default5.asp)）。
 
@@ -8,56 +8,56 @@ TPC-C基准是衡量联机事务处理（OLTP）系统性能的行业标准基�
 
 **表 1**  TPC-C数据库结构
 
-<a name="table58783505"></a>
-<table><thead align="left"><tr id="row35451093"><th class="cellrowborder" valign="top" width="25.25%" id="mcps1.2.3.1.1"><p id="p52966322"><a name="p52966322"></a><a name="p52966322"></a>表</p>
+<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_table58783505"></a>
+<table><thead align="left"><tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row35451093"><th class="cellrowborder" valign="top" width="25.25%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p52966322"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p52966322"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p52966322"></a>表</p>
 </th>
-<th class="cellrowborder" valign="top" width="74.75%" id="mcps1.2.3.1.2"><p id="p62413679"><a name="p62413679"></a><a name="p62413679"></a>条目数</p>
+<th class="cellrowborder" valign="top" width="74.75%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p62413679"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p62413679"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p62413679"></a>条目数</p>
 </th>
 </tr>
 </thead>
-<tbody><tr id="row22343220"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="p64970410"><a name="p64970410"></a><a name="p64970410"></a>仓库</p>
+<tbody><tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row22343220"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p64970410"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p64970410"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p64970410"></a>仓库</p>
 </td>
-<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="p28111864"><a name="p28111864"></a><a name="p28111864"></a>n</p>
-</td>
-</tr>
-<tr id="row51680192"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="p25346055"><a name="p25346055"></a><a name="p25346055"></a>供货商品</p>
-</td>
-<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="p39764537"><a name="p39764537"></a><a name="p39764537"></a>100,000</p>
+<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p28111864"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p28111864"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p28111864"></a>n</p>
 </td>
 </tr>
-<tr id="row22336519"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="p64427591"><a name="p64427591"></a><a name="p64427591"></a>库存</p>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row51680192"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p25346055"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p25346055"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p25346055"></a>供货商品</p>
 </td>
-<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="p51252392"><a name="p51252392"></a><a name="p51252392"></a>n x 100,000</p>
-</td>
-</tr>
-<tr id="row58618348"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="p50465761"><a name="p50465761"></a><a name="p50465761"></a>地区</p>
-</td>
-<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="p61194826"><a name="p61194826"></a><a name="p61194826"></a>n x 10</p>
+<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p39764537"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p39764537"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p39764537"></a>100,000</p>
 </td>
 </tr>
-<tr id="row13882526"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="p50742801"><a name="p50742801"></a><a name="p50742801"></a>客户</p>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row22336519"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p64427591"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p64427591"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p64427591"></a>库存</p>
 </td>
-<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="p16526188"><a name="p16526188"></a><a name="p16526188"></a>3000/区，30,000/仓库</p>
-</td>
-</tr>
-<tr id="row14517968"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="p35104796"><a name="p35104796"></a><a name="p35104796"></a>订单</p>
-</td>
-<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="p24916195"><a name="p24916195"></a><a name="p24916195"></a>客户数量（初始值）</p>
+<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p51252392"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p51252392"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p51252392"></a>n x 100,000</p>
 </td>
 </tr>
-<tr id="row22919169"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="p44513423"><a name="p44513423"></a><a name="p44513423"></a>新增订单</p>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row58618348"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p50465761"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p50465761"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p50465761"></a>地区</p>
 </td>
-<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="p48817485"><a name="p48817485"></a><a name="p48817485"></a>30%订单（初始值）</p>
-</td>
-</tr>
-<tr id="row36704181"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="p20248703"><a name="p20248703"></a><a name="p20248703"></a>定单分录</p>
-</td>
-<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="p29532237"><a name="p29532237"></a><a name="p29532237"></a>~10/单</p>
+<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p61194826"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p61194826"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p61194826"></a>n x 10</p>
 </td>
 </tr>
-<tr id="row64463545"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="p54164681"><a name="p54164681"></a><a name="p54164681"></a>历史记录</p>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row13882526"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p50742801"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p50742801"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p50742801"></a>客户</p>
 </td>
-<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="p25263058"><a name="p25263058"></a><a name="p25263058"></a>客户数量（初始值）</p>
+<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p16526188"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p16526188"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p16526188"></a>3000/区，30,000/仓库</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row14517968"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p35104796"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p35104796"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p35104796"></a>订单</p>
+</td>
+<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p24916195"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p24916195"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p24916195"></a>客户数量（初始值）</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row22919169"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p44513423"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p44513423"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p44513423"></a>新增订单</p>
+</td>
+<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p48817485"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p48817485"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p48817485"></a>30%订单（初始值）</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row36704181"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p20248703"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p20248703"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p20248703"></a>定单分录</p>
+</td>
+<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p29532237"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p29532237"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p29532237"></a>~10/单</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row64463545"><td class="cellrowborder" valign="top" width="25.25%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p54164681"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p54164681"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p54164681"></a>历史记录</p>
+</td>
+<td class="cellrowborder" valign="top" width="74.75%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p25263058"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p25263058"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p25263058"></a>客户数量（初始值）</p>
 </td>
 </tr>
 </tbody>
@@ -67,36 +67,36 @@ TPC-C基准是衡量联机事务处理（OLTP）系统性能的行业标准基�
 
 **表 2**  TPC-C事务比例
 
-<a name="table28940627"></a>
-<table><thead align="left"><tr id="row54980168"><th class="cellrowborder" valign="top" width="35.35%" id="mcps1.2.3.1.1"><p id="p24208643"><a name="p24208643"></a><a name="p24208643"></a>事务级别≥4%</p>
+<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_table28940627"></a>
+<table><thead align="left"><tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row54980168"><th class="cellrowborder" valign="top" width="35.35%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p24208643"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p24208643"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p24208643"></a>事务级别≥4%</p>
 </th>
-<th class="cellrowborder" valign="top" width="64.64999999999999%" id="mcps1.2.3.1.2"><p id="p14743079"><a name="p14743079"></a><a name="p14743079"></a>占所有事务份额</p>
+<th class="cellrowborder" valign="top" width="64.64999999999999%" id="mcps1.2.3.1.2"><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p14743079"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p14743079"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p14743079"></a>占所有事务份额</p>
 </th>
 </tr>
 </thead>
-<tbody><tr id="row53338714"><td class="cellrowborder" valign="top" width="35.35%" headers="mcps1.2.3.1.1 "><p id="p25468615"><a name="p25468615"></a><a name="p25468615"></a>TPC-C新订单</p>
+<tbody><tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row53338714"><td class="cellrowborder" valign="top" width="35.35%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p25468615"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p25468615"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p25468615"></a>TPC-C新订单</p>
 </td>
-<td class="cellrowborder" valign="top" width="64.64999999999999%" headers="mcps1.2.3.1.2 "><p id="p49691924"><a name="p49691924"></a><a name="p49691924"></a>≤ 45%</p>
-</td>
-</tr>
-<tr id="row44574134"><td class="cellrowborder" valign="top" width="35.35%" headers="mcps1.2.3.1.1 "><p id="p53735095"><a name="p53735095"></a><a name="p53735095"></a>支付</p>
-</td>
-<td class="cellrowborder" valign="top" width="64.64999999999999%" headers="mcps1.2.3.1.2 "><p id="p57575404"><a name="p57575404"></a><a name="p57575404"></a>≥ 43%</p>
+<td class="cellrowborder" valign="top" width="64.64999999999999%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p49691924"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p49691924"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p49691924"></a>≤ 45%</p>
 </td>
 </tr>
-<tr id="row48416589"><td class="cellrowborder" valign="top" width="35.35%" headers="mcps1.2.3.1.1 "><p id="p29429676"><a name="p29429676"></a><a name="p29429676"></a>订单状态</p>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row44574134"><td class="cellrowborder" valign="top" width="35.35%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p53735095"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p53735095"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p53735095"></a>支付</p>
 </td>
-<td class="cellrowborder" valign="top" width="64.64999999999999%" headers="mcps1.2.3.1.2 "><p id="p34993588"><a name="p34993588"></a><a name="p34993588"></a>≥ 4%</p>
-</td>
-</tr>
-<tr id="row46506838"><td class="cellrowborder" valign="top" width="35.35%" headers="mcps1.2.3.1.1 "><p id="p8957549"><a name="p8957549"></a><a name="p8957549"></a>交付</p>
-</td>
-<td class="cellrowborder" valign="top" width="64.64999999999999%" headers="mcps1.2.3.1.2 "><p id="p54472897"><a name="p54472897"></a><a name="p54472897"></a>≥4%（批次）</p>
+<td class="cellrowborder" valign="top" width="64.64999999999999%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p57575404"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p57575404"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p57575404"></a>≥ 43%</p>
 </td>
 </tr>
-<tr id="row20494029"><td class="cellrowborder" valign="top" width="35.35%" headers="mcps1.2.3.1.1 "><p id="p49403654"><a name="p49403654"></a><a name="p49403654"></a>库存水平</p>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row48416589"><td class="cellrowborder" valign="top" width="35.35%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p29429676"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p29429676"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p29429676"></a>订单状态</p>
 </td>
-<td class="cellrowborder" valign="top" width="64.64999999999999%" headers="mcps1.2.3.1.2 "><p id="p42273072"><a name="p42273072"></a><a name="p42273072"></a>≥ 4%</p>
+<td class="cellrowborder" valign="top" width="64.64999999999999%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p34993588"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p34993588"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p34993588"></a>≥ 4%</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row46506838"><td class="cellrowborder" valign="top" width="35.35%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p8957549"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p8957549"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p8957549"></a>交付</p>
+</td>
+<td class="cellrowborder" valign="top" width="64.64999999999999%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p54472897"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p54472897"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p54472897"></a>≥4%（批次）</p>
+</td>
+</tr>
+<tr id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_row20494029"><td class="cellrowborder" valign="top" width="35.35%" headers="mcps1.2.3.1.1 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p49403654"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p49403654"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p49403654"></a>库存水平</p>
+</td>
+<td class="cellrowborder" valign="top" width="64.64999999999999%" headers="mcps1.2.3.1.2 "><p id="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p42273072"><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p42273072"></a><a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_p42273072"></a>≥ 4%</p>
 </td>
 </tr>
 </tbody>
@@ -114,11 +114,11 @@ tpm-C指标单位表示为每分钟事务数-C，而C表示TPC-C特定基准。
 >
 >官方TPC-C基准规范可访问：[http://www.tpc.org/tpc\_documents\_current\_versions/pdf/tpc-c\_v5.11.0.pdf](http://www.tpc.org/tpc_documents_current_versions/pdf/tpc-c_v5.11.0.pdf)。本规范中的一些规则在行业中难以实现，因为对行业现状来说这些规则太严格了。例如：扩容规则（a） tpm-C/Warehouse必须大于9且小于12.86（要达到较高的tpm-C率，需要很高的仓库费率。这就意味着需要非常大的数据库和内存容量）以及规则（b）10倍终端\*仓库（意味着大量的模拟客户端）。
 
-## 系统级优化<a name="section18956395"></a>
+## 系统级优化<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_section18956395"></a>
 
 请按照[MOT部署](MOT部署.md)中的说明进行操作。下面介绍openGauss数据库在华为TaiShan服务器和Euler 2.8操作系统上部署时系统级的关键优化点，以达到极致性能。
 
-## BenchmarkSQL：开源TPC-C工具<a name="section36389828"></a>
+## BenchmarkSQL：开源TPC-C工具<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_section36389828"></a>
 
 可以使用BenchmarkSQL测试TPCC，如下所示：
 
@@ -131,9 +131,10 @@ tpm-C指标单位表示为每分钟事务数-C，而C表示TPC-C特定基准。
 在下载的Java文件（与原始文件相比）中所做的唯一更改是注释错误日志打印，以进行序列化和重复键错误。这些错误在MOT中是正常的，因为MOT使用的是乐观并发控制（OCC）机制。
 
 >![](public_sys-resources/icon-note.gif) **说明：** 
+>
 >基准测试使用标准交互式SQL模式执行，没有存储过程。
 
-## 运行基准<a name="section59073002"></a>
+## 运行基准<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_section59073002"></a>
 
 任何人都可以启动服务器，运行benchmarksql脚本。
 
@@ -145,13 +146,13 @@ tpm-C指标单位表示为每分钟事务数-C，而C表示TPC-C特定基准。
 4.  配置客户端props.pg文件。
 5.  运行基准测试。
 
-## 结果报告<a name="section61894973"></a>
+## 结果报告<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_section61894973"></a>
 
 -   CLI结果
 
     BenchmarkSQL结果应如下所示：
 
-    ![](figures/zh-cn_image_0280525213.jpg)
+    ![](figures/zh-cn_image_0289899941.jpg)
 
     随着时间的推移，基准测量并平均已提交的事务。上面的例子是两分钟的基准测试。
 
@@ -162,10 +163,10 @@ tpm-C指标单位表示为每分钟事务数-C，而C表示TPC-C特定基准。
     详细结果报告示例：
 
 
-**图 1**  详细结果报告<a name="fig49333891"></a>  
+**图 1**  详细结果报告<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_fig49333891"></a>  
 ![](figures/详细结果报告.png "详细结果报告")
 
-![](figures/zh-cn_image_0280525217.png)
+![](figures/zh-cn_image_0289900100.png)
 
 BenchmarkSQL收集详细的性能统计数据和操作系统性能数据（如果配置了的话）。
 
@@ -177,6 +178,6 @@ BenchmarkSQL收集详细的性能统计数据和操作系统性能数据（如�
 
 下图展示了近乎线性的可扩展性：
 
-**图 2**  华为TaiShan 2480 MOT TPC-C测试结果<a name="fig6118042"></a>  
+**图 2**  华为TaiShan 2480 MOT TPC-C测试结果<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_fig6118042"></a>  
 ![](figures/华为TaiShan-2480-MOT-TPC-C测试结果.png "华为TaiShan-2480-MOT-TPC-C测试结果")
 

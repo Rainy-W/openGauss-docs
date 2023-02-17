@@ -2,16 +2,16 @@
 
 ## 背景信息<a name="section155811351756"></a>
 
-SMP特性通过算子并行来提升性能，同时会占用更多的系统资源，包括CPU、内存、I/O等等。本质上SMP是一种以资源换取时间的方式，在合适的场景以及资源充足的情况下，能够起到较好的性能提升效果；但是如果在不合适的场景下，或者资源不足的情况下，反而可能引起性能的劣化。SMP特性适用于分析类查询场景，这类场景的特点是单个查询时间较长、业务并发度低。通过SMP并行技术能够降低查询时延，提高系统吞吐性能。然而在事务类大并发业务场景下，由于单个查询本身的时延很短，使用多线程并行技术反而会增加查询时延，降低系统吞吐性能。
+SMP特性通过算子并行来提升性能，同时会占用更多的系统资源，包括CPU、内存、I/O等等。本质上SMP是一种以资源换取时间的方式，在合适的场景以及资源充足的情况下，能够起到较好的性能提升效果；但是如果在不合适的场景下，或者资源不足的情况下，反而可能引起性能的劣化。SMP特性适用于分析类查询场景，这类场景的特点是单个查询时间较长，业务并发度低。通过SMP并行技术能够降低查询时延，提高系统吞吐性能。然而在事务类大并发业务场景下，由于单个查询本身的时延很短，使用多线程并行技术反而会增加查询时延，降低系统吞吐性能。
 
 ## 适用场景<a name="section2030915336616"></a>
 
 -   支持并行的算子：计划中存在以下算子支持并行。
-    -   Scan：支持行存普通表和行存分区表顺序扫描 、列存普通表和列存分区表顺序扫描。
-    -   Join：HashJoin、NestLoop。
+    -   Scan：支持行存普通表和行存分区表顺序扫描、列存普通表和列存分区表顺序扫描。
+    -   Join：HashJoin、NestLoop
     -   Agg：HashAgg、SortAgg、PlainAgg、WindowAgg（只支持partition by，不支持order by）。
-    -   Stream：Local Redistribute、Local Broadcast。
-    -   其他：Result、Subqueryscan、Unique、Material、Setop、Append、VectoRow。
+    -   Stream：Local Redistribute、Local Broadcast
+    -   其他：Result、Subqueryscan、Unique、Material、Setop、Append、VectoRow
 
 -   SMP特有算子：为了实现并行，新增了并行线程间的数据交换Stream算子供SMP特性使用。这些新增的算子可以看做Stream算子的子类。
     -   Local Gather：实现实例内部并行线程的数据汇总。
@@ -39,4 +39,6 @@ SMP特性通过算子并行来提升性能，同时会占用更多的系统资�
 7.  查询语句中带有median操作的查询不支持并行执行。
 8.  带全局临时表的查询不支持并行执行。
 9.  物化视图的更新不支持并行执行。
+10. 会触发trigger的查询不支持并行执行，特别的，对包含外键的表执行INSERT/UPDATE/DELETE操作会触发trigger。
+11. ustore引擎不支持并行执行。
 

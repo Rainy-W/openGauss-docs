@@ -1,6 +1,6 @@
-# 测试TPCC性能<a name="ZH-CN_TOPIC_0263913274"></a>
+# 测试TPCC性能<a name="ZH-CN_TOPIC_0289900017"></a>
 
-1.  下载TPCC标准测试工具BenchmarkSQL5.0。
+1.  下载TPCC标准测试工具BenchmarkSQL5.0**。**
 2.  将目录lib/postgresql下面的\*.jar 替换为openGauss适配的jar包。
 
     ```
@@ -13,7 +13,7 @@
 
     openGauss适配的JDBC版本包获取路径为[openGauss-x.x.x-JDBC .tar.gz](https://opengauss.org/zh/download.html)。
 
-3.  进入benchmarksql-5.0根目录，输入ant命令进行编译。
+3.  进入benchmarksql-5.0根目录, 输入ant命令进行编译。
 
     ```
     $ cd /your path/benchmarksql-5.0/ 
@@ -22,12 +22,12 @@
 
     编译成功后会生成build和dist两个目录。
 
-4.  创建benchmarkSQL配置文件，使用benchmarkSQL前需要配置数据库相关的信息，包括数据库账号、密码、端口、数据库名称。
+4.  创建benchmarkSQL配置文件，使用benchmarkSQL前需要配置数据库相关的信息, 包括数据库账号、密码、端口、数据库名称.。
 
     ```
     $ cd /your path/benchmarksql-5.0/run 
-    $ cp props.pg props.opengauss.1000w 
-    $ vim props.opengauss.1000w
+    $ cp props.pg props.openGauss.1000w 
+    $ vim props.openGauss.1000w
     ```
 
     从props.pg拷贝一份配置文件并按如下修改，斜体处请根据真实情况进行修改。
@@ -39,7 +39,7 @@
     conn=jdbc:postgresql://8.92.4.238:21579/tpcc1000?prepareThreshold=1&batchMode=on&fetchsize=10 
     // 设置数据库登录用户和密码。
     user=bot 
-    password=Gaussdba@Mpp 
+    password=XXXXXXXX 
       
     warehouses=1000 
     loadWorkers=200 
@@ -224,16 +224,16 @@
     2.  执行如下命令导入数据。
 
         ```
-        ./runDatabaseBuild.sh props.opengauss.1000w
+        ./runDatabaseBuild.sh props.openGauss.1000w
         ```
 
-7.  <a name="li11139125793619"></a>备份数据。
+7.  <a name="zh-cn_topic_0283137363_zh-cn_topic_0263913274_li11139125793619"></a>备份数据。
 
-    为了方便多次测试，减少导入数据的时间，可以通过停止数据库，将整个数据目录执行一次拷贝对数据库进行备份。
+    为了方便多次测试， 减少导入数据的时间，可以通过停止数据库，将整个数据目录执行一次拷贝对数据库进行备份。
 
-8.  <a name="li1840654753618"></a>对数据进行分盘。
+8.  <a name="zh-cn_topic_0283137363_zh-cn_topic_0263913274_li1840654753618"></a>对数据进行分盘。
 
-    在性能测试过程中，为了增加IO的吞吐量，需要将数据分散到不同的存储介质上。由于机器上有4块NVME盘，可以将数据分散到不同的盘上。将pg\_xlog、tablespace2、tablespace3这三个目录放置在其他3个NVME盘上，并在原有的位置给出指向真实位置的软连接。pg\_xlog位于数据库目录下，tablespace2、tablespace3分别位于数据库目录pg\_location下。对tablespace2分盘的命令如下:
+    在性能测试过程中，为了增加IO的吞吐量，需要将数据分散到不同的存储介质上。由于机器上有4块NVME盘，可以将数据分散到不同的盘上。 将pg\_xlog、tablespace2、tablespace3这三个目录放置在其他3个NVME盘上，并在原有的位置给出指向真实位置的软连接。pg\_xlog位于数据库目录下，tablespace2、tablespace3分别位于数据库目录pg\_location下。对tablespace2分盘的命令如下:
 
     ```
     mv $DATA_DIR/pg_location/tablespace2 $TABSPACE2_DIR/tablespace2 
@@ -243,27 +243,27 @@
 
     创建完成后的效果如下图：
 
-    ![](figures/zh-cn_image_0263913304.png)
+    ![](figures/zh-cn_image_0289900596.png)
 
-    ![](figures/zh-cn_image_0263913306.png)
+    ![](figures/zh-cn_image_0289899860.png)
 
 9.  运行TPCC程序。
 
     ```
-    numactl –C 0-19,32-51,64-83,96-115 ./runBenchmark.sh props.opengauss.1000w
+    numactl –C 0-19,32-51,64-83,96-115 ./runBenchmark.sh props.openGauss.1000w
     ```
 
     运行后的结果如下图，tpmC部分即为测试结果。
 
-    ![](figures/zh-cn_image_0263913308.png)
+    ![](figures/zh-cn_image_0289899998.png)
 
-10. <a name="li202511145123814"></a>验证数据测试过程正确性。
+10. <a name="zh-cn_topic_0283137363_zh-cn_topic_0263913274_li202511145123814"></a>验证数据测试过程正确性。
 
     使用htop监控数据库服务端和tpcc客户端CPU利用情况，最佳性能测试情况下，各个业务CPU的占用率都非常高（\> 90%）。如果有CPU占用率没有达标，可能是绑核方式不对或其他问题，需要定位找到根因进行调整。
 
     下图是最佳性能测试情况下所有CPU的使用情况，其中黄线框中的是处理网络中断的CPU。
 
-    ![](figures/zh-cn_image_0263913310.png)
+    ![](figures/zh-cn_image_0289900329.png)
 
-11. 如果为了避免数据的干扰，需要进行重新测试，可以通过[步骤7](#li11139125793619)备份的数据通过拷贝的方式恢复数据。重复[步骤8](#li1840654753618)\~[步骤10](#li202511145123814)可以重新进行测试。
+11. 如果为了避免数据的干扰，需要进行重新测试，可以通过[步骤7](#zh-cn_topic_0283137363_zh-cn_topic_0263913274_li11139125793619)备份的数据通过拷贝的方式恢复数据。重复[步骤8](#zh-cn_topic_0283137363_zh-cn_topic_0263913274_li1840654753618)\~[步骤10](#zh-cn_topic_0283137363_zh-cn_topic_0263913274_li202511145123814)可以重新进行测试。
 

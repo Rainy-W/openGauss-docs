@@ -1,10 +1,10 @@
-# I/O<a name="ZH-CN_TOPIC_0245374523"></a>
+# I/O<a name="ZH-CN_TOPIC_0289900470"></a>
 
 通过iostat、pidstat命令或openGauss健康检查工具查看openGauss内节点I/O繁忙度和吞吐量，分析是否存在由于I/O导致的性能瓶颈。
 
-## 查看I/O状况<a name="zh-cn_topic_0237121488_zh-cn_topic_0073253548_zh-cn_topic_0040046485_section49799026113827"></a>
+## 查看I/O状况<a name="zh-cn_topic_0283137182_zh-cn_topic_0237121488_zh-cn_topic_0073253548_zh-cn_topic_0040046485_section49799026113827"></a>
 
-查询服务器I/O的方法主要有以下三种方式：
+查询服务器I/O的方法主要有以下两种方式：
 
 -   使用iostat命令查看I/O情况。此命令主要关注单个硬盘的I/O使用率和每秒读取、写入的数量。
 
@@ -23,7 +23,7 @@
 -   使用pidstat命令查看I/O情况。此命令主要关注单个进程每秒读取、写入的数量。
 
     ```
-    pidstat -d 1 10  //1为采样间隔时间，10为采样次数
+    pidstat -d 1 10  //1表示查看时间间隔1秒，10表示查看次数10次
     03:17:12 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s  Command
     03:17:13 PM  1006     36134      0.00  59436.00      0.00  gaussdb
     
@@ -31,29 +31,8 @@
 
     “kB\_rd/s”为每秒读取的kB数，“kB\_wr/s”为每秒写入的kB数。
 
--   使用gs\_checkperf工具对openGauss进行性能检查，需要以omm用户登录。
 
-    ```
-    gs_checkperf
-    Cluster statistics information:
-        Host CPU busy time ratio                     :    .69        %
-        MPPDB CPU time % in busy time                :    .35        %
-        Shared Buffer Hit ratio                      :    99.92      %
-        In-memory sort ratio                         :    100.00     %
-        Physical Reads                               :    8581
-        Physical Writes                              :    2603
-        DB size                                      :    281        MB
-        Total Physical writes                        :    1944
-        Active SQL count                             :    3
-        Session count                                :    11
-    ```
-
-    显示结果包括每个节点的I/O使用情况，物理读写次数。
-
-    也可以使用gs\_checkperf --detail命令查询每个节点的详细性能信息。
-
-
-## 性能参数分析<a name="zh-cn_topic_0237121488_zh-cn_topic_0073253548_zh-cn_topic_0040046485_section401001449238"></a>
+## 性能参数分析<a name="zh-cn_topic_0283137182_zh-cn_topic_0237121488_zh-cn_topic_0073253548_zh-cn_topic_0040046485_section401001449238"></a>
 
 1.  检查磁盘空间使用率，建议不要超过60%。
 
@@ -69,8 +48,9 @@
         vacuum full tablename;
         ```
 
-        >![](public_sys-resources/icon-note.gif) **说明：**   
-        >建议用户在系统空闲时进行VACUUM FULL操作，VACUUM FULL操作会造成短时间内I/O负载重，反而不利于降低I/O。  
+        >![](public_sys-resources/icon-note.gif) **说明：**
+        > 
+        >建议用户在系统空闲时进行VACUUM FULL操作，VACUUM FULL操作会造成短时间内I/O负载重，反而不利于降低I/O。
 
 
 
