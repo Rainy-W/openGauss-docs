@@ -308,6 +308,7 @@ headless: true
 		-   [数据库对象设计]({{< relref "./docs/Developerguide/数据库对象设计.md" >}})
 			-   [Database和Schema设计]({{< relref "./docs/Developerguide/Database和Schema设计.md" >}})
 			-   [表设计]({{< relref "./docs/Developerguide/表设计.md" >}})
+			-   [规划存储模型]({{< relref "./docs/Developerguide/规划存储模型.md" >}})
 			-   [字段设计]({{< relref "./docs/Developerguide/字段设计.md" >}})
 			-   [约束设计]({{< relref "./docs/Developerguide/约束设计.md" >}})
 			-   [视图和关联表设计]({{< relref "./docs/Developerguide/视图和关联表设计.md" >}})
