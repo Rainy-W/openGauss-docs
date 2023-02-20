@@ -244,7 +244,7 @@ headless: true
 	-   [System Catalogs and Views Supported by gs\_collector]({{< relref "./docs/Toolreference/system-catalogs-and-views-supported-by-gs_collector.md" >}})	
 -   [Dolphin Extensions]({{< relref "./docs/dolphinExtension/dolphin-extensions.md" >}})
 			-   [Dolphin Overview]({{< relref "./docs/dolphinExtension/dolphin-overview.md" >}})
-			-   [Dolphin Installation]({{< relref "./docs/dolphinExtensione/dolphin-installation.md" >}})
+			-   [Dolphin Installation]({{< relref "./docs/dolphinExtension/dolphin-installation.md" >}})
 			-   [Dolphin Restrictions]({{< relref "./docs/dolphinExtension/dolphin-restrictions.md" >}})
 			-   [Dolphin Syntax]({{< relref "./docs/dolphinExtension/dolphin-syntax.md" >}})
 				-   [SQL Reference]({{< relref "./docs/dolphinExtension/dolphin-sql-reference.md" >}})
