@@ -14,6 +14,15 @@ headless: true
     -   [Source Code]({{< relref "./docs/Releasenotes/source-code.md" >}})
     -   [Contribution]({{< relref "./docs/Releasenotes/contribution.md" >}})
     -   [Acknowledgement]({{< relref "./docs/Releasenotes/acknowledgement.md" >}})
+-   [About-openGauss.md]({{< relref "./docs/Description/About-openGauss.md.md" >}})
+    -   [Product Positioning]({{< relref "./docs/Description/product-positioning.md" >}})
+    -   [System Architecture]({{< relref "./docs/Description/system-architecture.md" >}})
+	-   [Application Scenarios]({{< relref "./docs/Description/application-scenarios.md" >}})
+	-   [Product Features]({{< relref "./docs/Description/product-features.md" >}})
+	-   [Operating Environment]({{< relref "./docs/Description/operating-environment.md" >}})
+    -   [Technical Specifications]({{< relref "./docs/Technicalwhitepaper/technical-specifications.md" >}})
+    -   [Basic Features]({{< relref "./docs/Description/basic-features.md" >}})
+	-   [Enhanced Features]({{< relref "./docs/Description/enhanced-features.md" >}})	
 -   [Technical White Paper]({{< relref "./docs/Technicalwhitepaper/Technicalwhitepaper.md" >}})
 	-   [Product Positioning]({{< relref "./docs/Technicalwhitepaper/product-positioning.md" >}})
 	-   [Application Scenario]({{< relref "./docs/Technicalwhitepaper/application-scenario.md" >}})
@@ -170,10 +179,161 @@ headless: true
         -   [Rolling Back the Upgrade Version]({{< relref "./docs/UpgradeGuide/rolling-back-the-upgrade-version.md" >}})
     -   [Troubleshooting]({{< relref "./docs/UpgradeGuide/troubleshooting.md" >}})	
 -   [Data Migration]({{< relref "./docs/DataMigration/data-migration.md" >}})
+	-   [b-compatible-description]({{< relref "./docs/DataMigration/b-compatible-description.md" >}})
+	-   [assessment-tool]({{< relref "./docs/DataMigration/assessment-tool.md" >}})
 	-   [Migrating Data from MySQL database to openGauss]({{< relref "./docs/DataMigration/migrating-data-from-mysql-database-to-opengauss.md" >}})
 		-   [Full Migration]({{< relref "./docs/DataMigration/full-migration.md" >}})
 		-   [Incremental Migration]({{< relref "./docs/DataMigration/incremental-migration.md" >}})
 		-   [Data Check]({{< relref "./docs/DataMigration/data-check.md" >}})
-		-   [Reverse Migration]({{< relref "./docs/DataMigration/reverse-migration.md" >}})	
+		-   [Reverse Migration]({{< relref "./docs/DataMigration/reverse-migration.md" >}})			
+-   [Tool Reference]({{< relref "./docs/Toolreference/Toolreference.md" >}})
+	-   [Tool Overview]({{< relref "./docs/Toolreference/tool-overview.md" >}})
+	-   [Client Tool]({{< relref "./docs/Toolreference/client-tool.md" >}})
+	    -   [gsql]({{< relref "./docs/Toolreference/gsql.md" >}}) 
+	-   [Server Tools]({{< relref "./docs/Toolreference/server-tools.md" >}})
+        -   [gs\_cgroup]({{< relref "./docs/Toolreference/gs_cgroup.md" >}})
+        -   [gs\_check]({{< relref "./docs/Toolreference/gs_check.md" >}})
+        -   [gs\_checkos]({{< relref "./docs/Toolreference/gs_checkos.md" >}})
+        -   [gs\_checkperf]({{< relref "./docs/Toolreference/gs_checkperf.md" >}})
+        -   [gs\_collector]({{< relref "./docs/Toolreference/gs_collector.md" >}})
+        -   [gs\_dump]({{< relref "./docs/Toolreference/gs_dump.md" >}})
+        -   [gs\_dumpall]({{< relref "./docs/Toolreference/gs_dumpall.md" >}})
+        -   [gs\_guc]({{< relref "./docs/Toolreference/gs_guc.md" >}})
+        -   [gs\_encrypt]({{< relref "./docs/Toolreference/gs_encrypt.md" >}})
+        -   [gs\_om]({{< relref "./docs/Toolreference/gs_om.md" >}})
+        -   [gs\_plan\_simulator]({{< relref "./docs/Toolreference/gs_plan_simulator.md" >}})
+        -   [gs\_restore]({{< relref "./docs/Toolreference/gs_restore.md" >}})
+        -   [gs\_ssh]({{< relref "./docs/Toolreference/gs_ssh.md" >}})
+		-   [gs\_sdr]({{< relref "./docs/Toolreference/gs_sdr.md" >}})
+	-   [Unified Database Management Tool]({{< relref "./docs/Toolreference/unified-database-management-tool.md" >}})
+		-   [Features]({{< relref "./docs/Toolreference/features.md" >}})
+		-   [cm\_ctl]({{< relref "./docs/Toolreference/cm_ctl.md" >}})
+		-   [cm\_persit]({{< relref "./docs/Toolreference/cm_persit.md" >}})
+		-   [cm\_install and cm\_uninstall]({{< relref "./docs/Toolreference/cm_install-and-cm_uninstall.md" >}})
+		-   [Security Design]({{< relref "./docs/Toolreference/security-design.md" >}})
+		-   [CM Parameters]({{< relref "./docs/Toolreference/cm-parameters.md" >}})
+			-   [Parameters Related to cm\_agent]({{< relref "./docs/Toolreference/parameters-related-to-cm_agent.md" >}})
+			-   [Parameters Related to cm\_server]({{< relref "./docs/Toolreference/parameters-related-to-cm_server.md" >}})
+	-   [Tools Used in the Internal System]({{< relref "./docs/Toolreference/tools-used-in-the-internal-system.md" >}})
+	    -   [dsscmd]({{< relref "./docs/Toolreference/dsscmd.md" >}})
+        -   [dssserver]({{< relref "./docs/Toolreference/dssserver.md" >}})
+        -   [gaussdb]({{< relref "./docs/Toolreference/gaussdb.md" >}})
+        -   [gs\_backup]({{< relref "./docs/Toolreference/gs_backup.md" >}})
+        -   [gs\_basebackup]({{< relref "./docs/Toolreference/gs_basebackup.md" >}})
+        -   [gs\_ctl]({{< relref "./docs/Toolreference/gs_ctl.md" >}})
+        -   [gs\_expansion]({{< relref "./docs/Toolreference/gs_expansion.md" >}})
+        -   [gs\_initdb]({{< relref "./docs/Toolreference/gs_initdb.md" >}})
+        -   [gs\_install]({{< relref "./docs/Toolreference/gs_install.md" >}})
+        -   [gs\_postuninstall]({{< relref "./docs/Toolreference/gs_postuninstall.md" >}})
+        -   [gs\_preinstall]({{< relref "./docs/Toolreference/gs_preinstall.md" >}})
+        -   [gs\_dropnode]({{< relref "./docs/Toolreference/gs_dropnode.md" >}})
+        -   [gs\_sshexkey]({{< relref "./docs/Toolreference/gs_sshexkey.md" >}})
+        -   [gs\_tar]({{< relref "./docs/Toolreference/gs_tar.md" >}})
+        -   [gs\_uninstall]({{< relref "./docs/Toolreference/gs_uninstall.md" >}})
+        -   [gs\_upgradectl]({{< relref "./docs/Toolreference/gs_upgradectl.md" >}})
+        -   [gstrace]({{< relref "./docs/Toolreference/gstrace.md" >}})
+        -   [kdb5\_util]({{< relref "./docs/Toolreference/kdb5_util.md" >}})
+        -   [kadmin.local]({{< relref "./docs/Toolreference/kadmin-local.md" >}})
+        -   [kinit]({{< relref "./docs/Toolreference/kinit.md" >}})
+        -   [klist]({{< relref "./docs/Toolreference/klist.md" >}})
+        -   [krb5kdc]({{< relref "./docs/Toolreference/krb5kdc.md" >}})
+        -   [kdestroy]({{< relref "./docs/Toolreference/kdestroy.md" >}})
+        -   [pg\_config]({{< relref "./docs/Toolreference/pg_config.md" >}})
+        -   [pg\_controldata]({{< relref "./docs/Toolreference/pg_controldata.md" >}})
+        -   [pg\_recvlogical]({{< relref "./docs/Toolreference/pg_recvlogical.md" >}})
+        -   [pg\_resetxlog]({{< relref "./docs/Toolreference/pg_resetxlog.md" >}})
+        -   [gs\_probackup]({{< relref "./docs/Toolreference/gs_probackup.md" >}})
+        -   [pg\_archivecleanup]({{< relref "./docs/Toolreference/pg_archivecleanup.md" >}})
+        -   [pssh]({{< relref "./docs/Toolreference/pssh.md" >}})
+        -   [pscp]({{< relref "./docs/Toolreference/pscp.md" >}})
+        -   [transfer.py]({{< relref "./docs/Toolreference/transfer-py.md" >}})
+	-   [FAQs]({{< relref "./docs/Toolreference/faqs.md" >}})
+	-   [Functions of OpenGauss Executable Scripts]({{< relref "./docs/Toolreference/functions-of-opengauss-executable-scripts.md" >}})
+	-   [System Catalogs and Views Supported by gs\_collector]({{< relref "./docs/Toolreference/system-catalogs-and-views-supported-by-gs_collector.md" >}})	
+-   [Dolphin Extensions]({{< relref "./docs/dolphinExtension/dolphin-extensions.md" >}})
+			-   [Dolphin Overview]({{< relref "./docs/dolphinExtension/dolphin-overview.md" >}})
+			-   [Dolphin Installation]({{< relref "./docs/dolphinExtensione/dolphin-installation.md" >}})
+			-   [Dolphin Restrictions]({{< relref "./docs/dolphinExtension/dolphin-restrictions.md" >}})
+			-   [Dolphin Syntax]({{< relref "./docs/dolphinExtension/dolphin-syntax.md" >}})
+				-   [SQL Reference]({{< relref "./docs/dolphinExtension/dolphin-sql-reference.md" >}})
+				    -	[Keywords]({{< relref "./docs/dolphinExtension/dolphin-keywords.md" >}})
+                    -	[Data Types]({{< relref "./docs/dolphinExtension/dolphin-data types.md" >}})
+			        	-	[Numeric Types]({{< relref "./docs/dolphinExtension/dolphin-numeric-types.md" >}})
+			        	-	[Character Types]({{< relref "./docs/dolphinExtension/dolphin-character-types.md" >}}) 
+			        	-	[Date/Time Types]({{< relref "./docs/dolphinExtension/dolphin-date-time-types.md" >}}) 
+			        	-	[Bit String Types]({{< relref "./docs/dolphinExtension/dolphin-bi-string-types.md" >}})
+			        	-	[Enumeration Types]({{< relref "./docs/dolphinExtension/dolphin-enumeration-types.md" >}})
+			        -	[Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-functions-and-operators.md" >}})
+			        	-	[Assignment Operators]({{< relref "./docs/dolphinExtension/dolphin-assignment-operators.md" >}}) 
+			        	-	[Character Processing Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-character-processing-functions-and-operators.md" >}}) 
+			        	-	[Arithmetic Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-arithmetic-functions-and-operators.md" >}}) 
+			        	-	[Date and Time Processing Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-date-and-time-processing-functions-and-operators.md" >}})  
+			        	-	[Advisory Lock Functions]({{< relref "./docs/dolphinExtension/dolphin-advisory-lock-functions.md" >}})
+			        	-	[Network Address Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-network-address-functions-and-operators.md" >}})  
+			        	-	[Conditional Expression Functions]({{< relref "./docs/dolphinExtension/dolphin-conditional-expression-functions.md" >}})
+			        	-	[Aggregate Functions]({{< relref "./docs/dolphinExtension/dolphin-aggregate-functions.md" >}})
+			        	-	[System Information Functions]({{< relref "./docs/dolphinExtension/dolphin-system-information-functions.md" >}})
+			        	-	[Logical Operators]({{< relref "./docs/dolphinExtension/dolphin-logical-operators.md" >}}) 
+			        	-	[Bit String Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-bit-string-functions-and-operators.md" >}})
+			        	-	[JSON-JSONB Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-json-jsonb-functions-and-operators.md" >}})
+			        -	[Expressions]({{< relref "./docs/dolphinExtension/dolphin-expressions.md" >}})
+			        	-	[Conditional Expressions]({{< relref "./docs/dolphinextension/dolphin-conditional-expressions.md" >}})
+			        -	[DDL Syntax]({{< relref "./docs/dolphinExtension/dolphin-ddl-syntax-overview.md" >}})
+			        -	[DML Syntax]({{< relref "./docs/dolphinExtension/dolphin-dml-syntax-overview" >}})	
+			        -	[DCL Syntax]({{< relref "./docs/dolphinExtension/dolphin-dcl-syntax-overview.md" >}})
+			        -	[SQL Syntax]({{< relref "./docs/dolphinExtension/dolphin-sql syntax.md" >}})
+			        	-	[ALTER FUNCTION]({{< relref "./docs/dolphinExtension/dolphin-alter-function.md" >}}
+			        	-	[ALTER PROCEDURE]({{< relref "./docs/dolphinExtension/dolphin-alter-procedure.md" >}}
+			        	-	[ALTER TABLE]({{< relref "./docs/dolphinExtension/dolphin-alter-table.md" >}} 
+			        	-	[ALTER TABLE-PARTITION]({{< relref "./docs/dolphinExtension/dolphin-alter-table-partition.md" >}} 
+			        	-	[ALTER TABLESPACE]({{< relref "./docs/dolphinExtension/dolphin-alter-tablespace.md" >}}  
+			        	-	[ANALYZE ANALYSE]({{< relref "./docs/dolphinExtension/dolphin-analyze-analyse.md" >}}
+			        	-	[AST]({{< relref "./docs/dolphinExtension/dolphin-ast.md" >}}
+			        	-	[CREATE-FUNCTION]({{< relref "./docs/dolphinExtension/dolphin-create-function.md" >}}
+			        	-	[CREATE-INDEX]({{< relref "./docs/dolphinExtension/dolphin-create-index.md" >}}*
+			        	-	[CREATE-PROCEDURE]({{< relref "./docs/dolphinExtension/dolphin-create-procedure.md" >}}
+			        	-	[CREATE-TABLE]({{< relref "./docs/dolphinExtension/dolphin-create-table.md" >}}
+			        	-	[CREATE-TABLE-AS]({{< relref "./docs/dolphinExtension/dolphin-create-table-as.md" >}}
+			        	-	[CREATE-TABLE-PARTITION]({{< relref "./docs/dolphinExtension/dolphin-create-table-partition.md" >}}
+			        	-	[CREATE-TABLESPACE]({{< relref "./docs/dolphinExtension/dolphin-create-tablespace.md" >}}
+			        	-	[CREATE-INDEX]({{< relref "./docs/dolphinExtension/dolphin-create-index.md" >}}
+			        	-	[DESCRIBE-TABLE]({{< relref "./docs/dolphinExtension/dolphin-describe-table.md" >}}
+			        	-	[DROP-TABLESPACE]({{< relref "./docs/dolphinExtension/dolphin-drop-tablespace.md" >}} 
+			        	-	[GRANT]({{< relref "./docs/dolphinExtension/dolphin-GRANT.md" >}}
+			        	-	[INSERT]({{< relref "./docs/dolphinExtension/dolphin-INSERT.md" >}}
+			        	-	[KILL]({{< relref "./docs/dolphinExtension/dolphin-KILL.md" >}}
+			        	-	[OPTIMIZE-TABLE]({{< relref "./docs/dolphinExtension/dolphin-OPTIMIZE-TABLE.md" >}}
+			        	-	[PREPARE]({{< relref "./docs/dolphinExtension/dolphin-PREPARE.md" >}}
+			        	-	[RENAME-USER]({{< relref "./docs/dolphinExtension/dolphin-RENAME-USER.md" >}}
+			        	-	[REVOKE]({{< relref "./docs/dolphinExtension/dolphin-REVOKE.md" >}}
+			        	-	[SELECT]({{< relref "./docs/dolphinExtension/dolphin-SELECT.md" >}} 
+			        	-	[SET-CHARSET]({{< relref "./docs/dolphinExtension/dolphin-SET-CHARSET.md" >}}
+			        	-	[SET-PASSWORD]({{< relref "./docs/dolphinExtension/dolphin-SET-PASSWORD.md" >}}  
+			        	-	[SHOW_COLUMNS]({{< relref "./docs/dolphinExtension/dolphin-SHOW_COLUMNS.md" >}} 
+			        	-	[SHOW-DATABASES]({{< relref "./docs/dolphinExtension/dolphin-SHOW-DATABASES.md" >}}
+			        	-	[SHOW-FUNCTION-STATUS]({{< relref "./docs/dolphinExtension/dolphin-show-function-status.md" >}}
+			        	-	[SHOW-GRANTS]({{< relref "./docs/dolphinExtension/dolphin-show-grants.md" >}}
+			        	-	[SHOW-INDEX]({{< relref "./docs/dolphinExtension/dolphin-show-index.md" >}}  
+			        	-	[SHOW-MASTER-STATUS]({{< relref "./docs/dolphinExtension/dolphin-show-master-status.md" >}}
+			        	-	[SHOW_PLUGINS]({{< relref "./docs/dolphinExtension/dolphin-show-plugins.md" >}} 
+			        	-	[SHOW-PROCEDURE-STATUS]({{< relref "./docs/dolphinExtension/dolphin-show-procedure-status.md" >}}
+			        	-	[SHOW-PROCESSLIST]({{< relref "./docs/dolphinExtension/dolphin-show-processlist.md" >}}
+			        	-	[SHOW-SLAVE-HOSTS]({{< relref "./docs/dolphinExtension/dolphin-show-slave-hosts.md" >}}
+			        	-	[SHOW_TABLES]({{< relref "./docs/dolphinExtension/dolphin-show-tables.md" >}} 
+			        	-	[SHOW-TRIGGERS]({{< relref "./docs/dolphinExtension/dolphin-show-triggers.md" >}} 
+			        	-	[UPDATE]({{< relref "./docs/dolphinExtension/dolphin-update.md" >}}
+			        	-	[USE-DB_NAME]({{< relref "./docs/dolphinExtension/dolphin-use-db-name.md" >}} 
+			        	-	[CHECKSUM-TABLE]({{< relref "./docs/dolphinExtension/dolphin-checksum-table.md" >}}  
+			        	-	[GRANT-REVOKE-PROXY]({{< relref "./docs/dolphinExtension/dolphin-grant-revoke-proxy.md" >}} 	
+			    -   [System Views]({{< relref "./docs/dolphinExtension/dolphin-system-views.md" >}})
+				    -	[PG TYPE NONSTRICT BASIC VALUE]({{< relref "./docs/dolphinExtension/dolphin-pg-type-nonstrict-basic-value.md" >}})
+				    -	[INDEX STATISTIC]({{< relref "./docs/dolphinExtension/dolphin-index-statistic.md" >}})
+			    -   [GUC Parameters]({{< relref "./docs/dolphinExtension/dolphin-guc-parameters.md" >}})
+			    -   [Resetting Parameters]({{< relref "./docs/dolphinExtension/dolphin-resetting-parameters.md" >}})  		
+-   [PostGIS Extension]({{< relref "./docs/PostGISExtension/postgis-extension.md" >}})
+	-   [Overview]({{< relref "./docs/PostGISExtension/overview-PostGIS.md" >}})
+	-   [Installing PostGIS]({{< relref "./docs/PostGISExtension/installing-postgis.md" >}})
+	-   [Using PostGIS]({{< relref "./docs/PostGISExtension/using-postgis.md" >}})
+	-   [PostGIS Support and Constraints]({{< relref "./docs/PostGISExtension/postgis-support-and-constraints.md" >}})
 -   [Communication Matrix]({{< relref "./docs/CommunicationMatrix/communication-matrix.md" >}})
 
