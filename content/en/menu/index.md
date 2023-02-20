@@ -257,11 +257,11 @@ headless: true
 			-   [Dolphin Syntax]({{< relref "./docs/dolphinExtension/dolphin-syntax.md" >}})
 				-   [SQL Reference]({{< relref "./docs/dolphinExtension/dolphin-sql-reference.md" >}})
 				    -	[Keywords]({{< relref "./docs/dolphinExtension/dolphin-keywords.md" >}})
-                    -	[Data Types]({{< relref "./docs/dolphinExtension/dolphin-data types.md" >}})
+                    -	[Data Types]({{< relref "./docs/dolphinExtension/dolphin-data-types.md" >}})
 			        	-	[Numeric Types]({{< relref "./docs/dolphinExtension/dolphin-numeric-types.md" >}})
 			        	-	[Character Types]({{< relref "./docs/dolphinExtension/dolphin-character-types.md" >}}) 
 			        	-	[Date/Time Types]({{< relref "./docs/dolphinExtension/dolphin-date-time-types.md" >}}) 
-			        	-	[Bit String Types]({{< relref "./docs/dolphinExtension/dolphin-bi-string-types.md" >}})
+			        	-	[Bit String Types]({{< relref "./docs/dolphinExtension/dolphin-bit-string-types.md" >}})
 			        	-	[Enumeration Types]({{< relref "./docs/dolphinExtension/dolphin-enumeration-types.md" >}})
 			        -	[Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-functions-and-operators.md" >}})
 			        	-	[Assignment Operators]({{< relref "./docs/dolphinExtension/dolphin-assignment-operators.md" >}}) 
@@ -281,7 +281,7 @@ headless: true
 			        -	[DDL Syntax]({{< relref "./docs/dolphinExtension/dolphin-ddl-syntax-overview.md" >}})
 			        -	[DML Syntax]({{< relref "./docs/dolphinExtension/dolphin-dml-syntax-overview" >}})	
 			        -	[DCL Syntax]({{< relref "./docs/dolphinExtension/dolphin-dcl-syntax-overview.md" >}})
-			        -	[SQL Syntax]({{< relref "./docs/dolphinExtension/dolphin-sql syntax.md" >}})
+			        -	[SQL Syntax]({{< relref "./docs/dolphinExtension/dolphin-sql-syntax.md" >}})
 			        	-	[ALTER FUNCTION]({{< relref "./docs/dolphinExtension/dolphin-alter-function.md" >}}
 			        	-	[ALTER PROCEDURE]({{< relref "./docs/dolphinExtension/dolphin-alter-procedure.md" >}}
 			        	-	[ALTER TABLE]({{< relref "./docs/dolphinExtension/dolphin-alter-table.md" >}} 
