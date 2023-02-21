@@ -327,5 +327,13 @@ headless: true
 	-   [Installing PostGIS]({{< relref "./docs/PostGISExtension/installing-postgis.md" >}})
 	-   [Using PostGIS]({{< relref "./docs/PostGISExtension/using-postgis.md" >}})
 	-   [PostGIS Support and Constraints]({{< relref "./docs/PostGISExtension/postgis-support-and-constraints.md" >}})
+-   [Appendices]({{< relref "./docs/Appendices/Appendices.md" >}})
+	-   [Obtaining openGauss Resources]({{< relref "./docs/Appendices/obtaining-opengauss-resources.md" >}})
+	-   [FAQ]({{< relref "./docs/Appendices/faqs.md" >}})
+		-   [Product-related FAQs]({{< relref "./docs/Appendices/product-related-faqs.md" >}})
+		-   [Usage-related FAQs]({{< relref "./docs/Appendices/usage-related-faqs.md" >}})	
+	-   [Error Log Reference]({{< relref "./docs/Appendices/error-log-reference.md" >}})
+        -   [Kernel Error Information]({{< relref "./docs/Appendices/kernel-error-information.md" >}})
+	-   [Glossary]({{< relref "./docs/Appendices/glossary.md" >}})
 -   [Communication Matrix]({{< relref "./docs/CommunicationMatrix/communication-matrix.md" >}})
 
