@@ -4,4 +4,5 @@
 
 -   **[Resetting Parameters](resetting-parameters.md)**  
 
+-   **[GUC Parameters](guc-parameters.md)**
 
