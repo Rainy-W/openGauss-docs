@@ -280,6 +280,11 @@ headless: true
 		-   [pg\_config]({{< relref "./docs/Toolreference/pg_config.md" >}})
 		-   [pg\_controldata]({{< relref "./docs/Toolreference/pg_controldata.md" >}})
 		-   [pg\_resetxlog]({{< relref "./docs/Toolreference/pg_resetxlog.md" >}})
+-   [Appendices]({{< relref "./docs/Appendices/Appendices.md" >}})
+	-   [Obtaining openGauss Resources]({{< relref "./docs/Appendices/obtaining-opengauss-resources.md" >}})
+	-   [Error Log Reference]({{< relref "./docs/Appendices/error-log-reference.md" >}})
+        -   [Kernel Error Information]({{< relref "./docs/Appendices/kernel-error-information.md" >}})
+	-   [Glossary]({{< relref "./docs/Appendices/glossary.md" >}})
 
 - [Database Reference]({{< relref "./docs/DataBaseReference/database-reference.md" >}})
   -   [System Catalogs and System Views]({{< relref "./docs/DataBaseReference/system-catalogs-and-system-views.md" >}})
