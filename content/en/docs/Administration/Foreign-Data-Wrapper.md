@@ -1,14 +1,15 @@
-# Foreign Data Wrapper<a name="ZH-CN_TOPIC_0245374862"></a>
-openGauss的fdw实现的功能是各个openGauss数据库及远程服务器（包括数据库、文件系统）之间的跨库操作。目前支持的远程服务器类型包括Oracle、MySQL（MariaDB）、openGauss（postgres_fdw）、file_fdw 、dblink。
+# Foreign Data Wrapper<a name="EN-US_TOPIC_0289900378"></a>
 
--   **[oracle_fdw](用于Oracle的外部数据包装器.md)**  
+The foreign data wrapper \(FDW\) of openGauss can implement cross-database operations between openGauss databases and remote databases or between openGauss databases themselves. Currently, the following remote databases are supported: Oracle, MySQL \(MariaDB\), openGauss \(postgres\_fdw\), file\_fdw and DBLINK.
 
--   **[mysql_fdw](mysql_fdw.md)**  
+-   **[External Data Wrapper for Oracle](external-data-wrapper-for-oracle.md)**  
 
--   **[postgres_fdw](postgres_fdw.md)**  
+-   **[mysql\_fdw](mysql_fdw.md)**  
 
--   **[file_fdw](file_fdw.md)** 
+-   **[postgres\_fdw](postgres_fdw.md)**  
 
--   **[dblink](dblink.md)**
+-   **[file\_fdw](file_fdw.md)**  
+
+-   **[dblink](dblink.md)**  
 
 

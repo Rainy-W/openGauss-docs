@@ -1,74 +1,75 @@
-# dblink<a name="ZH-CN_TOPIC_0000001111753952"></a>
+# dblink<a name="EN-US_TOPIC_0000001111753952"></a>
 
-dblink是一个可以在一个openGauss数据库会话中连接到其它openGauss数据库的工具，同libpq支持的连接参数一致，可参考**[链接字符](链接字符.md)**。openGauss默认不编译dblink，下面依次介绍如何编译和使用dblink。
+dblink is a tool that can connect to other openGauss databases in an openGauss database session. The connection parameters supported by dblink are the same as those supported by libpq. For details, see  [Connection Characters](connection-characters.md). By default, openGauss does not compile dblink. The following describes how to compile and use dblink.
 
-## 编译dblink<a name="section968819125285"></a>
+## Compiling dblink<a name="section968819125285"></a>
 
-当前dblink的源码放在[contrib/dblink](https://gitee.com/opengauss/openGauss-server/tree/master/contrib/dblink)目录中。在编译安装完openGauss数据库之后，如果用户需要使用dblink，只需要进入上述目录执行如下即可完成dblink的编译安装。
+Currently, the source code of dblink is stored in the  [contrib/dblink](https://gitee.com/opengauss/openGauss-server/tree/master/contrib/dblink)  directory. After the openGauss database is compiled and installed, if you need to use the dblink, go to the preceding directory and run the following command to compile and install the dblink:
 
 ```
 make
 make install
 ```
 
-## 常用的dblink函数<a name="section1440011715283"></a>
+## Common dblink Functions<a name="section1440011715283"></a>
 
--   加载dblink扩展
+-   Load the dblink extension.
 
     ```
     CREATE EXTENSION dblink;
     ```
 
--   打开一个到远程数据库的持久连接
+-   Open a persistent connection to a remote database.
 
     ```
     SELECT dblink_connect(text connstr);
     ```
 
--   关闭一个到远程数据库的持久连接
+-   Close a persistent connection to a remote database.
 
     ```
     SELECT dblink_disconnect();
     ```
 
--   在远程数据库执行查询
+-   Query data in a remote database.
 
     ```
     SELECT * FROM dblink(text connstr, text sql);
     ```
 
--   在远程数据库执行命令
+-   Execute commands in a remote database.
 
     ```
     SELECT dblink_exec(text connstr, text sql);
     ```
 
--   返回所有打开的命名dblink连接的名称
+-   Return the names of all opened dblinks.
 
     ```
     SELECT dblink_get_connections();
     ```
 
--   发送一个异步查询到远程数据库
+-   Send an asynchronous query to a remote database.
 
     ```
     SELECT dblink_send_query(text connname, text sql);
     ```
 
--   检查连接是否正在忙于一个异步查询
+-   Check whether the connection is busy with an asynchronous query.
 
     ```
     SELECT dblink_is_busy(text connname);
     ```
 
--   删除扩展
+-   Delete the extension.
 
     ```
     DROP EXTENSION dblink;
     ```
 
 
-## 注意事项<a name="section1910642310280"></a>
+## Precautions<a name="section1910642310280"></a>
 
-目前dblink仅支持openGauss数据库访问另一个openGauss数据库，不支持openGauss数据库访问PostgreSQL数据库。
+-   Currently, dblink allows only the openGauss database to access another openGauss database and does not allow the openGauss database to access a PostgreSQL database.
+-   Currently, dblink does not support the thread pool mode.
 

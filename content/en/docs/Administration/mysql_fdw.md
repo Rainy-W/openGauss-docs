@@ -1,58 +1,59 @@
-# mysql\_fdw<a name="ZH-CN_TOPIC_0272283427"></a>
+# mysql\_fdw<a name="EN-US_TOPIC_0272283427"></a>
 
-mysql\_fdw是一款[开源插件](https://github.com/EnterpriseDB/mysql_fdw)。openGauss基于开源的[mysql\_fdw Release 2.5.3 版本](https://github.com/EnterpriseDB/mysql_fdw/archive/REL-2_5_3.tar.gz)进行开发适配。
+mysql\_fdw is an  [open-source plug-in](https://github.com/EnterpriseDB/mysql_fdw). openGauss is developed and adapted based on the open-source  [mysql\_fdw Release 2.5.3](https://github.com/EnterpriseDB/mysql_fdw/archive/REL-2_5_3.tar.gz).
 
-编译和使用mysql\_fdw需要环境上包含MariaDB的开发包，所以openGauss默认不编译mysql\_fdw，下面依次介绍如何编译和使用mysql\_fdw。
+To compile and use mysql\_fdw, the MariaDB development packages must be included in the environment. Therefore, openGauss does not compile mysql\_fdw by default. The following describes how to compile and use mysql\_fdw.
 
-## 编译mysql\_fdw<a name="section206261540193912"></a>
+## Compiling mysql\_fdw<a name="section206261540193912"></a>
 
-编译mysql\_fdw需要安装MariaDB的开发库和头文件，推荐使用MariaDB的[官方源](http://downloads.mariadb.org/mariadb/repositories)进行安装。
+To compile mysql\_fdw, install the development library and header file of MariaDB. You are advised to use the official MariaDB repositories. For details about how to select a repository, visit  [http://downloads.mariadb.org/mariadb/repositories/](http://downloads.mariadb.org/mariadb/repositories).
 
-配置好源后，使用**yum install MariaDB-devel MariaDB-shared**安装相关开发库。另外**MariaDB-client**是MariaDB的客户端工具，也可以根据需要安装，用于连接MariaDB进行测试。
+After the repository is configured, run the  **yum install MariaDB-devel MariaDB-shared**  command to install the related development libraries. In addition,  **MariaDB-client**  is a client tool of the MariaDB. You can install it as required to connect to the MariaDB for testing.
 
-安装好开发包后，就可以开始编译mysql\_fdw了。编译时需要在执行**configure**时，加入**--enable-mysql-fdw**选项。后续按照正常的openGauss编译方式编译即可。（openGauss的编译参考**软件安装编译**）
+After installing the development packages, start mysql\_fdw compilation. Add the  **--enable-mysql-fdw**  option when running the  **configure**  command. Perform compilation using the common openGauss compilation method. \(For details about openGauss compilation reference, see  _Software Compilation and Installation_.\)
 
-编译完成后，编译产物为**mysql\_fdw.so**，位于安装目录的**lib/postgresql/** 下。mysql\_fdw相关的sql文件和control文件，位于安装目录的**share/postgresql/extension/**下。
+After the compilation is complete, the  **mysql\_fdw.so**  file is generated in  **lib/postgresql/**  in the installation directory. SQL files and control files related to mysql\_fdw are stored in  **share/postgresql/extension/**  in the installation directory.
 
-如果编译安装时，没有加入**--enable-mysql-fdw**选项，可以在openGauss安装完成后，再次编译mysql\_fdw，然后手动将编译产物**mysql\_fdw.so**放到对应的安装目录**lib/postgresql/**，将**mysql\_fdw--1.0--1.1.sql、mysql\_fdw--1.1.sql、mysql\_fdw--1.0.sql、mysql\_fdw.control**放到对应的安装目录**share/postgresql/extension/**即可。
+If the  **--enable-mysql-fdw**  option is not added during compilation and installation, compile mysql\_fdw again after openGauss is installed, and then manually place the  **mysql\_fdw.so**  file to  **lib/postgresql/**  in the installation directory, and place  **mysql\_fdw--1.0--1.1.sql**,  **mysql\_fdw--1.1.sql**, and  **mysql\_fdw.control**  to  **share/postgresql/extension/**  in the installation directory.
 
-## 使用mysql\_fdw<a name="section1776874817393"></a>
+## Using mysql\_fdw<a name="section1776874817393"></a>
 
--   使用mysql\_fdw需要连接MariaDB或者MySQL Server，MariaDB或MySQL Server请自行安装。
+-   To use mysql\_fdw, install and connect to MariaDB or MySQL server.
 
--   加载mysql\_fdw扩展：**CREATE EXTENSION mysql\_fdw;**
+-   Load the mysql\_fdw extension using  **CREATE EXTENSION mysql\_fdw;**.
 
--   创建服务器对象：**CREATE SERVER**
+-   Create a server object using  **CREATE SERVER**.
 
--   创建用户映射：**CREATE USER MAPPING**
+-   Create a user mapping using  **CREATE USER MAPPING**.
 
--   创建外表：**CREATE FOREIGN TABLE**外表的表结构需要与MySQL/MariaDB侧的表结构保持一致。注意MySQL/MariaDB侧的表的第一个字段必须具有唯一性约束（如PRIMARY KEY、UNIQUE等）。
+-   Create a foreign table using  **CREATE FOREIGN TABLE**. The structure of the foreign table must be the same as that of the MySQL or MariaDB table. The first column in the table on the MySQL or MariaDB must be unique, for example,  **PRIMARY KEY**  and  **UNIQUE**.
 
--   对外表做正常的操作，如**INSERT**、**UPDATE**、**DELETE**、**SELECT**、**EXPLAIN**、**ANALYZE**、**COPY**等。
+-   Perform normal operations on the foreign table, such as  **INSERT**,  **UPDATE**,  **DELETE**,  **SELECT**,  **EXPLAIN**,  **ANALYZE**  and  **COPY**.
 
--   删除外表：**DROP FOREIGN TABLE**
+-   Drop a foreign table using  **DROP FOREIGN TABLE**.
 
--   删除用户映射：**DROP USER MAPPING**
+-   Drop a user mapping using  **DROP USER MAPPING**.
 
--   删除服务器对象：**DROP SERVER**
+-   Drop a server object using  **DROP SERVER**.
 
--   删除扩展：**DROP EXTENSION mysql\_fdw;**
-
-
-## 常见问题<a name="section7506175533915"></a>
-
--   在openGauss上建立外表时，不会同步在MariaDB/MySQL Server上建表，需要自己利用MariaDB/MySQL Server的客户端连接MariaDB/MySQL Server建表。
-
--   创建USER MAPPING时使用的MariaDB/MySQL Server用户需要有远程连接MariaDB/MySQL Server及对表相关操作的权限。使用外表前，可以在openGauss server所在的机器上，使用MariaDB/MySQL Server的客户端，使用对应的用户名密码确认能否成功连接MariaDB/MySQL Server并进行操作。
-
--   对外表执行DML操作时，出现**Can't initialize character set SQL\_ASCII \(path: compiled\_in\)**错误。由于MariaDB不支持**SQL\_ASCII**编码格式，目前只能通过修改openGauss database的编码格式解决该问题。修改database编码格式的方式为**update pg\_database set encoding = pg\_char\_to\_encoding\('UTF-8'\) where datname = 'postgres';**  datname根据实际情况填写。注意修改完编码格式后，需要重新开启一个gsql会话，才能使mysql\_fdw使用更新后的参数。也可以通过在执行**gs\_initdb**时，使用**--locale=LOCALE**，指定默认的编码格式为**非SQL\_ASCII**编码。
+-   Drop an extension using  **DROP EXTENSION mysql\_fdw;**.
 
 
-## 注意事项<a name="section17197204403"></a>
+## Common Issues<a name="section7506175533915"></a>
 
--   两个mysql外表间的**SELECT JOIN**不支持下推到MariaDB/MySQL Server执行，会被分成两条SQL语句传递到MariaDB/MySQL Server执行，然后在openGauss处汇总处理结果。
+-   When a foreign table is created on the openGauss, the table is not created on the MariaDB or MySQL server. You need to use the MariaDB or MySQL server client to connect to the MariaDB or MySQL server to create a table.
 
--   不支持**IMPORT FOREIGN SCHEMA**语法。
+-   The MariaDB or MySQL server user used for creating  **USER MAPPING**  must have the permission to remotely connect to the MariaDB or MySQL server and perform operations on tables. Before using a foreign table, you can use the MariaDB or MySQL server client on the machine where the openGauss server is located and use the corresponding user name and password to check whether the MariaDB or MySQL server can be successfully connected and operations can be performed.
 
--   不支持对外表进行**CREATE TRIGGER**操作。
+-   The  **Can't initialize character set SQL\_ASCII \(path: compiled\_in\)**  error occurs when the DML operation is performed on a foreign table. MariaDB does not support the  **SQL\_ASCII**  encoding format. Currently, this problem can be resolved only by modifying the encoding format of the openGauss database. Change the database encoding format to  **update pg\_database set encoding = pg\_char\_to\_encoding\('UTF-8'\) where datname = 'postgres';**. Set  **datname**  based on the actual requirements. After the encoding format is changed, start a gsql session again so that mysql\_fdw can use the updated parameters. You can also use  **--locale=LOCALE**  when running  **gs\_initdb**  to set the default encoding format to non-SQL\_ASCII.
+
+
+## Precautions<a name="section17197204403"></a>
+
+-   **SELECT JOIN**  between two MySQL foreign tables cannot be pushed down to the MariaDB or MySQL server for execution. Instead,  **SELECT JOIN**  is divided into two SQL statements and transferred to the MariaDB or MySQL server for execution. Then the processing result is summarized in the openGauss.
+
+-   The  **IMPORT FOREIGN SCHEMA**  syntax is not supported.
+
+-   **CREATE TRIGGER**  cannot be executed for foreign tables.
+
 
