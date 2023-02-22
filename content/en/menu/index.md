@@ -394,7 +394,7 @@ headless: true
 				-   [Parameters Related to cm\_server]({{< relref "./docs/ConfiguringParameter/parameters-related-to-cm_server.md" >}})
 			-   [Upgrade Parameters]({{< relref "./docs/ConfiguringParameter/upgrade-parameters.md" >}})
 			-   [Miscellaneous Parameters]({{< relref "./docs/ConfiguringParameter/miscellaneous-parameters.md" >}})
-			-   [Wait Events]({{< relref "./docs/ConfiguringParameter/wait-events-62.md" >}})
+			-   [Wait Events]({{< relref "./docs/ConfiguringParameter/wait-events.md" >}})
 			-   [Query]({{< relref "./docs/ConfiguringParameter/query-62.md" >}})
 			-   [System Performance Snapshot]({{< relref "./docs/ConfiguringParameter/system-performance-snapshot.md" >}})
 			-   [Security Configuration]({{< relref "./docs/ConfiguringParameter/security-configuration.md" >}})
