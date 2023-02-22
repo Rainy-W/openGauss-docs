@@ -1130,7 +1130,7 @@ headless: true
 	        -   [GAUSS-04871 -- GAUSS-04880]({{< relref "./docs/DataBaseReference/GAUSS-04871----GAUSS-04880.md" >}})
 	        -   [GAUSS-04881 -- GAUSS-04890]({{< relref "./docs/DataBaseReference/GAUSS-04881----GAUSS-04890.md" >}})
 	        -   [GAUSS-04891 -- GAUSS-04900]({{< relref "./docs/DataBaseReference/GAUSS-04891----GAUSS-04900.md" >}})
-	    -   [GAUSS-04901 -- GAUSS-04999]({{< relref "./docs/DataBaseReference/GAUSS-04901----GAUSS-04999.md" >}})
+	    -   [GAUSS-04901 -- GAUSS-05000]({{< relref "./docs/DataBaseReference/GAUSS-04901----GAUSS-05000.md" >}})
 	        -   [GAUSS-04901 -- GAUSS-04910]({{< relref "./docs/DataBaseReference/GAUSS-04901----GAUSS-04910.md" >}})
 	        -   [GAUSS-04911 -- GAUSS-04920]({{< relref "./docs/DataBaseReference/GAUSS-04911----GAUSS-04920.md" >}})
 	        -   [GAUSS-04921 -- GAUSS-04930]({{< relref "./docs/DataBaseReference/GAUSS-04921----GAUSS-04930.md" >}})
