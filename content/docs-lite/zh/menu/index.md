@@ -810,7 +810,7 @@ headless: true
 	        -   [PG\_REPLICATION\_SLOTS]({{< relref "./docs/DataBaseReference/PG_REPLICATION_SLOTS.md" >}})
 	        -   [PG\_RLSPOLICIES]({{< relref "./docs/DataBaseReference/PG_RLSPOLICIES.md" >}})
 	        -   [PG\_ROLES]({{< relref "./docs/DataBaseReference/PG_ROLES.md" >}})
-	        -   [PG\_RULES]({{< relref "./docs/DataBaseReference/c.md" >}})
+	        -   [PG\_RULES]({{< relref "./docs/DataBaseReference/PG_RULES.md" >}})
 	        -   [PG\_RUNNING\_XACTS]({{< relref "./docs/DataBaseReference/PG_RUNNING_XACTS.md" >}})
 	        -   [PG\_SECLABELS]({{< relref "./docs/DataBaseReference/PG_SECLABELS.md" >}})
 	        -   [PG_SESSION_IOSTAT]({{< relref "./docs/DataBaseReference/PG_SESSION_IOSTAT.md" >}})
