@@ -24,7 +24,7 @@ headless: true
 	-   [技术指标]({{< relref "./docs/Technicalwhitepaper/技术指标.md" >}})
     -   [基本功能和特性]({{< relref "./docs/Description/基本功能和特性.md" >}})
 	-   [企业级增强特性]({{< relref "./docs/Description/企业级增强特性.md" >}})
-	-   [关键特性]({{< relref "./docs/Description/关键特性.md" >}})
+	-   [关键特性]({{< relref "./docs/Description/CharacteristicDescription.md" >}})
 	    	-   [高性能]({{< relref "./docs/Description/高性能.md" >}})
 	    	-   [CBO优化器]({{< relref "./docs/Description/CBO优化器.md" >}})
 	    	-   [支持LLVM]({{< relref "./docs/Description/支持LLVM.md" >}})
