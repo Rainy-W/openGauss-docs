@@ -12,7 +12,6 @@ RUN mkdir -p /usr/local/src && \
 
 RUN mkdir -p /src/
 COPY . /src/website
-COPY ./deploy/nginx.conf /etc/nginx/nginx.conf
 
 RUN cd /src/ && \
     git clone -b reconstruct https://gitee.com/opengauss/docs latest/docs && \
