@@ -168,29 +168,126 @@ headless: true
     - [Initializing the Database]({{< relref "./docs/installation/initializing-the-database.md" >}})
     - [\(Optional\) Setting the Standby Node to Readable]({{< relref "./docs/installation/optional-setting-the-standby-node-to-readable.md" >}})
   - [Uninstalling the openGauss]({{< relref "./docs/installation/uninstalling-the-opengauss.md" >}})
--   [UpgradeGuide]({{< relref "./docs/UpgradeGuide/upgradeuguide.md" >}})
-    -   [Before You Start]({{< relref "./docs/UpgradeGuide/before-you-start.md" >}})
-    -   [Upgrade]({{< relref "./docs/UpgradeGuide/upgrade.md" >}})
-        -   [Upgrade Process]({{< relref "./docs/UpgradeGuide/upgrade-process.md" >}})
-        -   [Preparing for and Checking the Upgrade]({{< relref "./docs/UpgradeGuide/preparing-for-and-checking-the-upgrade.md" >}})
-        -   [Performing the Upgrade]({{< relref "./docs/UpgradeGuide/performing-the-upgrade.md" >}})
-        -   [Verifying the Upgrade]({{< relref "./docs/UpgradeGuide/verifying-the-upgrade.md" >}}) 
-        -   [Committing the Upgrade Task]({{< relref "./docs/UpgradeGuide/committing-the-upgrade-task.md" >}})
-        -   [Rolling Back the Upgrade Version]({{< relref "./docs/UpgradeGuide/rolling-back-the-upgrade-version.md" >}})
-    -   [Troubleshooting]({{< relref "./docs/UpgradeGuide/troubleshooting.md" >}})	
+-	[Database Operations and Maintenance]({{< relref "./docs/Administratorguide/Administratorguide.md" >}})
+	-	[Starting and Stopping openGauss]({{< relref "./docs/Administratorguide/starting-and-stopping-opengauss.md" >}})
+	-	[Performing a Primary/Standby Switchover]({{< relref "./docs/Administratorguide/performing-a-primary-standby-switchover.md" >}})
+	-	[Routine Maintenance]({{< relref "./docs/Administratorguide/routine-maintenance.md" >}})
+	-   [Logical Replication]({{< relref "./docs/Administratorguide/logical-replication.md" >}})
+		-   [Logical Decoding]({{< relref "./docs/Administratorguide/logical-decoding.md" >}})
+			-   [Overview]({{< relref "./docs/Administratorguide/overview-100.md" >}})
+			-   [Logical Decoding by SQL Function Interfaces]({{< relref "./docs/Administratorguide/logical-decoding-by-sql-function-interfaces.md" >}})
+		-   [Replicating Data Using the Logical Replication Tool]({{< relref "./docs/Administratorguide/replicating-data-using-the-logical-replication-tool.md" >}})
+		-   [Publication-Subscription]({{< relref "./docs/Administratorguide/publication-subscription.md" >}})	
+			-   [Publications]({{< relref "./docs/Administratorguide/publications.md" >}})
+			-   [Subscriptions]({{< relref "./docs/Administratorguide/subscriptions.md" >}})	
+			-   [Conflicts]({{< relref "./docs/Administratorguide/conflicts.md" >}})	
+			-   [Restrictions]({{< relref "./docs/Administratorguide/restrictions-60.md" >}})	
+			-   [Architecture]({{< relref "./docs/Administratorguide/architecture.md" >}})
+			-   [Monitoring]({{< relref "./docs/Administratorguide/monitoring.md" >}})	
+			-   [Security]({{< relref "./docs/Administratorguide/security.md" >}})	
+			-   [Configuration Settings]({{< relref "./docs/Administratorguide/configuration-settings-25.md" >}})	
+			-   [Quick Setup]({{< relref "./docs/Administratorguide/quick-setup.md" >}})
+	-	[Backup and Restoration]({{< relref "./docs/Administratorguide/backup-and-restoration.md" >}})
+		-	[Overview]({{< relref "./docs/Administratorguide/overview-for-backup-and-restoration.md" >}})
+		-	[Backup And Restoration For Configuration Files]({{< relref "./docs/Administratorguide/backup-and-restoration-for-configuration-files.md" >}})
+		-	[Data Backup And Restoration]({{< relref "./docs/Administratorguide/data-backup-and-restoration.md" >}})
+			-	[Logical Backup and Restoration]({{< relref "./docs/Administratorguide/logical-backup-and-restoration.md" >}})
+			-	[Physical Backup and Restoration]({{< relref "./docs/Administratorguide/physical-backup-and-restoration.md" >}})
+		-	[Flashback Restoration]({{< relref "./docs/Administratorguide/flashback-restoration.md" >}})
+		-   [Importing Data]({{< relref "./docs/Administratorguide/importing-data.md" >}})
+			-   [Running the INSERT Statement to Insert Data]({{< relref "./docs/Administratorguide/running-the-insert-statement-to-insert-data.md" >}})
+			-   [Running the COPY FROM STDIN Statement to Import Data]({{< relref "./docs/Administratorguide/running-the-copy-from-stdin-statement-to-import-data.md" >}})
+				-   [Data Import Using COPY FROM STDIN]({{< relref "./docs/Administratorguide/data-import-using-copy-from-stdin.md" >}})
+				-   [Introduction to the CopyManager Class]({{< relref "./docs/Administratorguide/introduction-to-the-copymanager-class.md" >}})
+				-   [Handling Import Errors]({{< relref "./docs/Administratorguide/handling-import-errors.md" >}})
+				-   [Example 1: Importing and Exporting Data Through Local Files]({{< relref "./docs/Administratorguide/example-1-importing-and-exporting-data-through-local-files.md" >}})
+				-   [Example 2: Migrating Data from a MySQL Database to the openGauss Database]({{< relref "./docs/Administratorguide/example-2-migrating-data-from-a-mysql-database-to-the-opengauss-database.md" >}})
+			-   [Using a gsql Meta-Command to Import Data]({{< relref "./docs/Administratorguide/using-a-gsql-meta-command-to-import-data.md" >}})
+			-   [Using gs\_restore to Import Data]({{< relref "./docs/Administratorguide/using-gs_restore-to-import-data.md" >}})
+			-   [Updating Data in a Table]({{< relref "./docs/Administratorguide/updating-data-in-a-table-4.md" >}})
+				-   [Updating a Table by Using DML Statements]({{< relref "./docs/Administratorguide/updating-a-table-by-using-dml-statements.md" >}})
+				-   [Updating and Inserting Data by Using the MERGE INTO Statement]({{< relref "./docs/Administratorguide/updating-and-inserting-data-by-using-the-merge-into-statement.md" >}})
+			-   [Deep Copy]({{< relref "./docs/Administratorguide/deep-copy.md" >}})
+				-   [Performing a Deep Copy by Using the CREATE TABLE Statement]({{< relref "./docs/Administratorguide/performing-a-deep-copy-by-using-the-create-table-statement.md" >}})
+				-   [Performing a Deep Copy by Using the CREATE TABLE LIKE Statement]({{< relref "./docs/Administratorguide/performing-a-deep-copy-by-using-the-create-table-like-statement.md" >}})
+				-   [Performing a Deep Copy by Creating a Temporary Table and Truncating the Original Table]({{< relref "./docs/Administratorguide/performing-a-deep-copy-by-creating-a-temporary-table-and-truncating-the-original-table.md" >}})
+			-   [ANALYZE Table]({{< relref "./docs/Administratorguide/analyze-table.md" >}})
+			-   [Doing VACUUM to a Table]({{< relref "./docs/Administratorguide/doing-vacuum-to-a-table.md" >}})
+			-   [Managing Concurrent Write Operations]({{< relref "./docs/Administratorguide/managing-concurrent-write-operations.md" >}})
+				-   [Transaction Isolation]({{< relref "./docs/Administratorguide/transaction-isolation.md" >}})
+				-   [Write and Read/Write Operations]({{< relref "./docs/Administratorguide/write-and-read-write-operations.md" >}})
+				-   [Potential Deadlocks During Concurrent Write]({{< relref "./docs/Administratorguide/potential-deadlocks-during-concurrent-write.md" >}})
+				-   [Concurrent Write Examples]({{< relref "./docs/Administratorguide/concurrent-write-examples.md" >}})
+					-   [Concurrent INSERT and DELETE in the Same Table]({{< relref "./docs/Administratorguide/concurrent-insert-and-delete-in-the-same-table.md" >}})
+					-   [Concurrent INSERT in the Same table]({{< relref "./docs/Administratorguide/concurrent-insert-in-the-same-table.md" >}})
+					-   [Concurrent UPDATE in the Same Table]({{< relref "./docs/Administratorguide/concurrent-update-in-the-same-table.md" >}})
+					-   [Concurrent Data Import and Queries]({{< relref "./docs/Administratorguide/concurrent-data-import-and-queries.md" >}})
+		-   [Exporting Data]({{< relref "./docs/Administratorguide/exporting-data.md" >}})
+			-   [Using gs\_dump and gs\_dumpall to Export Data]({{< relref "./docs/Administratorguide/using-gs_dump-and-gs_dumpall-to-export-data.md" >}})
+				-   [Overview]({{< relref "./docs/Administratorguide/overview-5.md" >}})
+				-   [Exporting a Single Database]({{< relref "./docs/Administratorguide/exporting-a-single-database.md" >}})
+					-   [Exporting a Database]({{< relref "./docs/Administratorguide/exporting-a-database.md" >}})
+					-   [Exporting a Schema]({{< relref "./docs/Administratorguide/exporting-a-schema.md" >}})
+					-   [Exporting a Table]({{< relref "./docs/Administratorguide/exporting-a-table.md" >}})
+				-   [Exporting All Databases]({{< relref "./docs/Administratorguide/exporting-all-databases.md" >}})
+					-   [Exporting All Databases]({{< relref "./docs/Administratorguide/exporting-all-databases-6.md" >}})
+					-   [Exporting Global Objects]({{< relref "./docs/Administratorguide/exporting-global-objects.md" >}})
+				-   [Data Export By a User Without Required Permissions]({{< relref "./docs/Administratorguide/data-export-by-a-user-without-required-permissions.md" >}})
+	-   [Upgrade]({{< relref "./docs/Administratorguide/upgradeuguide.md" >}})
+	    -   [Before You Start]({{< relref "./docs/Administratorguide/before-you-start.md" >}})
+	    -   [Upgrade Process]({{< relref "./docs/Administratorguide/upgrade-process.md" >}})
+        -   [Preparing for and Checking the Upgrade]({{< relref "./docs/Administratorguide/preparing-for-and-checking-the-upgrade.md" >}})
+        -   [Performing the Upgrade]({{< relref "./docs/Administratorguide/performing-the-upgrade.md" >}})
+        -   [Verifying the Upgrade]({{< relref "./docs/Administratorguide/verifying-the-upgrade.md" >}}) 
+        -   [Committing the Upgrade Task]({{< relref "./docs/Administratorguide/committing-the-upgrade-task.md" >}})
+        -   [Rolling Back the Upgrade Version]({{< relref "./docs/Administratorguide/rolling-back-the-upgrade-version.md" >}})
+	    -   [Troubleshooting]({{< relref "./docs/Administratorguide/troubleshooting.md" >}})	
+	-   [Common Faults and Identification]({{< relref "./docs/Administratorguide/common-faults-and-identification.md" >}})
+		-   [Common Fault Locating Methods]({{< relref "./docs/Administratorguide/common-fault-locating-methods.md" >}})
+		-   [Common Fault Locating Cases]({{< relref "./docs/Administratorguide/common-fault-locating-cases.md" >}})
+			-   [Core Fault Locating]({{< relref "./docs/Administratorguide/core-fault-locating.md" >}})
+				-   [Core Dump Occurs due to Full Disk Space]({{< relref "./docs/Administratorguide/core-dump-occurs-due-to-full-disk-space.md" >}})
+				-   [Core Dump Occurs Due to Incorrect Settings of GUC Parameter log\_directory]({{< relref "./docs/Administratorguide/core-dump-occurs-due-to-incorrect-settings-of-guc-parameter-log_directory.md" >}})
+				-   [Core Dump Occurs when RemoveIPC Is Enabled]({{< relref "./docs/Administratorguide/core-dump-occurs-when-removeipc-is-enabled.md" >}})
+			-   [When the TPC-C is running and a disk to be injected is full, the TPC-C stops responding.]({{< relref "./docs/Administratorguide/when-the-tpc-c-is-running-and-a-disk-to-be-injected-is-full-the-tpc-c-stops-responding.md" >}})
+			-   [Standby Node in the Need Repair]({{< relref "./docs/Administratorguide/standby-node-in-the-need-repair-wal-state.md" >}})
+			-   [Insufficient Memory]({{< relref "./docs/Administratorguide/insufficient-memory.md" >}})
+			-   [Service Startup Failure]({{< relref "./docs/Administratorguide/service-startup-failure.md" >}})
+			-   ["Error:No space left on device" Is Displayed]({{< relref "./docs/Administratorguide/error-no-space-left-on-device-is-displayed.md" >}})
+			-   [After You Run the du Command to Query Data File Size In the XFS File System, the Query Result Is Greater than the Actual File Size]({{< relref "./docs/Administratorguide/after-you-run-the-du-command-to-query-data-file-size-in-the-xfs-file-system-the-query-result-is-grea.md" >}})
+			-   [File Is Damaged in the XFS File System]({{< relref "./docs/Administratorguide/file-is-damaged-in-the-xfs-file-system.md" >}})
+			-   [Primary Node Is Hung in Demoting During a Switchover]({{< relref "./docs/Administratorguide/primary-node-is-hung-in-demoting-during-a-switchover.md" >}})
+			-   [Slow Response to a Query Statement]({{< relref "./docs/Administratorguide/slow-response-to-a-query-statement.md" >}})
+			-   [Analyzing the Status of a Query Statement]({{< relref "./docs/Administratorguide/analyzing-the-status-of-a-query-statement.md" >}})
+			-   [Forcibly Terminating a Session]({{< relref "./docs/Administratorguide/forcibly-terminating-a-session.md" >}})
+			-   [Analyzing Whether a Query Statement Is Blocked]({{< relref "./docs/Administratorguide/analyzing-whether-a-query-statement-is-blocked.md" >}})
+			-   [Low Query Efficiency]({{< relref "./docs/Administratorguide/low-query-efficiency.md" >}})
+			-   ["Lock wait timeout" Is Displayed When a User Executes an SQL Statement]({{< relref "./docs/Administratorguide/lock-wait-timeout-is-displayed-when-a-user-executes-an-sql-statement.md" >}})
+			-   [Table Size Does not Change After VACUUM FULL Is Executed on the Table]({{< relref "./docs/Administratorguide/table-size-does-not-change-after-vacuum-full-is-executed-on-the-table.md" >}})
+			-   [An Error Is Reported When the Table Partition Is Modified]({{< relref "./docs/Administratorguide/an-error-is-reported-when-the-table-partition-is-modified.md" >}})
+			-   [Different Data Is Displayed for the Same Table Queried By Multiple Users]({{< relref "./docs/Administratorguide/different-data-is-displayed-for-the-same-table-queried-by-multiple-users.md" >}})
+			-   [When a User Specifies Only an Index Name to Modify the Index, A Message Indicating That the Index Does Not Exist Is Displayed]({{< relref "./docs/Administratorguide/when-a-user-specifies-only-an-index-name-to-modify-the-index-a-message-indicating-that-the-index-doe.md" >}})
+			-   [Reindexing Fails]({{< relref "./docs/Administratorguide/reindexing-fails.md" >}})
+			-   [An Error Occurs During Integer Conversion]({{< relref "./docs/Administratorguide/an-error-occurs-during-integer-conversion.md" >}})
+			-   ["too many clients already" Is Reported or Threads Failed To Be Created in High Concurrency Scenarios]({{< relref "./docs/Administratorguide/too-many-clients-already-is-reported-or-threads-failed-to-be-created-in-high-concurrency-scenarios.md" >}})
+			-   [B-tree Index Faults]({{< relref "./docs/Administratorguide/b-tree-index-faults.md" >}})	
+			-   [Performance Deterioration Caused by Dirty Page Flushing Efficiency During TPC-C High-Concurrency Long-Term Stable Running]({{< relref "./docs/Administratorguide/performance-deterioration-caused-by-dirty-page-flushing-efficiency-during-tpc-c-high-concurrency-long-term-stable-running.md" >}}) 	
+			-	[A Query Error Is Reported Due to Predicate Pushdown]({{< relref "./docs/Administratorguide/a-query-error-is-reported-due-to-predicate-pushdown.md" >}})
+	-	[High-Risk Operations]({{< relref "./docs/Administratorguide/risky-operations.md" >}})
+	-	[Log Reference]({{< relref "./docs/Administratorguide/log-reference.md" >}})
 -   [Data Migration]({{< relref "./docs/DataMigration/data-migration.md" >}})
-	-   [b-compatible-description]({{< relref "./docs/DataMigration/b-compatible-description.md" >}})
-	-   [assessment-tool]({{< relref "./docs/DataMigration/assessment-tool.md" >}})
-	-   [Migrating Data from MySQL database to openGauss]({{< relref "./docs/DataMigration/migrating-data-from-mysql-database-to-opengauss.md" >}})
-		-   [Full Migration]({{< relref "./docs/DataMigration/full-migration.md" >}})
-		-   [Incremental Migration]({{< relref "./docs/DataMigration/incremental-migration.md" >}})
-		-   [Data Check]({{< relref "./docs/DataMigration/data-check.md" >}})
-		-   [Reverse Migration]({{< relref "./docs/DataMigration/reverse-migration.md" >}})			
+    -   [b-compatible-description]({{< relref "./docs/DataMigration/b-compatible-description.md" >}})
+    -   [assessment-tool]({{< relref "./docs/DataMigration/assessment-tool.md" >}})
+    -   [Migrating Data from MySQL database to openGauss]({{< relref "./docs/DataMigration/migrating-data-from-mysql-database-to-opengauss.md" >}})
+    	-   [Full Migration]({{< relref "./docs/DataMigration/full-migration.md" >}})
+    	-   [Incremental Migration]({{< relref "./docs/DataMigration/incremental-migration.md" >}})
+    	-   [Data Check]({{< relref "./docs/DataMigration/data-check.md" >}})
+    	-   [Reverse Migration]({{< relref "./docs/DataMigration/reverse-migration.md" >}})			
 -   [Tool Reference]({{< relref "./docs/Toolreference/Toolreference.md" >}})
-	-   [Tool Overview]({{< relref "./docs/Toolreference/tool-overview.md" >}})
-	-   [Client Tool]({{< relref "./docs/Toolreference/client-tool.md" >}})
-	    -   [gsql]({{< relref "./docs/Toolreference/gsql.md" >}}) 
-	-   [Server Tools]({{< relref "./docs/Toolreference/server-tools.md" >}})
+    -   [Tool Overview]({{< relref "./docs/Toolreference/tool-overview.md" >}})
+    -   [Client Tool]({{< relref "./docs/Toolreference/client-tool.md" >}})
+        -   [gsql]({{< relref "./docs/Toolreference/gsql.md" >}}) 
+    -   [Server Tools]({{< relref "./docs/Toolreference/server-tools.md" >}})
         -   [gs\_cgroup]({{< relref "./docs/Toolreference/gs_cgroup.md" >}})
         -   [gs\_check]({{< relref "./docs/Toolreference/gs_check.md" >}})
         -   [gs\_checkos]({{< relref "./docs/Toolreference/gs_checkos.md" >}})
@@ -204,10 +301,10 @@ headless: true
         -   [gs\_plan\_simulator]({{< relref "./docs/Toolreference/gs_plan_simulator.md" >}})
         -   [gs\_restore]({{< relref "./docs/Toolreference/gs_restore.md" >}})
         -   [gs\_ssh]({{< relref "./docs/Toolreference/gs_ssh.md" >}})
-		-   [gs\_sdr]({{< relref "./docs/Toolreference/gs_sdr.md" >}})
-	-   [Unified Database Management Tool]({{< relref "./docs/Toolreference/unified-database-management-tool.md" >}})
-	-   [Tools Used in the Internal System]({{< relref "./docs/Toolreference/tools-used-in-the-internal-system.md" >}})
-	    -   [dsscmd]({{< relref "./docs/Toolreference/dsscmd.md" >}})
+    	-   [gs\_sdr]({{< relref "./docs/Toolreference/gs_sdr.md" >}})
+    -   [Unified Database Management Tool]({{< relref "./docs/Toolreference/unified-database-management-tool.md" >}})
+    -   [Tools Used in the Internal System]({{< relref "./docs/Toolreference/tools-used-in-the-internal-system.md" >}})
+        -   [dsscmd]({{< relref "./docs/Toolreference/dsscmd.md" >}})
         -   [dssserver]({{< relref "./docs/Toolreference/dssserver.md" >}})
         -   [gaussdb]({{< relref "./docs/Toolreference/gaussdb.md" >}})
         -   [gs\_backup]({{< relref "./docs/Toolreference/gs_backup.md" >}})
@@ -239,101 +336,185 @@ headless: true
         -   [pssh]({{< relref "./docs/Toolreference/pssh.md" >}})
         -   [pscp]({{< relref "./docs/Toolreference/pscp.md" >}})
         -   [transfer.py]({{< relref "./docs/Toolreference/transfer-py.md" >}})
-	-   [FAQs]({{< relref "./docs/Toolreference/faqs.md" >}})
-	-   [Functions of OpenGauss Executable Scripts]({{< relref "./docs/Toolreference/functions-of-opengauss-executable-scripts.md" >}})
-	-   [System Catalogs and Views Supported by gs\_collector]({{< relref "./docs/Toolreference/system-catalogs-and-views-supported-by-gs_collector.md" >}})	
+    -   [FAQs]({{< relref "./docs/Toolreference/faqs.md" >}})
+    -   [Functions of OpenGauss Executable Scripts]({{< relref "./docs/Toolreference/functions-of-opengauss-executable-scripts.md" >}})
+    -   [System Catalogs and Views Supported by gs\_collector]({{< relref "./docs/Toolreference/system-catalogs-and-views-supported-by-gs_collector.md" >}})	
 -   [Dolphin Extensions]({{< relref "./docs/dolphinExtension/dolphin-extensions.md" >}})
-			-   [Dolphin Overview]({{< relref "./docs/dolphinExtension/dolphin-overview.md" >}})
-			-   [Dolphin Installation]({{< relref "./docs/dolphinExtension/dolphin-installation.md" >}})
-			-   [Dolphin Restrictions]({{< relref "./docs/dolphinExtension/dolphin-restrictions.md" >}})
-			-   [Dolphin Syntax]({{< relref "./docs/dolphinExtension/dolphin-syntax.md" >}})
-				-   [SQL Reference]({{< relref "./docs/dolphinExtension/dolphin-sql-reference.md" >}})
-				    -	[Keywords]({{< relref "./docs/dolphinExtension/dolphin-keywords.md" >}})
+    		-   [Dolphin Overview]({{< relref "./docs/dolphinExtension/dolphin-overview.md" >}})
+    		-   [Dolphin Installation]({{< relref "./docs/dolphinExtension/dolphin-installation.md" >}})
+    		-   [Dolphin Restrictions]({{< relref "./docs/dolphinExtension/dolphin-restrictions.md" >}})
+    		-   [Dolphin Syntax]({{< relref "./docs/dolphinExtension/dolphin-syntax.md" >}})
+    			-   [SQL Reference]({{< relref "./docs/dolphinExtension/dolphin-sql-reference.md" >}})
+    			    -	[Keywords]({{< relref "./docs/dolphinExtension/dolphin-keywords.md" >}})
                     -	[Data Types]({{< relref "./docs/dolphinExtension/dolphin-data-types.md" >}})
-			        	-	[Numeric Types]({{< relref "./docs/dolphinExtension/dolphin-numeric-types.md" >}})
-			        	-	[Character Types]({{< relref "./docs/dolphinExtension/dolphin-character-types.md" >}}) 
-			        	-	[Date/Time Types]({{< relref "./docs/dolphinExtension/dolphin-date-time-types.md" >}}) 
-			        	-	[Bit String Types]({{< relref "./docs/dolphinExtension/dolphin-bit-string-types.md" >}})
-			        	-	[Enumeration Types]({{< relref "./docs/dolphinExtension/dolphin-enumeration-types.md" >}})
-			        -	[Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-functions-and-operators.md" >}})
-			        	-	[Assignment Operators]({{< relref "./docs/dolphinExtension/dolphin-assignment-operators.md" >}}) 
-			        	-	[Character Processing Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-character-processing-functions-and-operators.md" >}}) 
-			        	-	[Arithmetic Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-arithmetic-functions-and-operators.md" >}}) 
-			        	-	[Date and Time Processing Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-date-and-time-processing-functions-and-operators.md" >}})  
-			        	-	[Advisory Lock Functions]({{< relref "./docs/dolphinExtension/dolphin-advisory-lock-functions.md" >}})
-			        	-	[Network Address Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-network-address-functions-and-operators.md" >}})  
-			        	-	[Conditional Expression Functions]({{< relref "./docs/dolphinExtension/dolphin-conditional-expression-functions.md" >}})
-			        	-	[Aggregate Functions]({{< relref "./docs/dolphinExtension/dolphin-aggregate-functions.md" >}})
-			        	-	[System Information Functions]({{< relref "./docs/dolphinExtension/dolphin-system-information-functions.md" >}})
-			        	-	[Logical Operators]({{< relref "./docs/dolphinExtension/dolphin-logical-operators.md" >}}) 
-			        	-	[Bit String Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-bit-string-functions-and-operators.md" >}})
-			        	-	[JSON-JSONB Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-json-jsonb-functions-and-operators.md" >}})
-			        -	[Expressions]({{< relref "./docs/dolphinExtension/dolphin-expressions.md" >}})
-			        	-	[Conditional Expressions]({{< relref "./docs/dolphinextension/dolphin-conditional-expressions.md" >}})
-			        -	[DDL Syntax]({{< relref "./docs/dolphinExtension/dolphin-ddl-syntax-overview.md" >}})
-			        -	[DML Syntax]({{< relref "./docs/dolphinExtension/dolphin-dml-syntax-overview" >}})	
-			        -	[DCL Syntax]({{< relref "./docs/dolphinExtension/dolphin-dcl-syntax-overview.md" >}})
-			        -	[SQL Syntax]({{< relref "./docs/dolphinExtension/dolphin-sql-syntax.md" >}})
-			        	-	[ALTER FUNCTION]({{< relref "./docs/dolphinExtension/dolphin-alter-function.md" >}}
-			        	-	[ALTER PROCEDURE]({{< relref "./docs/dolphinExtension/dolphin-alter-procedure.md" >}}
-			        	-	[ALTER TABLE]({{< relref "./docs/dolphinExtension/dolphin-alter-table.md" >}} 
-			        	-	[ALTER TABLE-PARTITION]({{< relref "./docs/dolphinExtension/dolphin-alter-table-partition.md" >}} 
-			        	-	[ALTER TABLESPACE]({{< relref "./docs/dolphinExtension/dolphin-alter-tablespace.md" >}}  
-			        	-	[ANALYZE ANALYSE]({{< relref "./docs/dolphinExtension/dolphin-analyze-analyse.md" >}}
-			        	-	[AST]({{< relref "./docs/dolphinExtension/dolphin-ast.md" >}}
-			        	-	[CREATE-FUNCTION]({{< relref "./docs/dolphinExtension/dolphin-create-function.md" >}}
-			        	-	[CREATE-INDEX]({{< relref "./docs/dolphinExtension/dolphin-create-index.md" >}}*
-			        	-	[CREATE-PROCEDURE]({{< relref "./docs/dolphinExtension/dolphin-create-procedure.md" >}}
-			        	-	[CREATE-TABLE]({{< relref "./docs/dolphinExtension/dolphin-create-table.md" >}}
-			        	-	[CREATE-TABLE-AS]({{< relref "./docs/dolphinExtension/dolphin-create-table-as.md" >}}
-			        	-	[CREATE-TABLE-PARTITION]({{< relref "./docs/dolphinExtension/dolphin-create-table-partition.md" >}}
-			        	-	[CREATE-TABLESPACE]({{< relref "./docs/dolphinExtension/dolphin-create-tablespace.md" >}}
-			        	-	[CREATE-INDEX]({{< relref "./docs/dolphinExtension/dolphin-create-index.md" >}}
-			        	-	[DESCRIBE-TABLE]({{< relref "./docs/dolphinExtension/dolphin-describe-table.md" >}}
-			        	-	[DROP-TABLESPACE]({{< relref "./docs/dolphinExtension/dolphin-drop-tablespace.md" >}} 
-			        	-	[GRANT]({{< relref "./docs/dolphinExtension/dolphin-GRANT.md" >}}
-			        	-	[INSERT]({{< relref "./docs/dolphinExtension/dolphin-INSERT.md" >}}
-			        	-	[KILL]({{< relref "./docs/dolphinExtension/dolphin-KILL.md" >}}
-			        	-	[OPTIMIZE-TABLE]({{< relref "./docs/dolphinExtension/dolphin-OPTIMIZE-TABLE.md" >}}
-			        	-	[PREPARE]({{< relref "./docs/dolphinExtension/dolphin-PREPARE.md" >}}
-			        	-	[RENAME-USER]({{< relref "./docs/dolphinExtension/dolphin-RENAME-USER.md" >}}
-			        	-	[REVOKE]({{< relref "./docs/dolphinExtension/dolphin-REVOKE.md" >}}
-			        	-	[SELECT]({{< relref "./docs/dolphinExtension/dolphin-SELECT.md" >}} 
-			        	-	[SET-CHARSET]({{< relref "./docs/dolphinExtension/dolphin-SET-CHARSET.md" >}}
-			        	-	[SET-PASSWORD]({{< relref "./docs/dolphinExtension/dolphin-SET-PASSWORD.md" >}}  
-			        	-	[SHOW_COLUMNS]({{< relref "./docs/dolphinExtension/dolphin-SHOW_COLUMNS.md" >}} 
-			        	-	[SHOW-DATABASES]({{< relref "./docs/dolphinExtension/dolphin-SHOW-DATABASES.md" >}}
-			        	-	[SHOW-FUNCTION-STATUS]({{< relref "./docs/dolphinExtension/dolphin-show-function-status.md" >}}
-			        	-	[SHOW-GRANTS]({{< relref "./docs/dolphinExtension/dolphin-show-grants.md" >}}
-			        	-	[SHOW-INDEX]({{< relref "./docs/dolphinExtension/dolphin-show-index.md" >}}  
-			        	-	[SHOW-MASTER-STATUS]({{< relref "./docs/dolphinExtension/dolphin-show-master-status.md" >}}
-			        	-	[SHOW_PLUGINS]({{< relref "./docs/dolphinExtension/dolphin-show-plugins.md" >}} 
-			        	-	[SHOW-PROCEDURE-STATUS]({{< relref "./docs/dolphinExtension/dolphin-show-procedure-status.md" >}}
-			        	-	[SHOW-PROCESSLIST]({{< relref "./docs/dolphinExtension/dolphin-show-processlist.md" >}}
-			        	-	[SHOW-SLAVE-HOSTS]({{< relref "./docs/dolphinExtension/dolphin-show-slave-hosts.md" >}}
-			        	-	[SHOW_TABLES]({{< relref "./docs/dolphinExtension/dolphin-show-tables.md" >}} 
-			        	-	[SHOW-TRIGGERS]({{< relref "./docs/dolphinExtension/dolphin-show-triggers.md" >}} 
-			        	-	[UPDATE]({{< relref "./docs/dolphinExtension/dolphin-update.md" >}}
-			        	-	[USE-DB_NAME]({{< relref "./docs/dolphinExtension/dolphin-use-db-name.md" >}} 
-			        	-	[CHECKSUM-TABLE]({{< relref "./docs/dolphinExtension/dolphin-checksum-table.md" >}}  
-			        	-	[GRANT-REVOKE-PROXY]({{< relref "./docs/dolphinExtension/dolphin-grant-revoke-proxy.md" >}} 	
-			    -   [System Views]({{< relref "./docs/dolphinExtension/dolphin-system-views.md" >}})
-				    -	[PG TYPE NONSTRICT BASIC VALUE]({{< relref "./docs/dolphinExtension/dolphin-pg-type-nonstrict-basic-value.md" >}})
-				    -	[INDEX STATISTIC]({{< relref "./docs/dolphinExtension/dolphin-index-statistic.md" >}})
-			    -   [GUC Parameters]({{< relref "./docs/dolphinExtension/dolphin-guc-parameters.md" >}})
-			    -   [Resetting Parameters]({{< relref "./docs/dolphinExtension/dolphin-resetting-parameters.md" >}})  		
+    		        	-	[Numeric Types]({{< relref "./docs/dolphinExtension/dolphin-numeric-types.md" >}})
+    		        	-	[Character Types]({{< relref "./docs/dolphinExtension/dolphin-character-types.md" >}}) 
+    		        	-	[Date/Time Types]({{< relref "./docs/dolphinExtension/dolphin-date-time-types.md" >}}) 
+    		        	-	[Bit String Types]({{< relref "./docs/dolphinExtension/dolphin-bit-string-types.md" >}})
+    		        	-	[Enumeration Types]({{< relref "./docs/dolphinExtension/dolphin-enumeration-types.md" >}})
+    		        -	[Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-functions-and-operators.md" >}})
+    		        	-	[Assignment Operators]({{< relref "./docs/dolphinExtension/dolphin-assignment-operators.md" >}}) 
+    		        	-	[Character Processing Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-character-processing-functions-and-operators.md" >}}) 
+    		        	-	[Arithmetic Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-arithmetic-functions-and-operators.md" >}}) 
+    		        	-	[Date and Time Processing Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-date-and-time-processing-functions-and-operators.md" >}})  
+    		        	-	[Advisory Lock Functions]({{< relref "./docs/dolphinExtension/dolphin-advisory-lock-functions.md" >}})
+    		        	-	[Network Address Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-network-address-functions-and-operators.md" >}})  
+    		        	-	[Conditional Expression Functions]({{< relref "./docs/dolphinExtension/dolphin-conditional-expression-functions.md" >}})
+    		        	-	[Aggregate Functions]({{< relref "./docs/dolphinExtension/dolphin-aggregate-functions.md" >}})
+    		        	-	[System Information Functions]({{< relref "./docs/dolphinExtension/dolphin-system-information-functions.md" >}})
+    		        	-	[Logical Operators]({{< relref "./docs/dolphinExtension/dolphin-logical-operators.md" >}}) 
+    		        	-	[Bit String Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-bit-string-functions-and-operators.md" >}})
+    		        	-	[JSON-JSONB Functions and Operators]({{< relref "./docs/dolphinExtension/dolphin-json-jsonb-functions-and-operators.md" >}})
+    		        -	[Expressions]({{< relref "./docs/dolphinExtension/dolphin-expressions.md" >}})
+    		        	-	[Conditional Expressions]({{< relref "./docs/dolphinextension/dolphin-conditional-expressions.md" >}})
+    		        -	[DDL Syntax]({{< relref "./docs/dolphinExtension/dolphin-ddl-syntax-overview.md" >}})
+    		        -	[DML Syntax]({{< relref "./docs/dolphinExtension/dolphin-dml-syntax-overview" >}})	
+    		        -	[DCL Syntax]({{< relref "./docs/dolphinExtension/dolphin-dcl-syntax-overview.md" >}})
+    		        -	[SQL Syntax]({{< relref "./docs/dolphinExtension/dolphin-sql-syntax.md" >}})
+    		        	-	[ALTER FUNCTION]({{< relref "./docs/dolphinExtension/dolphin-alter-function.md" >}}
+    		        	-	[ALTER PROCEDURE]({{< relref "./docs/dolphinExtension/dolphin-alter-procedure.md" >}}
+    		        	-	[ALTER TABLE]({{< relref "./docs/dolphinExtension/dolphin-alter-table.md" >}} 
+    		        	-	[ALTER TABLE-PARTITION]({{< relref "./docs/dolphinExtension/dolphin-alter-table-partition.md" >}} 
+    		        	-	[ALTER TABLESPACE]({{< relref "./docs/dolphinExtension/dolphin-alter-tablespace.md" >}}  
+    		        	-	[ANALYZE ANALYSE]({{< relref "./docs/dolphinExtension/dolphin-analyze-analyse.md" >}}
+    		        	-	[AST]({{< relref "./docs/dolphinExtension/dolphin-ast.md" >}}
+    		        	-	[CREATE-FUNCTION]({{< relref "./docs/dolphinExtension/dolphin-create-function.md" >}}
+    		        	-	[CREATE-INDEX]({{< relref "./docs/dolphinExtension/dolphin-create-index.md" >}}*
+    		        	-	[CREATE-PROCEDURE]({{< relref "./docs/dolphinExtension/dolphin-create-procedure.md" >}}
+    		        	-	[CREATE-TABLE]({{< relref "./docs/dolphinExtension/dolphin-create-table.md" >}}
+    		        	-	[CREATE-TABLE-AS]({{< relref "./docs/dolphinExtension/dolphin-create-table-as.md" >}}
+    		        	-	[CREATE-TABLE-PARTITION]({{< relref "./docs/dolphinExtension/dolphin-create-table-partition.md" >}}
+    		        	-	[CREATE-TABLESPACE]({{< relref "./docs/dolphinExtension/dolphin-create-tablespace.md" >}}
+    		        	-	[CREATE-INDEX]({{< relref "./docs/dolphinExtension/dolphin-create-index.md" >}}
+    		        	-	[DESCRIBE-TABLE]({{< relref "./docs/dolphinExtension/dolphin-describe-table.md" >}}
+    		        	-	[DROP-TABLESPACE]({{< relref "./docs/dolphinExtension/dolphin-drop-tablespace.md" >}} 
+    		        	-	[GRANT]({{< relref "./docs/dolphinExtension/dolphin-GRANT.md" >}}
+    		        	-	[INSERT]({{< relref "./docs/dolphinExtension/dolphin-INSERT.md" >}}
+    		        	-	[KILL]({{< relref "./docs/dolphinExtension/dolphin-KILL.md" >}}
+    		        	-	[OPTIMIZE-TABLE]({{< relref "./docs/dolphinExtension/dolphin-OPTIMIZE-TABLE.md" >}}
+    		        	-	[PREPARE]({{< relref "./docs/dolphinExtension/dolphin-PREPARE.md" >}}
+    		        	-	[RENAME-USER]({{< relref "./docs/dolphinExtension/dolphin-RENAME-USER.md" >}}
+    		        	-	[REVOKE]({{< relref "./docs/dolphinExtension/dolphin-REVOKE.md" >}}
+    		        	-	[SELECT]({{< relref "./docs/dolphinExtension/dolphin-SELECT.md" >}} 
+    		        	-	[SET-CHARSET]({{< relref "./docs/dolphinExtension/dolphin-SET-CHARSET.md" >}}
+    		        	-	[SET-PASSWORD]({{< relref "./docs/dolphinExtension/dolphin-SET-PASSWORD.md" >}}  
+    		        	-	[SHOW_COLUMNS]({{< relref "./docs/dolphinExtension/dolphin-SHOW_COLUMNS.md" >}} 
+    		        	-	[SHOW-DATABASES]({{< relref "./docs/dolphinExtension/dolphin-SHOW-DATABASES.md" >}}
+    		        	-	[SHOW-FUNCTION-STATUS]({{< relref "./docs/dolphinExtension/dolphin-show-function-status.md" >}}
+    		        	-	[SHOW-GRANTS]({{< relref "./docs/dolphinExtension/dolphin-show-grants.md" >}}
+    		        	-	[SHOW-INDEX]({{< relref "./docs/dolphinExtension/dolphin-show-index.md" >}}  
+    		        	-	[SHOW-MASTER-STATUS]({{< relref "./docs/dolphinExtension/dolphin-show-master-status.md" >}}
+    		        	-	[SHOW_PLUGINS]({{< relref "./docs/dolphinExtension/dolphin-show-plugins.md" >}} 
+    		        	-	[SHOW-PROCEDURE-STATUS]({{< relref "./docs/dolphinExtension/dolphin-show-procedure-status.md" >}}
+    		        	-	[SHOW-PROCESSLIST]({{< relref "./docs/dolphinExtension/dolphin-show-processlist.md" >}}
+    		        	-	[SHOW-SLAVE-HOSTS]({{< relref "./docs/dolphinExtension/dolphin-show-slave-hosts.md" >}}
+    		        	-	[SHOW_TABLES]({{< relref "./docs/dolphinExtension/dolphin-show-tables.md" >}} 
+    		        	-	[SHOW-TRIGGERS]({{< relref "./docs/dolphinExtension/dolphin-show-triggers.md" >}} 
+    		        	-	[UPDATE]({{< relref "./docs/dolphinExtension/dolphin-update.md" >}}
+    		        	-	[USE-DB_NAME]({{< relref "./docs/dolphinExtension/dolphin-use-db-name.md" >}} 
+    		        	-	[CHECKSUM-TABLE]({{< relref "./docs/dolphinExtension/dolphin-checksum-table.md" >}}  
+    		        	-	[GRANT-REVOKE-PROXY]({{< relref "./docs/dolphinExtension/dolphin-grant-revoke-proxy.md" >}} 	
+    		    -   [System Views]({{< relref "./docs/dolphinExtension/dolphin-system-views.md" >}})
+    			    -	[PG TYPE NONSTRICT BASIC VALUE]({{< relref "./docs/dolphinExtension/dolphin-pg-type-nonstrict-basic-value.md" >}})
+    			    -	[INDEX STATISTIC]({{< relref "./docs/dolphinExtension/dolphin-index-statistic.md" >}})
+    		    -   [GUC Parameters]({{< relref "./docs/dolphinExtension/dolphin-guc-parameters.md" >}})
+    		    -   [Resetting Parameters]({{< relref "./docs/dolphinExtension/dolphin-resetting-parameters.md" >}})  		
 -   [PostGIS Extension]({{< relref "./docs/PostGISExtension/postgis-extension.md" >}})
-	-   [Overview]({{< relref "./docs/PostGISExtension/overview-PostGIS.md" >}})
-	-   [Installing PostGIS]({{< relref "./docs/PostGISExtension/installing-postgis.md" >}})
-	-   [Using PostGIS]({{< relref "./docs/PostGISExtension/using-postgis.md" >}})
-	-   [PostGIS Support and Constraints]({{< relref "./docs/PostGISExtension/postgis-support-and-constraints.md" >}})
+    -   [Overview]({{< relref "./docs/PostGISExtension/overview-PostGIS.md" >}})
+    -   [Installing PostGIS]({{< relref "./docs/PostGISExtension/installing-postgis.md" >}})
+    -   [Using PostGIS]({{< relref "./docs/PostGISExtension/using-postgis.md" >}})
+    -   [PostGIS Support and Constraints]({{< relref "./docs/PostGISExtension/postgis-support-and-constraints.md" >}})
 -   [Appendices]({{< relref "./docs/Appendices/Appendices.md" >}})
-	-   [Obtaining openGauss Resources]({{< relref "./docs/Appendices/obtaining-opengauss-resources.md" >}})
-	-   [FAQ]({{< relref "./docs/Appendices/faqs.md" >}})
-		-   [Product-related FAQs]({{< relref "./docs/Appendices/product-related-faqs.md" >}})
-		-   [Usage-related FAQs]({{< relref "./docs/Appendices/usage-related-faqs.md" >}})	
-	-   [Error Log Reference]({{< relref "./docs/Appendices/error-log-reference.md" >}})
+    -   [Obtaining openGauss Resources]({{< relref "./docs/Appendices/obtaining-opengauss-resources.md" >}})
+    -   [FAQ]({{< relref "./docs/Appendices/faqs.md" >}})
+    	-   [Product-related FAQs]({{< relref "./docs/Appendices/product-related-faqs.md" >}})
+    	-   [Usage-related FAQs]({{< relref "./docs/Appendices/usage-related-faqs.md" >}})	
+    -   [Error Log Reference]({{< relref "./docs/Appendices/error-log-reference.md" >}})
         -   [Kernel Error Information]({{< relref "./docs/Appendices/kernel-error-information.md" >}})
-	-   [Glossary]({{< relref "./docs/Appendices/glossary.md" >}})
+    -   [Glossary]({{< relref "./docs/Appendices/glossary.md" >}})
 -   [Communication Matrix]({{< relref "./docs/CommunicationMatrix/communication-matrix.md" >}})
-
+-   [Parameter Configuration Guide]({{< relref "./docs/ConfiguringParameter/parameter-configuration-guide.md" >}})
+  -	[Configuring Running Parameters]({{< relref "./docs/ConfiguringParameter/configuring-running-parameters.md" >}})
+  	-   [Viewing Parameter Values]({{< relref "./docs/ConfiguringParameter/viewing-parameter-values.md" >}})
+  	-   [Resetting Parameters]({{< relref "./docs/ConfiguringParameter/resetting-parameters.md" >}})
+  	-   [GUC Parameters]({{< relref "./docs/ConfiguringParameter/guc-parameters.md" >}})
+  		-   [GUC Parameter Usage]({{< relref "./docs/ConfiguringParameter/guc-parameter-usage.md" >}})
+  		-   [File Location]({{< relref "./docs/ConfiguringParameter/file-location.md" >}})
+  		-   [Connection and Authentication]({{< relref "./docs/ConfiguringParameter/connection-and-authentication.md" >}})
+  			-   [Connection Settings]({{< relref "./docs/ConfiguringParameter/connection-settings.md" >}})
+  			-   [Security and Authentication \(postgresql.conf\)]({{< relref "./docs/ConfiguringParameter/security-and-authentication_postgresql-conf.md" >}})
+  			-   [Communication Library Parameters]({{< relref "./docs/ConfiguringParameter/communication-library-parameters.md" >}})
+  		-   [Resource Consumption]({{< relref "./docs/ConfiguringParameter/resource-consumption.md" >}})
+  			-   [Memory]({{< relref "./docs/ConfiguringParameter/memory.md" >}})
+  			-   [Disk Space]({{< relref "./docs/ConfiguringParameter/disk-space.md" >}})
+  			-   [Kernel Resource Usage]({{< relref "./docs/ConfiguringParameter/kernel-resource-usage.md" >}})
+  			-   [Cost-based Vacuum Delay]({{< relref "./docs/ConfiguringParameter/cost-based-vacuum-delay.md" >}})
+  			-   [Background Writer]({{< relref "./docs/ConfiguringParameter/background-writer.md" >}})
+  			-   [Asynchronous I/O Operations]({{< relref "./docs/ConfiguringParameter/asynchronous-i-o-operations.md" >}})
+  		-   [Write Ahead Log]({{< relref "./docs/ConfiguringParameter/write-ahead-log.md" >}})
+  			-   [Settings]({{< relref "./docs/ConfiguringParameter/settings-60.md" >}})
+  			-   [Checkpoints]({{< relref "./docs/ConfiguringParameter/checkpoints-60.md" >}})
+  			-   [Log Replay]({{< relref "./docs/ConfiguringParameter/log-replay.md" >}})
+  			-   [Archiving]({{< relref "./docs/ConfiguringParameter/archiving.md" >}})
+  		-   [HA Replication]({{< relref "./docs/ConfiguringParameter/ha-replication.md" >}})
+  			-   [Sending Server]({{< relref "./docs/ConfiguringParameter/sending-server.md" >}})
+  			-   [Primary Server]({{< relref "./docs/ConfiguringParameter/primary-server.md" >}})
+  			-   [Standby Server]({{< relref "./docs/ConfiguringParameter/standby-server.md" >}})
+  		-   [Memory Table]({{< relref "./docs/ConfiguringParameter/memory-table.md" >}})
+  		-   [Query Planning]({{< relref "./docs/ConfiguringParameter/query-planning.md" >}})
+  			-   [Optimizer Method Configuration]({{< relref "./docs/ConfiguringParameter/optimizer-method-configuration.md" >}})
+  			-   [Optimizer Cost Constants]({{< relref "./docs/ConfiguringParameter/optimizer-cost-constants.md" >}})
+  			-   [Genetic Query Optimizer]({{< relref "./docs/ConfiguringParameter/genetic-query-optimizer.md" >}})
+  			-   [Other Optimizer Options]({{< relref "./docs/ConfiguringParameter/other-optimizer-options.md" >}})
+  		-   [Error Reporting and Logging]({{< relref "./docs/ConfiguringParameter/error-reporting-and-logging.md" >}})
+  			-   [Logging Destination]({{< relref "./docs/ConfiguringParameter/logging-destination.md" >}})
+  			-   [Logging Time]({{< relref "./docs/ConfiguringParameter/logging-time.md" >}})
+  			-   [Logging Content]({{< relref "./docs/ConfiguringParameter/logging-content.md" >}})
+  			-   [Using CSV Log Output]({{< relref "./docs/ConfiguringParameter/using-csv-log-output.md" >}})
+  		-   [Alarm Detection]({{< relref "./docs/ConfiguringParameter/alarm-detection.md" >}})
+  		-   [Statistics During the Database Running]({{< relref "./docs/ConfiguringParameter/statistics-during-the-database-running.md" >}})
+  			-   [Query and Index Statistics Collector]({{< relref "./docs/ConfiguringParameter/query-and-index-statistics-collector.md" >}})
+  			-   [Performance Statistics]({{< relref "./docs/ConfiguringParameter/performance-statistics.md" >}})
+  		-   [Workload Management]({{< relref "./docs/ConfiguringParameter/workload-management.md" >}})
+  		-   [Automatic Vacuuming]({{< relref "./docs/ConfiguringParameter/automatic-vacuuming.md" >}})
+  		-   [Default Settings of Client Connection]({{< relref "./docs/ConfiguringParameter/default-settings-of-client-connection.md" >}})
+  			-   [Statement Behavior]({{< relref "./docs/ConfiguringParameter/statement-behavior.md" >}})
+  			-   [Locale and Formatting]({{< relref "./docs/ConfiguringParameter/locale-and-formatting.md" >}})
+  			-   [Other Default Parameters]({{< relref "./docs/ConfiguringParameter/other-default-parameters.md" >}})
+  		-   [Lock Management]({{< relref "./docs/ConfiguringParameter/lock-management.md" >}})
+  		-   [Version and Platform Compatibility]({{< relref "./docs/ConfiguringParameter/version-and-platform-compatibility.md" >}})
+  			-   [Compatibility with Earlier Versions]({{< relref "./docs/ConfiguringParameter/compatibility-with-earlier-versions.md" >}})
+  			-   [Platform and Client Compatibility]({{< relref "./docs/ConfiguringParameter/platform-and-client-compatibility.md" >}})
+  		-   [Fault Tolerance]({{< relref "./docs/ConfiguringParameter/fault-tolerance.md" >}})
+  		-   [Connection Pool Parameters]({{< relref "./docs/ConfiguringParameter/connection-pool-parameters.md" >}})
+  		-   [Transaction]({{< relref "./docs/ConfiguringParameter/transaction-60.md" >}})
+  		-   [Replication Parameters of Two Database Instances]({{< relref "./docs/ConfiguringParameter/replication-parameters-of-two-database-instances.md" >}})
+  		-   [Developer Options]({{< relref "./docs/ConfiguringParameter/developer-options.md" >}})
+  		-   [Auditing]({{< relref "./docs/ConfiguringParameter/auditing.md" >}})
+  			-   [Audit Switch]({{< relref "./docs/ConfiguringParameter/audit-switch.md" >}})
+  			-   [User and Permission Audit]({{< relref "./docs/ConfiguringParameter/user-and-permission-audit.md" >}})
+  			-   [Operation Auditing]({{< relref "./docs/ConfiguringParameter/operation-auditing.md" >}})
+  		-   [CM Parameters]({{< relref "./docs/ConfiguringParameter/cm-parameters.md" >}})
+  			-   [Parameters Related to cm\_agent]({{< relref "./docs/ConfiguringParameter/parameters-related-to-cm_agent.md" >}})
+  			-   [Parameters Related to cm\_server]({{< relref "./docs/ConfiguringParameter/parameters-related-to-cm_server.md" >}})
+  		-   [Upgrade Parameters]({{< relref "./docs/ConfiguringParameter/upgrade-parameters.md" >}})
+  		-   [Miscellaneous Parameters]({{< relref "./docs/ConfiguringParameter/miscellaneous-parameters.md" >}})
+  		-   [Wait Events]({{< relref "./docs/ConfiguringParameter/wait_events.md" >}})
+  		-   [Query]({{< relref "./docs/ConfiguringParameter/query-62.md" >}})
+  		-   [System Performance Snapshot]({{< relref "./docs/ConfiguringParameter/system-performance-snapshot.md" >}})
+  		-   [Security Configuration]({{< relref "./docs/ConfiguringParameter/security-configuration.md" >}})
+  		-   [Global Temporary Table]({{< relref "./docs/ConfiguringParameter/global-temporary-table.md" >}})
+  		-   [HyperLogLog]({{< relref "./docs/ConfiguringParameter/hyperloglog.md" >}})
+  		-   [User-defined Functions]({{< relref "./docs/ConfiguringParameter/user-defined-functions-60.md" >}})
+  		-   [Scheduled Task]({{< relref "./docs/ConfiguringParameter/scheduled-task.md" >}})
+  		-   [Thread Pool]({{< relref "./docs/ConfiguringParameter/thread-pool.md" >}})
+  		-   [Backup and Restoration]({{< relref "./docs/ConfiguringParameter/backup-and-restoration.md" >}})
+  		-   [Undo]({{< relref "./docs/ConfiguringParameter/undo.md" >}})
+  		-   [DCF Parameters Settings]({{< relref "./docs/ConfiguringParameter/dcf-parameters-settings.md" >}})
+  		-   [Flashback]({{< relref "./docs/ConfiguringParameter/flashback.md" >}})
+  		-   [Rollback Parameters]({{< relref "./docs/ConfiguringParameter/rollback-parameters.md" >}})
+  		-   [Reserved Parameters]({{< relref "./docs/ConfiguringParameter/reserved-parameters.md" >}})
+  		-   [AI Features]({{< relref "./docs/ConfiguringParameter/ai-features-31.md" >}})
+  		-   [Global SysCache Parameters]({{< relref "./docs/ConfiguringParameter/global-syscache-parameters.md" >}})
+  		-   [Shared Storage Parameters]({{< relref "./docs/ConfiguringParameter/shared-storage-parameters.md" >}})
+  		-   [Parameters Related to Efficient Data Compression Algorithms]({{< relref "./docs/ConfiguringParameter/parameters-related-to-efficient-data-compression-algorithms.md" >}})
