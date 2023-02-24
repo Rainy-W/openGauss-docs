@@ -1724,7 +1724,7 @@ headless: true
             -   [Operation Auditing]({{< relref "./docs/ConfiguringParameter/operation-auditing.md" >}})
         -   [Upgrade Parameters]({{< relref "./docs/ConfiguringParameter/upgrade-parameters.md" >}})
         -   [Miscellaneous Parameters]({{< relref "./docs/ConfiguringParameter/miscellaneous-parameters.md" >}})
-        -   [Wait Events]({{< relref "./docs/ConfiguringParameter/wait-events.md" >}})
+        -   [Wait Events]({{< relref "./docs/ConfiguringParameter/wait_events.md" >}})
         -   [Query]({{< relref "./docs/ConfiguringParameter/query-37.md" >}})
         -   [System Performance Snapshot]({{< relref "./docs/ConfiguringParameter/system-performance-snapshot.md" >}})
         -   [Security Configuration]({{< relref "./docs/ConfiguringParameter/security-configuration.md" >}})
