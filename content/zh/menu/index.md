@@ -733,7 +733,7 @@ headless: true
         -   [案例：改建分区表]({{< relref "./docs/PerformanceTuning/案例-改建分区表.md" >}})
         -   [案例：改写SQL消除子查询（案例1）]({{< relref "./docs/PerformanceTuning/案例-改写SQL消除子查询_案例1.md" >}})
         -   [案例：改写SQL消除子查询（案例2）]({{< relref "./docs/PerformanceTuning/案例-改写SQL消除子查询_案例2.md" >}})
-      -   [案例：改写SQL消除in-clause]({{< relref "./docs/PerformanceTuning/案例-改写SQL消除in-clause.md" >}})
+        -   [案例：改写SQL消除in-clause]({{< relref "./docs/PerformanceTuning/案例-改写SQL消除in-clause.md" >}})
 -   [数据迁移指南]({{< relref "./docs/DataMigration/DataMigration.md" >}})
     -   [MySQL兼容性说明]({{< relref "./docs/DataMigration/MySQL兼容性说明.md" >}})
     -   [MySQL语法兼容性评估工具]({{< relref "./docs/DataMigration/MySQL语法兼容性评估工具.md" >}})	
