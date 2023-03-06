@@ -1855,8 +1855,6 @@ headless: true
     		-   [PLAN\_TABLE\_DATA]({{< relref "./docs/DataBaseReference/PLAN_TABLE_DATA.md" >}})
     		-   [STATEMENT\_HISTORY]({{< relref "./docs/DataBaseReference/STATEMENT_HISTORY.md" >}})	          
         -   [系统视图]({{< relref "./docs/DataBaseReference/系统视图.md" >}})
-    		-   [DV\_SESSIONS]({{< relref "./docs/DataBaseReference/DV_SESSIONS.md" >}})
-    		-   [DV\_SESSION\_LONGOPS]({{< relref "./docs/DataBaseReference/DV_SESSION_LONGOPS.md" >}})
     		-   [GET\_GLOBAL\_PREPARED\_XACTS（废弃）]({{< relref "./docs/DataBaseReference/GET_GLOBAL_PREPARED_XACTS_废弃.md" >}})
     		-   [GS\_AUDITING]({{< relref "./docs/DataBaseReference/GS_AUDITING.md" >}})
     		-   [GS\_AUDITING\_ACCESS]({{< relref "./docs/DataBaseReference/GS_AUDITING_ACCESS.md" >}})
