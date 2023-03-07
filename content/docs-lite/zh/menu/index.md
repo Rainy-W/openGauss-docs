@@ -453,6 +453,7 @@ headless: true
 -   [性能优化指南]({{< relref "./docs/PerformanceTuning/性能优化指南.md" >}})
     -   [总体调优思路]({{< relref "./docs/PerformanceTuning/总体调优思路.md" >}})
     -   [确定性能调优范围]({{< relref "./docs/PerformanceTuning/确定性能调优范围.md" >}})
+        -   [性能日志]({{< relref "./docs/PerformanceTuning/性能日志.md" >}})
         -   [硬件瓶颈点分析]({{< relref "./docs/PerformanceTuning/硬件瓶颈点分析.md" >}})
             -   [CPU]({{< relref "./docs/PerformanceTuning/CPU.md" >}})
             -   [内存]({{< relref "./docs/PerformanceTuning/内存.md" >}})
