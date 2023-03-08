@@ -443,6 +443,7 @@ headless: true
 -   [Performance Tuning]({{< relref "./docs/PerformanceTuning/performance-tuning.md" >}})
     -   [Overview]({{< relref "./docs/PerformanceTuning/performance-tuning-overview.md" >}})
     -   [Determining the Scope of Performance Tuning]({{< relref "./docs/PerformanceTuning/determining-the-scope-of-performance-tuning.md" >}})
+        -   [Performance Logs]({{< relref "./docs/PerformanceTuning/performance-logs.md" >}})
         -   [Analyzing Hardware Bottlenecks]({{< relref "./docs/PerformanceTuning/analyzing-hardware-bottlenecks.md" >}})
             -   [CPU]({{< relref "./docs/PerformanceTuning/cpu.md" >}})
             -   [Memory]({{< relref "./docs/PerformanceTuning/memory.md" >}})
@@ -528,7 +529,7 @@ headless: true
         -   [Case: Reconstructing Partitioned Tables]({{< relref "./docs/PerformanceTuning/case-reconstructing-partitioned-tables.md" >}})
         -   [Case: Rewriting SQL and Deleting Subqueries (1)]({{< relref "./docs/PerformanceTuning/case-rewriting-sql-and-deleting-subqueries-1.md" >}})
         -   [Case: Rewriting SQL and Deleting Subqueries (2)]({{< relref "./docs/PerformanceTuning/case-rewriting-sql-and-deleting-subqueries-2.md" >}})
-        -   [Case: Rewriting SQL Statements and Deleting in-clause]({{< relref "./docs/PerformanceTuning/case-rewriting-sql-statements-and-deleting-in-clause.md" >}})
+      -   [Case: Rewriting SQL Statements and Deleting in-clause]({{< relref "./docs/PerformanceTuning/case-rewriting-sql-statements-and-deleting-in-clause.md" >}})
   
 -   [Tool Reference]({{< relref "./docs/Toolreference/Toolreference.md" >}})
     -   [Overview]({{< relref "./docs/Toolreference/overview.md" >}})

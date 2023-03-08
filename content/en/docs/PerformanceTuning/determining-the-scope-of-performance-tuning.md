@@ -34,13 +34,11 @@ Performance tuning depends on the usage of hardware resources, such as the CPU, 
 -   If a resource reaches the bottleneck:
     1.  Check whether the key OS parameters and database parameters are properly set and perform  [System Optimization](system-optimization.md).
     2.  Find the resource consuming SQL statements by querying the most time-consuming SQL statements and unresponsive SQL statements, and then perform  [SQL Optimization](sql-optimization.md).
-
 -   If no resource reaches the bottleneck, the system performance can be improved. In this case, query the most time-consuming SQL statements and the unresponsive SQL statements, and then perform  [SQL Optimization](sql-optimization.md)  as required.
-
+-   **[Performance Logs](performance-logs.md)**
 -   **[Analyzing Hardware Bottlenecks](analyzing-hardware-bottlenecks.md)**  
 The CPU, memory, I/O, and network resource usage of each node in openGauss are obtained to check whether these resources are fully used and whether any bottleneck exists.
 -   **[Querying SQL Statements That Affect Performance Most](querying-sql-statements-that-affect-performance-most.md)**  
-
 -   **[Checking Blocked Statements](checking-blocked-statements.md)**  
 
 
