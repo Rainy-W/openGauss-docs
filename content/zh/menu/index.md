@@ -154,6 +154,7 @@ headless: true
                 -   [libpq]({{< relref "./docs/GettingStarted/libpq.md" >}})
             -   [Java]({{< relref "./docs/GettingStarted/Java.md" >}})
             -   [Python]({{< relref "./docs/GettingStarted/Python.md" >}})
+		-   [使用openGauss]({{< relref "./docs/GettingStarted/使用openGauss.md" >}})	
 -   [安装指南]({{< relref "./docs/installation/installation.md" >}})
     - [安装概述]({{< relref "./docs/installation/安装概述.md" >}})
     - [极简版安装]({{< relref "./docs/installation/极简版安装.md" >}})
