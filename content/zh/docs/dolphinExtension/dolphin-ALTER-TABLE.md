@@ -113,7 +113,7 @@
 
 >![](public_sys-resources/icon-note.gif) **说明：** 
 
->涉及的参数说明可见[ALTER TABLE](ALTER-TABLE.md)。
+>涉及的参数说明可见[ALTER TABLE](../SQLReference/ALTER-TABLE.md)。
 
 ## 示例<a name="zh-cn_topic_0283137126_zh-cn_topic_0237122076_zh-cn_topic_0059779051_se4f9dc97861c410bb51554bb58bcd76d"></a>
 
@@ -172,4 +172,4 @@ openGauss=# DROP TABLE alter_table_tbl1, alter_table_tbl2;
 
 ## 相关链接<a name="section156744489391"></a>
 
-[ALTER TABLE](ALTER-TABLE.md)
+[ALTER TABLE](../SQLReference/.md)

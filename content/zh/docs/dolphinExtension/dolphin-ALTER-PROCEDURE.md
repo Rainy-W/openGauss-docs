@@ -86,4 +86,4 @@
 
 ## 相关链接<a name="zh-cn_topic_0283136989_zh-cn_topic_0237122061_zh-cn_topic_0059778614_sacb869eb702a48fdbb64acb219ced069"></a>
 
-[ALTER PROCEDURE](ALTER-PROCEDURE.md)
+[ALTER PROCEDURE](../SQLReference/ALTER-PROCEDURE.md)

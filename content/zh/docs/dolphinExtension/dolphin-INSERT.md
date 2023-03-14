@@ -219,4 +219,4 @@ openGauss=# DROP TABLE 删除表value_test。;
 
 ## 相关链接<a name="section156744489391"></a>
 
-[INSERT](INSERT.md)
+[INSERT](../SQLReference/INSERT.md)

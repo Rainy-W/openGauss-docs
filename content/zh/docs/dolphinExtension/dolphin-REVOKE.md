@@ -112,6 +112,6 @@ REVOKE INDEX FROM TEST_USER;
 
 ## 相关链接<a name="section156744489391"></a>
 
-[REVOKE](REVOKE.md)
+[REVOKE](../SQLReference/REVOKE.md)
 
 

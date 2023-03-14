@@ -90,7 +90,7 @@ SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
 
 > ![](public_sys-resources/icon-note.gif) **说明：** 
 > 
-> 涉及的其它参数说明可见[SELECT](SELECT.md)。
+> 涉及的其它参数说明可见[SELECT](../SQLReference/SELECT.md)。
 
 ## 示例<a name="zh-cn_topic_0283136463_zh-cn_topic_0237122184_zh-cn_topic_0059777449_sc1b5e63c90c946b89430696c38fc86c0"></a>
 
@@ -201,4 +201,4 @@ openGauss=# select a.* from multi_partition_select_test partition (test_part1, t
 
 ## 相关链接<a name="section156744489391"></a>
 
-[SELECT](SELECT.md)
+[SELECT](../SQLReference/SELECT.md)
