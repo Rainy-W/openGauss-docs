@@ -467,6 +467,8 @@ headless: true
     			-	[日期-时间类型]({{< relref "./docs/DolphinExtension/dolphin-日期-时间类型.md" >}}) 
     			-	[位串类型]({{< relref "./docs/DolphinExtension/dolphin-位串类型.md" >}})
     			-	[枚举类型]({{< relref "./docs/DolphinExtension/dolphin-枚举类型.md" >}})
+				-	[布尔类型]({{< relref "./docs/DolphinExtension/dolphin-布尔类型.md" >}})
+				-	[二进制类型]({{< relref "./docs/DolphinExtension/dolphin-二进制类型.md" >}})
     		-	[函数和操作符]({{< relref "./docs/DolphinExtension/dolphin-函数和操作符.md" >}})
     			-	[赋值操作符]({{< relref "./docs/DolphinExtension/dolphin-赋值操作符.md" >}}) 
     			-	[字符处理函数和操作符]({{< relref "./docs/DolphinExtension/dolphin-字符处理函数和操作符.md" >}}) 
@@ -491,6 +493,7 @@ headless: true
     			-	[ALTER TABLE]({{< relref "./docs/DolphinExtension/dolphin-ALTER-TABLE.md" >}} 
     			-	[ALTER TABLE-PARTITION]({{< relref "./docs/DolphinExtension/dolphin-ALTER-TABLE-PARTITION.md" >}} 
     			-	[ALTER TABLESPACE]({{< relref "./docs/DolphinExtension/dolphin-ALTER-TABLESPACE.md" >}}  
+				-	[ALTER-SERVER]({{< relref "./docs/DolphinExtension/dolphin-ALTER-SERVER.md" >}}
     			-	[ANALYZE ANALYSE]({{< relref "./docs/DolphinExtension/dolphin-ANALYZE-ANALYSE.md" >}}
     			-	[AST]({{< relref "./docs/DolphinExtension/dolphin-AST.md" >}}
     			-	[CREATE-FUNCTION]({{< relref "./docs/DolphinExtension/dolphin-CREATE-FUNCTION.md" >}}
@@ -501,9 +504,14 @@ headless: true
     			-	[CREATE-TABLE-PARTITION]({{< relref "./docs/DolphinExtension/dolphin-CREATE-TABLE-PARTITION.md" >}}
     			-	[CREATE-TABLESPACE]({{< relref "./docs/DolphinExtension/dolphin-CREATE-TABLESPACE.md" >}}
     			-	[CREATE-INDEX]({{< relref "./docs/DolphinExtension/dolphin-CREATE-INDEX.md" >}}
+				-	[CREATE-SERVER]({{< relref "./docs/DolphinExtension/dolphin-CREATE-SERVER.md" >}}
     			-	[DESCRIBE-TABLE]({{< relref "./docs/DolphinExtension/dolphin-DESCRIBE-TABLE.md" >}}
     			-	[DROP-TABLESPACE]({{< relref "./docs/DolphinExtension/dolphin-DROP-TABLESPACE.md" >}} 
+    			-	[EXPLAIN]({{< relref "./docs/DolphinExtension/dolphin-EXPLAIN.md" >}} 	
+    			-	[EXECUTE]({{< relref "./docs/DolphinExtension/dolphin-EXECUTE.md" >}}	
+    			-	[FLUSH-BINARY-LOGS]({{< relref "./docs/DolphinExtension/dolphin-FLUSH-BINARY-LOGS.md" >}}				
     			-	[GRANT]({{< relref "./docs/DolphinExtension/dolphin-GRANT.md" >}}
+				-	[LOAD-DATA]({{< relref "./docs/DolphinExtension/dolphin-LOAD-DATA.md" >}}
     			-	[INSERT]({{< relref "./docs/DolphinExtension/dolphin-INSERT.md" >}}
     			-	[KILL]({{< relref "./docs/DolphinExtension/dolphin-KILL.md" >}}
     			-	[OPTIMIZE-TABLE]({{< relref "./docs/DolphinExtension/dolphin-OPTIMIZE-TABLE.md" >}}
@@ -525,6 +533,10 @@ headless: true
     			-	[SHOW-SLAVE-HOSTS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-SLAVE-HOSTS.md" >}}
     			-	[SHOW_TABLES]({{< relref "./docs/DolphinExtension/dolphin-SHOW_TABLES.md" >}} 
     			-	[SHOW-TRIGGERS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-TRIGGERS.md" >}} 
+				-	[SHOW-CHARACTER-SET]({{< relref "./docs/DolphinExtension/dolphin-SHOW-CHARACTER-SET.md" >}}
+				-	[SHOW-COLLATION]({{< relref "./docs/DolphinExtension/dolphin-SHOW-COLLATION.md" >}}
+				-	[SHOW_PRIVILEGES]({{< relref "./docs/DolphinExtension/dolphin-SHOW_PRIVILEGES.md" >}}
+				-	[SHOW-TABLE-STATUS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-TABLE-STATUS.md" >}}
     			-	[UPDATE]({{< relref "./docs/DolphinExtension/dolphin-UPDATE.md" >}}
     			-	[USE-DB_NAME]({{< relref "./docs/DolphinExtension/dolphin-USE-DB_NAME.md" >}} 
     			-	[CHECKSUM-TABLE]({{< relref "./docs/DolphinExtension/dolphin-CHECKSUM-TABLE.md" >}}  

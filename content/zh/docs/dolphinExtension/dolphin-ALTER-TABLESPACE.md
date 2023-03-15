@@ -105,7 +105,7 @@
     取值范围：
 
     -   UNLIMITED，该表空间不设置限额。
-    -   由space\_size来确定，其格式参考[CREATE TABLESPACE](CREATE-TABLESPACE.md)。
+    -   由space\_size来确定，其格式参考[CREATE TABLESPACE](../SQLReference/CREATE-TABLESPACE.md)。
 
         >![](public_sys-resources/icon-note.gif) **说明：** 
         >-   若调整后的限额值比当前表空间实际使用的值要小，调整操作可以执行成功，后续用户需要将该表空间的使用值降低到新限额值之下，才能继续往该表空间中写入数据。
