@@ -1263,6 +1263,7 @@ headless: true
 		-   [pg\_controldata]({{< relref "./docs/Toolreference/pg_controldata.md" >}})
 		-   [pg\_resetxlog]({{< relref "./docs/Toolreference/pg_resetxlog.md" >}})  
 		
+
 -   [数据库参考]({{< relref "./docs/DataBaseReference/数据库参考.md" >}})
 	-   [系统表和系统视图]({{< relref "./docs/DataBaseReference/系统表和系统视图.md" >}})
 	    -   [系统表和系统视图概述]({{< relref "./docs/DataBaseReference/系统表和系统视图概述.md" >}})
