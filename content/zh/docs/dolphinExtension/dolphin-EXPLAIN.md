@@ -293,5 +293,5 @@ opengauss=# explain test_t;
 
 ## 相关链接<a name="zh-cn_topic_0283136728_zh-cn_topic_0237122163_zh-cn_topic_0059777774_scfac1ca9cbb74e3d891c918580e6b393"></a>
 
-[ANALYZE | ANALYSE](ANALYZE-ANALYSE.md)，[DESCRIBE](dolphin-DESCRIBE-TABLE.md)
+[ANALYZE | ANALYSE](../SQLReference/ANALYZE-ANALYSE.md)，[DESCRIBE](dolphin-DESCRIBE-TABLE.md)
 
