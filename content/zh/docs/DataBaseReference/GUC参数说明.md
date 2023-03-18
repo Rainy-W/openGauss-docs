@@ -50,7 +50,7 @@
 
 -   **[等待事件](等待事件.md)**  
 
--   **[Query](Query.md)**  
+-   **[Query](Query_GUC.md)**  
 
 -   **[系统性能快照](系统性能快照.md)**  
 
@@ -60,7 +60,7 @@
 
 -   **[HyperLogLog](HyperLogLog.md)**  
 
--   **[用户自定义函数](用户自定义函数.md)**  
+-   **[用户自定义函数](用户自定义函数_GUC.md)**  
 
 -   **[定时任务](定时任务.md)**  
 
@@ -78,7 +78,7 @@
 
 -   **[预留参数](预留参数.md)**  
 
--   **[AI特性](AI特性.md)**  
+-   **[AI特性](AI特性-GUC.md)**  
 
 
 -   **[Global SysCache参数](Global-SysCache参数.md)** 
