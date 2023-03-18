@@ -143,7 +143,7 @@
             [ TABLESPACE tablespacename ]
         ```
 
- -   分区项partition\_start\_end\_item的语法为，其约束参见[START END语法描述](../SQLReference/.md#zh-cn_topic_0283136653_zh-cn_topic_0237122119_li2094151861116)。
+ -   分区项partition\_start\_end\_item的语法为，其约束参见[START END语法描述](../SQLReference/CREATE-TABLE-PARTITION.md#zh-cn_topic_0283136653_zh-cn_topic_0237122119_li2094151861116)。
 
         ```
         PARTITION partition_name {

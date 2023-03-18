@@ -172,4 +172,4 @@ openGauss=# DROP TABLE alter_table_tbl1, alter_table_tbl2;
 
 ## 相关链接<a name="section156744489391"></a>
 
-[ALTER TABLE](../SQLReference/.md)
+[ALTER TABLE](../SQLReference/ALTER-TABLE.md)
