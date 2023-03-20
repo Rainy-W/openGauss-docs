@@ -28,4 +28,4 @@
 
 -   **[SQL语法](SQL语法.md)**  
 
--   **[-SQL语法](附录-SQL语法.md)**  
+-   **[附录](../BriefTutorial/附录-SQL语法.md)**  
