@@ -656,3 +656,20 @@ openGauss=# set dolphin.optimizer_switch = 'use_invisible_index = default';
 **取值范围**：[0, 30]
 
 **默认值**：4
+
+## sql_note
+
+**参数说明**：设置show warnings是否显示Note级别的信息开关。
+
+**取值范围**：布尔型
+
+**默认值**：ON
+
+**示例**：
+```sql
+openGauss=# show sql_note;
+ sql_note
+----------
+ on
+(1 row)
+```

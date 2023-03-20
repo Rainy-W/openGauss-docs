@@ -195,6 +195,15 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
 
     字段的数据类型。
 
+
+-   **column\_constraint**
+
+    字段的类型约束中，添加了mysql的ON UPDATE特性，归类于字段类型约束。与DEFAULT属性属于同类约束。该ON UPDATE属性用于，执行UPDATE操作timestamp字段为缺省时，则自动更新timestamp字段的时间截。如果更新字段的数据内容与原来的数据内容一致，则其他含有ON UPDATE的字段的时间截不会自动更新。
+
+    ```sql
+    CREATE TABLE table_name(column_name timestamp ON UPDATE CURRENT_TIMESTAMP);
+    ```
+
 -   **compress\_mode**
 
     表字段的压缩选项。该选项指定表字段优先使用的压缩算法。行存表不支持压缩。
