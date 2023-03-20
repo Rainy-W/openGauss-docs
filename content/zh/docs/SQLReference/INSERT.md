@@ -61,7 +61,7 @@ INSERT [/*+ plan_hint */] INTO table_name [partition_clause] [ AS alias ] [ ( co
 
   - **plan\_hint子句**
 
-    以/\*+ \*/的形式在INSERT关键字后，用于对INSERT对应的语句块生成的计划进行hint调优，详细用法请参见章节[使用Plan Hint进行调优](zh-cn_topic_0289900289.md)。每条语句中只有第一个/\*+ plan\_hint \*/注释块会作为hint生效，里面可以写多条hint。
+    以/\*+ \*/的形式在INSERT关键字后，用于对INSERT对应的语句块生成的计划进行hint调优，详细用法请参见章节[使用Plan Hint进行调优](../PerformanceTuning/使用Plan-Hint进行调优.md)。每条语句中只有第一个/\*+ plan\_hint \*/注释块会作为hint生效，里面可以写多条hint。
 
 -   **table\_name**
 
@@ -105,7 +105,7 @@ INSERT [/*+ plan_hint */] INTO table_name [partition_clause] [ AS alias ] [ ( co
     - ② 当引用的字段未执行计算或正在计算（引用自身）：
         - 所引用的字段的默认值为常量或存在旧元组，则取默认值或旧元组值参与当前表达式的计算。
         - 所引用的字段的默认值不是常量（是方法、表达式等）且不存在旧元组值和not null约束时，取null参与当前表达式的计算。
-        - 所引用的字段包含not null约束时，则取引用字段的基础值参与计算，与存在[IGNORE](dolphin-INSERT.md)关键字时的表现一致。
+        - 所引用的字段包含not null约束时，则取引用字段的基础值参与计算，与存在[IGNORE](../dolphinExtension/dolphin-INSERT.md)关键字时的表现一致。
     - ③ 当引用的字段已执行计算，取该字段的当前记录的值参与当前表达式的计算。
     
     其余与其他兼容性模式的数据库表现相同。
