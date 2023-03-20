@@ -449,6 +449,7 @@ headless: true
         -   [全流程AI]({{< relref "./docs/AIFeatures/全流程AI.md" >}})
             -   [PLPython Fenced模式]({{< relref "./docs/AIFeatures/PLPython-Fenced模式.md" >}})
             -   [DB4AI-Snapshots数据版本管理]({{< relref "./docs/AIFeatures/DB4AI-Snapshots数据版本管理.md" >}})
+			-   [DB4AI-Query：模型训练和推断]({{< relref "./docs/AIFeatures/DB4AI-Query-模型训练和推断.md" >}})
     -   [ABO优化器]({{< relref "./docs/AIFeatures/ABO优化器.md" >}})
         -   [智能基数估计]({{< relref "./docs/AIFeatures/智能基数估计.md" >}})
             -   [概述]({{< relref "./docs/AIFeatures/概述-ABO.md" >}})
