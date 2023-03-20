@@ -28,7 +28,7 @@
 
     返回值类型：record
 
-    示例请参见[虚拟索引](../installation/虚拟索引.md)。
+    示例请参见[虚拟索引](../AIFeatures/虚拟索引.md)。
 
 -   hypopg\_drop\_index\(oid\)
 
