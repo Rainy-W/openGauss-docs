@@ -4,7 +4,7 @@ gsql是openGauss提供的在命令行下运行的数据库连接工具。此工�
 
 ## 注意事项<a name="zh-cn_topic_0283137029_zh-cn_topic_0237120292_zh-cn_topic_0062050379_s8dfe50d001084ac9ad79a79a8f471e8a"></a>
 
-缺省情况下，客户端连接数据库后处于空闲状态时会根据参数[session\_timeout](../DataBaseReference/安全和认证_postgresql-conf.md#zh-cn_topic_0237124696_zh-cn_topic_0059778664_see4820fb6c024e0aa4c56882aeae204a)的默认值自动断开连接。如果要关闭超时设置，设置参数[session\_timeout](安全和认证_postgresql-conf.md#zh-cn_topic_0237124696_zh-cn_topic_0059778664_see4820fb6c024e0aa4c56882aeae204a)为0即可。
+缺省情况下，客户端连接数据库后处于空闲状态时会根据参数[session\_timeout](../DataBaseReference/安全和认证_postgresql-conf.md#zh-cn_topic_0237124696_zh-cn_topic_0059778664_see4820fb6c024e0aa4c56882aeae204a)的默认值自动断开连接。如果要关闭超时设置，设置参数[session\_timeout](../DataBaseReference/安全和认证_postgresql-conf.md#zh-cn_topic_0237124696_zh-cn_topic_0059778664_see4820fb6c024e0aa4c56882aeae204a)为0即可。
 
 ## 前提条件<a name="zh-cn_topic_0283137029_zh-cn_topic_0237120292_zh-cn_topic_0062050379_section2863008216400"></a>
 
