@@ -1,5 +1,16 @@
-# 访问openGauss
+# 访问openGauss<a name="ZH-CN_TOPIC_0289900104"></a>
 
-**[使用命令行访问openGauss](使用命令行访问openGauss.md)**
+连接数据库的客户端工具包括gsql、应用程序接口（如JDBC）。
 
-**[连接数据库](连接数据库.md)**
+-   gsql是openGauss自带的客户端工具。[使用gsql连接](使用gsql连接.md)数据库，可以交互式地输入、编辑、执行SQL语句。
+-   用户可以使用标准的数据库[应用程序接口](应用程序接口.md)（如JDBC），开发基于openGauss的应用程序。
+
+-   **[确认连接信息](确认连接信息.md)**  
+
+-   **[配置服务端远程连接](配置服务端远程连接.md)**  
+
+-   **[使用gsql连接](使用gsql连接.md)**  
+
+-   **[使用应用程序接口访问openGauss](使用应用程序接口访问openGauss.md)**  
+
+
