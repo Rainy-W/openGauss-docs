@@ -19,7 +19,7 @@ pg_recvlogical [OPTION]...
 -   --create
 
     创建一个新的逻辑复制槽。
-    内部调用了pg_create_logical_replication_slot函数，调用该函数的用户需要具有SYSADMIN权限或具有REPLICATION权限或继承了内置角色gs_role_replication的权限，且此函数目前只支持在主机调用。参考《开发者指南》pg_create_logical_replication_slot函数的说明。
+    内部调用了pg_create_logical_replication_slot函数，调用该函数的用户需要具有SYSADMIN权限或具有REPLICATION权限或继承了内置角色gs_role_replication的权限，且此函数目前只支持在主机调用。参考《SQL参考》pg_create_logical_replication_slot函数的说明。
 
 -   --start
 
@@ -71,7 +71,7 @@ pg_recvlogical [OPTION]...
 
     参数的取值为：include-xids、skip-empty-xacts、include-timestamp、only-local、force-binary、white-table-list、standby-connection、parallel-decode-num、decode-style、sending-batch、max-txn-in-memory、max-reorderbuffer-in-memory。
 
-    详细请参见《开发者指南》中“SQL参考 \> 函数和操作符 \> 系统管理函数 \> 逻辑复制函数\> pg_logical_slot_peek_changes > options”以及 “应用程序开发教程 > 基于JDBC开发 > 示例：逻辑复制代码示例”章节。
+    详细请参见《SQL参考》中“ 内置函数 \> 系统管理函数 \> 逻辑复制函数\> pg_logical_slot_peek_changes > options”以及 “应用开发 > openGauss JDBC 编程指南 > 示例：逻辑复制代码示例”章节。
     链接：https://opengauss.org/zh/docs/latest/docs/Developerguide/%E7%A4%BA%E4%BE%8B-%E9%80%BB%E8%BE%91%E5%A4%8D%E5%88%B6%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B.html
 
 -   -P, --plugin=PLUGIN
