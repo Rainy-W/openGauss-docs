@@ -10,7 +10,7 @@
     ```
 
     >![](public_sys-resources/icon-note.gif) **说明：**
-    >双机启动必须以双机模式启动，若中间过程以单机模式启动，则必须修复才能恢复双机关系，用gs\_ctl build进行修复，gs\_ctl的使用方法请参见《openGauss 工具参考》。
+    >双机启动必须以双机模式启动，若中间过程以单机模式启动，则必须修复才能恢复双机关系，用gs\_ctl build进行修复，gs\_ctl的使用方法请参见《工具与命令参考》中“系统内部命令 \> gs\_ctl”章节。
 
 
 ## 停止openGauss<a name="zh-cn_topic_0237088789_section785041010214"></a>
@@ -23,7 +23,7 @@
     ```
 
     >![](public_sys-resources/icon-note.gif) **说明：** 
-    >启停节点及AZ的操作请参见《openGauss 工具参考》中“服务端工具 \> gs\_om”章节。
+    >启停节点及AZ的操作请参见《工具与命令参考》中“服务端工具 \> gs\_om”章节。
 
 
 ## 示例<a name="zh-cn_topic_0237088789_zh-cn_topic_0059777680_s8c57591e1a444d5ea91a783a1a2b74c5"></a>
