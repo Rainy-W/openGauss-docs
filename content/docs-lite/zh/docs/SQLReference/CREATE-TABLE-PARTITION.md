@@ -186,7 +186,7 @@ CREATE TABLE [ IF NOT EXISTS ] partition_table_name
 
     指定创建索引的方法。
 
-    取值范围参考[参数说明](zh-cn_topic_0289900160.md#zh-cn_topic_0283136578_zh-cn_topic_0237122106_zh-cn_topic_0059777455_s82e47e35c54c477094dcafdc90e5d85a)中的USING method。
+    取值范围参考[参数说明](CREATE-INDEX.md#zh-cn_topic_0283136578_zh-cn_topic_0237122106_zh-cn_topic_0059777455_s82e47e35c54c477094dcafdc90e5d85a)中的USING method。
 
     >![](public_sys-resources/icon-notice.gif) **须知：** 
     >
