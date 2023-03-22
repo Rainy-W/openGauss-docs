@@ -53,6 +53,6 @@
     gs_initdb [OPTION]... [DATADIR]
     ```
 
-    OPTION参数请参见[命令参考](命令参考-1.md)。
+    OPTION参数请参见[命令参考](命令参考-gs_initdb.md)。
 
 
