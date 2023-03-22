@@ -1,6 +1,6 @@
 # file\_fdw<a name="ZH-CN_TOPIC_0000001116194726"></a>
 
-file\_fdw模块提供了外部数据封装器file\_fdw，可以用来在服务器的文件系统中访问数据文件。数据文件必须是COPY FROM可读的格式，具体请参见[COPY](COPY.md)的介绍。使用file\_fdw访问的数据文件是当前可读的，不支持对该数据文件的写入操作。
+file\_fdw模块提供了外部数据封装器file\_fdw，可以用来在服务器的文件系统中访问数据文件。数据文件必须是COPY FROM可读的格式，具体请参见[COPY](../SQLReference/COPY.md)的介绍。使用file\_fdw访问的数据文件是当前可读的，不支持对该数据文件的写入操作。
 
 当前openGauss会默认编译file\_fdw，initdb的时候会在pg\_catalog schema中创建该插件。
 
