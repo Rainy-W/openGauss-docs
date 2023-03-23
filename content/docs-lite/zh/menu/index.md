@@ -132,8 +132,7 @@ headless: true
         -   [安装准备]({{< relref "./docs/GettingStarted/安装准备.md" >}})
             -    [获取安装包]({{< relref "./docs/GettingStarted/获取安装包.md" >}})
             -    [准备软硬件安装环境]({{< relref "./docs/GettingStarted/准备软硬件安装环境.md" >}})
-        -   [单节点容器化安装]({{< relref "./docs/GettingStarted/单节点容器化安装.md" >}})
-        -   [单节点服务器安装]({{< relref "./docs/GettingStarted/单节点服务器安装.md" >}})
+        -   [安装]({{< relref "./docs/GettingStarted/安装.md" >}})
     -   [访问openGauss]({{< relref "./docs/GettingStarted/访问openGauss.md" >}})
         -   [使用命令行访问openGauss]({{< relref "./docs/GettingStarted/使用命令行访问openGauss.md" >}})
         -   [使用编程语言访问openGauss]({{< relref "./docs/GettingStarted/使用编程语言访问openGauss.md" >}})
@@ -142,6 +141,7 @@ headless: true
                 -   [libpq]({{< relref "./docs/GettingStarted/libpq.md" >}})
             -   [Java]({{< relref "./docs/GettingStarted/Java.md" >}})
             -   [Python]({{< relref "./docs/GettingStarted/Python.md" >}})
+    -   [使用openGauss]({{< relref "./docs/GettingStarted/使用openGauss.md" >}})
 
 -   [安装指南]({{< relref "./docs/Installation/Installation.md" >}})
     -   [安装概述]({{< relref "./docs/Installation/安装概述.md" >}})
