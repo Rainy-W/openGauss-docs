@@ -47,7 +47,7 @@
     gsql -d postgres -U omm -p 8000
     ```
 
-    详细的gsql参数请参见[命令参考](命令参考.md)。
+    详细的gsql参数请参见[命令参考](命令参考-gsql.md)。
 
 2.  执行SQL语句。
 

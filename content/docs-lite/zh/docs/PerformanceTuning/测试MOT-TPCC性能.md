@@ -116,7 +116,7 @@ tpm-C指标单位表示为每分钟事务数-C，而C表示TPC-C特定基准。
 
 ## 系统级优化<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_section18956395"></a>
 
-请按照[MOT部署](MOT部署.md)中的说明进行操作。下面介绍openGauss数据库在华为TaiShan服务器和Euler 2.8操作系统上部署时系统级的关键优化点，以达到极致性能。
+请按照[MOT部署](../Administration/MOT部署.md)中的说明进行操作。下面介绍openGauss数据库在华为TaiShan服务器和Euler 2.8操作系统上部署时系统级的关键优化点，以达到极致性能。
 
 ## BenchmarkSQL：开源TPC-C工具<a name="zh-cn_topic_0283137680_zh-cn_topic_0280525151_section36389828"></a>
 
