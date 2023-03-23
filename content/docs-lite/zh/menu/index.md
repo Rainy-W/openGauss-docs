@@ -262,7 +262,7 @@ headless: true
     -   [数据库基础概念介绍]({{< relref "./docs/Administration/数据库基础概念介绍.md" >}})
     -   [创建和管理数据库]({{< relref "./docs/Administration/创建和管理数据库.md" >}})
     -   [创建和管理表空间]({{< relref "./docs/Administration/创建和管理表空间.md" >}})
-    -   [其他操作]({{< relref "./docs/Administration/其他操作.md" >}})
+    -   [数据库对象管理]({{< relref "./docs/Administration/其他操作.md" >}})
         -   [创建和管理schema]({{< relref "./docs/Administration/创建和管理schema.md" >}})
         -   [创建和管理表]({{< relref "./docs/Administration/创建和管理表.md" >}})
             -   [创建表]({{< relref "./docs/Administration/创建表.md" >}})
