@@ -496,59 +496,59 @@ headless: true
     		-	[DML语法一览表]({{< relref "./docs/DolphinExtension/dolphin-DML语法一览表.md" >}})	
     		-	[DCL语法一览表]({{< relref "./docs/DolphinExtension/dolphin-DCL语法一览表.md" >}})
     		-	[SQL语法]({{< relref "./docs/DolphinExtension/dolphin-SQL语法.md" >}})
-    			-	[ALTER FUNCTION]({{< relref "./docs/DolphinExtension/dolphin-ALTER-FUNCTION.md" >}}
-    			-	[ALTER PROCEDURE]({{< relref "./docs/DolphinExtension/dolphin-ALTER-PROCEDURE.md" >}}
-    			-	[ALTER TABLE]({{< relref "./docs/DolphinExtension/dolphin-ALTER-TABLE.md" >}} 
-    			-	[ALTER TABLE-PARTITION]({{< relref "./docs/DolphinExtension/dolphin-ALTER-TABLE-PARTITION.md" >}} 
-    			-	[ALTER TABLESPACE]({{< relref "./docs/DolphinExtension/dolphin-ALTER-TABLESPACE.md" >}}  
-				-	[ALTER-SERVER]({{< relref "./docs/DolphinExtension/dolphin-ALTER-SERVER.md" >}}
-    			-	[ANALYZE ANALYSE]({{< relref "./docs/DolphinExtension/dolphin-ANALYZE-ANALYSE.md" >}}
-    			-	[AST]({{< relref "./docs/DolphinExtension/dolphin-AST.md" >}}
-    			-	[CREATE-FUNCTION]({{< relref "./docs/DolphinExtension/dolphin-CREATE-FUNCTION.md" >}}
-    			-	[CREATE-INDEX]({{< relref "./docs/DolphinExtension/dolphin-CREATE-INDEX.md" >}}*
-    			-	[CREATE-PROCEDURE]({{< relref "./docs/DolphinExtension/dolphin-CREATE-PROCEDURE.md" >}}
-    			-	[CREATE-TABLE]({{< relref "./docs/DolphinExtension/dolphin-CREATE-TABLE.md" >}}
-    			-	[CREATE-TABLE-AS]({{< relref "./docs/DolphinExtension/dolphin-CREATE-TABLE-AS.md" >}}
-    			-	[CREATE-TABLE-PARTITION]({{< relref "./docs/DolphinExtension/dolphin-CREATE-TABLE-PARTITION.md" >}}
-    			-	[CREATE-TABLESPACE]({{< relref "./docs/DolphinExtension/dolphin-CREATE-TABLESPACE.md" >}}
-    			-	[CREATE-INDEX]({{< relref "./docs/DolphinExtension/dolphin-CREATE-INDEX.md" >}}
-				-	[CREATE-SERVER]({{< relref "./docs/DolphinExtension/dolphin-CREATE-SERVER.md" >}}
-    			-	[DESCRIBE-TABLE]({{< relref "./docs/DolphinExtension/dolphin-DESCRIBE-TABLE.md" >}}
-    			-	[DROP-TABLESPACE]({{< relref "./docs/DolphinExtension/dolphin-DROP-TABLESPACE.md" >}} 
-    			-	[EXPLAIN]({{< relref "./docs/DolphinExtension/dolphin-EXPLAIN.md" >}} 	
-    			-	[EXECUTE]({{< relref "./docs/DolphinExtension/dolphin-EXECUTE.md" >}}	
-    			-	[FLUSH-BINARY-LOGS]({{< relref "./docs/DolphinExtension/dolphin-FLUSH-BINARY-LOGS.md" >}}				
-    			-	[GRANT]({{< relref "./docs/DolphinExtension/dolphin-GRANT.md" >}}
-				-	[LOAD-DATA]({{< relref "./docs/DolphinExtension/dolphin-LOAD-DATA.md" >}}
-    			-	[INSERT]({{< relref "./docs/DolphinExtension/dolphin-INSERT.md" >}}
-    			-	[KILL]({{< relref "./docs/DolphinExtension/dolphin-KILL.md" >}}
-    			-	[OPTIMIZE-TABLE]({{< relref "./docs/DolphinExtension/dolphin-OPTIMIZE-TABLE.md" >}}
-    			-	[PREPARE]({{< relref "./docs/DolphinExtension/dolphin-PREPARE.md" >}}
-    			-	[RENAME-USER]({{< relref "./docs/DolphinExtension/dolphin-RENAME-USER.md" >}}
-    			-	[REVOKE]({{< relref "./docs/DolphinExtension/dolphin-REVOKE.md" >}}
-    			-	[SELECT]({{< relref "./docs/DolphinExtension/dolphin-SELECT.md" >}} 
-    			-	[SET-CHARSET]({{< relref "./docs/DolphinExtension/dolphin-SET-CHARSET.md" >}}
-    			-	[SET-PASSWORD]({{< relref "./docs/DolphinExtension/dolphin-SET-PASSWORD.md" >}}  
-    			-	[SHOW_COLUMNS]({{< relref "./docs/DolphinExtension/dolphin-SHOW_COLUMNS.md" >}} 
-    			-	[SHOW-DATABASES]({{< relref "./docs/DolphinExtension/dolphin-SHOW-DATABASES.md" >}}
-    			-	[SHOW-FUNCTION-STATUS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-FUNCTION-STATUS.md" >}}
-    			-	[SHOW-GRANTS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-GRANTS.md" >}}
-    			-	[SHOW-INDEX]({{< relref "./docs/DolphinExtension/dolphin-SHOW-INDEX.md" >}}  
-    			-	[SHOW-MASTER-STATUS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-MASTER-STATUS.md" >}}
-    			-	[SHOW_PLUGINS]({{< relref "./docs/DolphinExtension/dolphin-SHOW_PLUGINS.md" >}} 
-    			-	[SHOW-PROCEDURE-STATUS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-PROCEDURE-STATUS.md" >}}
-    			-	[SHOW-PROCESSLIST]({{< relref "./docs/DolphinExtension/dolphin-SHOW-PROCESSLIST.md" >}}
-    			-	[SHOW-SLAVE-HOSTS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-SLAVE-HOSTS.md" >}}
-    			-	[SHOW_TABLES]({{< relref "./docs/DolphinExtension/dolphin-SHOW_TABLES.md" >}} 
-    			-	[SHOW-TRIGGERS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-TRIGGERS.md" >}} 
-				-	[SHOW-CHARACTER-SET]({{< relref "./docs/DolphinExtension/dolphin-SHOW-CHARACTER-SET.md" >}}
-				-	[SHOW-COLLATION]({{< relref "./docs/DolphinExtension/dolphin-SHOW-COLLATION.md" >}}
-				-	[SHOW_PRIVILEGES]({{< relref "./docs/DolphinExtension/dolphin-SHOW_PRIVILEGES.md" >}}
-				-	[SHOW-TABLE-STATUS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-TABLE-STATUS.md" >}}
-    			-	[UPDATE]({{< relref "./docs/DolphinExtension/dolphin-UPDATE.md" >}}
-    			-	[USE-DB_NAME]({{< relref "./docs/DolphinExtension/dolphin-USE-DB_NAME.md" >}} 
-    			-	[CHECKSUM-TABLE]({{< relref "./docs/DolphinExtension/dolphin-CHECKSUM-TABLE.md" >}}  
-    			-	[GRANT-REVOKE-PROXY]({{< relref "./docs/DolphinExtension/dolphin-GRANT-REVOKE-PROXY.md" >}} 					
+    			-	[ALTER FUNCTION]({{< relref "./docs/DolphinExtension/dolphin-ALTER-FUNCTION.md" >}})
+    			-	[ALTER PROCEDURE]({{< relref "./docs/DolphinExtension/dolphin-ALTER-PROCEDURE.md" >}})
+    			-	[ALTER TABLE]({{< relref "./docs/DolphinExtension/dolphin-ALTER-TABLE.md" >}})
+    			-	[ALTER TABLE-PARTITION]({{< relref "./docs/DolphinExtension/dolphin-ALTER-TABLE-PARTITION.md" >}}) 
+    			-	[ALTER TABLESPACE]({{< relref "./docs/DolphinExtension/dolphin-ALTER-TABLESPACE.md" >}})  
+				-	[ALTER-SERVER]({{< relref "./docs/DolphinExtension/dolphin-ALTER-SERVER.md" >}})
+    			-	[ANALYZE ANALYSE]({{< relref "./docs/DolphinExtension/dolphin-ANALYZE-ANALYSE.md" >}})
+    			-	[AST]({{< relref "./docs/DolphinExtension/dolphin-AST.md" >}})
+    			-	[CREATE-FUNCTION]({{< relref "./docs/DolphinExtension/dolphin-CREATE-FUNCTION.md" >}})
+    			-	[CREATE-INDEX]({{< relref "./docs/DolphinExtension/dolphin-CREATE-INDEX.md" >}})
+    			-	[CREATE-PROCEDURE]({{< relref "./docs/DolphinExtension/dolphin-CREATE-PROCEDURE.md" >}})
+    			-	[CREATE-TABLE]({{< relref "./docs/DolphinExtension/dolphin-CREATE-TABLE.md" >}})
+    			-	[CREATE-TABLE-AS]({{< relref "./docs/DolphinExtension/dolphin-CREATE-TABLE-AS.md" >}})
+    			-	[CREATE-TABLE-PARTITION]({{< relref "./docs/DolphinExtension/dolphin-CREATE-TABLE-PARTITION.md" >}})
+    			-	[CREATE-TABLESPACE]({{< relref "./docs/DolphinExtension/dolphin-CREATE-TABLESPACE.md" >}})
+    			-	[CREATE-INDEX]({{< relref "./docs/DolphinExtension/dolphin-CREATE-INDEX.md" >}})
+				-	[CREATE-SERVER]({{< relref "./docs/DolphinExtension/dolphin-CREATE-SERVER.md" >}})
+    			-	[DESCRIBE-TABLE]({{< relref "./docs/DolphinExtension/dolphin-DESCRIBE-TABLE.md" >}})
+    			-	[DROP-TABLESPACE]({{< relref "./docs/DolphinExtension/dolphin-DROP-TABLESPACE.md" >}})
+    			-	[EXPLAIN]({{< relref "./docs/DolphinExtension/dolphin-EXPLAIN.md" >}})
+    			-	[EXECUTE]({{< relref "./docs/DolphinExtension/dolphin-EXECUTE.md" >}})	
+    			-	[FLUSH-BINARY-LOGS]({{< relref "./docs/DolphinExtension/dolphin-FLUSH-BINARY-LOGS.md" >}})				
+    			-	[GRANT]({{< relref "./docs/DolphinExtension/dolphin-GRANT.md" >}})
+				-	[LOAD-DATA]({{< relref "./docs/DolphinExtension/dolphin-LOAD-DATA.md" >}})
+    			-	[INSERT]({{< relref "./docs/DolphinExtension/dolphin-INSERT.md" >}})
+    			-	[KILL]({{< relref "./docs/DolphinExtension/dolphin-KILL.md" >}})
+    			-	[OPTIMIZE-TABLE]({{< relref "./docs/DolphinExtension/dolphin-OPTIMIZE-TABLE.md" >}})
+    			-	[PREPARE]({{< relref "./docs/DolphinExtension/dolphin-PREPARE.md" >}})
+    			-	[RENAME-USER]({{< relref "./docs/DolphinExtension/dolphin-RENAME-USER.md" >}})
+    			-	[REVOKE]({{< relref "./docs/DolphinExtension/dolphin-REVOKE.md" >}})
+    			-	[SELECT]({{< relref "./docs/DolphinExtension/dolphin-SELECT.md" >}})
+    			-	[SET-CHARSET]({{< relref "./docs/DolphinExtension/dolphin-SET-CHARSET.md" >}})
+    			-	[SET-PASSWORD]({{< relref "./docs/DolphinExtension/dolphin-SET-PASSWORD.md" >}})  
+    			-	[SHOW_COLUMNS]({{< relref "./docs/DolphinExtension/dolphin-SHOW_COLUMNS.md" >}}) 
+    			-	[SHOW-DATABASES]({{< relref "./docs/DolphinExtension/dolphin-SHOW-DATABASES.md" >}})
+    			-	[SHOW-FUNCTION-STATUS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-FUNCTION-STATUS.md" >}})
+    			-	[SHOW-GRANTS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-GRANTS.md" >}})
+    			-	[SHOW-INDEX]({{< relref "./docs/DolphinExtension/dolphin-SHOW-INDEX.md" >}})  
+    			-	[SHOW-MASTER-STATUS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-MASTER-STATUS.md" >}})
+    			-	[SHOW_PLUGINS]({{< relref "./docs/DolphinExtension/dolphin-SHOW_PLUGINS.md" >}}) 
+    			-	[SHOW-PROCEDURE-STATUS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-PROCEDURE-STATUS.md" >}})
+    			-	[SHOW-PROCESSLIST]({{< relref "./docs/DolphinExtension/dolphin-SHOW-PROCESSLIST.md" >}})
+    			-	[SHOW-SLAVE-HOSTS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-SLAVE-HOSTS.md" >}})
+    			-	[SHOW_TABLES]({{< relref "./docs/DolphinExtension/dolphin-SHOW_TABLES.md" >}})
+    			-	[SHOW-TRIGGERS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-TRIGGERS.md" >}})
+				-	[SHOW-CHARACTER-SET]({{< relref "./docs/DolphinExtension/dolphin-SHOW-CHARACTER-SET.md" >}})
+				-	[SHOW-COLLATION]({{< relref "./docs/DolphinExtension/dolphin-SHOW-COLLATION.md" >}})
+				-	[SHOW_PRIVILEGES]({{< relref "./docs/DolphinExtension/dolphin-SHOW_PRIVILEGES.md" >}})
+				-	[SHOW-TABLE-STATUS]({{< relref "./docs/DolphinExtension/dolphin-SHOW-TABLE-STATUS.md" >}})
+    			-	[UPDATE]({{< relref "./docs/DolphinExtension/dolphin-UPDATE.md" >}})
+    			-	[USE-DB_NAME]({{< relref "./docs/DolphinExtension/dolphin-USE-DB_NAME.md" >}})
+    			-	[CHECKSUM-TABLE]({{< relref "./docs/DolphinExtension/dolphin-CHECKSUM-TABLE.md" >}})  
+    			-	[GRANT-REVOKE-PROXY]({{< relref "./docs/DolphinExtension/dolphin-GRANT-REVOKE-PROXY.md" >}}) 					
     	-   [系统视图]({{< relref "./docs/DolphinExtension/dolphin-系统视图.md" >}})
     			-	[PG TYPE NONSTRICT BASIC VALUE]({{< relref "./docs/DolphinExtension/dolphin-PG_TYPE_NONSTRICT_BASIC_VALUE.md" >}})
     			-	[INDEX STATISTIC]({{< relref "./docs/DolphinExtension/dolphin-INDEX_STATISTIC.md" >}})
