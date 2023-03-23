@@ -135,7 +135,7 @@ headless: true
         -   [安装]({{< relref "./docs/GettingStarted/安装.md" >}})
     -   [访问openGauss]({{< relref "./docs/GettingStarted/访问openGauss.md" >}})
         -   [使用gsql访问openGauss]({{< relref "./docs/GettingStarted/使用gsql访问openGauss.md" >}})
-        -   [使用应用程序接口访问openGauss]({{< relref "./docs/GettingStarted/使用应用程序接口访问openGausss.md" >}})
+        -   [使用应用程序接口访问openGauss]({{< relref "./docs/GettingStarted/使用应用程序接口访问openGauss.md" >}})
             -   [C/C++语言]({{< relref "./docs/GettingStarted/C-C++语言.md" >}})
                 -   [ODBC]({{< relref "./docs/GettingStarted/ODBC.md" >}})
                 -   [libpq]({{< relref "./docs/GettingStarted/libpq.md" >}})
