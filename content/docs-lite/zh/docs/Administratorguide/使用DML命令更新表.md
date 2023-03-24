@@ -34,7 +34,7 @@ openGauss=# CREATE TABLE customer_t
         (9500, 4, 'Lucy', 'Baker');
         ```
 
-        更多关于INSERT的使用方法，请参见[向表中插入数据](向表中插入数据.md)。
+        更多关于INSERT的使用方法，请参见[向表中插入数据](../Administration/向表中插入数据.md)。
 
 
 -   使用UPDATE更新表中数据。修改字段c\_customer\_id值为0。
@@ -43,7 +43,7 @@ openGauss=# CREATE TABLE customer_t
     openGauss=# UPDATE customer_t SET c_customer_id = 0;
     ```
 
-    更多关于UPDATE的使用方法，请参见[UPDATE](UPDATE.md)。
+    更多关于UPDATE的使用方法，请参见[UPDATE](../SQLReference/UPDATE.md)。
 
 -   使用DELETE删除表中的行。
 
@@ -53,7 +53,7 @@ openGauss=# CREATE TABLE customer_t
     openGauss=# DELETE FROM customer_t WHERE c_last_name = 'Baker';
     ```
 
-    更多关于DELETE的使用方法，请参见[DELETE](DELETE.md)。
+    更多关于DELETE的使用方法，请参见[DELETE](../SQLReference/DELETE.md)。
 
 -   使用TRUNCATE命令快速从表中删除所有的行。
 
@@ -61,7 +61,7 @@ openGauss=# CREATE TABLE customer_t
     openGauss=# TRUNCATE TABLE customer_t;
     ```
 
-    更多关于TRUNCATE的使用方法，请参见[TRUNCATE](TRUNCATE.md)。
+    更多关于TRUNCATE的使用方法，请参见[TRUNCATE](../SQLReference/TRUNCATE.md)。
 
     删除表时，DELETE语句每次删除一行数据而TRUNCATE语句是通过释放表存储的数据页来删除数据，使用TRUNCATE语句比使用DELETE语句更加快速。
 
