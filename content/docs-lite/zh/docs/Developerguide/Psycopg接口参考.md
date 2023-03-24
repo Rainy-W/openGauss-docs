@@ -8,7 +8,7 @@ Psycopg接口是一套提供给用户的API方法，本节将对部分常用接�
 
 -   **[cursor.execute\(query,vars\_list\)](cursor-execute-query-vars_list.md)**  
 
--   **[curosr.executemany\(query,vars\_list\)](curosr-executemany-query-vars_list.md)**  
+-   **[curosr.executemany\(query,vars\_list\)](curosr-executemany_query-vars_list.md)**  
 
 -   **[connection.commit\(\)](connection-commit.md)**  
 
