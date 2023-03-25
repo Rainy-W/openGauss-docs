@@ -1312,6 +1312,7 @@ headless: true
             -   [限制约束]({{< relref "./docs/SQLReference/限制约束.md" >}})
     -   [扩展函数]({{< relref "./docs/SQLReference/扩展函数.md" >}})
     -   [扩展语法]({{< relref "./docs/SQLReference/扩展语法.md" >}})
+    -   [类型基础值]({{< relref "./docs/SQLReference/INSERT_RIGHT_REF_DEFAULT_VALUE.md" >}})
     -   [GIN索引]({{< relref "./docs/SQLReference/GIN索引.md" >}})
         -   [介绍]({{< relref "./docs/SQLReference/介绍_GIN.md" >}})
         -   [扩展性]({{< relref "./docs/SQLReference/扩展性.md" >}})
