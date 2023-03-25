@@ -12,11 +12,11 @@
 
 -   **[ALTER TABLESPACE](dolphin-ALTER-TABLESPACE.md)**  
 
--   **[ALTER VIEW](dolphin-ALTER-VIEW.md)**
-
 -   **[ANALYZE | ANALYSE](dolphin-ANALYZE-ANALYSE.md)**
 
 -   **[AST](dolphin-AST.md)**
+
+-   **[CHECKSUM TABLE](dolphin-CHECKSUM-TABLE.md)**  
 
 -   **[CREATE FUNCTION](dolphin-CREATE-FUNCTION.md)**
 
@@ -34,11 +34,9 @@
 
 -   **[CREATE TABLESPACE](dolphin-CREATE-TABLESPACE.md)**
 
--   **[CREATE VIEW](dolphin-CREATE-VIEW.md)**
+-   **[CREATE INDEX](dolphin-CREATE-INDEX.md)**
 
 -   **[DESCRIBE TABLE](dolphin-DESCRIBE-TABLE.md)**
-
--   **[DROP INDEX](dolphin-DROP-INDEX.md)**
 
 -   **[DROP TABLESPACE](dolphin-DROP-TABLESPACE.md)**  
 
@@ -49,6 +47,8 @@
 -   **[FLUSH BINARY LOGS](dolphin-FLUSH-BINARY-LOGS.md)**  
 
 -   **[GRANT](dolphin-GRANT.md)**
+
+-   **[GRANT/REVOKE PROXY](dolphin-GRANT-REVOKE-PROXY.md)** 
 
 -   **[INSERT](dolphin-INSERT.md)**
 
@@ -78,6 +78,18 @@
 
 -   **[SHOW COLUMNS](dolphin-SHOW_COLUMNS.md)**  
 
+-   **[SHOW-CREATE-DATABASE](dolphin-SHOW-CREATE-DATABASE.md)**
+
+-   **[SHOW-CREATE-FUNCTION](dolphin-SHOW-CREATE-FUNCTION.md)**
+
+-   **[SHOW-CREATE-PROCEDURE](dolphin-SHOW-CREATE-PROCEDURE.md)**
+
+-   **[SHOW-CREATE-TABLE](dolphin-SHOW-CREATE-TABLE.md)**
+
+-   **[SHOW-CREATE-TRIGGER](dolphin-SHOW-CREATE-TRIGGER.md)**
+
+-   **[SHOW-CREATE-VIEW](dolphin-SHOW-CREATE-VIEW.md)**
+
 -   **[SHOW DATABASES](dolphin-SHOW-DATABASES.md)** 
 
 -   **[SHOW FUNCTION STATUS](dolphin-SHOW-FUNCTION-STATUS.md)**
@@ -104,12 +116,10 @@
 
 -   **[SHOW TRIGGERS](dolphin-SHOW-TRIGGERS.md)**  
 
+-   **[SHOW-VARIABLES](dolphin-SHOW-VARIABLES.md)**
+
 -   **[UPDATE](dolphin-UPDATE.md)**
 
 -   **[USE DB_NAME](dolphin-USE-DB_NAME.md)**  
-
--   **[CHECKSUM TABLE](dolphin-CHECKSUM-TABLE.md)**  
-
--   **[GRANT/REVOKE PROXY](dolphin-GRANT-REVOKE-PROXY.md)** 
 
 -   **[SELECT HINT](dolphin-SELECT-HINT.md)** 
