@@ -112,6 +112,37 @@ openGauss=# select a1,a2 from test1 group by a1;
 --删除表
 openGauss=# DROP TABLE test1;
 DROP TABLE
+
+--ansi_quotes效果展示
+openGauss=# create database test_db dbcompatibility 'B';
+CREATE DATABASE
+openGauss=# \c test_db 
+Non-SSL connection (SSL connection is recommended when requiring high-security)
+You are now connected to database "test_db" as user "luozihao".
+test_db=# show dolphin.sql_mode ;
+                                           dolphin.sql_mode                                           
+------------------------------------------------------------------------------------------------------
+ sql_mode_strict,sql_mode_full_group,pipes_as_concat,ansi_quotes,no_zero_date,pad_char_to_full_length
+(1 row)
+
+test_db=# create table test(a varchar(20));
+CREATE TABLE
+test_db=# insert into test values('test');
+INSERT 0 1
+test_db=# select "a" from test;
+  a   
+------
+ test
+(1 row)
+
+test_db=# set dolphin.sql_mode to 'sql_mode_strict,sql_mode_full_group,pipes_as_concat,no_zero_date,pad_char_to_full_length';
+SET
+test_db=# select "a" from test;
+ ?column? 
+----------
+ a
+(1 row)
+
 ```
 
 ## dolphin.b\_db\_timestamp<a name="section203671436822"></a>
