@@ -53,6 +53,17 @@
       { {config_parameter = { expr | DEFAULT }}};
   ```
 
+- 在兼容B模式（sql\_compatibility = 'B'）下设置参数。
+
+  ```
+  SET [ SESSION | @@SESSION. | @@]
+        { {config_parameter = { expr | DEFAULT }}};
+  SET { GLOBAL | @@GLOBAL.}
+        { {config_parameter = { expr | DEFAULT }}}
+  ```
+  
+  
+  
 - 设置自定义变量
 
   ```
@@ -128,8 +139,8 @@
 
   ![](public_sys-resources/icon-note.gif) **说明：** 
 
-  1. SET SESSION/GLOBAL 语法只有在B模式下（sql_compatibility = B）支持，并且GUC参数enable_set_variable_b_format打开的场景下才支持（enable_set_variable_b_format = on)。
-  2. 使用@@config\_parameter进行操作符运算时，尽量使用空格隔开。比如set @config\_parameter1=@config\_parameter1*2; 命令中，会将=@当做操作符，可将其修改为set @config\_parameter1= @config\_parameter1 * 2 。
+  - SET SESSION/GLOBAL 语法只有在B模式下（sql_compatibility = B）支持，并且GUC参数enable_set_variable_b_format打开的场景下才支持（enable_set_variable_b_format = on)。
+  - 使用@@config\_parameter进行操作符运算时，尽量使用空格隔开。比如set @config\_parameter1=@config\_parameter1*2; 命令中，会将=@当做操作符，可将其修改为set @config\_parameter1= @config\_parameter1 * 2 。
 
 - **var_name**
 
@@ -137,15 +148,15 @@
 
   > ![](public_sys-resources/icon-note.gif) **说明：** 
   >
-  > 1. SET自定义用户变量的只有在B模式下（sql_compatibility = B）支持，并且GUC参数enable_set_variable_b_format打开的场景下才支持（enable_set_variable_b_format = on）。
-  > 2. 自定义变量只会存储整型，浮点型，字符串，位串和NULL。对于BOOLEAN，INT1，INT2，INT4，INT8类型会转为INT8类型；FLOAT4，FLOAT8，NUMBERIC会转化为FLOAT8进行存储（需要注意浮点型可能会有精度丢失）；BIT类型以BIT存储，VARBIT类型以VARBIT存储；NULL值以NULL存储；其他类型若可转化为字符串，则转为TEXT存储。
-  > 3. 使用@var_name进行操作符运算时，尽量使用空格隔开。比如set @v1=@v2+1;命令中，会将=@当做操作符，可将其修改为set @v1= @v2+1。
-  > 4. 当sql_compatibility = B && enable_set_variable_b_format = on时，对于openGauss原始的@ expr，请参考[数字操作符](数字操作函数和操作符.md#zh-cn_topic_0283136987_zh-cn_topic_0237121971_zh-cn_topic_0059777932_s00454841bcf24ad18eed980c0e3a2f75)，@需要与expr有空格，否则会将其解析成用户变量。
-  > 5. 未初始化的变量值未NULL。
-  > 6. Prepare语句中用户自定义变量存储的字符串只支持select/insert/update/delete/merge语法。
-  > 7. 对于连续赋值的场景，只支持@var_name1 := @var_name2 := ... := expr和@var_name1 = @var_name2 := ... := expr，等号（=）只有放在首位才表示赋值，其他位置表示比较操作符。
+  > -  SET自定义用户变量的只有在B模式下（sql_compatibility = B）支持，并且GUC参数enable_set_variable_b_format打开的场景下才支持（enable_set_variable_b_format = on）或者GUC参数b_format_behavior_compat_options设置值包含enable_set_variables的场景下也支持（即b_format_behavior_compat_options = 'enable_set_variables'）。
+  > - 自定义变量只会存储整型，浮点型，字符串，位串和NULL。对于BOOLEAN，INT1，INT2，INT4，INT8类型会转为INT8类型；FLOAT4，FLOAT8，NUMBERIC会转化为FLOAT8进行存储（需要注意浮点型可能会有精度丢失）；BIT类型以BIT存储，VARBIT类型以VARBIT存储；NULL值以NULL存储；其他类型若可转化为字符串，则转为TEXT存储。
+  > - 使用@var_name进行操作符运算时，尽量使用空格隔开。比如set @v1=@v2+1;命令中，会将=@当做操作符，可将其修改为set @v1= @v2+1。
+  > - 当sql_compatibility = B && enable_set_variable_b_format = on时，对于openGauss原始的@ expr，请参考[数字操作符](数字操作函数和操作符.md#zh-cn_topic_0283136987_zh-cn_topic_0237121971_zh-cn_topic_0059777932_s00454841bcf24ad18eed980c0e3a2f75)，@需要与expr有空格，否则会将其解析成用户变量。
+  > - 未初始化的变量值未NULL。
+  > - Prepare语句中用户自定义变量存储的字符串只支持select/insert/update/delete/merge语法。
+  > - 对于连续赋值的场景，只支持@var_name1 := @var_name2 := ... := expr和@var_name1 = @var_name2 := ... := expr，等号（=）只有放在首位才表示赋值，其他位置表示比较操作符。
 
-- expr
+- **expr**
 
   表达式，支持可直接或间接转为整型，浮点型，字符串，位串和NULL的表达式。
 
@@ -163,49 +174,34 @@ openGauss=# SET search_path TO tpcds, public;
 --把日期时间风格设置为传统的 POSTGRES 风格(日在月前)。
 openGauss=# SET datestyle TO postgres,dmy;
 
--- set自定义用户变量的功能
-b=# show sql_compatibility;
- sql_compatibility
--------------------
- B
-(1 row)
+--SET自定义用户变量的功能
+openGauss=# create database user_var dbcompatibility 'b';
+openGauss=# \c user_var
+user_var=# SET b_format_behavior_compat_options = enable_set_variables;
+user_var=# SET @v1 := 1, @v2 := 1.1, @v3 := true, @v4 := 'dasda', @v5 := x'41';
 
-b=# show enable_set_variable_b_format;
- enable_set_variable_b_format
-------------------------------
- on
-(1 row)
+--查询自定义用户变量
+user_var=# select @v1, @v2, @v3, @v4, @v5, @v6, @v7;
+--PREPARE语法使用自定义用户变量
+user_var=# SET @sql = 'select 1';
+user_var=# PREPARE stmt as @sql;
+user_var=# EXECUTE stmt;
 
-b=# set @v1 := 1, @v2 := 1.1, @v3 := true, @v4 := 'dasda', @v5 := x'41';
-SET
-b=# select @v1, @v2, @v3, @v4, @v5, @v6, @v7;
- @v1 | @v2 | @v3 |  @v4  |   @v5    | @v6 | @v7
------+-----+-----+-------+----------+-----+-----
-   1 | 1.1 |   1 | dasda | 01000001 |     |
-(1 row)
+--设置B兼容性参数
+openGauss=# create database test_set dbcompatibility 'B';
+openGauss=# \c test_set
+test_set=# set b_format_behavior_compat_options = 'enable_set_variables';
 
--- prepare语法
-b=# set @sql = 'select 1';
-SET
-b=# prepare stmt as @sql;
-PREPARE
-b=# execute stmt;
- ?column?
-----------
-        1
-(1 row)
+--session变量设置
+test_set=# set @@codegen_cost_threshold = 10000;
+test_set=# set @@session.codegen_cost_threshold = @@codegen_cost_threshold * 2;
 
+--global变量设置
+test_set=#set global most_available_sync = t;
+test_set=#set @@global.most_available_sync = t;
 ```
 
-```
---Global变量设置
-set global most_available_sync = t;
-set @@global.most_available_sync = t;
 
---Session变量设置
-openGauss=# set @@codegen_cost_threshold = 10000;
-openGauss=# set @@session.codegen_cost_threshold = @@codegen_cost_threshold * 2;
-```
 
 
 

@@ -12,6 +12,7 @@
 -   列存表不支持结果不确定的更新\(non-deterministic update\)。试图对列存表用多行数据更新一行时会报错。
 -   列存表的更新操作，旧记录空间不会回收，需要执行VACUUM FULL table\_name进行清理。
 -   对于列存复制表，暂不支持UPDATE操作。
+-   生成列不能被直接写入。在UPDATE命令中不能为生成列指定值，但是可以指定关键字DEFAULT。
 -   对于多表更新语法，仅在参数sql\_compatibility=B时生效，暂时不支持对列存表、视图和含有RULE的表进行多表更新。
 
 ## 语法格式<a name="zh-cn_topic_0283137651_zh-cn_topic_0237122194_zh-cn_topic_0059778969_sd8d9ff15ff6c45c9aebd16c861936c06"></a>
@@ -75,7 +76,7 @@ SELECT [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
 
 -   **plan\_hint子句**
 
-    以/\*+ \*/的形式在UPDATE关键字后，用于对UPDATE对应的语句块生成的计划进行hint调优，详细用法请参见章节[使用Plan Hint进行调优](../PerformanceTuning/使用Plan-Hint进行调优.md)。每条语句中只有第一个/\*+ plan\_hint \*/注释块会作为hint生效，里面可以写多条hint。
+    以/\*+ \*/的形式在UPDATE关键字后，用于对UPDATE对应的语句块生成的计划进行hint调优，详细用法请参见章节[使用Plan Hint进行调优](使用Plan-Hint进行调优.md)。每条语句中只有第一个/\*+ plan\_hint \*/注释块会作为hint生效，里面可以写多条hint。
 
 -   **table\_name**
 

@@ -6,7 +6,7 @@ gsql是openGauss提供在命令行下运行的数据库连接工具，可以通�
 
 **基本功能**
 
--   **连接数据库：**详细操作请参见《快速入门》中“访问openGauss \> 使用命令行访问openGauss ”章节。
+-   **连接数据库：**详细操作请参见《开发者指南》中“数据库使用 \> 连接数据库 \> 使用gsql连接 \> 远程连接数据库”章节。
 
     >![](public_sys-resources/icon-note.gif) **说明：** 
     >
@@ -443,7 +443,7 @@ gsql的高级特性如[表1](#zh-cn_topic_0237152142_zh-cn_topic_0059778819_t88d
 
 **背景信息**
 
-使用gsql命令可以连接远程数据库服务。连接远程数据库服务时，需要在服务器上设置允许远程连接，详细操作请参见《快速入门》中“访问openGauss \> 使用命令行访问openGauss”章节。
+使用gsql命令可以连接远程数据库服务。连接远程数据库服务时，需要在服务器上设置允许远程连接，详细操作请参见《开发者指南》中“数据库使用 \> 连接数据库 \> 使用gsql连接 \> 远程连接数据库”章节。
 
 **操作步骤**
 
@@ -1159,7 +1159,7 @@ omm@[local] openGauss=#
 
 介绍使用openGauss数据库命令行交互工具登录数据库后，gsql所提供的元命令。所谓元命令就是在gsql里输入的任何以不带引号的反斜杠开头的命令。
 
-**注意事项**
+#### **注意事项**
 
 -   一个gsql元命令的格式是反斜杠后面紧跟一个动词，然后是任意参数。参数命令动词和其他参数以任意个空白字符间隔。
 
@@ -1169,7 +1169,7 @@ omm@[local] openGauss=#
 -   有些命令以一个SQL标识的名称（比如一个表）为参数。这些参数遵循SQL语法关于双引号的规则：不带双引号的标识强制转换成小写，而双引号保护字母不进行大小写转换，并且允许在标识符中使用空白。在双引号中，成对的双引号在结果名称中分析成一个双引号。比如，FOO“BAR”BAZ解析成fooBARbaz；而“A weird”“name”解析成“A weird”name。
 -   对参数的分析在遇到另一个不带引号的反斜杠时停止。这里会认为是一个新的元命令的开始。特殊的双反斜杠序列（\\\\）标识参数的结尾并将继续分析后面的SQL语句（如果存在）。这样SQL和gsql命令可以自由的在一行里面混合。但是在任何情况下，一条元命令的参数不能延续超过行尾。
 
-**元命令**
+#### **元命令**
 
 元命令的详细说明请参见[表11 一般的元命令](#zh-cn_topic_0237152146_zh-cn_topic_0059778645_zh-cn_topic_0058968158_table23103470)、[表12 查询缓存区元命令](#zh-cn_topic_0237152146_zh-cn_topic_0059778645_zh-cn_topic_0058968158_table8624338)、[表13 输入/输出元命令](#zh-cn_topic_0237152146_zh-cn_topic_0059778645_zh-cn_topic_0058968158_table62130565)、[表14 显示信息元命令](#zh-cn_topic_0237152146_zh-cn_topic_0059778645_zh-cn_topic_0058968158_table44907299)、[表16 格式化元命令](#zh-cn_topic_0237152146_zh-cn_topic_0059778645_zh-cn_topic_0058968158_table53911699)、[表18 连接元命令](#zh-cn_topic_0237152146_zh-cn_topic_0059778645_zh-cn_topic_0058968158_table37189353)、[表19 操作系统元命令](#zh-cn_topic_0237152146_zh-cn_topic_0059778645_zh-cn_topic_0058968158_table32146234)、[表20 变量元命令](#zh-cn_topic_0237152146_zh-cn_topic_0059778645_zh-cn_topic_0058968158_table50076468)和[表22 大对象元命令](#zh-cn_topic_0237152146_zh-cn_topic_0059778645_zh-cn_topic_0058968158_table55465693)。
 
@@ -2166,8 +2166,7 @@ omm@[local] openGauss=#
 </tr>
 </tbody>
 </table>
-
-**PATTERN**
+#### **PATTERN**
 
 很多\\d命令都可以用一个PATTERN参数来指定要被显示的对象名称。在最简单的情况下，PATTERN正好就是该对象的准确名称。在PATTERN中的字符通常会被变成小写形式（就像在SQL名称中那样），例如\\dt FOO将会显示名为foo的表。就像在SQL名称中那样，把PATTERN放在双引号中可以阻止它被转换成小写形式。如果需要在一个PATTERN中包括一个真正的双引号字符，则需要把它写成两个相邻的双引号，这同样是符合SQL引用标识符的规则。例如，\\dt "FOO""BAR"将显示名为FOO"BAR（不是foo"bar）的表。和普通的SQL名称规则不同，不能只在PATTERN的一部分周围放上双引号，例如\\dt FOO"FOO"BAR将会显示名为fooFOObar的表。
 
@@ -2186,76 +2185,20 @@ omm@[local] openGauss=#
 
 根据需要，可以通过书写?、\(_R_+|\)、\(_R_|\)和_R_?来分别模拟PATTERN字符.、_R_\*和_R_?。$不需要作为一个正则表达式字符，因为PATTERN必须匹配整个名称，而不是像正则表达式的常规用法那样解释（换句话说，$会被自动地追加到PATTERN上）。如果不希望该PATTERN的匹配位置被固定，可以在开头或者结尾写上\*。注意在双引号内，所有的正则表达式特殊字符会失去其特殊含义并且按照其字面意思进行匹配。另外，在操作符名称PATTERN中（即\\do的PATTERN参数），正则表达式特殊字符也按照字面意思进行匹配。
 
-### 批处理模式<a name="ZH-CN_TOPIC_0000001179940232"></a>
+#### DELIMITER<a name="section97713793813"></a>
 
-openGauss支持从文本文件执行SQL语句。openGauss提供了gsql工具实现SQL语句的批量处理。
+更改SQL语句之间分隔符命令，分隔符默认值为“;”。
 
-以下场景建议使用批处理：
+DELIMITER命令为为客户端设置一个分隔符。当用户设置分隔符后，gsql客户端识别到分隔符时，会立即将SQL语句发送到服务端执行，但是服务端仍然将“;”看做SQL语句分隔符，并相应的处理SQL语句。
 
--   如果您重复运行查询（例如，每天或每周），将其设为脚本可以让您避免每次进行重复输入。
--   您可以通过复制和编辑脚本文件从现有的相似查询生成新查询。
--   对于多行语句或多语句序列，如果中间出现错误，不必重新键入所有内，只需编辑脚本以更正错误，然后再次执行它。
--   您可以将脚本分发给其他人，以便他们也可以运行这些语句。
--   某些情况不允许交互式使用时，您必须使用批处理模式。
+注意事项：
 
-#### 语法格式<a name="section3644161111459"></a>
-
-```
-gsql -d dbname -p port -f filename
-```
-
-#### 参数说明<a name="section3770135115014"></a>
-
--   **dbname**
-
-    指定想要连接的数据库名称。
-
--   **port**
-
-    指定数据库服务器的端口号。
-
--   **-f filename**
-
-    使用文件作为命令源而不是交互式输入。该参数指定读取文本文件的路径以及名称。
-
-#### 示例<a name="section231191615452"></a>
-
-1.  创建本地sql文本文件。文件内容如下：
-
-    ```
-    CREATE TABLE customer
-    (
-        c_customer_sk             integer,
-        c_customer_id             char(5),
-        c_first_name              char(6),
-        c_last_name               char(8),
-        Amount                    integer
-    );
-    
-    INSERT INTO customer(c_customer_sk, c_customer_id, c_first_name,Amount) VALUES (3769, 'hello', 'Grace', 1000);
-    INSERT INTO customer (c_customer_sk, c_first_name) VALUES (3769, 'Grace');
-    INSERT INTO customer (c_customer_sk, c_customer_id, c_first_name) VALUES (3769, 'hello', DEFAULT);
-    INSERT INTO customer (c_customer_sk, c_customer_id, c_first_name,Amount) VALUES 
-        (6885, 'maps', 'Joes',2200),
-        (4321, 'tpcds', 'Lily',3000),
-        (9527, 'world', 'James',5000);
-    ```
-
-2.  使用如下命令执行sql.txt中的SQL语句。
-
-    ```
-    gsql -d postgres -p 21013 -f /home/user/sql.txt
-    ```
-
-    结果如下。
-
-    ```
-    CREATE TABLE
-    INSERT 0 1
-    INSERT 0 1
-    INSERT 0 1
-    INSERT 0 3
-    ```
+-   delimiter符号目前不是自由设定的，结束符范围有限制，目前接受大小写字母组合或特殊字符组合（\~/!/@/\#/^/&/\`/?/+/-/\*//（除号）/%/</\>/=），其中常见的用法是"//"。
+-   符号组合中尽量使用无歧义符号组合，特殊符号组合（注释符："\\\*"、"--"等）目前不支持用于delimiter命名。
+-   delimiter长度范围：0\~15。
+-   设置的结束符的级别是会话级别的，当切换数据库时delimiter\_name会设置为默认值‘;’。
+-   用户如果想使用其他字符组合例如"adbc  $$"，可以使用引号包含，例如delimiter "adbc  $$"，但使用时也需要使用引号包含，例如：select 1"adbc  $$"。
+-   delimiter分隔符只有sql\_compatibility = 'B'时支持。
 
 ### 常见问题处理<a name="section1780814211263"></a>
 
@@ -2265,7 +2208,7 @@ gsql -d dbname -p port -f filename
 
     在连接上数据库，通过“show log\_hostname”语句，检查数据库中是否开启了log\_hostname参数。
 
-    如果开启了相关参数，那么数据库内核会通过DNS反查客户端所在机器的主机名。这时如果数据库主节点配置了不正确的/不可达的DNS服务器，那么会导致数据库建立连接过程较慢。此参数的更多信息，详见《数据库参考》中“GUC参数说明 \> 错误报告和日志 \> 记录日志的内容”章节中关于“log\_hostname”的描述。
+    如果开启了相关参数，那么数据库内核会通过DNS反查客户端所在机器的主机名。这时如果数据库主节点配置了不正确的/不可达的DNS服务器，那么会导致数据库建立连接过程较慢。此参数的更多信息，详见《开发者指南》中“GUC参数说明 \> 错误报告和日志 \> 记录日志的内容”章节中关于“log\_hostname”的描述。
 
 -   数据库内核执行初始化语句较慢导致的性能问题。
 
@@ -2284,7 +2227,7 @@ gsql -d dbname -p port -f filename
 
     此时便可以确定是数据库执行“SELECT VERSION\(\)”语句较慢。
 
-    在连接上数据库后，便可以通过执行“explain performance select version\(\)”语句来确定初始化语句执行较慢的原因。更多信息，详见《性能优化指南》中“性能调优 \> SQL调优指南 \> SQL执行计划介绍”章节。
+    在连接上数据库后，便可以通过执行“explain performance select version\(\)”语句来确定初始化语句执行较慢的原因。更多信息，详见《开发者指南》中“性能调优 \> SQL调优指南 \> SQL执行计划介绍”章节。
 
     另外还有一种场景不太常见：由于数据库主节点所在机器的磁盘满或故障，此时所查询等受影响，无法进行用户认证，导致连接过程挂起，表现为假死。解决此问题清理数据库主节点的数据盘空间便可。
 
@@ -2317,7 +2260,7 @@ gsql -d dbname -p port -f filename
 
 -   gsql: FATAL:  Forbid remote connection with trust method!
 
-    数据库由于安全问题，禁止远程登录时使用trust模式。这时需要修改pg\_hba.conf里的连接认证信息。具体的设置信息请参见：《数据库管理》中“管理数据库安全 \> 客户端接入认证 \> 配置文件参考”章节。
+    数据库由于安全问题，禁止远程登录时使用trust模式。这时需要修改pg\_hba.conf里的连接认证信息。具体的设置信息请参见：《开发者指南》中“管理数据库安全 \> 客户端接入认证 \> 配置文件参考”章节。
 
     >![](public_sys-resources/icon-note.gif) **说明：** 
     >
@@ -2329,7 +2272,7 @@ gsql -d dbname -p port -f filename
 
     如果检查结果不一致，那么修改PGHOST环境变量到GUC参数unix\_socket\_directory指向的目录便可。
 
-    关于unix\_socket\_directory的更多信息，详见《数据库参考》中“GUC参数说明 \> 连接和认证 \> 连接设置”章节中的说明。
+    关于unix\_socket\_directory的更多信息，详见《开发者指南》中“GUC参数说明 \> 连接和认证 \> 连接设置”章节中的说明。
 
 -   The "libpq.so" loaded mismatch the version of gsql, please check it.
 
@@ -2477,7 +2420,7 @@ gsql -d dbname -p port -f filename
 
 -   gsql: FATAL:  GSS authentication method is not allowed because XXXX user password is not disabled.
 
-    目标数据库主节点的pg\_hba.conf里配置了当前客户端IP使用“gss”方式来做认证，该认证算法不支持用作客户端的身份认证，请修改到"sha256"后再试。配置方法见《数据库管理》中“管理数据库安全 \> 客户端接入认证 \> 配置文件参考”章节 。
+    目标数据库主节点的pg\_hba.conf里配置了当前客户端IP使用“gss”方式来做认证，该认证算法不支持用作客户端的身份认证，请修改到"sha256"后再试。配置方法见《开发者指南》中“管理数据库安全 \> 客户端接入认证 \> 配置文件参考”章节 。
 
     >![](public_sys-resources/icon-note.gif) **说明：**
     >
@@ -2497,3 +2440,8 @@ gsql -d dbname -p port -f filename
     >![](public_sys-resources/icon-note.gif) **说明：** 
     >
     >此故障的core dump文件的可能堆栈是dl\_main及其子调用，它是操作系统用来初始化进程做共享动态库加载的。如果进程已经初始化，但是共享动态库还未加载完成，严格意义上来说，进程并未完全启动。
+
+
+
+
+

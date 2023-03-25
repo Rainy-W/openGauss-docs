@@ -20,6 +20,7 @@ SELECT语句就像叠加在数据库表上的过滤器，利用SQL关键字从�
 [ WITH [ RECURSIVE ] with_query [, ...] ]
 SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
 { * | {expression [ [ AS ] output_name ]} [, ...] }
+[ into_option ]
 [ FROM from_item [, ...] ]
 [ WHERE condition ]
 [ [ START WITH condition ] CONNECT BY [NOCYCLE] condition [ ORDER SIBLINGS BY expression ] ]
@@ -31,7 +32,9 @@ SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
 [ LIMIT { [offset,] count | ALL } ]
 [ OFFSET start [ ROW | ROWS ] ]
 [ FETCH { FIRST | NEXT } [ count ] { ROW | ROWS } ONLY ]
-[ {FOR { UPDATE | NO KEY UPDATE | SHARE | KEY SHARE } [ OF table_name [, ...] ] [ NOWAIT ]} [...] ];
+[ into_option ]
+[ {FOR { UPDATE | NO KEY UPDATE | SHARE | KEY SHARE } [ OF table_name [, ...] ] [ NOWAIT | WAIT N]} [...] ]
+[ into_option ];
 ```
 
 >![](public_sys-resources/icon-note.gif) **说明：** 
@@ -58,6 +61,29 @@ SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
     with_query_name [ ( column_name [, ...] ) ]
         AS [ [ NOT ] MATERIALIZED ] ( {select | values | insert | update | delete} )
     ```
+
+- 其中into子句为：
+
+  ```
+  into_option: {
+          INTO var_name [, var_name] ...
+  	| INTO OUTFILE 'file_name'
+  		[CHARACTER SET charset_name]
+  		export_options
+  	| INTO DUMPFILE 'file_name'
+  }
+  export_options: {
+      [FIELDS
+   [TERMINATED BY 'string']
+   [[OPTIONALLY] ENCLOSED BY 'char']
+   [ESCAPED BY 'char' ]
+      ]
+      [LINES
+   [STARTING BY 'string']
+   [TERMINATED BY 'string']
+      ]
+  }
+  ```
 
 -   其中指定查询源from\_item为：
 
@@ -132,7 +158,7 @@ SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
 
 -   **plan\_hint子句**
 
-    以/\*+ \*/的形式在SELECT关键字后，用于对SELECT对应的语句块生成的计划进行hint调优，详细用法请参见章节[使用Plan Hint进行调优](../PerformanceTuning/使用Plan-Hint进行调优.md)。每条语句中只有第一个/\*+ plan\_hint \*/注释块会作为hint生效，里面可以写多条hint。
+    以/\*+ \*/的形式在SELECT关键字后，用于对SELECT对应的语句块生成的计划进行hint调优，详细用法请参见章节[使用Plan Hint进行调优](使用Plan-Hint进行调优.md)。每条语句中只有第一个/\*+ plan\_hint \*/注释块会作为hint生效，里面可以写多条hint。
 
 -   **ALL**
 
@@ -158,6 +184,65 @@ SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
     -   手动输入列名，多个列之间用英文逗号（,）分隔。
     -   可以是FROM子句里面计算出来的字段。
 
+- **INTO子句**
+
+  将select出的结果输出到指定用户自定义变量或文件。
+
+  - var\_name
+
+    用户自定义的变量名。详见[SET章节](SET.md)中的var\_name。
+
+  - OUTFILE
+
+    - CHARACTER SET 指定编码格式。
+
+    - FIELDS 指定每个字段的属性：
+
+      TERMINATED 指定间隔符。
+
+      \[OPTIONALLY\] ENCLOSED 指定引号符，指定OPTIONALLY时只对字符串数据类型起作用。
+
+      ESCAPED 指定转义符。
+
+    - LINES 指定行属性：
+
+      STARTING 指定行开头。
+
+      TERMINATED 指定行结尾。
+
+  - DUMPFILE
+
+    导出无间隔符，无换行符的单行数据到文件。
+
+  - file\_name
+
+    指定文件的绝对路径。
+
+    ```
+  into_option三处位置：
+    --在from子句之前。
+    openGauss=#  select * into @my_var from t;
+    --在锁定子句之前。
+    openGauss=#  select * from t into @my_var for update;
+    --在select语句结尾。
+  openGauss=#  select * from t for update into @my_var;
+    
+  导出到文件：
+    openGauss=#  select * from t；
+   a | b
+    ---+---
+   1 | a
+    (1 row)
+  --导出数据到outfile文件。
+    openGauss=#  select * from t into outfile '/home/openGauss/t.txt'FIELDS TERMINATED BY '~' ENCLOSED BY 't' ESCAPED BY '^' LINES STARTING BY '$' TERMINATED BY '&\n';
+  文件内容：$t1t~tat&，其中LINES STARTING BY($),FIELDS TERMINATED BY(~),ENCLOSED BY(t),LINES TERMINATED BY(&\n)。
+    --导出数据到dumpfile文件。
+  openGauss=#  select * from t into dumpfile '/home/openGauss/t.txt';
+    文件内容：1a
+  ```
+  
+  
+  
 - **FROM子句**
 
   为SELECT声明一个或者多个源表。
@@ -345,7 +430,11 @@ SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
     -A-D   | D    |  4 |        1 |     2
     (5 rows)
     ```
-   
+
+-   **ORDER SIBLINGS BY子句**
+
+    ORDER SIBLINGS BY通常和START WITH、CONNECT BY子句同时使用, 用法和ORDER BY子句一样, 用于在递归过程中的层级排序。当前不支持接函数调用，如果有函数调用，且函数参数中存在列，则取第一个列作为排序键排序。
+
 -   **GROUP BY子句**
 
     将查询结果按某一列或多列的值分组，值相等的为一组。
@@ -510,6 +599,17 @@ SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
   - 如果对于所有声明的表达式都相同，则按随机顺序返回。
 
   - 在与DISTINCT关键字一起使用的情况下，ORDER BY中排序的列必须包括在SELECT语句所检索的结果集的列中。
+    >![](public_sys-resources/icon-notice.gif) **例外：**
+    >
+    > 在兼容B模式下，ORDER BY 可以支持表达式，其中引用的列必须在 DISTINCT 中。
+    >
+    > 在兼容B模式下，以下两种方式可以让 ORDER BY 引用的列不必在 DISTINCT 中：
+    >
+    > - DOLPHIN 插件存在时，dolphin.sql_mode 参数未设置 sql_mode_full_group 选项。
+    >
+    > - DOLPHIN 插件不存在时，behavior_compat_options 参数设置 allow_orderby_undistinct_column 选项。
+    >
+    > 注意：本例外只支持DISTINCT语法，不支持DISTINCT ON语法。
 
   - 在与GROUP BY子句一起使用的情况下，ORDER BY中排序的列必须包括在SELECT语句所检索的结果集的列中。
 
