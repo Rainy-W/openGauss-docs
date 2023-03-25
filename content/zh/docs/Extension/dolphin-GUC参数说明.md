@@ -61,9 +61,11 @@ ansi_quotes关闭情况下，如果需要用到数据库关键字作为对象标
 
 使用反引号(`)的情况下，表名称（受到参数lower_case_table_names控制）之外，其他包围的列名称，索引名称等都会做自动的小写化处理，返回数据的列也均为小写名称。
 
+8. pad_char_to_full_length：控制char类型查询时是否删除尾部空格。
+
 **取值范围**：字符串
 
-**默认值**：'sql_mode_strict,sql_mode_full_group,pipes_as_concat,ansi_quotes'
+**默认值**：'sql_mode_strict,sql_mode_full_group,pipes_as_concat,ansi_quotes,pad_char_to_full_length'
 
 **示例**：
 ```
@@ -337,6 +339,7 @@ dayname
 2. [TIMESTAMPDIFF](dolphin-时间和日期处理函数和操作符.md#zh-cn_topic_0283136846_zh-cn_topic_0237121972_zh-cn_topic_0059779084_sd0d47140cdd048c1964ed53f9858f436)
 3. [FORMAT](dolphin-字符处理函数和操作符.md#ZH-CN_TOPIC_0289900656)
 4. [EXTRACT](dolphin-时间和日期处理函数和操作符.md#zh-cn_topic_0283136846_zh-cn_topic_0237121972_zh-cn_topic_0059779084_sd0d47140cdd048c1964ed53f9858f436)
+5. [CAST](dolphin-类型转换函数.md)
 
 其他影响的参数：
 1. [?](dolphin-PREPARE.md#zh-cn_topic_0283137542_zh-cn_topic_0237122167_zh-cn_topic_0059778902_sdd2da7fe44624eb99ee77013ff96c6bd)
