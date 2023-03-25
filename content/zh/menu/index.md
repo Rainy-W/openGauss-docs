@@ -839,6 +839,7 @@ headless: true
 					-	[逻辑操作符]({{< relref "./docs/Extension/dolphin-逻辑操作符.md" >}}) 
 					-	[位串操作函数和操作符]({{< relref "./docs/Extension/dolphin-位串操作函数和操作符.md" >}})
 					-	[JSON-JSONB函数和操作符]({{< relref "./docs/Extension/dolphin-JSON-JSONB函数和操作符.md" >}})
+					-	[类型转换函数]({{< relref "./docs/Extension/dolphin-类型转换函数.md" >}})
 				-	[表达式]({{< relref "./docs/Extension/dolphin-表达式.md" >}})
 					-	[条件表达式]({{< relref "./docs/Extension/dolphin-表达式.md" >}})
 				-	[DDL语法一览表]({{< relref "./docs/Extension/dolphin-DDL语法一览表.md" >}})
@@ -898,6 +899,7 @@ headless: true
 					-	[USE-DB_NAME]({{< relref "./docs/Extension/dolphin-USE-DB_NAME.md" >}})
 					-	[CHECKSUM-TABLE]({{< relref "./docs/Extension/dolphin-CHECKSUM-TABLE.md" >}})  
 					-	[GRANT-REVOKE-PROXY]({{< relref "./docs/Extension/dolphin-GRANT-REVOKE-PROXY.md" >}}) 					
+					-	[SELECT-HINT]({{< relref "./docs/Extension/dolphin-SELECT-HINT.md" >}}
 			-   [系统视图]({{< relref "./docs/Extension/dolphin-系统视图.md" >}})
 					-	[PG TYPE NONSTRICT BASIC VALUE]({{< relref "./docs/Extension/dolphin-PG_TYPE_NONSTRICT_BASIC_VALUE.md" >}})
 					-	[INDEX STATISTIC]({{< relref "./docs/Extension/dolphin-INDEX_STATISTIC.md" >}})
@@ -1832,6 +1834,7 @@ headless: true
     		-   [PG\_STATISTIC]({{< relref "./docs/DataBaseReference/PG_STATISTIC.md" >}})
     		-   [PG\_STATISTIC\_EXT]({{< relref "./docs/DataBaseReference/PG_STATISTIC_EXT.md" >}})
     		-   [PG\_SUBSCRIPTION]({{< relref "./docs/DataBaseReference/PG_SUBSCRIPTION.md" >}})
+    		-   [PG\_SUBSCRIPTION\_REL]({{< relref "./docs/DataBaseReference/PG_SUBSCRIPTION_REL.md" >}})
     		-   [PG\_SYNONYM]({{< relref "./docs/DataBaseReference/PG_SYNONYM.md" >}})
     		-   [PG\_TABLESPACE]({{< relref "./docs/DataBaseReference/PG_TABLESPACE.md" >}})
     		-   [PG\_TRIGGER]({{< relref "./docs/DataBaseReference/PG_TRIGGER.md" >}})

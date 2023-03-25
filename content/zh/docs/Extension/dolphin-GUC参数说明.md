@@ -62,9 +62,11 @@ ansi_quotes关闭情况下，如果需要用到数据库关键字作为对象标
 
 使用反引号(`)的情况下，表名称（受到参数lower_case_table_names控制）之外，其他包围的列名称，索引名称等都会做自动的小写化处理，返回数据的列也均为小写名称。
 
+8. pad_char_to_full_length：控制char类型查询时是否删除尾部空格。
+
 **取值范围**：字符串
 
-**默认值**：'sql_mode_strict,sql_mode_full_group,pipes_as_concat,ansi_quotes'
+**默认值**：'sql_mode_strict,sql_mode_full_group,pipes_as_concat,ansi_quotes,pad_char_to_full_length'
 
 **示例**：
 ```
@@ -338,6 +340,7 @@ dayname
 2. [TIMESTAMPDIFF](dolphin-时间和日期处理函数和操作符.md#zh-cn_topic_0283136846_zh-cn_topic_0237121972_zh-cn_topic_0059779084_sd0d47140cdd048c1964ed53f9858f436)
 3. [FORMAT](dolphin-字符处理函数和操作符.md#ZH-CN_TOPIC_0289900656)
 4. [EXTRACT](dolphin-时间和日期处理函数和操作符.md#zh-cn_topic_0283136846_zh-cn_topic_0237121972_zh-cn_topic_0059779084_sd0d47140cdd048c1964ed53f9858f436)
+5. [CAST](dolphin-类型转换函数.md)
 
 其他影响的参数：
 1. [?](dolphin-PREPARE.md#zh-cn_topic_0283137542_zh-cn_topic_0237122167_zh-cn_topic_0059778902_sdd2da7fe44624eb99ee77013ff96c6bd)
@@ -565,3 +568,40 @@ dayname
 **取值范围**：字符串
 
 **默认值**：加载dolphin协议插件时，当前会话的database_name
+
+## dolphin.optimizer_switch<a name="section203671436846"></a>
+
+**参数说明**：控制优化器行为，该参数是一系列控制选项的集合。当前支持的控制选项如下：
+
+  | 选项名               | 默认   | 功能                |
+  | ------------------- | ------ | ------------------- | 
+  |use_invisible_index	| off    | 控制是否使用不可见索引 |
+
+该参数属于USERSET类型参数，请参考[表1](重设参数.md#zh-cn_topic_0237121562_zh-cn_topic_0059777490_t91a6f212010f4503b24d7943aed6d846)中对应设置方法进行设置。
+
+**取值范围**：字符串
+
+**有效取值**: 各选项以逗号隔开，如下。
+
+optimizer_switch='command[,command]...'
+
+  | command               | 描述                |
+  | ------------------- | ------------------ | 
+  | default	|  将所有控制选项设为其默认值 |
+  | opt_name = default	|  将指定控制选项设为其默认值 |
+  | opt_name = off	|  将指定控制选项设为关闭 |
+  | opt_name = on	|  将指定控制选项设为打开 |
+
+**默认值**：default
+
+**示例**：
+```
+-- 设置use_invisible_index为on
+openGauss=# set dolphin.optimizer_switch = 'use_invisible_index = on';
+
+-- 设置dolphin.optimizer_switch为defalut，表示所有控制选项都设置为默认值
+openGauss=# set dolphin.optimizer_switch = 'default';
+
+-- 表示仅设置use_invisible_index选项为默认值
+openGauss=# set dolphin.optimizer_switch = 'use_invisible_index = default';
+```

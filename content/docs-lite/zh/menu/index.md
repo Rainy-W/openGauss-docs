@@ -1360,6 +1360,7 @@ headless: true
 	        -   [PG\_STATISTIC]({{< relref "./docs/DataBaseReference/PG_STATISTIC.md" >}})
 	        -   [PG\_STATISTIC\_EXT]({{< relref "./docs/DataBaseReference/PG_STATISTIC_EXT.md" >}})
 	        -   [PG\_SUBSCRIPTION]({{< relref "./docs/DataBaseReference/PG_SUBSCRIPTION.md" >}})
+	        -   [PG\_SUBSCRIPTION\_REL]({{< relref "./docs/DataBaseReference/PG_SUBSCRIPTION_REL.md" >}})
 	        -   [PG\_SYNONYM]({{< relref "./docs/DataBaseReference/PG_SYNONYM.md" >}})
 	        -   [PG\_TABLESPACE]({{< relref "./docs/DataBaseReference/PG_TABLESPACE.md" >}})
 	        -   [PG\_TRIGGER]({{< relref "./docs/DataBaseReference/PG_TRIGGER.md" >}})

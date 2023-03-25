@@ -111,3 +111,5 @@
 -   **[CHECKSUM TABLE](dolphin-CHECKSUM-TABLE.md)**  
 
 -   **[GRANT/REVOKE PROXY](dolphin-GRANT-REVOKE-PROXY.md)** 
+
+-   **[SELECT HINT](dolphin-SELECT-HINT.md)** 
