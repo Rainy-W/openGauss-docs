@@ -89,7 +89,7 @@ DELETE [/*+ plan_hint */]
 
     关键字详见[SELECT](SELECT.md)一节介绍
 
-    示例详见[CREATE TABLE SUBPARTITION](CREATE-TABLE-SUBPARTITION.md)
+
 
 -   **alias**
 
