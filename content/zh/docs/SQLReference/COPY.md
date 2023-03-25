@@ -16,32 +16,35 @@ COPY FROM从一个文件拷贝数据到一个表，COPY TO把一个表的数据�
 -   如果数据文件的任意行包含比预期多或者少的字段，COPY FROM将抛出一个错误。
 -   数据的结束可以用一个只包含反斜杠和句点（\\.）的行表示。如果从文件中读取数据，数据结束的标记是不必要的；如果在客户端应用之间拷贝数据，必须要有结束标记。
 -   COPY FROM中\\N为空字符串，如果要输入实际数据值\\N ，使用\\\\N。
-
 -   COPY FROM不支持在导入过程中对数据做预处理（比如说表达式运算、填充指定默认值等）。如果需要在导入过程中对数据做预处理，用户需先把数据导入到临时表中，然后执行SQL语句通过运算插入到表中，但此方法会导致I/O膨胀，降低导入性能。
 -   COPY FROM在遇到数据格式错误时会回滚事务，但没有足够的错误信息，不方便用户从大量的原始数据中定位错误数据。
 -   COPY FROM/TO适合低并发，本地小数据量导入导出。
 -   目标表存在trigger，支持COPY操作。
+-   COPY命令中，生成列不能出现在指定列的列表中。使用COPY… TO导出数据时，如果没有指定列的列表，则该表的所有列除了生成列都会被导出。COPY… FROM导入数据时，生成列会自动更新，并像普通列一样保存。
 
 ## 语法格式<a name="zh-cn_topic_0283136676_zh-cn_topic_0237122096_zh-cn_topic_0059778766_s85a73a9ad894403da754c5d6b3d8210f"></a>
 
--   从一个文件拷贝数据到一个表。
+- 从一个文件拷贝数据到一个表。
 
-    ```
-    COPY table_name [ ( column_name [, ...] ) ]
-        FROM { 'filename' | STDIN }
-        [ [ USING ] DELIMITERS 'delimiters' ]
-        [ WITHOUT ESCAPING ]
-        [ LOG ERRORS ]
-        [ LOG ERRORS DATA ]
-        [ REJECT LIMIT 'limit' ]
-        [ [ WITH ] ( option [, ...] ) ]
-        | copy_option
-        | [ FIXED FORMATTER ( { column_name( offset, length ) } [, ...] ) ]
-        | [ TRANSFORM ( { column_name [ data_type ] [ AS transform_expr ] } [, ...] ) ];
-    ```
+  ```
+  COPY table_name [ ( column_name [, ...] ) ]
+      FROM { 'filename' | STDIN }
+      [ [ USING ] DELIMITERS 'delimiters' ]
+      [ WITHOUT ESCAPING ]
+      [ LOG ERRORS ]
+      [ LOG ERRORS DATA ]
+      [ REJECT LIMIT 'limit' ]
+      [ [ WITH ] ( option [, ...] ) ]
+      | copy_option
+      | [ FIXED FORMATTER ( { column_name( offset, length ) } [, ...] ) ]
+      | [ TRANSFORM ( { column_name [ data_type ] [ AS transform_expr ] } [, ...] ) ];
+  ```
 
-    >![](public_sys-resources/icon-note.gif) **说明：** 
-    >语法中的FIXED FORMATTER \( \{ column\_name\( offset, length \) \} \[, ...\] \)以及 \[ \( option \[, ...\] \) | copy\_option \[ ...\] \] 可以任意排列组合。
+  >![](public_sys-resources/icon-note.gif) **说明：** 
+  >
+  >+ fixed formatter与copy_option语法兼容，与 option语法不兼容。
+  >+ copy_option和option语法不兼容。
+  >+ transfrom可以和copy_option、fix ed formatter配合使用。
 
 -   把一个表的数据拷贝到一个文件。
 
@@ -300,7 +303,7 @@ COPY FROM从一个文件拷贝数据到一个表，COPY TO把一个表的数据�
       >-   quote参数只能是单字节的字符。
       >-   推荐不可见字符作为quote，例如0x07、0x08、0x1b等。
       例如quote e'\x22'  ：使用ASCII编码为16进制22的字符。
- 
+
     -   ESCAPE
         
         CSV格式下，用来指定逃逸字符，逃逸字符只能指定为单字节字符。
@@ -457,7 +460,7 @@ COPY FROM从一个文件拷贝数据到一个表，COPY TO把一个表的数据�
       >-   fileheader指定的是绝对路径。
       >   
       >-   该文件只能包含一行标题信息，并以换行符结尾，多余的行将被丢弃（标题信息不能包含换行符）。
-      >  
+      > 
       >-   该文件包括换行符在内长度不超过1M。
     
     -   FREEZE
@@ -516,7 +519,7 @@ COPY FROM从一个文件拷贝数据到一个表，COPY TO把一个表的数据�
     -   ESCAPE \[AS\] 'escape\_character'
 
             CSV格式下，用来指定逃逸字符，逃逸字符只能指定为单字节字符。
-
+        
             默认值为双引号。当与quote值相同时，会被替换为'\\0'。
 
     -   EOL 'newline\_character'

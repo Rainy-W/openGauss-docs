@@ -27,13 +27,13 @@ DELETE [/*+ plan_hint */] [FROM] [ ONLY ] table_name [ * ] [ [ [partition_clause
 DELETE [/*+ plan_hint */] [FROM] 
     {[ ONLY ] table_name [ * ] [ [ [partition_clause]  [ [ AS ] alias ] ] | [ [ [ AS ] alias ] [partitions_clause] ] ]} [, ...]
     [ USING using_list ]
-    [ WHERE condition | WHERE CURRENT OF cursor_name ];
+    [ WHERE condition  ];
 或
 [ WITH [ RECURSIVE ] with_query [, ...] ]
 DELETE [/*+ plan_hint */]
     {[ ONLY ] table_name [ * ] [ [ [partition_clause]  [ [ AS ] alias ] ] | [ [ [ AS ] alias ] [partitions_clause] ] ]} [, ...]
     [ FROM using_list ]
-    [ WHERE condition | WHERE CURRENT OF cursor_name ];
+    [ WHERE condition ];
 ```
 
 ## 参数说明<a name="zh-cn_topic_0283136795_zh-cn_topic_0237122131_zh-cn_topic_0059778379_s6df87c0dd87c49e29a034e0ff3385ca6"></a>
@@ -61,7 +61,7 @@ DELETE [/*+ plan_hint */]
     
 -   **plan\_hint子句**
 
-    以/\*+ \*/的形式在DELETE关键字后，用于对DELETE对应的语句块生成的计划进行hint调优，详细用法请参见章节[使用Plan Hint进行调优](../PerformanceTuning/使用Plan-Hint进行调优.md)。每条语句中只有第一个/\*+ plan\_hint \*/注释块会作为hint生效，里面可以写多条hint。
+    以/\*+ \*/的形式在DELETE关键字后，用于对DELETE对应的语句块生成的计划进行hint调优，详细用法请参见章节[使用Plan Hint进行调优](使用Plan-Hint进行调优.md)。每条语句中只有第一个/\*+ plan\_hint \*/注释块会作为hint生效，里面可以写多条hint。
 
 -   **ONLY**
 
@@ -109,7 +109,7 @@ DELETE [/*+ plan_hint */]
 
       >![](public_sys-resources/icon-notice.gif) **须知：** 
       > 
-    >当参数sql\_compatibility=B时，using\_list指定关联表的集合时可以同时出现目标表，并且可以定义表的别名并在目标表中使用。其他模式下则目标表不可重复出现在using\_list中。
+    >当参数sql\_compatibility='B'或删除多张目标表时，using\_list指定关联表的集合时可以同时出现目标表，并且可以定义表的别名并在目标表中使用。其他情况下则目标表不可重复出现在using\_list中。
 
 -   **condition**
 
@@ -151,6 +151,11 @@ openGauss=# DELETE FROM tpcds.customer_address_bak;
 
 --删除tpcds.customer_address_bak表。
 openGauss=# DROP TABLE tpcds.customer_address_bak;
+
+--同时删除tpcds.customer_address和tpcds.customer_address_bak中ca_address_sk小于50的职员。
+openGauss=# DELETE FROM a,b USING tpcds.customer_address a,tpcds.customer_address_bak b where a.ca_address_sk = b.ca_address_sk and a.ca_address_sk < 50;
+或者
+openGauss=# DELETE a,b FROM tpcds.customer_address a,tpcds.customer_address_bak b where a.ca_address_sk = b.ca_address_sk and a.ca_address_sk < 50;
 ```
 
 ## 优化建议<a name="zh-cn_topic_0283136795_zh-cn_topic_0237122131_zh-cn_topic_0059778379_section50155651112741"></a>

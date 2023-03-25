@@ -12,6 +12,7 @@
 -   SELECT、CALL调用函数时，必须要在出参位置提供实参进行调用，实参不会发生作用。
 -   存储过程指定package属性时支持重载。
 -   不能创建仅形参名字不同（存储过程名和参数列表类型都一样）的重载存储过程。
+-   重载的存储过程在调用时变量需要明确具体的类型。
 -    不能创建与函数拥有相同名称和参数列表的存储过程。
 -   在存储过程内部使用未声明的变量，存储过程被调用时会报错。
 -   在创建procedure时，不能在avg函数外面嵌套其他agg函数，或者其他系统函数。
@@ -30,19 +31,7 @@
 ```
 CREATE [ OR REPLACE ] PROCEDURE procedure_name
     [ ( {[ argname ] [ argmode ] argtype [ { DEFAULT | := | = } expression ]}[,...]) ]
-    [
-       { IMMUTABLE | STABLE | VOLATILE }
-       | { SHIPPABLE | NOT SHIPPABLE }
-       | {PACKAGE}
-       | [ NOT ] LEAKPROOF
-       | { CALLED ON NULL INPUT | RETURNS NULL ON NULL INPUT | STRICT }
-       | {[ EXTERNAL ] SECURITY INVOKER | [ EXTERNAL ] SECURITY DEFINER | AUTHID DEFINER | AUTHID CURRENT_USER}
-       | COST execution_cost
-       | SET configuration_parameter { TO value | = value | FROM CURRENT }
-       | COMMENT text
-    ][ ... ]
- { IS | AS } 
-plsql_body 
+   { IS | AS } plsql_body 
 /
 ```
 
@@ -80,29 +69,7 @@ plsql_body
 
     取值范围：可用的数据类型。
 
--   **configuration\_parameter**
-    -   **value**
 
-        把指定的配置参数设置为给定的值。如果value是DEFAULT，则在新的会话中使用系统的缺省设置。OFF关闭设置。
-
-        取值范围：字符串
-
-        -   DEFAULT
-        -   OFF
-        -   指定默认值。
-
-    -   **from current**
-
-        取当前会话中的值设置为configuration\_parameter的值。
-
-
--   **IMMUTABLE、STABLE**等
-
-    行为约束可选项。各参数的功能与CREATE FUNCTION类似，详细说明见[CREATE FUNCTION](CREATE-FUNCTION.md)
-
--   **COMMENT text**
-
-    指定存储过程注释。    
 
 -   **plsql\_body**
 

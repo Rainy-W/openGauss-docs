@@ -569,6 +569,7 @@ headless: true
         -   [案例：改写SQL消除in-clause]({{< relref "./docs/PerformanceTuning/案例-改写SQL消除in-clause.md" >}})
  
 -   [SQL参考]({{< relref "./docs/SQLReference/SQL参考.md" >}})
+	-   [SQL语法格式说明]({{< relref "./docs/SQLReference/SQL语法格式说明.md" >}})
 	-   [SQL语言结构和语法]({{< relref "./docs/SQLReference/SQL语言结构和语法.md" >}})
 		-   [关键字]({{< relref "./docs/SQLReference/关键字.md" >}})
 		-   [常量与宏]({{< relref "./docs/SQLReference/常量与宏.md" >}})

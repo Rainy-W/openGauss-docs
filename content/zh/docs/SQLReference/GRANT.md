@@ -48,6 +48,7 @@
 -   即使用户被授予ANY权限，也不能对私有用户下的对象进行访问操作（INSERT、DELETE、UPDATE、SELECT）。
 -   ANY权限与原有的权限相互无影响。
 -   如果用户被授予CREATE ANY TABLE权限，在同名schema下创建表的属主是该schema的属主，用户对表进行其他操作时，需要授予相应的操作权限。与此类似的还有CREATE ANY FUNCTION、CREATE ANY PACKAGE、CREATE ANY TYPE、CREATE ANY SEQUENCE和CREATE ANY INDEX，在同名模式下创建的对象的属主是同名模式的属主；而对于CREATE ANY TRIGGER和CREATE ANY SYNONYM，在同名模式下创建的对象的属主为创建者。
+-   需要谨慎授予用户CREATE ANY FUNCTION或CREATE ANY PACKAGE的权限，以免其他用户利用DEFINER类型的函数或PACKAGE进行权限提升。
 
 ## 语法格式<a name="zh-cn_topic_0283137177_zh-cn_topic_0237122166_zh-cn_topic_0059778755_s9b21365068e9482782f400457afa8a01"></a>
 
@@ -156,14 +157,13 @@
 
   ```
   GRANT { { EXECUTE | ALTER | DROP | COMMENT } [, ...] | ALL [ PRIVILEGES ] }
-      ON { PROCEDURE {proc_name ( [ {[ argmode ] [ arg_name ] arg_type} [, ...] ] )} [, ...]
-         | ALL PROCEDURE IN SCHEMA schema_name [, ...] }
-      TO { [ GROUP ] role_name | PUBLIC } [, ...]
-      [ WITH GRANT OPTION ];
+  	ON { PROCEDURE {proc_name ( [ {[ argmode ] [ arg_name ] arg_type} [, ...] ] )} [, ...]}
+  	TO { [ GROUP ] role_name | PUBLIC } [, ...]
+  	[ WITH GRANT OPTION ];
   ```
-
   
 
+  
 -   将过程语言的访问权限赋予给指定的用户或角色。
 
     ```
@@ -613,7 +613,7 @@ GRANT的参数说明如下所示。
 
 >![](public_sys-resources/icon-note.gif) **说明：** 
 >
->用户被授予任何一种ANY权限后，用户对public模式和用户模式具有USAGE权限，对[表1](#table1360121832117)中除public之外的系统模式没有USAGE权限。
+>用户被授予任何一种ANY权限后，用户对public模式和用户模式具有USAGE权限，对[表1](zh-cn_topic_0000001190922647.md#table167371825175015)中除public之外的系统模式没有USAGE权限。
 
 ## 示例<a name="zh-cn_topic_0283137177_zh-cn_topic_0237122166_zh-cn_topic_0059778755_s724dfb1c8978412b95cb308b64dfa447"></a>
 

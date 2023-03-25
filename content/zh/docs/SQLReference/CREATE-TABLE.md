@@ -19,6 +19,7 @@
 -   每张表的列数最大为1600，具体取决于列的类型，所有列的大小加起来不能超过8192 byte（由于数据存储形式原因，实际上限略小于8192 byte），text、varchar、char等长度可变的类型除外。
 -   被授予CREATE ANY TABLE权限的用户，可以在public模式和用户模式下创建表。如果想要创建包含serial类型列的表，还需要授予CREATE ANY SEQUENCE创建序列的权限。
 -   不可与同一模式下已存在的synonym产生命名冲突。
+-   仅支持在B兼容性数据库下指定COMMENT和可见性VISIBLE\INVISIBLE。
 
 ## 语法格式<a name="zh-cn_topic_0283137629_zh-cn_topic_0237122117_zh-cn_topic_0059778169_sc7a49d08f8ac43189f0e7b1c74f877eb"></a>
 
@@ -26,11 +27,12 @@
 
 ```
 CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXISTS ] table_name 
-    ({ column_name data_type [ compress_mode ] [ COLLATE collation ] [ column_constraint [ ... ] ]
+    ({ column_name data_type [ CHARACTER SET | CHARSET charset ] [ compress_mode ] [ COLLATE collation ] [ column_constraint [ ... ] ]
         | table_constraint
         | LIKE source_table [ like_option [...] ] }
         [, ... ])
     [ AUTO_INCREMENT [ = ] value ]
+    [ [DEFAULT] CHARACTER SET | CHARSET [ = ] default_charset ] [ [DEFAULT] COLLATE [ = ] default_collation ]
     [ WITH ( {storage_parameter = value} [, ... ] ) ]
     [ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
     [ COMPRESS | NOCOMPRESS ]
@@ -46,9 +48,10 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
       NULL |
       CHECK ( expression ) |
       DEFAULT default_expr |
+      GENERATED ALWAYS AS ( generation_expr ) [STORED] |
       AUTO_INCREMENT |
       ON UPDATE update_expr |
-      UNIQUE index_parameters |
+      UNIQUE [KEY] index_parameters |
       ENCRYPTED WITH ( COLUMN_ENCRYPTION_KEY = column_encryption_key, ENCRYPTION_TYPE = encryption_type_value ) |
       PRIMARY KEY index_parameters |
       REFERENCES reftable [ ( refcolumn ) ] [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
@@ -69,8 +72,8 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
     ```
     [ CONSTRAINT [ constraint_name ] ]
     { CHECK ( expression ) |
-      UNIQUE [ index_name ][ USING method ] ( { { column_name | ( expression ) } [ ASC | DESC ] } [, ... ] ) index_parameters |
-      PRIMARY KEY [ USING method ] ( { column_name [ ASC | DESC ] } [, ... ] ) index_parameters |
+      UNIQUE [ index_name ][ USING method ] ( { { column_name | ( expression ) } [ ASC | DESC ] } [, ... ] ) index_parameters [ VISIBLE | INVISIBLE ] |
+      PRIMARY KEY [ USING method ] ( { column_name [ ASC | DESC ] } [, ... ] ) index_parameters [ VISIBLE | INVISIBLE ] |
       FOREIGN KEY [ index_name ] ( column_name [, ... ] ) REFERENCES reftable [ (refcolumn [, ... ] ) ]
           [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ] [ ON DELETE action ] [ ON UPDATE action ] |
       PARTIAL CLUSTER KEY ( column_name [, ... ] ) }
@@ -121,7 +124,7 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
     >-   如果建表时不指定TEMPORARY/TEMP关键字，而指定表的schema为当前会话的pg\_temp\_开头的schema，则此表会被创建为临时表。
     >-   ALTER/DROP全局临时表和索引，如果其它会话正在使用它，禁止操作（ALTER INDEX index\_name REBUILD除外）。
     >-   全局临时表的DDL只会影响当前会话的用户数据和索引。例如truncate、reindex、analyze只对当前会话有效。
-    >-   全局临时表功能可以通过设置GUC参数[max_active_global_temporary_table](../DataBaseReference/全局临时表.md#section18307271684)控制是否启用。如果max\_active\_global\_temporary\_table=0，关闭全局临时表功能。
+    >-   全局临时表功能可以通过设置GUC参数[max_active_global_temporary_table](全局临时表.md#section18307271684)控制是否启用。如果max\_active\_global\_temporary\_table=0，关闭全局临时表功能。
     >-   临时表只对当前会话可见，因此不支持与\\parallel on并行执行一起使用。
     >-   临时表不支持主备切换。
     >-   全局临时表不响应自动清理，在长链接场景使用时尽量使用on commit delete rows的全局临时表，或定期手动执行vacuum，否则可能导致clog日志不回收。
@@ -198,9 +201,87 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
 
     取值范围：DELTA、PREFIX、DICTIONARY、NUMSTR、NOCOMPRESS
 
--   **COLLATE collation**
+    -   DELTA压缩仅支持长度为1-8字节的数据类型（0 < pg_type.typlen <= 8）。
+    -   PREFIX、NUMSTR压缩仅支持变长数据类型（pg_type.typlen = -1）和NULL结尾的C字符串（pg_type.typlen = -2）。
+    -   该压缩选项与列存表自适应压缩算法无关，后者为列存表内部数据存储采用的压缩算法，不支持用户指定。
 
-    COLLATE子句指定列的排序规则（该列必须是可排列的数据类型）。如果没有指定，则使用默认的排序规则。排序规则可以使用“select \* from pg\_collation;”命令从pg\_collation系统表中查询，默认的排序规则为查询结果中以default开始的行。
+-   **CHARACTER SET | CHARSET charset**
+
+    只在B模式数据库下（即sql\_compatibility = 'B'）支持该语法，其他模式数据库不支持。指定表字段的字符集，单独指定时会将字段的字符序设置为指定的字符集的默认字符序。
+
+- **COLLATE collation**
+
+    COLLATE子句指定列的排序规则（字符序）（该列必须是可排列的数据类型）。如果没有指定，则使用默认的排序规则。排序规则可以使用“select \* from pg\_collation;”命令从pg\_collation系统表中查询，默认的排序规则为查询结果中以default开始的行。对于B模式数据库下（即sql\_compatibility = 'B'）还支持utf8mb4\_bin、utf8mb4\_general\_ci、utf8mb4\_unicode\_ci、binary字符序。
+
+    > **说明：** 
+    >
+    >-   仅字符类型支持指定字符集，指定为binary字符集或字符序实际是将字符类型转化为对应的二进制类型，若类型映射不存在则报错。当前仅有TEXT类型转化为BLOB的映射。
+    >-   除binary字符集和字符序外，当前仅支持指定与数据库编码相同的字符集。
+    >-   未显式指定字段字符集或字符序时，若指定了表的默认字符集或字符序，字段字符集和字符序将从表上继承。若表的默认字符集或字符序不存在，当b\_format\_behavior\_compat\_options = 'default\_collation'时，字段的字符集和字符序将继承当前数据库的字符集及其对应的默认字符序。
+
+    **表 1**  B模式（即sql\_compatibility = 'B'）下支持的字符集和字符序介绍
+
+    <a name="table8163190152"></a>
+
+    <table><thead align="left"><tr id="row6163697151"><th class="cellrowborder" valign="top" width="17.631763176317634%" id="mcps1.2.4.1.1"><p id="p51638915157"><a name="p51638915157"></a><a name="p51638915157"></a>字符序名称</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="20.462046204620464%" id="mcps1.2.4.1.2"><p id="p141633921512"><a name="p141633921512"></a><a name="p141633921512"></a>对应的字符集</p>
+    </th>
+    <th class="cellrowborder" valign="top" width="61.90619061906191%" id="mcps1.2.4.1.3"><p id="p2016310971518"><a name="p2016310971518"></a><a name="p2016310971518"></a>描述</p>
+    </th>
+    </tr>
+    </thead>
+    <tbody><tr id="row14163694155"><td class="cellrowborder" valign="top" width="17.631763176317634%" headers="mcps1.2.4.1.1 "><p id="p5163159191519"><a name="p5163159191519"></a><a name="p5163159191519"></a>utf8mb4_general_ci</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="20.462046204620464%" headers="mcps1.2.4.1.2 "><p id="p616499151513"><a name="p616499151513"></a><a name="p616499151513"></a>utf8mb4（即utf8）</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="61.90619061906191%" headers="mcps1.2.4.1.3 "><p id="p13164897150"><a name="p13164897150"></a><a name="p13164897150"></a>使用通用排序规则，不区分大小写。</p>
+    </td>
+    </tr>
+    <tr id="row1216419911516"><td class="cellrowborder" valign="top" width="17.631763176317634%" headers="mcps1.2.4.1.1 "><p id="p516411914158"><a name="p516411914158"></a><a name="p516411914158"></a>utf8mb4_unicode_ci</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="20.462046204620464%" headers="mcps1.2.4.1.2 "><p id="p111644961510"><a name="p111644961510"></a><a name="p111644961510"></a>utf8mb4（即utf8）</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="61.90619061906191%" headers="mcps1.2.4.1.3 "><p id="p154091631191717"><a name="p154091631191717"></a><a name="p154091631191717"></a>使用通用排序规则，不区分大小写。</p>
+    </td>
+    </tr>
+    <tr id="row1164993152"><td class="cellrowborder" valign="top" width="17.631763176317634%" headers="mcps1.2.4.1.1 "><p id="p141641891154"><a name="p141641891154"></a><a name="p141641891154"></a>utf8mb4_bin</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="20.462046204620464%" headers="mcps1.2.4.1.2 "><p id="p5164209191519"><a name="p5164209191519"></a><a name="p5164209191519"></a>utf8mb4（即utf8）</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="61.90619061906191%" headers="mcps1.2.4.1.3 "><p id="p1216419917150"><a name="p1216419917150"></a><a name="p1216419917150"></a>使用二进制排序规则，区分大小写。</p>
+    </td>
+    </tr>
+    <tr id="row11164119191514"><td class="cellrowborder" valign="top" width="17.631763176317634%" headers="mcps1.2.4.1.1 "><p id="p31642961520"><a name="p31642961520"></a><a name="p31642961520"></a>binary</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="20.462046204620464%" headers="mcps1.2.4.1.2 "><p id="p91641981515"><a name="p91641981515"></a><a name="p91641981515"></a>binary</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="61.90619061906191%" headers="mcps1.2.4.1.3 "><p id="p31640971510"><a name="p31640971510"></a><a name="p31640971510"></a>使用二进制排序规则。</p>
+    </td>
+    </tr>
+    <tr id="row11164119191514"><td class="cellrowborder" valign="top" width="17.631763176317634%" headers="mcps1.2.4.1.1 "><p id="p31642961520"><a name="p31642961520"></a><a name="p31642961520"></a>utf8_general_ci</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="20.462046204620464%" headers="mcps1.2.4.1.2 "><p id="p91641981515"><a name="p91641981515"></a><a name="p91641981515"></a>utf8</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="61.90619061906191%" headers="mcps1.2.4.1.3 "><p id="p31640971510"><a name="p31640971510"></a><a name="p31640971510"></a>使用通用排序规则，不区分大小写。</p>
+    </td>
+    </tr>
+    <tr id="row11164119191514"><td class="cellrowborder" valign="top" width="17.631763176317634%" headers="mcps1.2.4.1.1 "><p id="p31642961520"><a name="p31642961520"></a><a name="p31642961520"></a>utf8_unicode_ci</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="20.462046204620464%" headers="mcps1.2.4.1.2 "><p id="p91641981515"><a name="p91641981515"></a><a name="p91641981515"></a>utf8</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="61.90619061906191%" headers="mcps1.2.4.1.3 "><p id="p31640971510"><a name="p31640971510"></a><a name="p31640971510"></a>使用通用排序规则，不区分大小写。</p>
+    </td>
+    </tr>
+    <tr id="row11164119191514"><td class="cellrowborder" valign="top" width="17.631763176317634%" headers="mcps1.2.4.1.1 "><p id="p31642961520"><a name="p31642961520"></a><a name="p31642961520"></a>utf8_bin</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="20.462046204620464%" headers="mcps1.2.4.1.2 "><p id="p91641981515"><a name="p91641981515"></a><a name="p91641981515"></a>utf8</p>
+    </td>
+    <td class="cellrowborder" valign="top" width="61.90619061906191%" headers="mcps1.2.4.1.3 "><p id="p31640971510"><a name="p31640971510"></a><a name="p31640971510"></a>使用二进制排序规则，区分大小写。</p>
+    </td>
+    </tr>
+    </tbody>
+    </table>
 
 -   **LIKE source\_table \[ like\_option ... \]**
 
@@ -382,7 +463,15 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
       取值范围：on/off。
   
       默认值：off。
-      
+  
+  + collate
+  
+    在B模式数据库下（即sql\_compatibility = 'B'）用于记录表的默认字符序，一般只用于内部存储和导入导出，不推荐用户指定或修改。
+  
+    取值范围：B模式数据库中独立支持的字符序的oid。
+  
+    默认值：0。
+  
 -   **WITHOUT OIDS**
 
     等价于WITH（OIDS=FALSE）的语法。
@@ -445,6 +534,23 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
 
     缺省表达式将被用于任何未声明该字段数值的插入操作。如果没有指定缺省值则缺省值为NULL 。
 
++ **GENERATED ALWAYS AS \( generation\_expr \) \[STORED\]**
+
+  该子句将字段创建为生成列，生成列的值在写入（插入或更新）数据时由generation\_expr计算得到，STORED表示像普通列一样存储生成列的值。
+
+  >![](public_sys-resources/icon-note.gif) **说明：** 
+  >
+  >-   STORED关键字可省略，与不省略STORED语义相同。
+  >-   生成表达式不能以任何方式引用当前行以外的其他数据。生成表达式不能引用其他生成列，不能引用系统列。生成表达式不能返回结果集，不能使用子查询，不能使用聚集函数，不能使用窗口函数。生成表达式调用的函数只能是不可变（IMMUTABLE）函数。
+  >-   不能为生成列指定默认值。
+  >-   生成列不能作为分区键的一部分。
+  >-   生成列不能和ON UPDATE约束字句的CASCADE,SET NULL,SET DEFAULT动作同时指定。生成列不能和ON DELETE约束字句的SET NULL,SET DEFAULT动作同时指定。
+  >-   修改和删除生成列的方法和普通列相同。删除生成列依赖的普通列，生成列被自动删除。不能改变生成列所依赖的列的类型。
+  >-   生成列不能被直接写入。在INSERT或UPDATE命令中, 不能为生成列指定值, 但是可以指定关键字DEFAULT。
+  >-   生成列的权限控制和普通列一样。
+  >-   列存表、内存表MOT不支持生成列。外表中仅postgres\_fdw支持生成列。
+
+
 -   **AUTO\_INCREMENT**
 
     该关键字将字段指定为自动增长列。
@@ -470,13 +576,26 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
     >-   自增计数器自增和刷新操作不会回滚。
 
 
--   **UNIQUE index\_parameters**
+- **\[DEFAULT\] CHARACTER SET | CHARSET \[ = \] default\_charset**
 
-    **UNIQUE \( column\_name \[, ... \] \) index\_parameters**
+  仅在sql\_compatibility='B'时支持该语法。指定表的默认字符集，单独指定时会将表的默认字符序设置为指定的字符集的默认字符序。
 
-    UNIQUE约束表示表里的一个字段或多个字段的组合必须在全表范围内唯一。
+- **\[DEFAULT\] COLLATE \[ = \] default\_collation**
 
-    对于唯一约束，NULL被认为是互不相等的。
+  仅在sql\_compatibility='B'时支持该语法。指定表的默认字符序，单独指定时会将表的默认字符集设置为指定的字符序对应的字符集。字符序参见[表1 B模式（即sql\_compatibility = 'B'）下支持的字符集和字符序介绍](#table8163190152)。
+
+  >![](C:/Users/liyang/Desktop/暂存/20230302/12-503.1-集中式-开发者指南 (1)/public_sys-resources/icon-note.gif) **说明：** 
+  >未显式指定表的字符集或字符序时，若指定了模式的默认字符集或字符序，表字符集和字符序将从模式上继承。若模式的默认字符集或字符序不存在，当b\_format\_behavior\_compat\_options = 'default\_collation'时，表的字符集和字符序将继承当前数据库的字符集及其对应的默认字符序。
+
+- **UNIQUE \[KEY\] index\_parameters**
+
+  **UNIQUE \( column\_name \[, ... \] \) index\_parameters**
+
+  UNIQUE约束表示表里的一个字段或多个字段的组合必须在全表范围内唯一。
+
+  对于唯一约束，NULL被认为是互不相等的。
+
+  UNIQUE KEY只能在sql\_compatibility='B'时使用，与UNIQUE语义相同。
 
 -   **PRIMARY KEY index\_parameters**
 
@@ -516,6 +635,10 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
 - **COMMENT text**
 
   注释。
+
+- **VISIBLE | INVISIBLE**
+
+  指定索引是否可见，如果没有声明则默认为VISIBLE。
 
 -   **PARTIAL CLUSTER KEY**
 
@@ -1182,5 +1305,4 @@ openGauss=# DROP SCHEMA IF EXISTS joe CASCADE;
 -   ORIENTATION COLUMN
     
     -   创建列存表，列存储适合于数据仓库业务，此类型的表上会做大量的汇聚计算，且涉及的列操作较少。
-
 

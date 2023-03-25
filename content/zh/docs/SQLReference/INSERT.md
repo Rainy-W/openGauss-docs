@@ -6,10 +6,16 @@
 
 ## 注意事项<a name="zh-cn_topic_0283137542_zh-cn_topic_0237122167_zh-cn_topic_0059778902_sdd2da7fe44624eb99ee77013ff96c6bd"></a>
 
--   只有拥有表INSERT权限的用户，才可以向表中插入数据。用户被授予insert any table权限，相当于用户对除系统模式之外的任何模式具有USAGE权限，并且拥有这些模式下表的INSERT权限
--   如果使用RETURNING子句，用户必须要有该表的SELECT权限。
--   如果使用ON DUPLICATE KEY UPDATE，用户必须要有该表的SELECT、UPDATE权限，唯一约束（主键或唯一索引）的SELECT权限。
--   如果使用query子句插入来自查询里的数据行，用户还需要拥有在查询里使用的表的SELECT权限。
+- 只有拥有表INSERT权限的用户，才可以向表中插入数据。用户被授予insert any table权限，相当于用户对除系统模式之外的任何模式具有USAGE权限，并且拥有这些模式下表的INSERT权限
+
+- 如果使用RETURNING子句，用户必须要有该表的SELECT权限。
+
+- 如果使用ON DUPLICATE KEY UPDATE，用户必须要有该表的SELECT、UPDATE权限，唯一约束（主键或唯一索引）的SELECT权限。
+
+- 如果使用query子句插入来自查询里的数据行，用户还需要拥有在查询里使用的表的SELECT权限。
+
+- 生成列不能被直接写入。在INSERT命令中不能为生成列指定值，但是可以指定关键字DEFAULT。
+
 -   当连接到TD兼容的数据库时，td\_compatible\_truncation参数设置为on时，将启用超长字符串自动截断功能，在后续的insert语句中（不包含外表的场景下），对目标表中char和varchar类型的列上插入超长字符串时，系统会自动按照目标表中相应列定义的最大长度对超长字符串进行截断。
 
     >![](public_sys-resources/icon-note.gif) **说明：** 
@@ -61,7 +67,7 @@ INSERT [/*+ plan_hint */] INTO table_name [partition_clause] [ AS alias ] [ ( co
 
   - **plan\_hint子句**
 
-    以/\*+ \*/的形式在INSERT关键字后，用于对INSERT对应的语句块生成的计划进行hint调优，详细用法请参见章节[使用Plan Hint进行调优](../PerformanceTuning/使用Plan-Hint进行调优.md)。每条语句中只有第一个/\*+ plan\_hint \*/注释块会作为hint生效，里面可以写多条hint。
+    以/\*+ \*/的形式在INSERT关键字后，用于对INSERT对应的语句块生成的计划进行hint调优，详细用法请参见章节[使用Plan Hint进行调优](zh-cn_topic_0289900289.md)。每条语句中只有第一个/\*+ plan\_hint \*/注释块会作为hint生效，里面可以写多条hint。
 
 -   **table\_name**
 
@@ -105,7 +111,7 @@ INSERT [/*+ plan_hint */] INTO table_name [partition_clause] [ AS alias ] [ ( co
     - ② 当引用的字段未执行计算或正在计算（引用自身）：
         - 所引用的字段的默认值为常量或存在旧元组，则取默认值或旧元组值参与当前表达式的计算。
         - 所引用的字段的默认值不是常量（是方法、表达式等）且不存在旧元组值和not null约束时，取null参与当前表达式的计算。
-        - 所引用的字段包含not null约束时，则取引用字段的基础值参与计算，与存在[IGNORE](../dolphinExtension/dolphin-INSERT.md)关键字时的表现一致。
+        - 所引用的字段包含not null约束时，则取引用字段的[基础值](INSERT_RIGHT_REF_DEFAULT_VALUE.md)参与计算，若无基础值则继续使用null。
     - ③ 当引用的字段已执行计算，取该字段的当前记录的值参与当前表达式的计算。
     
     其余与其他兼容性模式的数据库表现相同。
@@ -159,85 +165,6 @@ INSERT [/*+ plan_hint */] INTO table_name [partition_clause] [ AS alias ] [ ( co
     -   不支持列存，不支持外表、内存表。
     -   expression支持使用子查询表达式，其语法与功能同UPDATE。子查询表达式中支持使用“EXCLUDED.”来选择源数据相应的列。
 
-
-
-## INSERT语句右值引用基础值
-
-在兼容B模式下，INSERT语句支持右值引用，当被引用列有NOT NULL约束且没有默认值时，将使用其基础值参与计算。若无基础值则继续使用NULL值参与计算（数组类型、用户自定义类型等）。
-支持的各类型的基础值如[表1](#table1)所示。
-
-<span id="table1"><strong>表 1</strong> 类型基础值</span>
-
-| 类型                      | 基础值                               | 备注                                                         |
-| ------------------------- | ------------------------------------ | ------------------------------------------------------------ |
-| int                       | 0                                    |                                                              |
-| tinyint                   | 0                                    |                                                              |
-| smallint                  | 0                                    |                                                              |
-| integer                   | 0                                    |                                                              |
-| binary_integer            | 0                                    |                                                              |
-| bigint                    | 0                                    |                                                              |
-| boolean                   | f                                    |                                                              |
-| numeric                   | 0                                    |                                                              |
-| decimal                   | 0                                    |                                                              |
-| dec                       | 0                                    |                                                              |
-| double precision          | 0                                    |                                                              |
-| float8                    | 0                                    |                                                              |
-| float                     | 0                                    |                                                              |
-| char(n)                   | ""                                   | 注意：当字符串参与运算时，会根据内置规则进行值类型转换，<br/>而定长的字符串存储后的值长度与指定长度一致，会填充空白字符（不同存储方式可能会不同） |
-| varchar(n)                | ""                                   |                                                              |
-| varchar2(n)               | ""                                   |                                                              |
-| nchar(n)                  | ""                                   | 注意：当字符串参与运算时，会根据内置规则进行值类型转换，<br/>而定长的字符串存储后的值长度与指定长度一致，会填充空白字符（不同存储方式可能会不同） |
-| nvarchar2(n)              | ""                                   |                                                              |
-| nvarchar(n)               | ""                                   |                                                              |
-| date                      | 01-01-1970                           |                                                              |
-| time                      | 00:00:00                             |                                                              |
-| timestamp                 | 当前时间戳                           |                                                              |
-| smalldatetime             | Thu Jan 01 00:00:00 1970             |                                                              |
-| interval year             | @ 0                                  |                                                              |
-| interval month            | @ 0                                  |                                                              |
-| interval day              | @ 0                                  |                                                              |
-| interval hour             | @ 0                                  |                                                              |
-| interval minute           | @ 0                                  |                                                              |
-| interval second           | @ 0                                  |                                                              |
-| interval day to second    | @ 0                                  |                                                              |
-| interval day to hour      | @ 0                                  |                                                              |
-| interval day to minute    | @ 0                                  |                                                              |
-| interval hour to minute   | @ 0                                  |                                                              |
-| interval hour to second   | @ 0                                  |                                                              |
-| interval minute to second | @ 0                                  |                                                              |
-| reltime                   | @ 0                                  |                                                              |
-| abstime                   | Wed Dec 31 16:00:00 1969 PST         |                                                              |
-| money                     | $0.00                                |                                                              |
-| int4range                 | empty                                |                                                              |
-| blob                      |                                      |                                                              |
-| raw                       |                                      |                                                              |
-| bytea                     | \x                                   |                                                              |
-| point                     | (0,0)                                |                                                              |
-| lseg                      | [(0,0),(0,0)]                        |                                                              |
-| box                       | (0,0),(0,0)                          |                                                              |
-| path                      | ((0,0))                              |                                                              |
-| polygon                   | ((0,0))                              |                                                              |
-| circle                    | <(0,0),0>                            |                                                              |
-| cidr                      | 0.0.0.0/32                           |                                                              |
-| inet                      | 0.0.0.0                              |                                                              |
-| macaddr                   | 00:00:00:00:00:00                    |                                                              |
-| BIT                       |                                      |                                                              |
-| BIT VARYING               |                                      |                                                              |
-| UUID                      | 00000000-0000-0000-0000-000000000000 |                                                              |
-| json                      | null                                 |                                                              |
-| jsonb                     | null                                 |                                                              |
-| int8range                 | empty                                |                                                              |
-| numrange                  | empty                                |                                                              |
-| tsrange                   | empty                                |                                                              |
-| tstzrange                 | empty                                |                                                              |
-| daterange                 | empty                                |                                                              |
-| hll                       | \x                                   |                                                              |
-| SET                       | ""                                   |                                                              |
-| tsvector                  |                                      |                                                              |
-| tsquery                   |                                      |                                                              |
-| HASH16                    | 0000000000000000                     |                                                              |
-| HASH32                    | 00000000000000000000000000000000     |                                                              |
-| enum                      | 第一项                               |                                                              |
 
 ## 示例<a name="zh-cn_topic_0283137542_zh-cn_topic_0237122167_zh-cn_topic_0059778902_sfff14489321642278317cf06cd89810d"></a>
 

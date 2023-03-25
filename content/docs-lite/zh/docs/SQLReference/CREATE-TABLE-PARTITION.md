@@ -186,7 +186,7 @@ CREATE TABLE [ IF NOT EXISTS ] partition_table_name
 
     指定创建索引的方法。
 
-    取值范围参考[参数说明](CREATE-INDEX.md#zh-cn_topic_0283136578_zh-cn_topic_0237122106_zh-cn_topic_0059777455_s82e47e35c54c477094dcafdc90e5d85a)中的USING method。
+    取值范围参考[参数说明](zh-cn_topic_0289900160.md#zh-cn_topic_0283136578_zh-cn_topic_0237122106_zh-cn_topic_0059777455_s82e47e35c54c477094dcafdc90e5d85a)中的USING method。
 
     >![](public_sys-resources/icon-notice.gif) **须知：** 
     >
@@ -295,7 +295,7 @@ CREATE TABLE [ IF NOT EXISTS ] partition_table_name
 
 -   **COMPRESS / NOCOMPRESS**
 
-    创建一个新表时，需要在创建表语句中指定关键字COMPRESS，这样，当对该表进行批量插入时就会触发压缩特性。该特性会在页范围内扫描所有元组数据，生成字典、压缩元组数据并进行存储。指定关键字NOCOMPRESS则不对表进行压缩。行存表不支持压缩。
+    创建一个新表时，需要在创建表语句中指定关键字COMPRESS，这样，当对该表进行批量插入时就会触发压缩特性。该特性会在页范围内扫描所有元组数据，生成字典、压缩元组数据并进行存储。指定关键字NOCOMPRESS则不对表进行压缩。行存表不支持压缩。该参数已废弃，列存表请使用COMPRESSION修改压缩等级。
 
     缺省值为NOCOMPRESS，即不对元组数据进行压缩。
 
