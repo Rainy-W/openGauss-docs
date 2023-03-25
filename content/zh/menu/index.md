@@ -899,6 +899,7 @@ headless: true
 					-	[USE-DB_NAME]({{< relref "./docs/Extension/dolphin-USE-DB_NAME.md" >}})
 					-	[CHECKSUM-TABLE]({{< relref "./docs/Extension/dolphin-CHECKSUM-TABLE.md" >}})  
 					-	[GRANT-REVOKE-PROXY]({{< relref "./docs/Extension/dolphin-GRANT-REVOKE-PROXY.md" >}}) 					
+					-	[SELECT-HINT]({{< relref "./docs/Extension/dolphin-SELECT-HINT.md" >}}
 			-   [系统视图]({{< relref "./docs/Extension/dolphin-系统视图.md" >}})
 					-	[PG TYPE NONSTRICT BASIC VALUE]({{< relref "./docs/Extension/dolphin-PG_TYPE_NONSTRICT_BASIC_VALUE.md" >}})
 					-	[INDEX STATISTIC]({{< relref "./docs/Extension/dolphin-INDEX_STATISTIC.md" >}})
