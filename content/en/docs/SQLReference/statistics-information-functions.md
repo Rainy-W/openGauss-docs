@@ -840,7 +840,7 @@ Statistics information functions are divided into the following two categories: 
 
     Description: Specifies the thread ID of the server thread attached to the current session.
 
-    Return type: integer
+    Return type: bigint
 
 -   pg\_stat\_get\_activity\(integer\)
 
