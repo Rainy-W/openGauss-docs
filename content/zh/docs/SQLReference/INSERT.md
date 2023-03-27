@@ -225,5 +225,5 @@ SELECT * FROM upser ORDER BY c1;
 
 -   VALUES
 
-    通过insert语句批量插入数据时，建议将多条记录合并入一条语句中执行插入，以提高数据加载性能。例如，INSERT INTO sections VALUES \(30, 'Administration', 31, 1900\)、\(40, 'Development', 35, 2000\)、 \(50, 'Development' , 60 , 2001\)。
+    通过insert语句批量插入数据时，建议将多条记录合并入一条语句中执行插入，以提高数据加载性能。例如，INSERT INTO sections VALUES \(30, 'DatabaseAdministrationGuide', 31, 1900\)、\(40, 'Development', 35, 2000\)、 \(50, 'Development' , 60 , 2001\)。
 

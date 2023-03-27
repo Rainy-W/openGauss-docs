@@ -20,7 +20,7 @@
   -   sql_ignore_startegy为overwrite_null时，将违反约束的null值覆写为目标类型的默认值，并继续执行剩余数据操作。
   
       >![](public_sys-resources/icon-note.gif) **说明：** 
-    >GUC参数sql_ignore_strategy相关信息请参考[sql_ignore_strategy](../DataBaseReference/其它选项.md)。
+    >GUC参数sql_ignore_strategy相关信息请参考[sql_ignore_strategy](../DatabaseReference/其它选项.md)。
 
 - **违反唯一约束时**
 

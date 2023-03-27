@@ -4,16 +4,16 @@ openGauss可以通过调用SQL函数，进行创建、删除、推进逻辑复�
 
 ## 前提条件<a name="zh-cn_topic_0237121453_section1288315272236"></a>
 
--   逻辑日志目前从主机节点中抽取，默认关闭SSL连接，如果进行逻辑复制，需要先配置GUC参数[ssl](../DataBaseReference/安全和认证_postgresql-conf.md#zh-cn_topic_0237124696_zh-cn_topic_0059778664_s8c4647db116f44c4b9ce3dceee3d6ffa)=on。
+-   逻辑日志目前从主机节点中抽取，默认关闭SSL连接，如果进行逻辑复制，需要先配置GUC参数[ssl](../DatabaseReference/安全和认证_postgresql-conf.md#zh-cn_topic_0237124696_zh-cn_topic_0059778664_s8c4647db116f44c4b9ce3dceee3d6ffa)=on。
 
     >![](public_sys-resources/icon-note.gif) **说明：** 
     >
     >为避免安全风险，请保证启用SSL连接。
 
 
-- 设置GUC参数[wal\_level](../DataBaseReference/设置.md#zh-cn_topic_0283137354_zh-cn_topic_0237124707_zh-cn_topic_0059778393_s2c76f5957066407a959191148f2c780f)=logical。
+- 设置GUC参数[wal\_level](../DatabaseReference/设置.md#zh-cn_topic_0283137354_zh-cn_topic_0237124707_zh-cn_topic_0059778393_s2c76f5957066407a959191148f2c780f)=logical。
 
--   设置GUC参数[max\_replication\_slots](../DataBaseReference/发送端服务器.md#zh-cn_topic_0283137693_section7322161612568)\>每个节点所需的（物理流复制槽数+逻辑复制槽数）。
+-   设置GUC参数[max\_replication\_slots](../DatabaseReference/发送端服务器.md#zh-cn_topic_0283137693_section7322161612568)\>每个节点所需的（物理流复制槽数+逻辑复制槽数）。
 
     物理流复制槽提供了一种自动化的方法来确保主节点在所有备节点或从备节点收到xlog之前，xlog不会被移除。也就是说物理流复制槽用于支撑主备节点HA。数据库所需要的物理流复制槽数为：备节点加从备的和与主节点之间的比例。例如，假设数据库的高可用方案为1主、1备、1从备，则所需物理流复制槽数为2。
 
