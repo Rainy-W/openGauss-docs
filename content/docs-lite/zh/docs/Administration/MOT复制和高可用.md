@@ -4,7 +4,7 @@
 
 openGauss gs\_ctl工具用于可用性控制和openGauss实例操作。这包括gs\_ctl切换、gs\_ctl故障切换、gs\_ctl构建等等。
 
-有关更多信息，请参见openGauss工具参考。
+有关更多信息，请参见《工具与命令参考》。
 
 -   配置复制和高可用性：
 -   请参考openGauss相关文档。
