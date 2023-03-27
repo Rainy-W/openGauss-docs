@@ -840,6 +840,7 @@ headless: true
 					-	[位串操作函数和操作符]({{< relref "./docs/Extension/dolphin-位串操作函数和操作符.md" >}})
 					-	[JSON-JSONB函数和操作符]({{< relref "./docs/Extension/dolphin-JSON-JSONB函数和操作符.md" >}})
 					-	[类型转换函数]({{< relref "./docs/Extension/dolphin-类型转换函数.md" >}})
+					-	[四则运算操作符兼容]({{< relref "./docs/Extension/dolphin-四则运算操作符兼容.md" >}})
 				-	[表达式]({{< relref "./docs/Extension/dolphin-表达式.md" >}})
 					-	[条件表达式]({{< relref "./docs/Extension/dolphin-表达式.md" >}})
 				-	[DDL语法一览表]({{< relref "./docs/Extension/dolphin-DDL语法一览表.md" >}})
