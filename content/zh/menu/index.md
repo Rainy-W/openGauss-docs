@@ -1666,6 +1666,7 @@ headless: true
     		-   [cm\_server参数]({{< relref "./docs/Toolreference/cm_server参数.md" >}})
     -   [openGauss可运行脚本功能说明]({{< relref "./docs/Toolreference/openGauss可运行脚本功能说明.md" >}})
     -   [gs\_collector工具支持收集的系统表和视图列表]({{< relref "./docs/Toolreference/gs_collector工具支持收集的系统表和视图列表.md" >}})
+    -   [DataKit]({{< relref "./docs/Toolreference/DataKit.md" >}})
     -   [FAQ]({{< relref "./docs/Toolreference/FAQ.md" >}})		
 -   [数据库参考]({{< relref "./docs/DataBaseReference/数据库参考.md" >}})
 	-   [GUC参数说明]({{< relref "./docs/DataBaseReference/GUC参数说明.md" >}})
