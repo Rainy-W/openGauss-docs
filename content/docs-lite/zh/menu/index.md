@@ -144,7 +144,7 @@ headless: true
     -   [使用openGauss]({{< relref "./docs/GettingStarted/使用openGauss.md" >}})
 
 -   [安装指南]({{< relref "./docs/InstallationGuide/Installation.md" >}})
-    -   [安装概述]({{< relref "./InstallationGuideation/安装概述.md" >}})
+    -   [安装概述]({{< relref "./InstallationGuide/安装概述.md" >}})
 	-   [安装准备]({{< relref "./docs/InstallationGuide/安装准备.md" >}})	
 		-   [获取安装包]({{< relref "./docs/InstallationGuide/获取安装包.md" >}})
 		-   [准备软硬件安装环境]({{< relref "./docs/InstallationGuide/准备软硬件安装环境.md" >}})
