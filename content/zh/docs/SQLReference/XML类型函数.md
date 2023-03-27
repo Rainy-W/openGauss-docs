@@ -358,6 +358,6 @@
 
     >![](public_sys-resources/icon-note.gif) **说明：** 
     >-   xpath相关函数仅支持 xpath\(\) 和 xpath\_exists\(\)、由于其使用xpath语言查询XML文档，而这些函数都依赖于libxml2 库，且这个库仅在Xpath1.0提供、所以对XPath的限制为1.0。
-    >-   不支持xquery、xml extension、xslt。
+    >-   不支持xquery、xml ExtensionReference、xslt。
 
 

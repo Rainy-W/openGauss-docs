@@ -43,7 +43,7 @@ gsql是openGauss提供的在命令行下运行的数据库连接工具。此工�
 
    omm用户是管理员用户，因此系统显示“DBNAME=\#”。若使用普通用户身份登录和连接数据库，系统显示“DBNAME=\>”。
 
-   “Non-SSL connection”表示未使用SSL方式连接数据库。如果需要高安全性时，请[使用SSL连接](../Developerguide/连接数据库_以SSL方式.md)。
+   “Non-SSL connection”表示未使用SSL方式连接数据库。如果需要高安全性时，请[使用SSL连接](../DeveloperGuide/连接数据库_以SSL方式.md)。
 
 3.  首次登录建议修改密码。命令如下。
 

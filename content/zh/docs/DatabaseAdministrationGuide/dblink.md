@@ -1,6 +1,6 @@
 # dblink<a name="ZH-CN_TOPIC_0000001111753952"></a>
 
-dblink是一个可以在一个openGauss数据库会话中连接到其它openGauss数据库的工具，同libpq支持的连接参数一致，可参考**[链接参数](../Developerguide/链接参数.md)**。openGauss默认不编译dblink，下面依次介绍如何编译和使用dblink。
+dblink是一个可以在一个openGauss数据库会话中连接到其它openGauss数据库的工具，同libpq支持的连接参数一致，可参考**[链接参数](../DeveloperGuide/链接参数.md)**。openGauss默认不编译dblink，下面依次介绍如何编译和使用dblink。
 
 ## 编译dblink<a name="section968819125285"></a>
 
@@ -16,7 +16,7 @@ make install
 -   加载dblink扩展
 
     ```
-    CREATE EXTENSION dblink;
+    CREATE ExtensionReference dblink;
     ```
 
 -   打开一个到远程数据库的持久连接
@@ -64,7 +64,7 @@ make install
 -   删除扩展
 
     ```
-    DROP EXTENSION dblink;
+    DROP ExtensionReference dblink;
     ```
 
 

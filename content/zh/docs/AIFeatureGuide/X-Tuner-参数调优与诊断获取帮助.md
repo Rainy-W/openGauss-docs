@@ -33,10 +33,10 @@ Database Connection Information:
   --db-port DB_PORT, --port DB_PORT
                         Use this port to connect with the database.
   --db-host DB_HOST, --host DB_HOST
-                        The IP address of your database installation host.
+                        The IP address of your database InstallationGuide host.
   --host-user HOST_USER
-                        The login user of your database installation host.
+                        The login user of your database InstallationGuide host.
   --host-ssh-port HOST_SSH_PORT
-                        The SSH port of your database installation host.
+                        The SSH port of your database InstallationGuide host.
 ```
 
