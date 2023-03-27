@@ -37,7 +37,7 @@ CREATE USER MAPPING FOR { user_name | USER | CURRENT_USER | PUBLIC }
     >    ```
     >    gs_ssh -c "gs_guc generate -o usermapping -S default -D $GAUSSHOME/bin"
     >    ```
-    >-   其中-S参数指定default时会随机生成密码，用户也可为-S参数指定密码，此密码用于保证生成密码文件的安全性和唯一性，用户无需保存或记忆。其他参数详见工具参考中gs\_guc工具说明。
+    >-   其中-S参数指定default时会随机生成密码，用户也可为-S参数指定密码，此密码用于保证生成密码文件的安全性和唯一性，用户无需保存或记忆。其他参数详见《工具与命令参考》中gs\_guc工具说明。
 
     -   oracle\_fdw支持的options包括：
         -   user
