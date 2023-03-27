@@ -26,7 +26,7 @@
 
 -   **[STATEMENT\_WLMSTAT\_COMPLEX\_RUNTIME](STATEMENT_WLMSTAT_COMPLEX_RUNTIME.md)**  
 
--   **[STATEMENT\_HISTORY](../DataBaseReference/STATEMENT_HISTORY.md)**  
+-   **[STATEMENT\_HISTORY](../DatabaseReference/STATEMENT_HISTORY.md)**  
 
 -   **[GS\_SLOW\_QUERY\_INFO \(废弃\)](GS_SLOW_QUERY_INFO_废弃.md)**  
 
