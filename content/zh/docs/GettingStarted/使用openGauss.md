@@ -161,7 +161,7 @@ openGauss正常运行。
    -   关于创建表的更多信息请参见[创建和管理表](../DatabaseAdministrationGuide/创建和管理普通表.md)。
    -   除了创建的表以外，数据库还包含很多系统表。这些系统表包含openGauss安装信息以及openGauss上运行的各种查询和进程的信息。可以通过查询系统表来收集有关数据库的信息。请参见[查看系统表](../DatabaseReference/查看系统表.md)。
 
-       openGauss支持行列混合存储，为各种复杂场景下的交互分析提供较高的查询性能，关于存储模型的选择，请参考[规划存储模型](../Developerguide/规划存储模型.md)。
+       openGauss支持行列混合存储，为各种复杂场景下的交互分析提供较高的查询性能，关于存储模型的选择，请参考[规划存储模型](../DeveloperGuide/规划存储模型.md)。
 
    
 
