@@ -59,7 +59,7 @@ openGauss正常运行。
 
     使用GRANT命令进行相关权限设置，具体操作请参考[GRANT](../SQLReference/GRANT.md)。
 
-    **引申信息：**关于数据库用户的更多信息请参考[管理用户及权限](../Administration/管理用户及权限.md)。
+    **引申信息：**关于数据库用户的更多信息请参考[管理用户及权限](../DatabaseAdministrationGuide/管理用户及权限.md)。
 
 4.  创建数据库。
 
@@ -107,7 +107,7 @@ openGauss正常运行。
     CREATE DATABASE
     ```
 
-    其中hr\_local为表空间名称，关于如何创建表空间，请参考[创建和管理表空间](../Administration/创建和管理表空间.md)。
+    其中hr\_local为表空间名称，关于如何创建表空间，请参考[创建和管理表空间](../DatabaseAdministrationGuide/创建和管理表空间.md)。
 
 5.  创建表。
 
@@ -145,8 +145,8 @@ openGauss正常运行。
 
     **引申信息：**
 
-    -   默认情况下，新的数据库对象是创建在“$user”模式下的，例如刚刚新建的表。关于模式的更多信息请参考[创建和管理schema](../Administration/创建和管理schema.md)。
-    -   关于创建表的更多信息请参见[创建和管理表](../Administration/创建和管理表.md)。
+    -   默认情况下，新的数据库对象是创建在“$user”模式下的，例如刚刚新建的表。关于模式的更多信息请参考[创建和管理schema](../DatabaseAdministrationGuide/创建和管理schema.md)。
+    -   关于创建表的更多信息请参见[创建和管理表](../DatabaseAdministrationGuide/创建和管理表.md)。
     -   除了创建的表以外，数据库还包含很多系统表。这些系统表包含openGauss安装信息以及openGauss上运行的各种查询和进程的信息。可以通过查询系统表来收集有关数据库的信息。请参见[查看系统表](../DatabaseReference/查看系统表.md)。
 
         openGauss支持行列混合存储，为各种复杂场景下的交互分析提供较高的查询性能，关于存储模型的选择，请参考[规划存储模型](../DeveloperGuide/规划存储模型.md)。
