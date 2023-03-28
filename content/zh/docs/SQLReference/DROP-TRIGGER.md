@@ -14,7 +14,7 @@
 DROP TRIGGER [ IF EXISTS ] trigger_name ON table_name [ CASCADE | RESTRICT ];
 ```
 
-mysql兼容性下新增语法
+B兼容性下新增语法
 
 ```
 DROP TRIGGER [ IF EXISTS ] trigger_name;
