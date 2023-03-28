@@ -34,7 +34,7 @@ openGauss=# CREATE TABLE customer_t
         (9500, 4, 'Lucy', 'Baker');
         ```
 
-        更多关于INSERT的使用方法，请参见[向表中插入数据](../Administration/向表中插入数据.md)。
+        更多关于INSERT的使用方法，请参见[向表中插入数据](../DatabaseAdministrationGuide/向表中插入数据.md)。
 
 
 -   使用UPDATE更新表中数据。修改字段c\_customer\_id值为0。

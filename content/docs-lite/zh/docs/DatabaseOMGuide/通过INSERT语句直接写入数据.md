@@ -4,7 +4,7 @@
 
 -   使用openGauss数据库提供的客户端工具向openGauss数据库写入数据。
 
-    请参见[向表中插入数据](../Administration/向表中插入数据.md)。
+    请参见[向表中插入数据](../DatabaseAdministrationGuide/向表中插入数据.md)。
 
 -   通过JDBC驱动连接数据库执行INSERT语句向openGauss数据库写入数据。
 
