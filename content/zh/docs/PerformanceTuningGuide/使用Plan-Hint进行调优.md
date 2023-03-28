@@ -13,3 +13,4 @@
 -   **[指定不使用全局计划缓存的Hint](指定不使用全局计划缓存的Hint.md)**  
 -   **[同层参数化路径的Hint](同层参数化路径的Hint.md)**
 -   **[将部分Error降级为Warning的Hint](将部分Error降级为Warning的Hint.md)**  
+-   **[INDEX HINTS](INDEX-HINTS.md)**  
