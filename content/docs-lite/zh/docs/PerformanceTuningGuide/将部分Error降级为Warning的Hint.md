@@ -22,7 +22,7 @@
   
       >![](public_sys-resources/icon-note.gif) **说明：** 
       >
-      >GUC参数sql_ignore_strategy相关信息请参考[sql_ignore_strategy](../DataBaseReference/其它选项.md)。
+      >GUC参数sql_ignore_strategy相关信息请参考[sql_ignore_strategy](../DatabaseReference/其它选项.md)。
 
 - **违反唯一约束时**
 

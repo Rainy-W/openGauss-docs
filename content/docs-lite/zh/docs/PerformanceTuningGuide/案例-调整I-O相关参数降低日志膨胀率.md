@@ -9,7 +9,7 @@
   - bgwriter_delay=1s
   - max_io_capacity=300MB
 
-> ![img](https://docs.opengauss.org/zh/docs/latest-lite/docs/Developerguide/public_sys-resources/icon-note.gif) **说明：**
+> ![img](https://docs.opengauss.org/zh/docs/latest-lite/docs/DeveloperGuide/public_sys-resources/icon-note.gif) **说明：**
 >
 > - 将max_io_capacity调整小是因为，IO不会利用到之前参数的最大值，调整该值，是为了限制后端写进程IO的占用上限。
 > - 当日志量达到一定量时，日志才会触发回收，该值的计算方式是**：**wal_keep_segments + checkpoint_segments * 2 + 1 ，假设 checkpoint_segments 设置128，wal_keep_segments 设置128，日志量就是 (128 + 128 * 2 + 1) * 16MB = 6GB。
