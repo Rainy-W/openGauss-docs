@@ -1,5 +1,7 @@
 # SQL语法<a name="ZH-CN_TOPIC_0289900416"></a>
 
+-   **[ALTER DATABASE](dolphin-ALTER-DATABASE.md)**
+
 -   **[ALTER FUNCTION](dolphin-ALTER-FUNCTION.md)**
 
 -   **[ALTER PROCEDURE](dolphin-ALTER-PROCEDURE.md)**
@@ -17,6 +19,8 @@
 -   **[AST](dolphin-AST.md)**
 
 -   **[CHECKSUM TABLE](dolphin-CHECKSUM-TABLE.md)**  
+
+-   **[CREATE DATABASE](dolphin-CREATE-DATABASE.md)**
 
 -   **[CREATE FUNCTION](dolphin-CREATE-FUNCTION.md)**
 
@@ -37,6 +41,8 @@
 -   **[CREATE INDEX](dolphin-CREATE-INDEX.md)**
 
 -   **[DESCRIBE TABLE](dolphin-DESCRIBE-TABLE.md)**
+
+-   **[DROP DATABASE](dolphin-DROP-DATABASE.md)**  
 
 -   **[DROP TABLESPACE](dolphin-DROP-TABLESPACE.md)**  
 
