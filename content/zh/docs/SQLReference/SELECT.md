@@ -279,7 +279,7 @@ SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
 
       关键字，闪回查询的标识，根据表的CSN闪回查询指定CSN点的结果集。其中CSN可从gs_txn_snapshot记录的snpcsn号查得。
 
-      > ![img](https://opengauss.org/zh/docs/latest/docs/Developerguide/public_sys-resources/icon-note.gif) **说明：**
+      > ![img](https://opengauss.org/zh/docs/latest/docs/DeveloperGuide/public_sys-resources/icon-note.gif) **说明：**
       >
       > - 闪回查询不能跨越影响表结构或物理存储的语句，否则会报错。即闪回点和当前点之间，如果执行过修改表结构或影响物理存储的语句（TRUNCATE、DDL、DCL、VACUUM FULL），则闪回失败，报错:ERROR: The table definition of T1 has been changed。
       > - 闪回点过旧时，因闪回版本被回收等导致无法获取旧版本会导致闪回失败，报错：Restore point too old。可通过将version_retention_age和vacuum_defer_cleanup_age设置成同值，配置闪回功能旧版本保留期限，取值范围是0~1000000，值为0表示VACUUM不会延迟清除无效的行存记录。
@@ -341,7 +341,7 @@ SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
 
         CROSS JOIN等效于INNER JOIN ON（TRUE） ，即没有被条件删除的行。这种连接类型只是符号上的方便，因为它们与简单的FROM和WHERE的效果相同。
 
-        > ![img](https://opengauss.org/zh/docs/latest/docs/Developerguide/public_sys-resources/icon-note.gif) **说明：** 必须为INNER和OUTER连接类型声明一个连接条件，即NATURAL ON、join_condition、USING (join_column [， …]) 之一。但是它们不能出现在CROSS JOIN中。
+        > ![img](https://opengauss.org/zh/docs/latest/docs/DeveloperGuide/public_sys-resources/icon-note.gif) **说明：** 必须为INNER和OUTER连接类型声明一个连接条件，即NATURAL ON、join_condition、USING (join_column [， …]) 之一。但是它们不能出现在CROSS JOIN中。
 
       其中CROSS JOIN和INNER JOIN生成一个简单的笛卡尔积，和在FROM的顶层列出两个项的结果相同。
 
@@ -903,3 +903,22 @@ openGauss=#  SELECT * FROM tpcds.time_table TIMECAPSULE CSN 107330;
 (3 rows)
 ```
 
+- ORDER BY子句的列不在DISTINCT子句中的示例（兼容B模式下）：
+```sql
+-- 创建B库并切换
+CREATE DATABASE mydb_b WITH DBCOMPATIBILITY 'B';
+\c mydb_b
+
+-- ORDER BY列不在DISTINCT中的示例：根据c2列进行去重，按c1列进行排序，只输出c2列
+CREATE TABLE my_tbl(score INT, name VARCHAR(20));
+INSERT INTO my_tbl VALUES (100, 'alice'), (90, 'john'), (99, 'bob'), (80, 'bob');
+
+-- 允许ORDER BY后面的列不在DISTINCT里
+-- 无dolphin插件时执行：（增加 allow_orderby_undistinct_column 选项即可）
+SET behavior_compat_options = 'allow_orderby_undistinct_column';
+-- 有dolphin插件时执行：(将 sql_mode_full_group 选项删除即可)
+set dolphin.sql_mode = '';
+-- 注意：openGauss只会将去重后的数据，根据ORDER BY后的列进行排序。并不会先排序再去重，也就是无法保证重复行被去除的是哪一行，
+-- 所以当去重列与排序列的数据值没有一一对应时，可能会由于数据的插入顺序、数据量等不一致而导致最终输出结果不一样。
+SELECT DISTINCT name FROM my_tbl ORDER BY score;
+```

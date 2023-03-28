@@ -14,7 +14,7 @@
 
 -   **[ALTER DIRECTORY](ALTER-DIRECTORY.md)**  
 
--   **[ALTER EXTENSION](ALTER-EXTENSION.md)**  
+-   **[ALTER ExtensionReference](ALTER-ExtensionReference.md)**  
 
 -   **[ALTER FOREIGN TABLE](ALTER-FOREIGN-TABLE.md)**  
 
@@ -122,7 +122,7 @@
 
 -   **[CREATE DIRECTORY](CREATE-DIRECTORY.md)**  
 
--   **[CREATE EXTENSION](CREATE-EXTENSION.md)**  
+-   **[CREATE ExtensionReference](CREATE-ExtensionReference.md)**  
 
 -   **[CREATE FOREIGN TABLE](CREATE-FOREIGN-TABLE.md)**  
 
@@ -222,7 +222,7 @@
 
 -   **[DROP DIRECTORY](DROP-DIRECTORY.md)**  
 
--   **[DROP EXTENSION](DROP-EXTENSION.md)**  
+-   **[DROP ExtensionReference](DROP-ExtensionReference.md)**  
 
 -   **[DROP FOREIGN TABLE](DROP-FOREIGN-TABLE.md)**  
 

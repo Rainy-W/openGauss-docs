@@ -176,15 +176,15 @@ CREATE [OR REPLACE] DIRECTORY directory_name
 AS 'path_name';
 ```
 
-## ALTER EXTENSION<a name="section84611730152513"></a>
+## ALTER ExtensionReference<a name="section84611730152513"></a>
 
 修改插件扩展。
 
 ```
-ALTER EXTENSION name UPDATE [ TO new_version ];
-ALTER EXTENSION name SET SCHEMA new_schema;
-ALTER EXTENSION name ADD member_object;
-ALTER EXTENSION name DROP member_object;
+ALTER ExtensionReference name UPDATE [ TO new_version ];
+ALTER ExtensionReference name SET SCHEMA new_schema;
+ALTER ExtensionReference name ADD member_object;
+ALTER ExtensionReference name DROP member_object;
 
 where member_object is:
 
@@ -950,7 +950,7 @@ COMMENT ON
   CONVERSION object_name |
   DATABASE object_name |
   DOMAIN object_name |
-  EXTENSION object_name |
+  ExtensionReference object_name |
   FOREIGN DATA WRAPPER object_name |
   FOREIGN TABLE object_name |
   FUNCTION function_name ( [ {[ argmode ] [ argname ] argtype} [, ...] ] ) |
@@ -1153,12 +1153,12 @@ CREATE [OR REPLACE] DIRECTORY directory_name
 AS 'path_name';
 ```
 
-## CREATE EXTENSION<a name="section1371614218343"></a>
+## CREATE ExtensionReference<a name="section1371614218343"></a>
 
 安装一个扩展。
 
 ```
-CREATE EXTENSION [ IF NOT EXISTS ] extension_name
+CREATE ExtensionReference [ IF NOT EXISTS ] ExtensionReference_name
     [ WITH ] [ SCHEMA schema_name ]
              [ VERSION version ]
              [ FROM old_version ];
@@ -1334,7 +1334,7 @@ CREATE [ UNIQUE ] INDEX [ [schema_name.] index_name ] ON table_name [ USING meth
 
 openGauss=# \h CREATE LANGUAGE
 Command:     CREATE LANGUAGE
-Description: define a new procedural language
+AboutopenGauss: define a new procedural language
 Syntax:
 CREATE [ OR REPLACE ] [ PROCEDURAL ] LANGUAGE name;
 CREATE [ OR REPLACE ] [ TRUSTED ] [ PROCEDURAL ] LANGUAGE name
@@ -1417,7 +1417,7 @@ CREATE [ OR REPLACE ] PACKAGE [ schema ] package_name
 
 openGauss=# \h CREATE PROCEDURE
 Command:     CREATE PROCEDURE
-Description: create a procedure
+AboutopenGauss: create a procedure
 Syntax:
 CREATE [ OR REPLACE ] PROCEDURE procedure_name
     [ ( {[ argmode ] [ argname ] argtype [ { DEFAULT | := | = } expression ]}[,...]) ]
@@ -1924,12 +1924,12 @@ DROP DATABASE [ IF EXISTS ] database_name;
 DROP DIRECTORY [ IF EXISTS ] directory_name;
 ```
 
-## DROP EXTENSION<a name="section335916343419"></a>
+## DROP ExtensionReference<a name="section335916343419"></a>
 
 删除一个扩展。
 
 ```
-DROP EXTENSION [ IF EXISTS ] name [, ...] [ CASCADE | RESTRICT ];
+DROP ExtensionReference [ IF EXISTS ] name [, ...] [ CASCADE | RESTRICT ];
 ```
 
 ## DROP FOREIGN TABLE<a name="section6489134715419"></a>
@@ -2199,7 +2199,7 @@ ANALYZE [ boolean ] |
 
 openGauss=# \h EXECUTE DIRECT
 Command:     EXECUTE DIRECT
-Description: launch queries directly to dedicated nodes
+AboutopenGauss: launch queries directly to dedicated nodes
 Syntax:
 EXECUTE DIRECT ON ( nodename [, ... ] ) query;
 EXECUTE DIRECT ON { COORDINATORS | DATANODES | ALL } query;

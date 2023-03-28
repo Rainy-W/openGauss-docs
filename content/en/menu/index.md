@@ -262,7 +262,7 @@ headless: true
         -   [Connecting to the Database \(Using SSL\)]({{< relref "./docs/DeveloperGuide/connecting-to-a-database-using-ssl-jdbc.md" >}})
     	-   [Connecting to a Database (Using UDS)]({{< relref "./docs/DeveloperGuide/connecting-to-a-database-using-uds.md" >}})
         -   [Running SQL Statements]({{< relref "./docs/DeveloperGuide/running-sql-statements-jdbc.md" >}})
-        -   [Processing Data in a Result Set]({{< relref "./docs/DeveloperGuide/processing-data-in-a-result-set-jdbc.md.md" >}})
+        -   [Processing Data in a Result Set]({{< relref "./docs/DeveloperGuide/processing-data-in-a-result-set-jdbc.md" >}})
         -   [Closing a Connection]({{< relref "./docs/DeveloperGuide/closing-a-connection-jdbc.md" >}})
     	-   [Log Management]({{< relref "./docs/DeveloperGuide/log-management.md" >}})
         -   [Examples: Common Operations]({{< relref "./docs/DeveloperGuide/example-common-operations-jdbc.md" >}})
@@ -272,20 +272,6 @@ headless: true
     	-   [Example: Logical Replication Code]({{< relref "./docs/DeveloperGuide/example-logic-replication-code.md" >}})
     	-   [Example: Parameters for Connecting to the Database in Different Scenarios]({{< relref "./docs/DeveloperGuide/example-parameters-for-connecting-to-the-database-in-different-scenarios.md" >}})
         -   [JDBC Interface Reference]({{< relref "./docs/DeveloperGuide/jdbc-interface-reference.md" >}})
-			-   [java.sql.Connection]({{< relref "./docs/DeveloperGuide/java-sql-Connection.md" >}})
-            -   [java.sql.CallableStatement]({{< relref "./docs/DeveloperGuide/java-sql-CallableStatement.md" >}})
-            -   [java.sql.DatabaseMetaData]({{< relref "./docs/DeveloperGuide/java-sql-DatabaseMetaData.md" >}})
-            -   [java.sql.Driver]({{< relref "./docs/DeveloperGuide/java-sql-Driver.md" >}})
-            -   [java.sql.PreparedStatement]({{< relref "./docs/DeveloperGuide/java-sql-PreparedStatement.md" >}})
-            -   [java.sql.ResultSet]({{< relref "./docs/DeveloperGuide/java-sql-ResultSet.md" >}})
-            -   [java.sql.ResultSetMetaData]({{< relref "./docs/DeveloperGuide/java-sql-ResultSetMetaData.md" >}})
-            -   [java.sql.Statement]({{< relref "./docs/DeveloperGuide/java-sql-Statement.md" >}})
-            -   [javax.sql.ConnectionPoolDataSource]({{< relref "./docs/DeveloperGuide/javax-sql-ConnectionPoolDataSource.md" >}})
-            -   [javax.sql.DataSource]({{< relref "./docs/DeveloperGuide/javax-sql-DataSource.md" >}})
-            -   [javax.sql.PooledConnection]({{< relref "./docs/DeveloperGuide/javax-sql-PooledConnection.md" >}})
-            -   [javax.naming.Context]({{< relref "./docs/DeveloperGuide/javax-naming-Context.md" >}})
-            -   [javax.naming.spi.InitialContextFactory]({{< relref "./docs/DeveloperGuide/javax-naming-spi-InitialContextFactory.md" >}})
-            -   [CopyManager]({{< relref "./docs/DeveloperGuide/CopyManager.md" >}})
     	-   [Common JDBC Parameters]({{< relref "./docs/DeveloperGuide/common-jdbc-parameters.md" >}})
     -   [Development Based on ODBC]({{< relref "./docs/DeveloperGuide/development-based-on-odbc.md" >}})
         -   [ODBC Packages, Dependent Libraries, and Header Files]({{< relref "./docs/DeveloperGuide/odbc-packages-dependent-libraries-and-header-files.md" >}})
@@ -294,28 +280,6 @@ headless: true
         -   [Example: Common Functions and Batch Binding]({{< relref "./docs/DeveloperGuide/example-common-functions-and-batch-binding.md" >}})
         -   [Typical Application Scenarios and Configurations]({{< relref "./docs/DeveloperGuide/typical-application-scenarios-and-configurations.md" >}}) 
         -   [ODBC Interface Reference]({{< relref "./docs/DeveloperGuide/odbc-interface-reference.md" >}})
-			-   [SQLAllocEnv]({{< relref "./docs/DeveloperGuide/SQLAllocEnv.md" >}})
-            -   [SQLAllocConnect]({{< relref "./docs/DeveloperGuide/SQLAllocConnect.md" >}})
-            -   [SQLAllocHandle]({{< relref "./docs/DeveloperGuide/SQLAllocHandle.md" >}})
-            -   [SQLAllocStmt]({{< relref "./docs/DeveloperGuide/SQLAllocStmt.md" >}})
-            -   [SQLBindCol]({{< relref "./docs/DeveloperGuide/SQLBindCol.md" >}})
-            -   [SQLBindParameter]({{< relref "./docs/DeveloperGuide/SQLBindParameter.md" >}})
-            -   [SQLColAttribute]({{< relref "./docs/DeveloperGuide/SQLColAttribute.md" >}})
-            -   [SQLConnect]({{< relref "./docs/DeveloperGuide/SQLConnect.md" >}})
-            -   [SQLDisconnect]({{< relref "./docs/DeveloperGuide/SQLDisconnect.md" >}})
-            -   [SQLExecDirect]({{< relref "./docs/DeveloperGuide/SQLExecDirect.md" >}})
-            -   [SQLExecute]({{< relref "./docs/DeveloperGuide/SQLExecute.md" >}})
-            -   [SQLFetch]({{< relref "./docs/DeveloperGuide/SQLFetch.md" >}})
-            -   [SQLFreeStmt]({{< relref "./docs/DeveloperGuide/SQLFreeStmt.md" >}})
-            -   [SQLFreeConnect]({{< relref "./docs/DeveloperGuide/SQLFreeConnect.md" >}})
-            -   [SQLFreeHandle]({{< relref "./docs/DeveloperGuide/SQLFreeHandle.md" >}})
-            -   [SQLFreeEnv]({{< relref "./docs/DeveloperGuide/SQLFreeEnv.md" >}})
-            -   [SQLPrepare]({{< relref "./docs/DeveloperGuide/SQLPrepare.md" >}})
-            -   [SQLGetData]({{< relref "./docs/DeveloperGuide/SQLGetData.md" >}})
-            -   [SQLGetDiagRec]({{< relref "./docs/DeveloperGuide/SQLGetDiagRec.md" >}})
-            -   [SQLSetConnectAttr]({{< relref "./docs/DeveloperGuide/SQLSetConnectAttr.md" >}})
-            -   [SQLSetEnvAttr]({{< relref "./docs/DeveloperGuide/SQLSetEnvAttr.md" >}})
-            -   [SQLSetStmtAttr]({{< relref "./docs/DeveloperGuide/SQLSetStmtAttr.md" >}})
             -   [Example]({{< relref "./docs/DeveloperGuide/example-odbc.md" >}})
     -   [Psycopg-Based Development]({{< relref "./docs/DeveloperGuide/psycopg-based-development.md" >}})
     	-   [Psycopg Package]({{< relref "./docs/DeveloperGuide/psycopg-package.md" >}})
@@ -328,54 +292,13 @@ headless: true
     	-   [Connecting to the Database \(Using SSL\)]({{< relref "./docs/DeveloperGuide/connecting-to-the-database-using-ssl-psycopg.md" >}})
     	-   [xamples: Common Operations]({{< relref "./docs/DeveloperGuide/example-common-operations-psycopg.md" >}})
     	-   [Psycopg API Reference]({{< relref "./docs/DeveloperGuide/psycopg-api-reference.md" >}})
-			-   [psycopg2.connect\(\)]({{< relref "./docs/DeveloperGuide/psycopg2-connect.md" >}})
-			-   [connection.cursor\(\)]({{< relref "./docs/DeveloperGuide/connection-cursor.md" >}})
-			-   [cursor.execute\(query,vars\_list\)]({{< relref "./docs/DeveloperGuide/cursor-execute-query-vars_list.md" >}})
-			-   [curosr.executemany\(query,vars\_list\)]({{< relref "./docs/DeveloperGuide/curosr-executemany-query-vars_list.md" >}})
-			-   [connection.commit\(\)]({{< relref "./docs/DeveloperGuide/connection-commit.md" >}})
-			-   [connection.rollback\(\)]({{< relref "./docs/DeveloperGuide/connection-rollback.md" >}})
-			-   [cursor.fetchone\(\)]({{< relref "./docs/DeveloperGuide/cursor-fetchone.md" >}})
-			-   [cursor.fetchall\(\)]({{< relref "./docs/DeveloperGuide/cursor-fetchall.md" >}})
-			-   [cursor.close\(\)]({{< relref "./docs/DeveloperGuide/cursor-close.md" >}})
-			-   [connection.close\(\)]({{< relref "./docs/DeveloperGuide/connection-close.md" >}})
 	-   [Development Based on libpq]({{< relref "./docs/DeveloperGuide/development-based-on-libpq.md" >}})
     	-   [Dependent Header Files of libpq]({{< relref "./docs/DeveloperGuide/dependent-header-files-of-libpq.md" >}})
     	-   [Development Process]({{< relref "./docs/DeveloperGuide/development-process-libpq.md" >}})
     	-   [Example]({{< relref "./docs/DeveloperGuide/example-libpq.md" >}})
     	-   [libpq API Reference]({{< relref "./docs/DeveloperGuide/libpq-api-reference.md" >}})
 			-   [Database Connection Control Functions]({{< relref "./docs/DeveloperGuide/database-connection-control-functions.md" >}})
-                -   [PQconnectdbParams]({{< relref "./docs/DeveloperGuide/PQconnectdbParams.md" >}})
-                -   [PQconnectdb]({{< relref "./docs/DeveloperGuide/PQconnectdb.md" >}})
-                -   [PQconninfoParse]({{< relref "./docs/DeveloperGuide/PQconninfoParse.md" >}})
-                -   [PQconnectStart]({{< relref "./docs/DeveloperGuide/PQconnectStart.md" >}})
-                -   [PQerrorMessage]({{< relref "./docs/DeveloperGuide/PQerrorMessage.md" >}})
-                -   [PQsetdbLogin]({{< relref "./docs/DeveloperGuide/PQsetdbLogin.md" >}})
-                -   [PQfinish]({{< relref "./docs/DeveloperGuide/PQfinish.md" >}})
-                -   [PQreset]({{< relref "./docs/DeveloperGuide/PQreset.md" >}})
-                -   [PQstatus]({{< relref "./docs/DeveloperGuide/PQstatus.md" >}})
-            -   [Database Statement Execution Functions]({{< relref "./docs/DeveloperGuide/database-statement-execution-functions.md" >}})
-                -   [PQclear]({{< relref "./docs/DeveloperGuide/PQclear.md" >}})
-                -   [PQexec]({{< relref "./docs/DeveloperGuide/PQexec.md" >}})
-                -   [PQexecParams]({{< relref "./docs/DeveloperGuide/PQexecParams.md" >}})
-                -   [PQexecParamsBatch]({{< relref "./docs/DeveloperGuide/PQexecParamsBatch.md" >}})
-                -   [PQexecPrepared]({{< relref "./docs/DeveloperGuide/PQexecPrepared.md" >}})
-                -   [PQexecPreparedBatch]({{< relref "./docs/DeveloperGuide/PQexecPreparedBatch.md" >}})
-                -   [PQfname]({{< relref "./docs/DeveloperGuide/PQfname.md" >}})
-                -   [PQgetvalue]({{< relref "./docs/DeveloperGuide/PQgetvalue.md" >}})
-                -   [PQnfields]({{< relref "./docs/DeveloperGuide/PQnfields.md" >}})
-                -   [PQntuples]({{< relref "./docs/DeveloperGuide/PQntuples.md" >}})
-                -   [PQprepare]({{< relref "./docs/DeveloperGuide/PQprepare.md" >}})
-                -   [PQresultStatus]({{< relref "./docs/DeveloperGuide/PQresultStatus.md" >}})
             -   [Functions for Asynchronous Command Processing]({{< relref "./docs/DeveloperGuide/functions-for-asynchronous-command-processing.md" >}})
-                -   [PQsendQuery]({{< relref "./docs/DeveloperGuide/PQsendQuery.md" >}})
-                -   [PQsendQueryParams]({{< relref "./docs/DeveloperGuide/PQsendQueryParams.md" >}})
-                -   [PQsendPrepare]({{< relref "./docs/DeveloperGuide/PQsendPrepare.md" >}})
-                -   [PQsendQueryPrepared]({{< relref "./docs/DeveloperGuide/PQsendQueryPrepared.md" >}})
-                -   [PQflush]({{< relref "./docs/DeveloperGuide/PQflush.md" >}})
-            -   [Functions for Canceling Queries in Progress]({{< relref "./docs/DeveloperGuide/functions-for-canceling-queries-in-progress.md" >}})
-                -   [PQgetCancel]({{< relref "./docs/DeveloperGuide/PQgetCancel.md" >}})
-                -   [PQfreeCancel]({{< relref "./docs/DeveloperGuide/PQfreeCancel.md" >}})
-                -   [PQcancel]({{< relref "./docs/DeveloperGuide/PQcancel.md" >}})
     	-   [Link Parameters]({{< relref "./docs/DeveloperGuide/link-parameters-libpq.md" >}})   	
     -   [Compilation and Debugging]({{< relref "./docs/DeveloperGuide/debugging.md" >}})    
 -   [Compilation Guide]({{< relref "./docs/CompilationGuide/Compilation.md" >}})
@@ -836,54 +759,54 @@ headless: true
     	        	-	[Bit String Functions and Operators]({{< relref "./docs/ExtensionReference/dolphin-bit-string-functions-and-operators.md" >}})
     	        	-	[JSON-JSONB Functions and Operators]({{< relref "./docs/ExtensionReference/dolphin-json-jsonb-functions-and-operators.md" >}})
     	        -	[Expressions]({{< relref "./docs/ExtensionReference/dolphin-expressions.md" >}})
-    	        	-	[Conditional Expressions]({{< relref "./docs/dolphinextension/dolphin-conditional-expressions.md" >}})
+    	        	-	[Conditional Expressions]({{< relref "./docs/ExtensionReference/dolphin-conditional-expressions.md" >}})
     	        -	[DDL Syntax]({{< relref "./docs/ExtensionReference/dolphin-ddl-syntax-overview.md" >}})
     	        -	[DML Syntax]({{< relref "./docs/ExtensionReference/dolphin-dml-syntax-overview" >}})	
     	        -	[DCL Syntax]({{< relref "./docs/ExtensionReference/dolphin-dcl-syntax-overview.md" >}})
     	        -	[SQL Syntax]({{< relref "./docs/ExtensionReference/dolphin-sql-syntax.md" >}})
-    	        	-	[ALTER FUNCTION]({{< relref "./docs/ExtensionReference/dolphin-alter-function.md" >}}
-    	        	-	[ALTER PROCEDURE]({{< relref "./docs/ExtensionReference/dolphin-alter-procedure.md" >}}
-    	        	-	[ALTER TABLE]({{< relref "./docs/ExtensionReference/dolphin-alter-table.md" >}} 
-    	        	-	[ALTER TABLE-PARTITION]({{< relref "./docs/ExtensionReference/dolphin-alter-table-partition.md" >}} 
-    	        	-	[ALTER TABLESPACE]({{< relref "./docs/ExtensionReference/dolphin-alter-tablespace.md" >}}  
-    	        	-	[ANALYZE ANALYSE]({{< relref "./docs/ExtensionReference/dolphin-analyze-analyse.md" >}}
-    	        	-	[AST]({{< relref "./docs/ExtensionReference/dolphin-ast.md" >}}
-    	        	-	[CREATE-FUNCTION]({{< relref "./docs/ExtensionReference/dolphin-create-function.md" >}}
-    	        	-	[CREATE-INDEX]({{< relref "./docs/ExtensionReference/dolphin-create-index.md" >}}*
-    	        	-	[CREATE-PROCEDURE]({{< relref "./docs/ExtensionReference/dolphin-create-procedure.md" >}}
-   		        	-	[CREATE-TABLE]({{< relref "./docs/ExtensionReference/dolphin-create-table.md" >}}
-   		        	-	[CREATE-TABLE-AS]({{< relref "./docs/ExtensionReference/dolphin-create-table-as.md" >}}
-   		        	-	[CREATE-TABLE-PARTITION]({{< relref "./docs/ExtensionReference/dolphin-create-table-partition.md" >}}
-    	        	-	[CREATE-TABLESPACE]({{< relref "./docs/ExtensionReference/dolphin-create-tablespace.md" >}}
-    	        	-	[CREATE-INDEX]({{< relref "./docs/ExtensionReference/dolphin-create-index.md" >}}
-    	        	-	[DESCRIBE-TABLE]({{< relref "./docs/ExtensionReference/dolphin-describe-table.md" >}}
-    	        	-	[DROP-TABLESPACE]({{< relref "./docs/ExtensionReference/dolphin-drop-tablespace.md" >}} 
-    		        -	[GRANT]({{< relref "./docs/ExtensionReference/dolphin-GRANT.md" >}}
-    		        -	[INSERT]({{< relref "./docs/ExtensionReference/dolphin-INSERT.md" >}}
-    		        -	[KILL]({{< relref "./docs/ExtensionReference/dolphin-KILL.md" >}}
-    		        -	[OPTIMIZE-TABLE]({{< relref "./docs/ExtensionReference/dolphin-OPTIMIZE-TABLE.md" >}}
-    		        -	[PREPARE]({{< relref "./docs/ExtensionReference/dolphin-PREPARE.md" >}}
-    		        -	[RENAME-USER]({{< relref "./docs/ExtensionReference/dolphin-RENAME-USER.md" >}}
-    		        -	[REVOKE]({{< relref "./docs/ExtensionReference/dolphin-REVOKE.md" >}}
-    		        -	[SELECT]({{< relref "./docs/ExtensionReference/dolphin-SELECT.md" >}} 
-    		        -	[SET-CHARSET]({{< relref "./docs/ExtensionReference/dolphin-SET-CHARSET.md" >}}
-    		        -	[SET-PASSWORD]({{< relref "./docs/ExtensionReference/dolphin-SET-PASSWORD.md" >}}  
-    		        -	[SHOW_COLUMNS]({{< relref "./docs/ExtensionReference/dolphin-SHOW_COLUMNS.md" >}} 
-    		        -	[SHOW-DATABASES]({{< relref "./docs/ExtensionReference/dolphin-SHOW-DATABASES.md" >}}
-    		        -	[SHOW-FUNCTION-STATUS]({{< relref "./docs/ExtensionReference/dolphin-show-function-status.md" >}}
-    		        -	[SHOW-GRANTS]({{< relref "./docs/ExtensionReference/dolphin-show-grants.md" >}}
-    		        -	[SHOW-INDEX]({{< relref "./docs/ExtensionReference/dolphin-show-index.md" >}}  
-    		        -	[SHOW-MASTER-STATUS]({{< relref "./docs/ExtensionReference/dolphin-show-master-status.md" >}}
-    		        -	[SHOW_PLUGINS]({{< relref "./docs/ExtensionReference/dolphin-show-plugins.md" >}} 
-    		        -	[SHOW-PROCEDURE-STATUS]({{< relref "./docs/ExtensionReference/dolphin-show-procedure-status.md" >}}
-    		        -	[SHOW-PROCESSLIST]({{< relref "./docs/ExtensionReference/dolphin-show-processlist.md" >}}
-    		        -	[SHOW-SLAVE-HOSTS]({{< relref "./docs/ExtensionReference/dolphin-show-slave-hosts.md" >}}
-    		        -	[SHOW_TABLES]({{< relref "./docs/ExtensionReference/dolphin-show-tables.md" >}} 
-    		        -	[SHOW-TRIGGERS]({{< relref "./docs/ExtensionReference/dolphin-show-triggers.md" >}} 
-    		        -	[UPDATE]({{< relref "./docs/ExtensionReference/dolphin-update.md" >}}
-    		        -	[USE-DB_NAME]({{< relref "./docs/ExtensionReference/dolphin-use-db-name.md" >}} 
-    		        -	[CHECKSUM-TABLE]({{< relref "./docs/ExtensionReference/dolphin-checksum-table.md" >}}  
-    		        -	[GRANT-REVOKE-PROXY]({{< relref "./docs/ExtensionReference/dolphin-grant-revoke-proxy.md" >}} 	
+    	        	-	[ALTER FUNCTION]({{< relref "./docs/ExtensionReference/dolphin-alter-function.md" >}})
+    	        	-	[ALTER PROCEDURE]({{< relref "./docs/ExtensionReference/dolphin-alter-procedure.md" >}})
+    	        	-	[ALTER TABLE]({{< relref "./docs/ExtensionReference/dolphin-alter-table.md" >}})
+    	        	-	[ALTER TABLE-PARTITION]({{< relref "./docs/ExtensionReference/dolphin-alter-table-partition.md" >}})
+    	        	-	[ALTER TABLESPACE]({{< relref "./docs/ExtensionReference/dolphin-alter-tablespace.md" >}})
+    	        	-	[ANALYZE ANALYSE]({{< relref "./docs/ExtensionReference/dolphin-analyze-analyse.md" >}})
+    	        	-	[AST]({{< relref "./docs/ExtensionReference/dolphin-ast.md" >}})
+    	        	-	[CREATE-FUNCTION]({{< relref "./docs/ExtensionReference/dolphin-create-function.md" >}})
+    	        	-	[CREATE-INDEX]({{< relref "./docs/ExtensionReference/dolphin-create-index.md" >}})
+    	        	-	[CREATE-PROCEDURE]({{< relref "./docs/ExtensionReference/dolphin-create-procedure.md" >}})
+   		        	-	[CREATE-TABLE]({{< relref "./docs/ExtensionReference/dolphin-create-table.md" >}})
+   		        	-	[CREATE-TABLE-AS]({{< relref "./docs/ExtensionReference/dolphin-create-table-as.md" >}})
+   		        	-	[CREATE-TABLE-PARTITION]({{< relref "./docs/ExtensionReference/dolphin-create-table-partition.md" >}})
+    	        	-	[CREATE-TABLESPACE]({{< relref "./docs/ExtensionReference/dolphin-create-tablespace.md" >}})
+    	        	-	[CREATE-INDEX]({{< relref "./docs/ExtensionReference/dolphin-create-index.md" >}})
+    	        	-	[DESCRIBE-TABLE]({{< relref "./docs/ExtensionReference/dolphin-describe-table.md" >}})
+    	        	-	[DROP-TABLESPACE]({{< relref "./docs/ExtensionReference/dolphin-drop-tablespace.md" >}})
+    		        -	[GRANT]({{< relref "./docs/ExtensionReference/dolphin-GRANT.md" >}})
+    		        -	[INSERT]({{< relref "./docs/ExtensionReference/dolphin-INSERT.md" >}})
+    		        -	[KILL]({{< relref "./docs/ExtensionReference/dolphin-KILL.md" >}})
+    		        -	[OPTIMIZE-TABLE]({{< relref "./docs/ExtensionReference/dolphin-OPTIMIZE-TABLE.md" >}})
+    		        -	[PREPARE]({{< relref "./docs/ExtensionReference/dolphin-PREPARE.md" >}})
+    		        -	[RENAME-USER]({{< relref "./docs/ExtensionReference/dolphin-RENAME-USER.md" >}})
+    		        -	[REVOKE]({{< relref "./docs/ExtensionReference/dolphin-REVOKE.md" >}})
+    		        -	[SELECT]({{< relref "./docs/ExtensionReference/dolphin-SELECT.md" >}})
+    		        -	[SET-CHARSET]({{< relref "./docs/ExtensionReference/dolphin-SET-CHARSET.md" >}})
+    		        -	[SET-PASSWORD]({{< relref "./docs/ExtensionReference/dolphin-SET-PASSWORD.md" >}})
+    		        -	[SHOW_COLUMNS]({{< relref "./docs/ExtensionReference/dolphin-SHOW_COLUMNS.md" >}})
+    		        -	[SHOW-DATABASES]({{< relref "./docs/ExtensionReference/dolphin-SHOW-DATABASES.md" >}})
+    		        -	[SHOW-FUNCTION-STATUS]({{< relref "./docs/ExtensionReference/dolphin-show-function-status.md" >}})
+    		        -	[SHOW-GRANTS]({{< relref "./docs/ExtensionReference/dolphin-show-grants.md" >}})
+    		        -	[SHOW-INDEX]({{< relref "./docs/ExtensionReference/dolphin-show-index.md" >}})
+    		        -	[SHOW-MASTER-STATUS]({{< relref "./docs/ExtensionReference/dolphin-show-master-status.md" >}})
+    		        -	[SHOW_PLUGINS]({{< relref "./docs/ExtensionReference/dolphin-show-plugins.md" >}})
+    		        -	[SHOW-PROCEDURE-STATUS]({{< relref "./docs/ExtensionReference/dolphin-show-procedure-status.md" >}})
+    		        -	[SHOW-PROCESSLIST]({{< relref "./docs/ExtensionReference/dolphin-show-processlist.md" >}})
+    		        -	[SHOW-SLAVE-HOSTS]({{< relref "./docs/ExtensionReference/dolphin-show-slave-hosts.md" >}})
+    		        -	[SHOW_TABLES]({{< relref "./docs/ExtensionReference/dolphin-show-tables.md" >}})
+    		        -	[SHOW-TRIGGERS]({{< relref "./docs/ExtensionReference/dolphin-show-triggers.md" >}})
+    		        -	[UPDATE]({{< relref "./docs/ExtensionReference/dolphin-update.md" >}})
+    		        -	[USE-DB_NAME]({{< relref "./docs/ExtensionReference/dolphin-use-db-name.md" >}})
+    		        -	[CHECKSUM-TABLE]({{< relref "./docs/ExtensionReference/dolphin-checksum-table.md" >}})
+    		        -	[GRANT-REVOKE-PROXY]({{< relref "./docs/ExtensionReference/dolphin-grant-revoke-proxy.md" >}})
 			-   [System Views]({{< relref "./docs/ExtensionReference/dolphin-system-views.md" >}})
     		    -	[PG TYPE NONSTRICT BASIC VALUE]({{< relref "./docs/ExtensionReference/dolphin-pg-type-nonstrict-basic-value.md" >}})
     		    -	[INDEX STATISTIC]({{< relref "./docs/ExtensionReference/dolphin-index-statistic.md" >}})
@@ -1188,7 +1111,7 @@ headless: true
 	-   [Creating a Table]({{< relref "./docs/SQLReference/creating-a-table.md" >}})
 	-   [Partitioned Tables]({{< relref "./docs/SQLReference/partitioned-tables.md" >}})
 	-   [Indexes]({{< relref "./docs/SQLReference/indexes.md" >}})
-	-   [Constraints]({{< relref "./docs/SQLReference/constraints.md" >}}
+	-   [Constraints]({{< relref "./docs/SQLReference/constraints.md" >}})
 	-   [Materialized View]({{< relref "./docs/SQLReference/materialized-view.md" >}})  
 		-   [Complete-refresh Materialized View]({{< relref "./docs/SQLReference/full-materialized-view.md" >}})
 			-   [Overview]({{< relref "./docs/SQLReference/overview-50.md" >}})
@@ -1810,7 +1733,7 @@ headless: true
 		-   [System Views]({{< relref "./docs/DatabaseReference/system-views.md" >}})
 			-   [DV\_SESSION\_LONGOPS]({{< relref "./docs/DatabaseReference/dv_session_longops.md" >}})
 			-   [DV\_SESSIONS]({{< relref "./docs/DatabaseReference/dv_sessions.md" >}})
-			-   [GET\_GLOBAL\_PREPARED\_XACTS \(Discarded\" >}})]({{< relref "./docs/DatabaseReference/get_global_prepared_xacts-discarded.md" >}})
+			-   [GET\_GLOBAL\_PREPARED\_XACTS \(Discarded\)]({{< relref "./docs/DatabaseReference/get_global_prepared_xacts-discarded.md" >}})
 			-   [GS\_AUDITING\_ACCESS]({{< relref "./docs/DatabaseReference/gs_auditing_access.md" >}})
 			-   [GS\_AUDITING\_PRIVILEGE]({{< relref "./docs/DatabaseReference/gs_auditing_privilege.md" >}})
 			-   [GS\_AUDITING]({{< relref "./docs/DatabaseReference/gs_auditing.md" >}})

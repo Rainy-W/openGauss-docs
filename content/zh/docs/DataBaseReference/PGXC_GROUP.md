@@ -49,7 +49,7 @@ PGXC\_GROUP系统表存储节点组信息。PGXC\_GROUP系统表仅在分布式�
 <td class="cellrowborder" valign="top" width="60.46%" headers="mcps1.2.4.1.3 "><p id="zh-cn_topic_0059778124_a65f655bd6083442a98d76cb583e8190e"><a name="zh-cn_topic_0059778124_a65f655bd6083442a98d76cb583e8190e"></a><a name="zh-cn_topic_0059778124_a65f655bd6083442a98d76cb583e8190e"></a>分布数据桶的集合。</p>
 </td>
 </tr>
-<tr id="row204781949282"><td class="cellrowborder" valign="top" width="20.419999999999998%" headers="mcps1.2.4.1.1 "><p id="p194796491814"><a name="p194796491814"></a><a name="p194796491814"></a>is_installation</p>
+<tr id="row204781949282"><td class="cellrowborder" valign="top" width="20.419999999999998%" headers="mcps1.2.4.1.1 "><p id="p194796491814"><a name="p194796491814"></a><a name="p194796491814"></a>is_InstallationGuide</p>
 </td>
 <td class="cellrowborder" valign="top" width="19.12%" headers="mcps1.2.4.1.2 "><p id="p3479124915820"><a name="p3479124915820"></a><a name="p3479124915820"></a><span id="text442111002917"><a name="text442111002917"></a><a name="text442111002917"></a>Boolean</span></p>
 </td>
@@ -68,7 +68,7 @@ PGXC\_GROUP系统表存储节点组信息。PGXC\_GROUP系统表仅在分布式�
 </td>
 <td class="cellrowborder" valign="top" width="19.12%" headers="mcps1.2.4.1.2 "><p id="p10574163220276"><a name="p10574163220276"></a><a name="p10574163220276"></a>"char"</p>
 </td>
-<td class="cellrowborder" valign="top" width="60.46%" headers="mcps1.2.4.1.3 "><div class="p" id="p983814616462"><a name="p983814616462"></a><a name="p983814616462"></a>node group类型，取值包括i, n, v, e。<a name="ul15558135019461"></a><a name="ul15558135019461"></a><ul id="ul15558135019461"><li>i：表示installation node group。</li><li>n：表示普通非逻辑集群node group。</li><li>v：表示逻辑集群node group。</li><li>e：表示弹性集群。</li></ul>
+<td class="cellrowborder" valign="top" width="60.46%" headers="mcps1.2.4.1.3 "><div class="p" id="p983814616462"><a name="p983814616462"></a><a name="p983814616462"></a>node group类型，取值包括i, n, v, e。<a name="ul15558135019461"></a><a name="ul15558135019461"></a><ul id="ul15558135019461"><li>i：表示InstallationGuide node group。</li><li>n：表示普通非逻辑集群node group。</li><li>v：表示逻辑集群node group。</li><li>e：表示弹性集群。</li></ul>
 </div>
 </td>
 </tr>

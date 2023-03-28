@@ -152,7 +152,7 @@ where table_constraint can be:
 
 
         >![](public_sys-resources/icon-note.gif) **说明：** 
-        >file\_fdw更多使用请参见[file\_fdw](../Administration/file_fdw.md)。
+        >file\_fdw更多使用请参见[file\_fdw](../DatabaseAdministrationGuide/file_fdw.md)。
 
 
 

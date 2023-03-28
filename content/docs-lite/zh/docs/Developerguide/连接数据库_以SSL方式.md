@@ -11,7 +11,7 @@
 1.  以操作系统用户omm登录数据库主节点。
 2.  生成并配置证书。
 
-    生成SSL证书，具体请参见[证书生成](../Administration/证书生成.md)。将生成出的文件server.crt，server.key，cacert.pem拷贝到服务端数据目录下。
+    生成SSL证书，具体请参见[证书生成](../DatabaseAdministrationGuide/证书生成.md)。将生成出的文件server.crt，server.key，cacert.pem拷贝到服务端数据目录下。
 
     在Unix系统上，server.crt、server.key的权限设置必须禁止任何外部或组的访问，请执行如下命令实现这一点。
 

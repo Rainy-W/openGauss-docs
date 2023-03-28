@@ -296,8 +296,8 @@
         </tbody>
         </table>
 
-5.  （可选）生成SSL证书，具体请参见[证书生成](../Administration/证书生成.md)。此步骤和6在服务端与客户端通过ssl方式连接的情况下需要执行。非ssl方式连接情况下可以跳过。
-6.  （可选）替换SSL证书，具体请参见[证书替换](../Administration/证书替换.md)。
+5.  （可选）生成SSL证书，具体请参见[证书生成](../DatabaseAdministrationGuide/证书生成.md)。此步骤和6在服务端与客户端通过ssl方式连接的情况下需要执行。非ssl方式连接情况下可以跳过。
+6.  （可选）替换SSL证书，具体请参见[证书替换](../DatabaseAdministrationGuide/证书替换.md)。
 7.  SSL模式：
 
     声明如下环境变量，同时保证client.key\*系列文件为600权限：

@@ -43,7 +43,7 @@
     ```
     CREATE [ UNIQUE ] INDEX [ IF NOT EXISTS ] [ [schema_name.]index_name ] ON table_name [ USING method ]
         ( {{ column_name [ ( length ) ] | ( expression ) } [ COLLATE collation ] [ opclass ] [ ASC | DESC ] [ NULLS LAST ] }[, ...] )
-        [ LOCAL [ ( { PARTITION index_partition_name | SUBPARTITION index_subpartition_name [ TABLESPACE index_partition_tablespace ] } [, ...] ) ] | GLOBAL ]
+        [ LOCAL [ ( { PARTITION index_partition_name [ ( SUBPARTITION index_subpartition_name [, ...] ) ] [ TABLESPACE index_partition_tablespace ] } [, ...] ) ] | GLOBAL ]
         [ INCLUDE ( column_name [, ...] )]
         [ WITH ( { storage_parameter = value } [, ...] ) ]
         [ TABLESPACE tablespace_name ]
@@ -349,6 +349,9 @@ openGauss=# ALTER INDEX tpcds.ds_ship_mode_t1_index2 REBUILD;
 --删除一个现有的索引。
 openGauss=# DROP INDEX tpcds.ds_ship_mode_t1_index2;
 
+--创建INVISIBLE索引
+openGauss=# CREATE INDEX ds_ship_mode_t1_index2 ON tpcds.ship_mode_t1(SUBSTR(SM_CODE,1 ,4)) INVISIBLE;
+
 --删除表。
 openGauss=# DROP TABLE tpcds.ship_mode_t1;
 
@@ -452,5 +455,5 @@ CREATE INDEX
     -   在相同属性列上，分区LOCAL索引与GLOBAL索引不能共存。
     -   GLOBAL索引，最大支持31列。
     -   如果alter语句不带有UPDATE GLOBAL INDEX，那么原有的GLOBAL索引将失效，查询时将使用其他索引进行查询；如果alter语句带有UPDATE GLOBAL INDEX，原有的GLOBAL索引仍然有效，并且索引功能正确。
-
+    -   对于分区表的local unique索引，索引键必须包含所有的分区键。
 
