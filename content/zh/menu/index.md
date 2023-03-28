@@ -832,6 +832,7 @@ headless: true
 					-	[赋值操作符]({{< relref "./docs/ExtensionReference/dolphin-赋值操作符.md" >}}) 
 					-	[字符处理函数和操作符]({{< relref "./docs/ExtensionReference/dolphin-字符处理函数和操作符.md" >}}) 
 					-	[数字操作函数和操作符]({{< relref "./docs/ExtensionReference/dolphin-数字操作函数和操作符.md" >}}) 
+					-	[Dolphin锁]({{< relref "./docs/ExtensionReference/dolphin-锁.md" >}}) 
 					-	[时间和日期处理函数和操作符]({{< relref "./docs/ExtensionReference/dolphin-时间和日期处理函数和操作符.md" >}})  
 					-	[咨询锁函数]({{< relref "./docs/ExtensionReference/dolphin-咨询锁函数.md" >}})
 					-	[网络地址函数和操作符]({{< relref "./docs/ExtensionReference/dolphin-网络地址函数和操作符.md" >}})  

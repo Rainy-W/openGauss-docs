@@ -2,6 +2,10 @@
 
 ## dolphin.sql\_mode<a name="section203671436821"></a>
 
+**取值范围**：字符串
+
+**默认值**：'sql_mode_strict,sql_mode_full_group,pipes_as_concat,ansi_quotes,no_zero_date,pad_char_to_full_length'
+
 **参数说明**：参数值为逗号间隔的字符串，仅允许合法字符串设定，不合法情况下，启动后报warning。同样，设置时候，如果新值非法，则报warning并且不修改老值。当前有几种场景会用到sql\_mode：
 
 1. sql_mode_strict：插入不符合当前列类型的值时,进行数据转换;分两种场景，insert into table values(…) 和insert into table select … 主要涉及到各种数据类型之间的互相转换，目前涉及的类型有tinyint[unsigned],smallint[unsigned],int[unsigned],bigint[unsigned],float,double,numeric,clob,char和varchar；
@@ -69,10 +73,6 @@
 9. pad_char_to_full_length：控制char类型查询时是否删除尾部空格。
 
 该参数属于USERSET类型参数，请参考[表1](dolphin-重设参数.md#zh-cn_topic_0283137176_zh-cn_topic_0237121562_zh-cn_topic_0059777490_t91a6f212010f4503b24d7943aed6d837)中对应设置方法进行设置。
-
-**取值范围**：字符串
-
-**默认值**：'sql_mode_strict,sql_mode_full_group,pipes_as_concat,ansi_quotes,no_zero_date,pad_char_to_full_length'
 
 **示例**：
 ```
