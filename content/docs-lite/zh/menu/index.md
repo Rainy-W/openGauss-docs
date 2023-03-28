@@ -26,7 +26,7 @@ headless: true
 	-   [技术指标]({{< relref "./docs/TechnicalWhitePaper/技术指标.md" >}})
 	-   [基本功能和特性]({{< relref "./docs/AboutopenGauss/基本功能和特性.md" >}})
 	-   [企业级增强特性]({{< relref "./docs/AboutopenGauss/企业级增强特性.md" >}})	
-	-   [特性描述]({{< relref "./docs/AboutopenGauss/CharacteristicAboutopenGauss.md" >}})
+	-   [特性描述]({{< relref "./docs/AboutopenGauss/AboutopenGauss.md" >}})
 	    -   [高性能]({{< relref "./docs/AboutopenGauss/高性能.md" >}})
 	    	-   [CBO优化器]({{< relref "./docs/AboutopenGauss/CBO优化器.md" >}})
 	    	-   [向量化引擎]({{< relref "./docs/AboutopenGauss/向量化引擎.md" >}})
