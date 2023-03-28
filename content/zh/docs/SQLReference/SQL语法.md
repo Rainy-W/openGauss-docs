@@ -13,8 +13,10 @@
 -   **[ALTER DEFAULT PRIVILEGES](ALTER-DEFAULT-PRIVILEGES.md)**  
 
 -   **[ALTER DIRECTORY](ALTER-DIRECTORY.md)**  
-
--   **[ALTER ExtensionReference](ALTER-ExtensionReference.md)**  
+  
+-   **[ALTER EVENT TRIGGER](ALTER-EVENT-TRIGGER.md)**  
+  
+-   **[ALTER EXTENSION](ALTER-EXTENSION.md)**  
 
 -   **[ALTER FOREIGN TABLE](ALTER-FOREIGN-TABLE.md)**  
 
@@ -122,7 +124,9 @@
 
 -   **[CREATE DIRECTORY](CREATE-DIRECTORY.md)**  
 
--   **[CREATE ExtensionReference](CREATE-ExtensionReference.md)**  
+-   **[CREATE EVENT TRIGGER](CREATE-EVENT-TRIGGER.md)**  
+
+-   **[CREATE EXTENSION](CREATE-EXTENSION.md)**  
 
 -   **[CREATE FOREIGN TABLE](CREATE-FOREIGN-TABLE.md)**  
 
@@ -222,7 +226,9 @@
 
 -   **[DROP DIRECTORY](DROP-DIRECTORY.md)**  
 
--   **[DROP ExtensionReference](DROP-ExtensionReference.md)**  
+-   **[DROP EVENT TRIGGER](DROP-EVENT-TRIGGER.md)**  
+
+-   **[DROP EXTENSION](DROP-EXTENSION.md)**  
 
 -   **[DROP FOREIGN TABLE](DROP-FOREIGN-TABLE.md)**  
 
@@ -302,7 +308,7 @@
 
 -   **[INSERT](INSERT.md)**  
 
--   **[LOCK](LOCK-Sql.md)**  
+-   **[LOCK](LOCK-1.md)**  
 
 -   **[MERGE INTO](MERGE-INTO.md)**  
 
