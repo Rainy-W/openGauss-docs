@@ -60,6 +60,6 @@ pg_controldata --enable-dss -I instance_id --socketpath=SOCKETPATH VGDATA
 
 **资源池化模式使用说明：**
 
-在资源池化模式，-I后面的参数为要查看的控制文件对应节点的节点id，VGDATA为集群的资源池化数据目录（例如数据目录为+data）。
+在资源池化模式，-I后面的参数为要查看的控制文件对应节点的节点id，VGDATA为集群的共享数据目录（例如数据目录为+data）。
 
 
