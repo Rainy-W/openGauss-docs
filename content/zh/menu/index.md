@@ -1,4 +1,4 @@
-﻿---
+---
 headless: true
 ---
 
@@ -121,7 +121,11 @@ headless: true
 	    		-   [智能基数估计]({{< relref "./docs/AboutopenGauss/智能基数估计.md" >}})
 	    		-   [自适应计划选择]({{< relref "./docs/AboutopenGauss/自适应计划选择.md" >}})				
 	    -   [工具链]({{< relref "./docs/AboutopenGauss/工具链.md" >}})
-	    	-   [MySQL-\>openGauss迁移工具chameleon]({{< relref "./docs/AboutopenGauss/MySQL_openGauss迁移工具chameleon.md" >}})
+	    	-   [MySQL一键式迁移]({{< relref "./docs/AboutopenGauss/MySQL一键式迁移工具gs_rep_portal.md" >}})
+	    	-   [全量迁移gs_mysync]({{< relref "./docs/AboutopenGauss/全量迁移gs_mysync.md" >}})
+	    	-   [增量迁移gs_replicate(MySQL -\> openGauss)]({{< relref "./docs/AboutopenGauss/增量迁移gs_replicate.md" >}})
+	    	-   [反向迁移gs_replicate(openGauss -\> MySQL)]({{< relref "./docs/AboutopenGauss/反向迁移gs_replicate.md" >}})
+	    	-   [数据校验gs_datacheck]({{< relref "./docs/AboutopenGauss/数据校验gs_datacheck.md" >}})
 	    	-   [openGauss客户端工具DataStudio]({{< relref "./docs/AboutopenGauss/openGauss客户端工具DataStudio.md" >}})
 	    -   [中间件]({{< relref "./docs/AboutopenGauss/中间件.md" >}})
 	    	-   [分布式数据库能力]({{< relref "./docs/AboutopenGauss/分布式数据库能力.md" >}})
@@ -817,11 +821,11 @@ headless: true
 		-   [MySQL兼容性说明]({{< relref "./docs/DataMigrationGuide/MySQL兼容性说明.md" >}})
 		-   [MySQL语法兼容性评估工具]({{< relref "./docs/DataMigrationGuide/MySQL语法兼容性评估工具.md" >}})
 		-   [迁移MySQL数据库至openGauss]({{< relref "./docs/DataMigrationGuide/迁移MySQL数据库至openGauss.md" >}})
+			-   [MySQL一键式迁移]({{< relref "./docs/DataMigrationGuide/MySQL一键式迁移.md" >}})
 			-   [全量迁移]({{< relref "./docs/DataMigrationGuide/全量迁移.md" >}})
 			-   [增量迁移]({{< relref "./docs/DataMigrationGuide/增量迁移.md" >}})
-			-   [数据校验]({{< relref "./docs/DataMigrationGuide/数据校验.md" >}})
 			-   [反向迁移]({{< relref "./docs/DataMigrationGuide/反向迁移.md" >}})
-			-   [MySQL一键式迁移]({{< relref "./docs/DataMigrationGuide/MySQL一键式迁移.md" >}})
+			-   [数据校验]({{< relref "./docs/DataMigrationGuide/数据校验.md" >}})
 -   [插件参考]({{< relref "./docs/ExtensionReference/Extension.md" >}})
 	-   [Dolphin Extension]({{< relref "./docs/ExtensionReference/dolphin-Extension.md" >}})
 		-   [Dolphin概述]({{< relref "./docs/ExtensionReference/dolphin概述.md" >}})
