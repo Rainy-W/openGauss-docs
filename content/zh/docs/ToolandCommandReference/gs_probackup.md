@@ -29,7 +29,7 @@ gs\_probackup是一个用于管理openGauss数据库备份和恢复的工具。�
 -   当远程备份有效时\(remote-proto=ssh\)，请确保-h和--remote-host指定的是同一台机器。当远程备份无效时，如果指定了-h选项，请确保-h指定的是本机地址或本机主机名。
 -   当前仅支持备份发布订阅的逻辑复制槽。
 -   备份时，请确保服务器用户对备份的目录下所有文件有读写的权限，以防止在恢复时因权限不足的问题而失败。
--   在dss模式下当前仅支持本地主机全量备份和全量恢复。
+-   在资源池化模式下当前仅支持本地主机全量备份和全量恢复。
 -   备份将执行checkpoint与xlog switch操作，此行为将产生新的xlog，并提交事务。一主一备或一主多备场景备份时，若配置文件中synchronous_commit设置为on，备机关停可能会导致主机同步提交事务失败，进而导致备份失败。此场景下，请确认各节点状态正常，或将synchronous_commit设置为off以避免备份失败。
 
 ## 命令说明<a name="zh-cn_topic_0287276008_section86861610172816"></a>
@@ -54,7 +54,7 @@ gs\_probackup是一个用于管理openGauss数据库备份和恢复的工具。�
     gs_probackup init -B backup-path [--help]
     ```
 
--   在备份路径_backup-path_内初始化一个新的备份实例，并生成pg\_probackup.conf配置文件，该文件保存了指定数据目录_pgdata-path_的gs\_probackup设置（非dss模式）。
+-   在备份路径_backup-path_内初始化一个新的备份实例，并生成pg\_probackup.conf配置文件，该文件保存了指定数据目录_pgdata-path_的gs\_probackup设置（非资源池化模式）。
 
     ```
     gs_probackup add-instance -B backup-path -D pgdata-path --instance=instance_name
@@ -234,19 +234,19 @@ gs\_probackup是一个用于管理openGauss数据库备份和恢复的工具。�
 
     给备份添加note。
 
-### **dss模式下添加实例相关参数**
+### **资源池化模式下添加实例相关参数**
 
 - --enable-dss
 
-  开启dss模式。
+  开启资源池化模式。
 
 - --instance-id
 
-  数据库节点id号，因为dss模式只支持主机备份，因此该参数一般为0。
+  数据库节点id号，因为资源池化模式只支持主机备份，因此该参数一般为0。
 
 - --vgname
 
-  dss模式下数据库使用的卷的卷名。
+  资源池化模式下数据库使用的卷的卷名。
 
 - --socketpath
 
@@ -631,7 +631,7 @@ gs\_probackup是一个用于管理openGauss数据库备份和恢复的工具。�
   >```
 
 
-## 备份指令执行顺序（非dss模式）<a name="zh-cn_topic_0287276008_section1735727125216"></a>
+## 备份指令执行顺序（非资源池化模式）<a name="zh-cn_topic_0287276008_section1735727125216"></a>
 
 1.  初始化备份目录。在指定的目录下创建backups/和wal/子目录，分别用于存放备份文件和WAL文件。
 
@@ -658,7 +658,7 @@ gs\_probackup是一个用于管理openGauss数据库备份和恢复的工具。�
     ```
 
 
-## cm工具管理集群全量备份恢复流程（dss模式）
+## cm工具管理集群全量备份恢复流程（资源池化模式）
 
 1. 初始化备份目录。
 
@@ -672,14 +672,14 @@ gs\_probackup是一个用于管理openGauss数据库备份和恢复的工具。�
    ```
    gs_probackup add-instance -B backup-path -D pgdata-path --instance instance_name --enable-dss --instance-id node_id --vgname="vgdata,vglog" --socketpath=socket_domain
    ```
-   **说明：** pgdata-path为数据库在文件系统中的数据目录，instance_name为用户指定的备份实例名，--enable-dss参数代表所添加的备份实例对应的数据库为共享存储模式，node_id为所备份数据库集群的主机节点id，vgdata和vglog分别代表共享存储的数据目录和主机在磁阵中的日志目录(例如--vgname="+data,+p0",其中+data为共享存储的数据目录，+p0为主机在磁阵中的日志目录)，socket_domain为dss实例进程使用的socket文件路径，仅支持绝对路径。
+   **说明：** pgdata-path为数据库在文件系统中的数据目录，instance_name为用户指定的备份实例名，--enable-dss参数代表所添加的备份实例对应的数据库为资源池化模式，node_id为所备份数据库集群的主机节点id，vgdata和vglog分别代表资源池化的数据目录和主机在磁阵中的日志目录(例如--vgname="+data,+p0",其中+data为资源池化的数据目录，+p0为主机在磁阵中的日志目录)，socket_domain为dss实例进程使用的socket文件路径，仅支持绝对路径。
 
 3. 创建指定实例的备份，对主机进行备份。在进行增量备份之前，必须至少创建一次全量备份。
 
    ```
    gs_probackup backup -B backup-path --instance instance_name -b backup_mode -d db_name -p port
    ```
-   **说明：** 此操作与非dss模式相同。
+   **说明：** 此操作与非资源池化模式相同。
 
 4. 执行cm_ctl stop关闭集群。
 

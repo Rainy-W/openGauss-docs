@@ -44,7 +44,7 @@
     <PARAM name="enable_dcf" value="on"/>
     <!-- 开启开关后对应的节点IP、PORT和角色信息 -->
     <PARAM name="dcf_config" value="[{&quot;stream_id&quot;:1,&quot;node_id&quot;:1,&quot;ip&quot;:&quot;8.92.1.85&quot;,&quot;port&quot;:16683,&quot;role&quot;:&quot;LEADER&quot;},{&quot;stream_id&quot;:1,&quot;node_id&quot;:2,&quot;ip&quot;:&quot;8.92.1.86&quot;,&quot;port&quot;:16683,&quot;role&quot;:&quot;FOLLOWER&quot;},{&quot;stream_id&quot;:1,&quot;node_id&quot;:3,&quot;ip&quot;:&quot;8.92.1.87&quot;,&quot;port&quot;:16683,&quot;role&quot;:&quot;FOLLOWER&quot;}]"/>
-    <!-- 共享存储模式开关 -->
+    <!-- 资源池化模式开关 -->
     <PARAM name="enable_dss" value="on"/>
     <!-- dss实例目录 -->
     <PARAM name="dss_home" value="/opt/huawei/install/data/dss"/>
@@ -75,8 +75,8 @@
 >-   配置openGauss路径和实例路径时，路径中不能包含"|",";","&","$","<","\>","\`","\\\\","'","\\"","\{","\}","\(","\)","\[","\]","\~","\*","?"特殊字符。
 >-   配置数据库节点名称时，请通过hostname命令获取数据库节点的主机名称，替换示例中的node1\_hostname,node2\_hostname。
 >-   配置dcf\_config时，角色的配置有leader，follower，passive，logger，其中可投票的角色有leader，follower，logger，配置角色组网时，可投票的角色不能少于3个，因此dcf模式下至少需要三个节点。
->-   共享存储中请谨慎配置所有包含磁盘信息的参数，安装时工具会低格所有参数中配置的磁盘，所有参数中的磁盘不能重复。
->-   共享存储中的ip和dn的数据ip保持一致，dss的端口是db端口+10，dms的端口是db端口+20。
+>-   资源池化中请谨慎配置所有包含磁盘信息的参数，安装时工具会低格所有参数中配置的磁盘，所有参数中的磁盘不能重复。
+>-   资源池化中的ip和dn的数据ip保持一致，dss的端口是db端口+10，dms的端口是db端口+20。
 
 **表 1**  参数说明
 
@@ -160,7 +160,7 @@
 </tr>
 <tr id="row19822181216374"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p7822412123718"><a name="p7822412123718"></a><a name="p7822412123718"></a><span id="ph9894173393710"><a name="ph9894173393710"></a><a name="ph9894173393710"></a>enable_dss</span></p>
 </td>
-<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p3822151223719"><a name="p3822151223719"></a><a name="p3822151223719"></a><span id="ph926135011373"><a name="ph926135011373"></a><a name="ph926135011373"></a>共享存储模式开关</span><span id="ph991191210218"><a name="ph991191210218"></a><a name="ph991191210218"></a><span id="ph1716615151418"><a name="ph1716615151418"></a><a name="ph1716615151418"></a>，取值范围on/off，默认为off，</span>共享存储不支持dcf模式。</span></p>
+<td class="cellrowborder" valign="top" headers="mcps1.2.4.1.2 "><p id="p3822151223719"><a name="p3822151223719"></a><a name="p3822151223719"></a><span id="ph926135011373"><a name="ph926135011373"></a><a name="ph926135011373"></a>资源池化模式开关</span><span id="ph991191210218"><a name="ph991191210218"></a><a name="ph991191210218"></a><span id="ph1716615151418"><a name="ph1716615151418"></a><a name="ph1716615151418"></a>，取值范围on/off，默认为off，</span>资源池化不支持dcf模式。</span></p>
 </td>
 </tr>
 <tr id="row37942023183718"><td class="cellrowborder" valign="top" headers="mcps1.2.4.1.1 "><p id="p779592320372"><a name="p779592320372"></a><a name="p779592320372"></a><span id="ph165120406388"><a name="ph165120406388"></a><a name="ph165120406388"></a>dss_home</span></p>
