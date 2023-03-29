@@ -4,7 +4,7 @@
 
 修改表分区，包括增删分区、切割分区、合成分区以及修改分区属性等。
 
-相比于内核语法，dolphin的rebuild,remove,check,repair,optimize,truncate,analyze,exchange都做了B兼容模式下的特色修改。
+相比于内核语法，dolphin的rebuild,remove,check,repair,optimize,truncate,analyze,exchange,reorganize都做了B兼容模式下的特色修改。
 
 ## 注意事项<a name="zh-cn_topic_0283137443_zh-cn_topic_0237122077_zh-cn_topic_0059778761_s5b88399280d4435fbb63e27378589a97"></a>
 
@@ -233,7 +233,7 @@
     OPTIMIZE PARTITION ALL
     ```
 
--   兼容B database Truncate分区语法
+-   Truncate分区语法
 
     Truncate操作会删除当前分区对应的所有数据。
 
@@ -241,7 +241,7 @@
     TRUNCATE PARTITION { partition_name } [, ...]
     TRUNCATE PARTITION all
     ```
--   兼容B database exchange分区语法对齐
+-   exchange分区语法对齐
 
     可以用来交换分区表和普通表的数据，普通表和分区的数据被置换，同时普通表和分区的表空间信息被置换。此时，普通表和分区的统计信息变得不可靠，需要对普通表和分区重新执行analyze。
 
@@ -251,7 +251,7 @@
     exchange partition partition_name with table table_name (without/with validation);
     ```
 
--   兼容B database analyze分区语法对齐
+-   analyze分区语法对齐
 
     用于收集与表内容相关的统计信息。执行计划生成器会使用这些统计数据，以确定最有效的执行计划。
 
@@ -262,20 +262,20 @@
     analyze partition all;
     ```
 
--   兼容B database add分区语法。
+-   add分区语法。
 
     ```
     ADD {partition_less_than_item | partition_start_end_item| partition_list_item } [, ...]
     ```
 
--   兼容B database drop分区语法。
+-   drop分区语法。
 
     ```
     DROP PARTITION { { partition_name } [ UPDATE GLOBAL INDEX ] } [, ...]
     DROP SUBPARTITION { { partition_name } [ UPDATE GLOBAL INDEX ] } [, ...]
     ```
 
--   兼容B database reorganize分区语法。
+-   reorganize分区语法。
 
     重新分割或融合指定分区，重新划分分区的定义。
 
@@ -379,9 +379,9 @@
 
 ## 示例<a name="zh-cn_topic_0283137443_zh-cn_topic_0237122077_zh-cn_topic_0059778761_s50d0d11ee3074db6911f91d1d9e31fbd"></a>
 
-请参考CREATE TABLE PARTITION的[示例](../SQLReference/CREATE-TABLE-PARTITION.md#zh-cn_topic_0283136653_zh-cn_topic_0237122119_zh-cn_topic_0059777586_s43dd49de892344bf89e6f56f17404842)。
+请参考CREATE TABLE PARTITION的[示例](dolphin-CREATE-TABLE-PARTITION.md#zh-cn_topic_0283136653_zh-cn_topic_0237122119_zh-cn_topic_0059777586_s43dd49de892344bf89e6f56f17404842)。
 
 ## 相关链接<a name="zh-cn_topic_0283137443_zh-cn_topic_0237122077_zh-cn_topic_0059778761_s267aeb502b5546f69f580c79c0a728df"></a>
 
-[CREATE TABLE PARTITION](../SQLReference/CREATE-TABLE-PARTITION.md)，[DROP TABLE](../SQLReference/DROP-TABLE.md)
+[CREATE TABLE PARTITION](dolphin-CREATE-TABLE-PARTITION.md)，[DROP TABLE](../SQLReference/DROP-TABLE.md)
 
