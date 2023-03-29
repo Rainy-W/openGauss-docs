@@ -750,7 +750,7 @@ headless: true
 		-   [OID Types]({{< relref "./docs/SQLReference/oid-types.md" >}})
 		-   [Pseudo-Types]({{< relref "./docs/SQLReference/pseudo-types.md" >}})
 		-   [Data Types Supported by Column-store Tables]({{< relref "./docs/SQLReference/data-types-supported-by-column-store-tables.md" >}})
-		-   [XML Types]({{< relref "./docs/SQLReference/xml-types.md" >}})
+		-   [XML Type]({{< relref "./docs/SQLReference/xml-type.md" >}})
 		-   [Data Type Used by the Ledger Database]({{< relref "./docs/SQLReference/data-type-used-by-the-ledger-database.md" >}})
 		-   [SET Type]({{< relref "./docs/SQLReference/set-type.md" >}})		
 		-   [Functions and Operators]({{< relref "./docs/SQLReference/functions-and-operators.md" >}})
