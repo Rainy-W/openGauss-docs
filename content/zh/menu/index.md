@@ -818,6 +818,7 @@ headless: true
 			-   [增量迁移]({{< relref "./docs/DataMigrationGuide/增量迁移.md" >}})
 			-   [数据校验]({{< relref "./docs/DataMigrationGuide/数据校验.md" >}})
 			-   [反向迁移]({{< relref "./docs/DataMigrationGuide/反向迁移.md" >}})
+			-   [MySQL一键式迁移]({{< relref "./docs/DataMigrationGuide/MySQL一键式迁移.md" >}})
 -   [插件参考]({{< relref "./docs/ExtensionReference/Extension.md" >}})
 	-   [Dolphin Extension]({{< relref "./docs/ExtensionReference/dolphin-Extension.md" >}})
 		-   [Dolphin概述]({{< relref "./docs/ExtensionReference/dolphin概述.md" >}})
