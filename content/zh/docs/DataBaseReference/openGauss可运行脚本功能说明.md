@@ -193,12 +193,12 @@
 </tr>
 <tr id="row727013201346"><td class="cellrowborder" valign="top" width="28.17%" headers="mcps1.2.3.1.1 "><p id="p15270620642"><a name="p15270620642"></a><a name="p15270620642"></a><span id="ph15338136192015"><a name="ph15338136192015"></a><a name="ph15338136192015"></a>dms_contrl.sh</span></p>
 </td>
-<td class="cellrowborder" valign="top" width="71.83%" headers="mcps1.2.3.1.2 "><p id="p202701201145"><a name="p202701201145"></a><a name="p202701201145"></a><span id="ph1618127142212"><a name="ph1618127142212"></a><a name="ph1618127142212"></a>共享存储提供给CM使用，用于启停gaussdb（不建议外界单独调用）</span><span id="ph745115179120"><a name="ph745115179120"></a><a name="ph745115179120"></a>。</span></p>
+<td class="cellrowborder" valign="top" width="71.83%" headers="mcps1.2.3.1.2 "><p id="p202701201145"><a name="p202701201145"></a><a name="p202701201145"></a><span id="ph1618127142212"><a name="ph1618127142212"></a><a name="ph1618127142212"></a>资源池化提供给CM使用，用于启停gaussdb（不建议外界单独调用）</span><span id="ph745115179120"><a name="ph745115179120"></a><a name="ph745115179120"></a>。</span></p>
 </td>
 </tr>
 <tr id="row13752193417419"><td class="cellrowborder" valign="top" width="28.17%" headers="mcps1.2.3.1.1 "><p id="p775216345417"><a name="p775216345417"></a><a name="p775216345417"></a><span id="ph14725203719207"><a name="ph14725203719207"></a><a name="ph14725203719207"></a>dss_contrl.sh</span></p>
 </td>
-<td class="cellrowborder" valign="top" width="71.83%" headers="mcps1.2.3.1.2 "><p id="p375273412415"><a name="p375273412415"></a><a name="p375273412415"></a><span id="ph244819168239"><a name="ph244819168239"></a><a name="ph244819168239"></a>共享存储提供给CM使用，用于启停dssserver进程（不建议外界单独调用）</span><span id="ph189487181011"><a name="ph189487181011"></a><a name="ph189487181011"></a>。</span></p>
+<td class="cellrowborder" valign="top" width="71.83%" headers="mcps1.2.3.1.2 "><p id="p375273412415"><a name="p375273412415"></a><a name="p375273412415"></a><span id="ph244819168239"><a name="ph244819168239"></a><a name="ph244819168239"></a>资源池化提供给CM使用，用于启停dssserver进程（不建议外界单独调用）</span><span id="ph189487181011"><a name="ph189487181011"></a><a name="ph189487181011"></a>。</span></p>
 </td>
 </tr>
 <tr id="row1948192145516"><td class="cellrowborder" valign="top" width="28.17%" headers="mcps1.2.3.1.1 "><p id="p1758205991216"><a name="p1758205991216"></a><a name="p1758205991216"></a>ssh-agent.sh</p>
