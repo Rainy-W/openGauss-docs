@@ -30,8 +30,7 @@ B模式下支持：
 
 ```
 CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE table_name
-    [ (column_name [, ...] ) 
-    | ({ column_name data_type [ compress_mode ] [ COLLATE collation ] [ column_constraint [ ... ] ]}
+    [ ({ column_name data_type [ compress_mode ] [ COLLATE collation ] [ column_constraint [ ... ] ]}
         | table_constraint [, ... ]) ]
     [ WITH ( {storage_parameter = value} [, ... ] ) ]
     [ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
@@ -124,6 +123,16 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE table_name
     新表中要创建的字段名。
 
     取值范围：字符串，要符合标识符的命名规范。
+
+    注：若没有指定字段类型，则替换源表字段名；若指定字段类型，请参考**data_type**参数介绍。
+
+-   **data_type**
+
+    指定新表中字段的类型。
+
+    若源表中不含该字段名，则新增该字段。
+
+    若源表中含有该字段名，且源表中的字段类型不可转化为指定data_type类型，则报错；否则，新表中该字段类型改为指定类型。
 
 -   **WITH \( storage\_parameter \[= value\] \[, ... \] \)**
 
