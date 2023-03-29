@@ -141,6 +141,9 @@
 
   - SET SESSION/GLOBAL 语法只有在B模式下（sql_compatibility = B）支持，并且GUC参数enable_set_variable_b_format打开的场景下才支持（enable_set_variable_b_format = on)。
   - 使用@@config\_parameter进行操作符运算时，尽量使用空格隔开。比如set @config\_parameter1=@config\_parameter1*2; 命令中，会将=@当做操作符，可将其修改为set @config\_parameter1= @config\_parameter1 * 2 。
+  - 使用 ```@var_name := expr```的方式在SQL语句中实现为用户变量赋值并返回赋值后的结果;
+  - 在sql语句中使用用户自定义变量时，由于计划和对用户变量处理上的不同，无法保证在每种情况下都可以输出和MySQL数据库保持一致，具体的解决方可以使变量的赋值和返回结果出现在相同的阶段。对于MySQL数据库本身，也会存在取值和赋值运算位置不同导致的结果不符合SQL本身语义的场景。具体用例请参考下文示例。
+  - 目前阶段若使用expr中包含有和被赋值的用户自定义变量相同的变量，那么当在查询语句中使用了此语法且用到了表的时候，那么不允许更改此用户自定义变量的类型。
 
 - **var_name**
 
@@ -199,6 +202,53 @@ test_set=# set @@session.codegen_cost_threshold = @@codegen_cost_threshold * 2;
 --global变量设置
 test_set=#set global most_available_sync = t;
 test_set=#set @@global.most_available_sync = t;
+
+-- 自定义用户变量赋值的功能
+openGauss=# create database user_var dbcompatibility 'b';
+openGauss=# \c user_var
+user_var=# show sql_compatibility;
+ sql_compatibility
+-------------------
+ B
+(1 row)
+
+user_var=# show enable_set_variable_b_format;
+ enable_set_variable_b_format
+------------------------------
+ on
+(1 row)
+
+-- 常用用法，使用其作为行号
+user_var=# set @rownum := 0;
+SET
+
+user_var=# SELECT actor_id, @rownum := @rownum + 1 AS rownums FROM actor order by actor_id LIMIT 3;
+ actor_id | rownums
+----------+---------
+        1 |       1
+        2 |       2
+        3 |       3
+(3 rows)
+
+-- 取值赋值阶段不同导致预期不服
+user_var=# set @rowno = 0;
+SET
+user_var=# SELECT salary, (@rowno := @rowno + 1) AS rowno
+FROM employee WHERE @rowno = 0;
+ salary | rowno
+--------+-------
+    100 |     1
+    200 |     2
+    300 |     3
+(3 rows)
+
+--正确用法，让变量的赋值取值在一个阶段发生
+user_var=# SELECT salary,  @rowno AS rowno
+FROM employee WHERE (@rowno := @rowno + 1) = 2;
+ salary | rowno
+--------+-------
+    200 |     2
+(1 row)
 ```
 
 
