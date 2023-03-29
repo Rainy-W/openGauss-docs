@@ -38,20 +38,16 @@ delimiter符号目前不是自由设定的，结束符范围有限制，目前�
 ```
 --定义标识符
 openGauss=# delimiter abcd
-...
 
 --定义字符串
 openGauss=# delimiter "sds;"
-...
 
 --定义操作符
 openGauss=# delimiter +
 openGauss=# delimiter /
-...
 
 --定义默认值
 openGauss=# delimtier ;
-```
 
 ## 相关链接
 
