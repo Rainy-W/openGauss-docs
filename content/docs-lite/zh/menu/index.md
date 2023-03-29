@@ -2447,5 +2447,5 @@ headless: true
 -   [附录]({{< relref "./docs/Appendix/附录.md" >}})
 	-   [openGauss资源获取]({{< relref "./docs/Appendix/openGauss资源获取.md" >}})	
 	-   [错误日志信息参考]({{< relref "./docs/Appendix/错误日志信息参考.md" >}})
-		-   [内核错误信息]({{< relref "./docs/Appendixs/内核错误信息.md" >}})	
+		-   [内核错误信息]({{< relref "./docs/Appendix/内核错误信息.md" >}})	
 	-   [术语表]({{< relref "./docs/Appendix/术语表.md" >}})
