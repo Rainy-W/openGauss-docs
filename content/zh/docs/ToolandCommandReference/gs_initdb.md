@@ -334,7 +334,7 @@ zh_SG.gbk
 </tbody>
 </table>
 
-**表 3**  主备共享存储参数说明
+**表 3**  资源池化参数说明
 
 <table><thead align="left"><tr id="row3652951153118"><th class="cellrowborder" valign="top" width="15.939999999999998%" id="mcps1.2.4.1.1"><p id="p765225114311"><a name="p765225114311"></a><a name="p765225114311"></a>参数</p>
 </th>
@@ -346,7 +346,7 @@ zh_SG.gbk
 </thead>
 <tbody><tr id="row176521551193111"><td class="cellrowborder" valign="top" width="15.939999999999998%" headers="mcps1.2.4.1.1 "><p id="p7652551123112"><a name="p7652551123112"></a><a name="p7652551123112"></a>-I</p>
 </td>
-<td class="cellrowborder" valign="top" width="60.89%" headers="mcps1.2.4.1.2 "><p id="p465245173114"><a name="p465245173114"></a><a name="p465245173114"></a>指定节点ID，初始化共享存储参数ss_instance_id。</p>
+<td class="cellrowborder" valign="top" width="60.89%" headers="mcps1.2.4.1.2 "><p id="p465245173114"><a name="p465245173114"></a><a name="p465245173114"></a>指定节点ID，初始化资源池化参数ss_instance_id。</p>
 </td>
 <td class="cellrowborder" valign="top" width="23.169999999999998%" headers="mcps1.2.4.1.3 "><p id="p106523513313"><a name="p106523513313"></a><a name="p106523513313"></a>[0-63]，  需要从0开始指定。</p>
 </td>
@@ -385,5 +385,5 @@ zh_SG.gbk
 </table>
 
 > ![](public_sys-resources/icon-note.gif) **说明：** 
-> 共享存储下系统表存放在段页式中，unlogging表保持页式存储。
+> 资源池化下系统表存放在段页式中，unlogging表保持页式存储。
 

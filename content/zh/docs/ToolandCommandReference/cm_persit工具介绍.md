@@ -2,12 +2,12 @@
 
 ## 功能介绍<a name="section125419154813"></a>
 
-cm\_persist工具用来在共享存储设备上实现抢占磁盘锁功能。该工具是系统内部工具，由cm\_server实例自动调用，不建议用户使用。
+cm\_persist工具用来在资源池化设备上实现抢占磁盘锁功能。该工具是系统内部工具，由cm\_server实例自动调用，不建议用户使用。
 
 ## 前提条件<a name="section14602518109"></a>
 
 -   确保存储设备支持SCSI-3及CAW协议。
--   确保cm\_persist工具拥有CAP\_SYS\_RAWIO权限，拥有该权限后才可以调用ioctl系统函数操作共享存储设备。
+-   确保cm\_persist工具拥有CAP\_SYS\_RAWIO权限，拥有该权限后才可以调用ioctl系统函数操作资源池化设备。
 
 ## 语法<a name="section554725769"></a>
 
@@ -28,7 +28,7 @@ cm\_persist工具用来在共享存储设备上实现抢占磁盘锁功能。该
 
 -   DEVICEPATH
 
-    共享存储设备的路径。
+    资源池化设备的路径。
 
 -   INSTANCE\_ID
 
