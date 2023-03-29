@@ -2,7 +2,7 @@
 
 本文档进行简单的产品介绍和安装指导，支撑用户快速使用数据库，若了解详细特性以及参考类信息需查看具体单本文档。
 
-例如， [安装指南](../installation/installation.md)提供有关安装要求和过程的信息，而 [数据库管理指南](../DatabaseAdministrationGuide/数据库管理指南.md)提供有关管理的信息。
+例如， [安装指南](../InstallationGuide/installation.md)提供有关安装要求和过程的信息，而 [数据库管理指南](../DatabaseAdministrationGuide/数据库管理指南.md)提供有关管理的信息。
 
  [应用开发指南](../DeveloperGuide/应用开发指南.md)部分介绍了openGauss的许多重要功能。
 
