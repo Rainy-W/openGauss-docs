@@ -150,5 +150,5 @@ openGauss=# DROP VIEW public.customer_details_view_v2;
 
 ## 相关链接<a name="zh-cn_topic_0283137021_zh-cn_topic_0237122084_zh-cn_topic_0059778428_s0c3f488fdb90433797e7d1561d9a074d"></a>
 
-[CREATE VIEW](CREATE-VIEW.md)，[DROP VIEW](DROP-VIEW.md)
+[CREATE VIEW](../SQLReference/CREATE-VIEW.md)，[DROP VIEW](../SQLReference/DROP-VIEW.md)
 

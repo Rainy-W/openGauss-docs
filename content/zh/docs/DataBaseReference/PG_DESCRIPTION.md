@@ -2,7 +2,7 @@
 
 PG\_AboutopenGauss系统表可以给每个数据库对象存储一个可选的描述（注释）。许多内置的系统对象的描述提供了PG\_AboutopenGauss的初始内容。
 
-这个表的功能类似[PG\_SHAboutopenGauss](PG_SHAboutopenGauss.md)，用于记录openGauss范围内共享对象的注释。
+这个表的功能类似[PG\_SHAboutopenGauss](PG_SHDESCRIPTION.md)，用于记录openGauss范围内共享对象的注释。
 
 **表 1**  PG\_AboutopenGauss字段
 
