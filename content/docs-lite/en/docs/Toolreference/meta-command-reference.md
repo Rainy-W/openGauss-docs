@@ -903,7 +903,7 @@ openGauss=# \sf
 </tr>
 <tr id="en-us_topic_0059778645_en-us_topic_0058968158_row66697655"><td class="cellrowborder" valign="top" width="21.87%" headers="mcps1.2.4.1.1 "><p id="en-us_topic_0059778645_en-us_topic_0058968158_p33800946"><a name="en-us_topic_0059778645_en-us_topic_0058968158_p33800946"></a><a name="en-us_topic_0059778645_en-us_topic_0058968158_p33800946"></a>\timing   [on|off]</p>
 </td>
-<td class="cellrowborder" valign="top" width="47.11%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0059778645_en-us_topic_0058968158_p20643789"><a name="en-us_topic_0059778645_en-us_topic_0058968158_p20643789"></a><a name="en-us_topic_0059778645_en-us_topic_0058968158_p20643789"></a>Displays how long each SQL statement takes, in milliseconds.</p>
+<td class="cellrowborder" valign="top" width="47.11%" headers="mcps1.2.4.1.2 "><p id="en-us_topic_0059778645_en-us_topic_0058968158_p20643789"><a name="en-us_topic_0059778645_en-us_topic_0058968158_p20643789"></a><a name="en-us_topic_0059778645_en-us_topic_0058968158_p20643789"></a>Displays how long each SQL statement takes, in milliseconds(excluding the time to print to the screen).</p>
 </td>
 <td class="cellrowborder" valign="top" width="31.019999999999996%" headers="mcps1.2.4.1.3 "><a name="en-us_topic_0059778645_u00148d00b1b34193bfcd39434d92f3bd"></a><a name="en-us_topic_0059778645_u00148d00b1b34193bfcd39434d92f3bd"></a><ul id="en-us_topic_0059778645_u00148d00b1b34193bfcd39434d92f3bd"><li><strong id="b20201014175013"><a name="b20201014175013"></a><a name="b20201014175013"></a>on</strong>: specifies that the display is enabled.</li><li><strong id="b842352706182346"><a name="b842352706182346"></a><a name="b842352706182346"></a>off</strong>: indicates that the display is disabled.</li></ul>
 </td>
