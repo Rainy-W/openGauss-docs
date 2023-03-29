@@ -83,11 +83,11 @@ openGauss当前提供基于流式复制的异地容灾解决方案。
 #### 检查点相关参数设置的影响<a name="section1564175012403"></a>
 
 -   特性规格中描述的容灾性能指标均为检查点相关参数设置默认值情况下测得。
--   检查点相关参数描述参见《开发者指南》中“GUC参数说明 \> 预写式日志 \> 检查点”章节。其中"enable\_incremental\_checkpoint"为on时，设置自动WAL检查点之间的最长时间将由"incremental\_checkpoint\_timeout"决定，如果不采用默认值并将其改大，将可能导致实例重启时会有大量日志需要回放，进而影响到容灾指标RTO变大，无法达到特性规格。
+-   检查点相关参数描述参见《数据库参考》中“GUC参数说明 \> 预写式日志 \> 检查点”章节。其中"enable\_incremental\_checkpoint"为on时，设置自动WAL检查点之间的最长时间将由"incremental\_checkpoint\_timeout"决定，如果不采用默认值并将其改大，将可能导致实例重启时会有大量日志需要回放，进而影响到容灾指标RTO变大，无法达到特性规格。
 
 #### 极致RTO相关参数设置的影响<a name="section129219253118"></a>
 
-极致RTO相关参数描述参见《开发者指南》中“GUC参数说明 \> 预写式日志 \> 日志回放“章节的recovery\_parse\_workers和recovery\_redo\_workers参数描述。如果要开启极致RTO，应至少满足每台机器上的逻辑CPU数大于打开极致RTO后额外启动的线程数（计算公式为 \(recovery\_parse\_workers \* \(recovery\_redo\_workers + 2\) + 5\) \* 每台机器上的DN实例数），否则可能出现线程对CPU资源争抢的情况，导致容灾流程中部分操作耗时变长，无法达到容灾特性规格。
+极致RTO相关参数描述参见《数据库参考》中“GUC参数说明 \> 预写式日志 \> 日志回放“章节的recovery\_parse\_workers和recovery\_redo\_workers参数描述。如果要开启极致RTO，应至少满足每台机器上的逻辑CPU数大于打开极致RTO后额外启动的线程数（计算公式为 \(recovery\_parse\_workers \* \(recovery\_redo\_workers + 2\) + 5\) \* 每台机器上的DN实例数），否则可能出现线程对CPU资源争抢的情况，导致容灾流程中部分操作耗时变长，无法达到容灾特性规格。
 
 ### 基本操作<a name="ZH-CN_TOPIC_0000001262512081"></a>
 
