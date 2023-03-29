@@ -16,6 +16,8 @@ SELECT语句就像叠加在数据库表上的过滤器，利用SQL关键字从�
 
 -   新增UNION子句列如果没有相似的数据类型，会采取转换为text类型的方式进行处理。
 
+-   新增FROM DUAL 语法，含义等同于不写FROM子句，是为了满足那些要求所有SELECT语句都应该包含FROM的情况。
+
 ## 语法格式<a name="zh-cn_topic_0283136463_zh-cn_topic_0237122184_zh-cn_topic_0059777449_sb7329222602d46fe944bf6c300931dd2"></a>
 
 -   查询数据
@@ -49,6 +51,12 @@ SELECT [/*+ plan_hint */] [ ALL | DISTINCT [ ON ( expression [, ...] ) ] ]
     |function_name ( [ argument [, ...] ] ) AS ( column_definition [, ...] )
     |from_item [ NATURAL ] join_type from_item [ ON join_condition | USING ( join_column [, ...] ) ]}
     ```
+
+- 其中不写FROM 子句的情况等价于：
+
+   ```
+   FROM DUAL
+   ```
 
 -   其中group子句为：
 
@@ -190,6 +198,20 @@ openGauss=# select join_1 inner join join_2;
     3 |    3 |    2 |    3
     3 |    3 |    4 |    4
 
+```
+- SELECT 语句中使用FROM DUAL 示例
+
+```
+openGauss=# select 1 as col;
+ col
+-----
+   1
+(1 row)
+openGauss=# select 1 as col FROM DUAL;
+ col
+-----
+   1
+(1 row)
 ```
 
 - SELECT FROM PARTITION子句指定多个分区
