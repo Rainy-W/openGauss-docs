@@ -32,7 +32,7 @@
 -   当查询或更新一个分区的大部分记录时，连续扫描那个分区而不是访问整个表可以获得巨大的性能提升。
 -   如果需要大量加载或者删除的记录位于单独的分区上，则可以通过直接读取或删除那个分区以获得巨大的性能提升，同时还可以避免由于大量DELETE导致的VACUUM超载（仅范围分区）。
 
-相比于内核语法，dolphin的rebuild,remove,check,repair,optimize,truncate,analyze,exchange都做了B兼容模式下的特色修改。
+相比于内核语法，dolphin的rebuild,remove,check,repair,optimize,truncate,analyze,exchange,reorganize都做了B兼容模式下的特色修改。
 
 ## 注意事项<a name="zh-cn_topic_0283136653_zh-cn_topic_0237122119_zh-cn_topic_0059777586_s0bb17f15d73a4d978ef028b2686e0f7a"></a>
 
@@ -1011,7 +1011,7 @@ CREATE TABLE [ IF NOT EXISTS ] partition_table_name
 
 
 
-    --兼容b database rebuild,remove,check,repair,optimize语法示例
+    --rebuild,remove,check,repair,optimize语法示例
     --创建分区表test_part
     CREATE TABLE IF NOT EXISTS test_part
     (
@@ -1077,7 +1077,7 @@ CREATE TABLE [ IF NOT EXISTS ] partition_table_name
     select parttype,relname from pg_class where relname = 'test_part' and relfilenode != oid;
 
 
-    --兼容b database truncate,analyze,exchange语法示例
+    --truncate,analyze,exchange语法示例
     CREATE TABLE IF NOT EXISTS test_part1
     (
     a int,
@@ -1092,7 +1092,7 @@ CREATE TABLE [ IF NOT EXISTS ] partition_table_name
     create table test_no_part1(a int, b int);
     insert into test_part1 values(99,1),(199,1),(299,1);
     select * from test_part1;
-    --测试b database truncate partition语法
+    --truncate partition语法
     ALTER TABLE test_part1 truncate PARTITION p0, p1;
     select * from test_part1;
     insert into test_part1 (with RECURSIVE t_r(i,j) as(values(0,1) union all select i+1,j+2 from t_r where i < 20) select * from t_r);
@@ -1104,7 +1104,7 @@ CREATE TABLE [ IF NOT EXISTS ] partition_table_name
     select * from test_part1;
     ALTER TABLE test_part1 truncate PARTITION p0, truncate PARTITION p1;
     select * from test_part1;
-    --测试b database exchange partition语法
+    --exchange partition语法
     insert into test_part1 values(99,1),(199,1),(299,1);
     alter table test_part1 exchange partition p2 with table test_no_part1 without validation;
     select * from test_part1;
@@ -1119,14 +1119,14 @@ CREATE TABLE [ IF NOT EXISTS ] partition_table_name
     alter table test_part1 exchange partition (p2) with table test_no_part1 without validation;
     select * from test_part1;
     select * from test_no_part1;
-    --测试b database analyze partition语法
+    --analyze partition语法
     alter table test_part1 analyze partition p0,p1;
     alter table test_part1 analyze partition all;
     --测试opengauss analyze partition语法
     analyze test_part1 partition (p1);
 
 
-    --兼容b database add, drop语法示例
+    --add, drop语法示例
     CREATE TABLE IF NOT EXISTS test_part2
     (
     a int,
@@ -1187,7 +1187,7 @@ CREATE TABLE [ IF NOT EXISTS ] partition_table_name
     ALTER TABLE test_subpart2 DROP SUBPARTITION p0_2, p1_0, p1_2;
     select relname, boundaries from pg_partition where parentid in (select oid from pg_partition where parentid in (select parentid from pg_partition where relname = 'test_subpart2'));
     
-    --兼容b database reorganize分区语法示例
+    --reorganize分区语法示例
     CREATE TABLE test_range_subpart
     (
         a INT4 PRIMARY KEY,
