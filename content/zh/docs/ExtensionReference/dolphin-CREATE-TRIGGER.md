@@ -2,7 +2,10 @@
 
 ## 功能描述<a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_zh-cn_topic_0059778166_s08b0f056b5f14492970a9037c63fa70c"></a>
 
-创建一个触发器。 触发器将与指定的表或视图关联，并在特定条件下执行指定的函数。
+- 创建一个触发器。 触发器将与指定的表或视图关联，并在特定条件下执行指定的函数。
+
+- 对比原始openGauss语法，新增了使用MySQL 的格式创建触发器的语法。
+- 新增了使用单条sql创建触发器的语法。
 
 ## 注意事项<a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_zh-cn_topic_0059778166_sd48f2980b9464b1abca65a4747930552"></a>
 
@@ -69,7 +72,7 @@ CREATE [ CONSTRAINT ] [ DEFINER=user ] TRIGGER [ IF NOT EXISTS ] trigger_name { 
 
 -   **trigger\_name**
 
-    触发器名称，该名称在mysql兼容风格语法中可以指定模式，触发器模式必须与其所在表的模式相同，若不限定模式，触发器自动继承其所在表的模式，同一个表的触发器不能重名。对于约束触发器，使用[SET CONSTRAINTS](SET-CONSTRAINTS.md)修改触发器行为时也使用此名称。
+    触发器名称，该名称不能限定模式，因为触发器自动继承其所在表的模式，且同一个表的触发器不能重名。 对于约束触发器，使用[SET CONSTRAINTS](SET-CONSTRAINTS.md)修改触发器行为时也使用此名称。
 
     取值范围：符合标识符命名规范的字符串，且最大长度不超过63个字符。
 
@@ -95,7 +98,7 @@ CREATE [ CONSTRAINT ] [ DEFINER=user ] TRIGGER [ IF NOT EXISTS ] trigger_name { 
     UPDATE OF column_name1 [, column_name2 ... ]
     ```
 
-    表示当这些列作为UPDATE语句的目标列时，才会启动触发器，但是INSTEAD OF UPDATE类型不支持指定列信息。如果UPDATE OF指定的列包含生成列，当生成列依赖的列是UPDATE语句的目标列时，也会启动触发器。
+    表示当这些列作为UPDATE语句的目标列时，才会启动触发器，但是INSTEAD OF UPDATE类型不支持指定列信息。
 
 -   **table\_name**
 
@@ -152,14 +155,16 @@ CREATE [ CONSTRAINT ] [ DEFINER=user ] TRIGGER [ IF NOT EXISTS ] trigger_name { 
 
 - **trigger\_order**
 
-  可选项，trigger_order特征中的{FOLLOWS|PRECEDES}控制触发器的优先触发顺序，mysql兼容性模式下允许对同一个表，在同一触发事件定义多个触发器，会按照触发器创建的先后顺序来决定触发的优先顺序（先创建的优先）。可以通过{FOLLOWS|PRECEDES}来调整优先级。使用FOLLOWS，最后一次使用的触发器与原始触发器最紧挨着，其他的触发器的优先级都顺序向后挤压；使用PRECEDES，最后一次使用的触发器与原始触发器最紧挨着，其他的触发器的优先级都顺序向前挤压。
+  可选项，trigger_order特征中的{FOLLOWS|PRECEDES}控制触发器的优先触发顺序，B兼容性模式下允许对同一个表，在同一触发事件定义多个触发器，会按照触发器创建的先后顺序来决定触发的优先顺序（先创建的优先）。可以通过{FOLLOWS|PRECEDES}来调整优先级。使用FOLLOWS，最后一次使用的触发器与原始触发器最紧挨着，其他的触发器的优先级都顺序向后挤压；使用PRECEDES，最后一次使用的触发器与原始触发器最紧挨着，其他的触发器的优先级都顺序向前挤压。
 
 - **trigger\_body**
 
   直接通过在begin...end之间书写代码块，定义触发器之后要完成的工作。
 
-  **表 1**  表和视图上支持的触发器种类：
+  也可以是单条sql语句，目前支持的语句：insert、update、delete、set、call。
 
+  当设置了分隔符后，使用MySQL 风格的创建触发器的语法，trigger_body 的格式是按照MySQL 的格式规定书写的，declare 段落需要写在begin ... end段落之间。
+  
   >![](public_sys-resources/icon-note.gif) **说明：** 
   >
   >关于触发器种类：
@@ -167,7 +172,9 @@ CREATE [ CONSTRAINT ] [ DEFINER=user ] TRIGGER [ IF NOT EXISTS ] trigger_name { 
   >-   INSTEAD OF的触发器必须标记为FOR EACH ROW，并且只能在视图上定义。
   >-   BEFORE和AFTER触发器作用在视图上时，只能标记为FOR EACH STATEMENT。
   >-   TRUNCATE类型触发器仅限FOR EACH STATEMENT。
-
+  
+  **表 1**  表和视图上支持的触发器种类：
+  
   <a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_table15282217184416"></a>
   <table><thead align="left"><tr id="zh-cn_topic_0283137165_zh-cn_topic_0237122123_row1928351717446"><th class="cellrowborder" valign="top" width="18.61%" id="mcps1.2.5.1.1"><p id="zh-cn_topic_0283137165_zh-cn_topic_0237122123_p172831717164411"><a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_p172831717164411"></a><a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_p172831717164411"></a>触发时机</p>
   </th>
@@ -229,9 +236,9 @@ CREATE [ CONSTRAINT ] [ DEFINER=user ] TRIGGER [ IF NOT EXISTS ] trigger_name { 
   </tr>
   </tbody>
   </table>
-
+  
   **表 2**  PLPGSQL类型触发器函数特殊变量：
-
+  
   <a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_table760181655812"></a>
   <table><thead align="left"><tr id="zh-cn_topic_0283137165_zh-cn_topic_0237122123_row19602716145815"><th class="cellrowborder" valign="top" width="50%" id="mcps1.2.3.1.1"><p id="zh-cn_topic_0283137165_zh-cn_topic_0237122123_p206021716105816"><a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_p206021716105816"></a><a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_p206021716105816"></a>变量名</p>
   </th>
@@ -384,7 +391,7 @@ openGauss=# ALTER TABLE test_trigger_src_tbl DISABLE TRIGGER ALL;
 openGauss=# DROP TRIGGER insert_trigger ON test_trigger_src_tbl;
 openGauss=# DROP TRIGGER update_trigger ON test_trigger_src_tbl;
 openGauss=# DROP TRIGGER delete_trigger_renamed ON test_trigger_src_tbl;
---创建mysql兼容数据库
+--创建B兼容性数据库
 openGauss=# create database db_mysql dbcompatibility 'B';
 --创建触发器定义用户
 openGauss=# create user test_user password 'Gauss@123';
@@ -459,6 +466,7 @@ db_mysql=# create trigger animal_trigger6
 db_mysql=# insert into animals (id, name) values(2, 'dog');
 db_mysql=# select * from animals;
 db_mysql=# select id, foodtype, remark from food;
+--创建MySql
 --创建MySQL兼容if not exists语法触发器
 db_mysql=# create trigger if not exists animal_trigger1
           after insert on animals
@@ -467,33 +475,23 @@ db_mysql=# create trigger if not exists animal_trigger1
               insert into food(id, foodtype, remark, time_flag) values (1,'ice cream', 'sdsdsdsd', now());
           end;
           /
---mysql兼容删除触发器语法
-db_mysql=# drop trigger animal_trigger1;
-db_mysql=# drop trigger if exists animal_trigger1;
---在指定模式下创建、重命名、删除触发器语法，触发器的模式需要与表模式相同
-create schema testscm;
-create table food (id int, foodtype varchar(32), remark varchar(32), time_flag timestamp);
-create table testscm.animals_scm (id int, name char(30));
--- 在指定模式下创建触发器
-create trigger testscm.animals_trigger
-after insert on testscm.animals_scm
-for each row
-begin
-    insert into food(id, foodtype, remark, time_flag) values (1,'bamboo', 'healthy', now());
-end;
-/
-create trigger if not exists testscm.animals_trigger
-after insert on testscm.animals_scm
-for each row
-begin
-    insert into food(id, foodtype, remark, time_flag) values (1,'bamboo', 'healthy', now());
-end;
-/
--- 重命名指定模式下的触发器
-alter trigger testscm.animals_trigger on testscm.animals_scm rename to animals_trigger_new;
--- 删除指定模式下的触发器
-drop trigger testscm.animals_trigger_new;
-drop trigger if exists testscm.animals_trigger_new;
+--创建MySQL格式触发器
+db_mysql=# delimiter //
+
+db_mysql=# create trigger animal_d_trigger1
+          after insert on animals
+          for each row
+          begin
+              insert into food (id ,foodtype, remark, time_flag) values(1,'ice','avcs', now());
+          end;
+          //
+
+db_mysql=# delimiter ;
+--创建MySQL兼容trigger_body为单条sql语法触发器
+db_mysql=# create trigger animal_trigger_single
+          after insert on animals
+          for each row
+          insert into food(id, foodtype, remark, time_flag) values (1,'ice cream', 'sdsdsdsd', now());
 ```
 
 ## 相关链接<a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_zh-cn_topic_0059778166_sf40b399700a74bd7b2d37e445d057f6e"></a>

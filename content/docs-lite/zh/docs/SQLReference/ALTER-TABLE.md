@@ -701,7 +701,7 @@
 
   仅在sql\_compatibility='B'时支持该语法。修改表的默认字符序，单独指定时会将表的默认字符集设置为指定的字符序对应的字符集。字符序参见[表1 B模式（即sql\_compatibility = 'B'）下支持的字符集和字符序介绍](CREATE-TABLE.md#table8163190152)。
 
-  >![](C:/Users/liyang/Desktop/暂存/20230302/12-503.1-集中式-开发者指南 (1)/public_sys-resources/icon-note.gif) **说明：** 
+  >![](public_sys-resources/icon-note.gif) **说明：** 
   >未显式指定表的字符集或字符序时，若指定了模式的默认字符集或字符序，表字符集和字符序将从模式上继承。若模式的默认字符集或字符序不存在，当b\_format\_behavior\_compat\_options = 'default\_collation'时，表的字符集和字符序将继承当前数据库的字符集及其对应的默认字符序。
 
 

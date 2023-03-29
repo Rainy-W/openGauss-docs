@@ -69,7 +69,7 @@ CREATE [ CONSTRAINT ] [ DEFINER=user ] TRIGGER [ IF NOT EXISTS ] trigger_name { 
 
 -   **trigger\_name**
 
-    触发器名称，该名称不能限定模式，因为触发器自动继承其所在表的模式，且同一个表的触发器不能重名。 对于约束触发器，使用[SET CONSTRAINTS](SET-CONSTRAINTS.md)修改触发器行为时也使用此名称。
+    触发器名称，该名称在mysql兼容风格语法中可以指定模式，触发器模式必须与其所在表的模式相同，若不限定模式，触发器自动继承其所在表的模式，同一个表的触发器不能重名。对于约束触发器，使用[SET CONSTRAINTS](SET-CONSTRAINTS.md)修改触发器行为时也使用此名称。
 
     取值范围：符合标识符命名规范的字符串，且最大长度不超过63个字符。
 
@@ -470,6 +470,30 @@ db_mysql=# create trigger if not exists animal_trigger1
 --mysql兼容删除触发器语法
 db_mysql=# drop trigger animal_trigger1;
 db_mysql=# drop trigger if exists animal_trigger1;
+--在指定模式下创建、重命名、删除触发器语法，触发器的模式需要与表模式相同
+create schema testscm;
+create table food (id int, foodtype varchar(32), remark varchar(32), time_flag timestamp);
+create table testscm.animals_scm (id int, name char(30));
+-- 在指定模式下创建触发器
+create trigger testscm.animals_trigger
+after insert on testscm.animals_scm
+for each row
+begin
+    insert into food(id, foodtype, remark, time_flag) values (1,'bamboo', 'healthy', now());
+end;
+/
+create trigger if not exists testscm.animals_trigger
+after insert on testscm.animals_scm
+for each row
+begin
+    insert into food(id, foodtype, remark, time_flag) values (1,'bamboo', 'healthy', now());
+end;
+/
+-- 重命名指定模式下的触发器
+alter trigger testscm.animals_trigger on testscm.animals_scm rename to animals_trigger_new;
+-- 删除指定模式下的触发器
+drop trigger testscm.animals_trigger_new;
+drop trigger if exists testscm.animals_trigger_new;
 ```
 
 ## 相关链接<a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_zh-cn_topic_0059778166_sf40b399700a74bd7b2d37e445d057f6e"></a>

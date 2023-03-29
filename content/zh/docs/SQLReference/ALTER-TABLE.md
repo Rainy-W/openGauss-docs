@@ -527,7 +527,7 @@ ADD [ COLUMN ] column_name data_type [ CHARACTER SET | CHARSET [ = ] charset ] [
 
   对于B模式数据库下（即sql\_compatibility = 'B'）还支持utf8mb4\_bin、utf8mb4\_general\_ci、utf8mb4\_unicode\_ci、binary字符序，部分说明见表字段的字符集说明（参见[表1 B模式（即sql\_compatibility = 'B'）下支持的字符集和字符序介绍](CREATE-TABLE.md#table8163190152)）。
 
-  ![](C:/Users/liyang/Desktop/暂存/20230302/12-503.1-集中式-开发者指南 (1)/public_sys-resources/icon-note.gif) **说明：** 
+  ![](public_sys-resources/icon-note.gif) **说明：** 
 
   >-   仅字符类型支持指定字符集，指定为binary字符集或字符序实际是将字符类型转化为对应的二进制类型，若类型映射不存在则报错。当前仅有TEXT类型转化为BLOB的映射。
   >-   除binary字符集和字符序外，当前仅支持指定与数据库编码相同的字符集。
@@ -717,7 +717,7 @@ ADD [ COLUMN ] column_name data_type [ CHARACTER SET | CHARSET [ = ] charset ] [
 
   仅在sql\_compatibility='B'时支持该语法。修改表的默认字符序，单独指定时会将表的默认字符集设置为指定的字符序对应的字符集。字符序参见[表1 B模式（即sql\_compatibility = 'B'）下支持的字符集和字符序介绍](CREATE-TABLE.md#table8163190152)。
 
-  >![](C:/Users/liyang/Desktop/暂存/20230302/12-503.1-集中式-开发者指南 (1)/public_sys-resources/icon-note.gif) **说明：** 
+  >![](public_sys-resources/icon-note.gif) **说明：** 
   >未显式指定表的字符集或字符序时，若指定了模式的默认字符集或字符序，表字符集和字符序将从模式上继承。若模式的默认字符集或字符序不存在，当b\_format\_behavior\_compat\_options = 'default\_collation'时，表的字符集和字符序将继承当前数据库的字符集及其对应的默认字符序。
 
 

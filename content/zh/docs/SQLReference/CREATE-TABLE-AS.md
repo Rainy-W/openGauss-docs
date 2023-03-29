@@ -26,6 +26,65 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE table_name
     [ WITH [ NO ] DATA ];
 ```
 
+B模式下支持：
+
+```
+CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE table_name
+    [ ({ column_name data_type [ compress_mode ] [ COLLATE collation ] [ column_constraint [ ... ] ]}
+        | table_constraint [, ... ]) ]
+    [ WITH ( {storage_parameter = value} [, ... ] ) ]
+    [ ON COMMIT { PRESERVE ROWS | DELETE ROWS | DROP } ]
+    [ COMPRESS | NOCOMPRESS ]
+    [ TABLESPACE tablespace_name ]
+    [ REPLACE | IGNORE ]
+    AS query
+    [ WITH [ NO ] DATA ];
+```
+
+- 其中列约束column\_constraint为：
+
+  ```
+  [ CONSTRAINT constraint_name ]
+  { NOT NULL |
+    NULL |
+    CHECK ( expression ) |
+    DEFAULT default_expr |
+    AUTO_INCREMENT |
+    ON UPDATE update_expr |
+    UNIQUE index_parameters |
+    ENCRYPTED WITH ( COLUMN_ENCRYPTION_KEY = column_encryption_key, ENCRYPTION_TYPE = encryption_type_value ) |
+    PRIMARY KEY index_parameters |
+    REFERENCES reftable [ ( refcolumn ) ] [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
+        [ ON DELETE action ] [ ON UPDATE action ] }
+  [ DEFERRABLE | NOT DEFERRABLE | INITIALLY DEFERRED | INITIALLY IMMEDIATE ]
+  [ COMMENT {=| } 'text' ]
+  ```
+
+
+- 其中列的压缩可选项compress\_mode为：
+
+  ```
+  { DELTA | PREFIX | DICTIONARY | NUMSTR | NOCOMPRESS }
+  ```
+
+- 其中表约束table\_constraint为：
+
+  ```
+  [ CONSTRAINT [ constraint_name ] ]
+  { CHECK ( expression ) |
+    UNIQUE [ index_name ][ USING method ] ( { { column_name | ( expression ) } [ ASC | DESC ] } [, ... ] ) index_parameters [ VISIBLE | INVISIBLE ] |
+    PRIMARY KEY [ USING method ] ( { column_name [ ASC | DESC ] } [, ... ] ) index_parameters [ VISIBLE | INVISIBLE ] |
+    FOREIGN KEY [ index_name ] ( column_name [, ... ] ) REFERENCES reftable [ (refcolumn [, ... ] ) ]
+        [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ] [ ON DELETE action ] [ ON UPDATE action ] |
+    PARTIAL CLUSTER KEY ( column_name [, ... ] ) }
+  [ DEFERRABLE | NOT DEFERRABLE | INITIALLY DEFERRED | INITIALLY IMMEDIATE ]
+  [ COMMENT {=| } 'text' ]
+  ```
+
+> ![](public_sys-resources/icon-notice.gif) **须知：** 
+>
+> -   更多参数细节说明可参考[CREATE TABLE](CREATE-TABLE.md)章节。
+
 ## 参数说明<a name="zh-cn_topic_0283136662_zh-cn_topic_0237122118_zh-cn_topic_0059777601_sb8ea2c52307445c9934740862f4ecc85"></a>
 
 -   **UNLOGGED**
@@ -68,6 +127,16 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE table_name
     新表中要创建的字段名。
 
     取值范围：字符串，要符合标识符的命名规范。
+
+    注：若没有指定字段类型，则替换源表字段名；若指定字段类型，请参考**data_type**参数介绍。
+
+-   **data_type**
+
+    指定新表中字段的类型。
+
+    若源表中不含该字段名，则新增该字段。
+
+    若源表中含有该字段名，且源表中的字段类型不可转化为指定data_type类型，则报错；否则，新表中该字段类型改为指定类型。
 
 -   **WITH \( storage\_parameter \[= value\] \[, ... \] \)**
 
@@ -122,6 +191,10 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE table_name
 
     指定新表将要在tablespace\_name表空间内创建。如果没有声明，将使用默认表空间。
 
+-   **\[ REPLACE  / IGNORE \]**    
+
+    若有唯一性约束列，插入数据时，对重复数据的处理行为进行设置。
+
 -   **AS query**
 
     一个SELECT VALUES命令或者一个运行预备好的SELECT或VALUES查询的EXECUTE命令。
@@ -148,9 +221,13 @@ openGauss=# CREATE TABLE tpcds.store_returns_t1 AS SELECT * FROM tpcds.store_ret
 --使用tpcds.store_returns拷贝一个新表tpcds.store_returns_t2。
 openGauss=# CREATE TABLE tpcds.store_returns_t2 AS table tpcds.store_returns;
 
+--B模式下
+openGauss=# CREATE TABLE tpcds.store_returns_t3(newcol INTEGER) AS table tpcds.store_returns;
+
 --删除表。
 openGauss=# DROP TABLE tpcds.store_returns_t1 ;
 openGauss=# DROP TABLE tpcds.store_returns_t2 ;
+openGauss=# DROP TABLE tpcds.store_returns_t3 ;
 openGauss=# DROP TABLE tpcds.store_returns;
 ```
 
