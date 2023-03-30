@@ -253,11 +253,11 @@ headless: true
             -   [Psycopg API Reference]({{< relref "./docs/DeveloperGuide/psycopg-api-reference.md" >}})
         -   [Commissioning]({{< relref "./docs/DeveloperGuide/commissioning.md" >}})
 
--   [Compilation Guide]({{< relref "./docs/Compilationguide/Compilation.md" >}})    
-	-   [Introduction]({{< relref "./docs/Compilationguide/introduction.md" >}})
-	-   [Setting up the Build Environment]({{< relref "./docs/Compilationguide/setting-up-the-build-environment.md" >}})
-	-   [Version Build]({{< relref "./docs/Compilationguide/version-build.md" >}})
-	-   [FAQs]({{< relref "./docs/Compilationguide/faqs.md" >}})
+-   [Compilation Guide]({{< relref "./docs/CompilationGuide/Compilation.md" >}})    
+	-   [Introduction]({{< relref "./docs/CompilationGuide/introduction.md" >}})
+	-   [Setting up the Build Environment]({{< relref "./docs/CompilationGuide/setting-up-the-build-environment.md" >}})
+	-   [Version Build]({{< relref "./docs/CompilationGuide/version-build.md" >}})
+	-   [FAQs]({{< relref "./docs/CompilationGuide/faqs.md" >}})
 
 -   [Database Administration Guide]({{< relref "./docs/DatabaseAdministrationGuide/DatabaseAdministrationGuide.md" >}})
     -   [Concepts]({{< relref "./docs/DatabaseAdministrationGuide/concepts.md" >}})
