@@ -85,7 +85,7 @@
     在表上新增一个索引
 
     ```
-    {INDEX | KEY} [index_name] [index_type] (key_part,...)[index_option]...
+    {[FULLTEXT] INDEX | KEY} [index_name] [index_type] (key_part,...)[index_option]...
     ```
 
     其中参数index_type为：
@@ -107,10 +107,11 @@
     	  COMMENT 'string'
     	| index_type
     	| [ VISIBLE | INVISIBLE ]
+      | [WITH PARSER NGRAM]
     }
     ```
     
-    COMMENT、index_type、[ VISIBLE | INVISIBLE ] 的顺序和数量任意，但相同字段仅最后一个值生效。
+    COMMENT、index_type、[ VISIBLE | INVISIBLE ] 的顺序和数量任意，但相同字段仅最后一个值生效。WITH PARSER NGRAM 为FULLTEXT INDEX指定的ngram解析器，前提是索引必须指定关键字FULLTEXT，FULLTEXT 默认 WITH PARSER NGRAM。
 
 ## 参数说明<a name="zh-cn_topic_0283137126_zh-cn_topic_0237122076_zh-cn_topic_0059779051_sf4962205ddf84312a5fd888bc662e5cf"></a>
 
@@ -285,6 +286,19 @@ openGauss=# ALTER TABLE alter_table_tbl1 ADD INDEX alter_table_tbl_b_ind(b) INVI
 
 ```
 openGauss=# DROP TABLE alter_table_tbl1, alter_table_tbl2;
+```
+
+--- 兼容MySQL全文索引，添加全文索引语法，前提是兼容模式为B的数据库。
+```sql
+test=# ALTER TABLE test ADD FULLTEXT INDEX test_index_1 (title, boby) WITH PARSER ngram;
+ALTER TABLE
+test=# \d test_index_1
+                  Index "fulltext_test.test_index_1"
+    Column    | Type |                   Definition
+--------------+------+------------------------------------------------
+ to_tsvector  | text | to_tsvector('"ngram"'::regconfig, title::text)
+ to_tsvector1 | text | to_tsvector('"ngram"'::regconfig, boby)
+gin, for table "fulltext_test.test"
 ```
 
 ## 相关链接<a name="section156744489391"></a>

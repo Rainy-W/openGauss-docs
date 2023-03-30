@@ -25,3 +25,28 @@
      abc
     (1 row)
     ```
+
+   在后续开发中，扩展的CAST转换功能有money到unsigned和timestamp到unsigned的转换。
+
+   ```sql
+   CREATE CAST (timestamp AS uint8) WITH FUNCTION timestamp_uint8(timestamp) AS ASSIGNMENT;
+   CREATE CAST (money AS uint8) WITH FUNCTION cash_uint(money) AS ASSIGNMENT;
+   ```
+
+   ## 兼容性<a name="section9989313154010"></a>
+
+   CREATE CAST指令符合SQL标准，除了SQL没有为二进制可强制转换类型或者实现函数的额外参数来实现功能。
+
+   ```sql
+    openGauss=# SELECT CAST('$2'::money as unsigned);
+     uint8
+     -------
+     2
+     (1 row)
+    openGauss=# SELECT CAST(CURRENT_TIMESTAMP::TIMESTAMP AS UNSIGNED);
+     current_timestamp
+     -------------------
+     20230103023621
+     (1 row)
+
+    ```

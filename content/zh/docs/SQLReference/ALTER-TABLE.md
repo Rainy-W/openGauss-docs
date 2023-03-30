@@ -69,6 +69,7 @@
       | ALTER INDEX index_name [ VISBLE | INVISIBLE ]
       | [ [ DEFAULT ] CHARACTER SET | CHARSET [ = ] default_charset ] [ [ DEFAULT ] COLLATE [ = ] default_collation ]
       | CONVERT TO CHARACTER SET | CHARSET charset | DEFAULT [ COLLATE collation ]
+      | MODIFY column_name column_type ON UPDATE CURRENT_TIMESTAMP
   ```
 
 >- **ADD table\_constraint \[ NOT VALID \]**
@@ -413,6 +414,20 @@ ADD [ COLUMN ] column_name data_type [ CHARACTER SET | CHARSET [ = ] charset ] [
         MODIFY ( { column_name data_type [ CHARACTER SET | CHARSET charset ] [{[ COLLATE collation ] | [ column_constraint ]} [ ... ] ] [FIRST | AFTER column_name] | column_name [ CONSTRAINT constraint_name ] NOT NULL [ ENABLE ] | column_name [ CONSTRAINT constraint_name ] NULL } [, ...] );
     ```
 
+
+-   对表timestamp列添加ON UPDATE属性。
+
+    ```sql
+    ALTER TABLE table_name
+        MODIFY column_name column_type ON UPDATE CURRENT_TIMESTAMP;
+    ```
+
+-   对表timestamp列删除ON UPDATE属性。
+
+    ```sql
+    ALTER TABLE table_name
+        MODIFY column_name column_type;
+    ```
 
 ## 参数说明<a name="zh-cn_topic_0283137126_zh-cn_topic_0237122076_zh-cn_topic_0059779051_sf4962205ddf84312a5fd888bc662e5cf"></a>
 

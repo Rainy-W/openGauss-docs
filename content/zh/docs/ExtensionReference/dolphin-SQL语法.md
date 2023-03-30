@@ -118,6 +118,8 @@
 
 -   **[SHOW SLAVE HOSTS](dolphin-SHOW-SLAVE-HOSTS.md)**
 
+-   **[SHOW STATUS](dolphin-SHOW-STATUS.md)**
+
 -   **[SHOW TABLES](dolphin-SHOW_TABLES.md)**  
 
 -   **[SHOW TABLE STATUS](dolphin-SHOW-TABLE-STATUS.md)**  
@@ -125,6 +127,8 @@
 -   **[SHOW TRIGGERS](dolphin-SHOW-TRIGGERS.md)**  
 
 -   **[SHOW-VARIABLES](dolphin-SHOW-VARIABLES.md)**
+
+-   **[SHOW-WARNINGS](dolphin-SHOW-WARNINGS.md)**
 
 -   **[UPDATE](dolphin-UPDATE.md)**
 

@@ -25,7 +25,7 @@
 -   在表上创建索引。
 
     ```
-    CREATE [ UNIQUE ] INDEX [ CONCURRENTLY ] [ [schema_name.]index_name ]
+    CREATE [ UNIQUE | FULLTEXT ] INDEX [ CONCURRENTLY ] [ [schema_name.]index_name ]
         { ON table_name [ USING method ] | [ USING method ] ON table_name }
         ({ { column_name | ( expression ) } [ COLLATE collation ] [ opclass ] [ ASC | DESC ] [ NULLS { FIRST | LAST } ] }[, ...] )
         [ index_option ]
@@ -49,6 +49,10 @@
     ```
 
 ## 参数说明<a name="zh-cn_topic_0283136578_zh-cn_topic_0237122106_zh-cn_topic_0059777455_s82e47e35c54c477094dcafdc90e5d85a"></a>
+
+-   **FULLTEXT**
+
+    该关键字为创建兼容MySQL的全文索引的语法。该全文索引主要用于字符串的搜索匹配。包含局部匹配搜索，支持中文，韩文，日文。与MATCH () AGAINST ()配合使用。
 
 -   **column\_name ( length )**
 
@@ -191,6 +195,46 @@ openGauss=# DROP TABLESPACE example4;
 openGauss=# create table cgin_create_test(a int, b text) with (orientation = column);
 CREATE TABLE
 openGauss=# create index cgin_test on cgin_create_test using gin(to_tsvector('ngram', b));
+CREATE INDEX
+```
+
+##全文索引
+```sql
+openGauss=# CREATE SCHEMA fulltext_test;
+CREATE SCHEMA
+openGauss=# set current_schema to 'fulltext_test';
+SET
+openGauss=# CREATE TABLE test (
+id int unsigned auto_increment not null primary key,
+title varchar,
+boby text,
+name name
+);
+NOTICE:  CREATE TABLE will create implicit sequence "test_id_seq" for serial column "test.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "test_pkey" for table "test"
+CREATE TABLE
+openGauss=# \d test
+              Table "fulltext_test.test"
+ Column |       Type        |        Modifiers
+--------+-------------------+-------------------------
+ id     | uint4             | not null AUTO_INCREMENT
+ title  | character varying |
+ boby   | text              |
+ name   | name              |
+Indexes:
+    "test_pkey" PRIMARY KEY, btree (id) TABLESPACE pg_default
+
+openGauss=# CREATE FULLTEXT INDEX test_index_1 ON test (title, boby) WITH PARSER ngram;
+\d test_index_1
+                  Index "fulltext_test.test_index_1"
+    Column    | Type |                   Definition
+--------------+------+------------------------------------------------
+ to_tsvector  | text | to_tsvector('"ngram"'::regconfig, title::text)
+ to_tsvector1 | text | to_tsvector('"ngram"'::regconfig, boby)
+gin, for table "fulltext_test.test"
+
+
+openGauss=# CREATE FULLTEXT INDEX test_index_2 ON test (title, boby, name);
 CREATE INDEX
 ```
 

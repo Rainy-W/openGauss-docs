@@ -79,8 +79,8 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
 
 - 创建表上索引table_indexclause：
 
-  ```
-  {INDEX | KEY} [index_name] [index_type] (key_part,...)[index_option]...
+  ```sql
+  {[FULLTEXT] INDEX | KEY} [index_name] [index_type] (key_part,...)[index_option]...
   ```
 
   该语法不支持CREATE FOREIGN TABLE (MOT表等) 创建。
@@ -106,10 +106,12 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
   	  COMMENT 'string'
   	| index_type
   	| [ VISIBLE | INVISIBLE ]
+    | [WITH PARSER NGRAM]
   }
   ```
 
-  COMMENT、index_type、[ VISIBLE | INVISIBLE ] 的顺序和数量任意，但相同字段仅最后一个值生效。
+  COMMENT、index_type、[ VISIBLE | INVISIBLE ] 的顺序和数量任意，但相同字段仅最后一个值生效。WITH PARSER NGRAM 为FULLTEXT INDEX指定的ngram解析器，前提是索引必须指定关键字FULLTEXT，FULLTEXT 默认 WITH PARSER NGRAM。
+
 
 -   其中like选项like\_option为：
 
@@ -127,7 +129,7 @@ CREATE [ [ GLOBAL | LOCAL ] [ TEMPORARY | TEMP ] | UNLOGGED ] TABLE [ IF NOT EXI
 
 -   **column\_constraint**
 
-    字段的类型约束中，添加了mysql的ON UPDATE特性，归类于字段类型约束。与DEFAULT属性属于同类约束。该ON UPDATE属性用于，执行UPDATE操作timestamp字段为缺省时，则自动更新timestamp字段的时间截。
+    字段的类型约束中，添加了mysql的ON UPDATE特性，归类于字段类型约束。与DEFAULT属性属于同类约束。该ON UPDATE属性用于，执行UPDATE操作timestamp字段为缺省时，则自动更新timestamp字段的时间截。如果更新字段的数据内容与原来的数据内容一致，则其他含有ON UPDATE的字段的时间截不会自动更新。
 
     ```sql
     CREATE TABLE table_name(column_name timestamp ON UPDATE CURRENT_TIMESTAMP);
@@ -450,5 +452,90 @@ WARNING:  Suffix ".ibd" of datafile path detected. The actual path will be renam
 CREATE TABLESPACE
 openGauss=# CREATE TABLE t_tablespace_storage_memory(c text) TABLESPACE test STORAGE MEMORY;
 WARNING:  TABLESPACE_OPTION for TABLE is not supported for current version. skipped
+CREATE TABLE
+```
+
+--创建兼容MySQL全文索引语法的表。前提是兼容模式为B的数据库。
+```sql
+openGauss=# CREATE TABLE test (
+openGauss(# id int unsigned auto_increment not null primary key,
+openGauss(# title varchar,
+openGauss(# boby text,
+openGauss(# name name,
+openGauss(# FULLTEXT (title, boby) WITH PARSER ngram
+openGauss(# );
+NOTICE:  CREATE TABLE will create implicit sequence "test_id_seq" for serial column "test.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "test_pkey" for table "test"
+CREATE TABLE
+openGauss=# drop table if exists articles;
+NOTICE:  table "articles" does not exist, skipping
+DROP TABLE
+openGauss=# CREATE TABLE articles (
+openGauss(# ID int,
+openGauss(# title VARCHAR(100),
+openGauss(# FULLTEXT INDEX ngram_idx(title)WITH PARSER ngram
+openGauss(# );
+CREATE TABLE
+openGauss=# \d articles
+       Table "fulltext_test.articles"
+ Column |          Type          | Modifiers
+--------+------------------------+-----------
+ ID     | integer                |
+ title  | character varying(100) |
+Indexes:
+    "ngram_idx" gin (to_tsvector('ngram'::regconfig, title::text)) TABLESPACE pg_default
+
+openGauss=# drop table if exists articles;
+DROP TABLE
+openGauss=# CREATE TABLE articles (
+openGauss(# ID int,
+openGauss(# title VARCHAR(100),
+openGauss(# FULLTEXT INDEX (title)WITH PARSER ngram
+openGauss(# );
+CREATE TABLE
+openGauss=# \d articles
+       Table "fulltext_test.articles"
+ Column |          Type          | Modifiers
+--------+------------------------+-----------
+ ID     | integer                |
+ title  | character varying(100) |
+Indexes:
+    "articles_to_tsvector_idx" gin (to_tsvector('ngram'::regconfig, title::text)) TABLESPACE pg_default
+
+openGauss=# drop table if exists articles;
+DROP TABLE
+openGauss=# CREATE TABLE articles (
+openGauss(# ID int,
+openGauss(# title VARCHAR(100),
+openGauss(# FULLTEXT KEY keyngram_idx(title)WITH PARSER ngram
+openGauss(# );
+CREATE TABLE
+openGauss=# \d articles
+       Table "fulltext_test.articles"
+ Column |          Type          | Modifiers
+--------+------------------------+-----------
+ ID     | integer                |
+ title  | character varying(100) |
+Indexes:
+    "keyngram_idx" gin (to_tsvector('ngram'::regconfig, title::text)) TABLESPACE pg_default
+
+openGauss=# drop table if exists articles;
+DROP TABLE
+openGauss=# CREATE TABLE articles (
+openGauss(# ID int,
+openGauss(# title VARCHAR(100),
+openGauss(# FULLTEXT KEY (title)WITH PARSER ngram
+openGauss(# );
+CREATE TABLE
+openGauss=# \d articles
+       Table "fulltext_test.articles"
+ Column |          Type          | Modifiers
+--------+------------------------+-----------
+ ID     | integer                |
+ title  | character varying(100) |
+Indexes:
+    "articles_to_tsvector_idx" gin (to_tsvector('ngram'::regconfig, title::text)) TABLESPACE pg_default
+
+openGauss=# create table table_ddl_0154(col1 int,col2 varchar(64), FULLTEXT idx_ddl_0154(col2));
 CREATE TABLE
 ```
