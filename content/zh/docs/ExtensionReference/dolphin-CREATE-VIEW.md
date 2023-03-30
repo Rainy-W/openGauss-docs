@@ -125,5 +125,5 @@ openGauss=# DROP VIEW myView;
 
 ## 相关链接<a name="zh-cn_topic_0283137480_zh-cn_topic_0237122126_zh-cn_topic_0059779377_sfc32bec2a548470ebab19d6ca7d6abe2"></a>
 
-[ALTER VIEW](ALTER-VIEW.md)，[DROP VIEW](DROP-VIEW.md)
+[ALTER VIEW](../SQLReference/ALTER-VIEW.md)，[DROP VIEW](../SQLReference/DROP-VIEW.md)
 
