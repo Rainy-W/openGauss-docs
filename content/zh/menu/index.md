@@ -398,6 +398,7 @@ headless: true
 		-   [数据存储管理]({{< relref "./docs/DatabaseAdministrationGuide/数据存储管理.md" >}})
 			-   [逻辑存储结构]({{< relref "./docs/DatabaseAdministrationGuide/逻辑存储结构.md" >}})
 	-   [数据库部署方案]({{< relref "./docs/DatabaseAdministrationGuide/数据库部署方案.md" >}})
+		-   [openGauss常见主备部署方案简介]({{< relref "./docs/DatabaseAdministrationGuide/openGauss常见主备部署方案简介.md" >}})
 		-   [两地三中心跨Region容灾]({{< relref "./docs/DatabaseAdministrationGuide/两地三中心跨Region容灾.md" >}})
 		-   [资源池化架构]({{< relref "./docs/DatabaseAdministrationGuide/资源池化架构.md" >}})
 			-   [资源池化开发者环境部署]({{< relref "./docs/DatabaseAdministrationGuide/资源池化开发者环境部署.md" >}})
