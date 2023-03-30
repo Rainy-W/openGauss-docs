@@ -308,7 +308,7 @@
 
 -   **[INSERT](INSERT.md)**  
 
--   **[LOCK](LOCK-1.md)**  
+-   **[LOCK](LOCK-Sql.md)**  
 
 -   **[MERGE INTO](MERGE-INTO.md)**  
 

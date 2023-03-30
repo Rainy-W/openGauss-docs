@@ -30,7 +30,7 @@
 
 **参数说明：**当前会话的用户标识。
 
-该参数属于USERSET类型参数，只能通过[SET SESSION AUTHORIZATION](SET-SESSION-AUTHORIZATION.md)语法设置，不支持直接设置。
+该参数属于USERSET类型参数，只能通过[SET SESSION AUTHORIZATION](../SQLReference/SET-SESSION-AUTHORIZATION.md)语法设置，不支持直接设置。
 
 **取值范围：**字符串。
 
@@ -52,7 +52,7 @@
 
 ## ssl<a name="zh-cn_topic_0283137371_zh-cn_topic_0237124696_zh-cn_topic_0059778664_s8c4647db116f44c4b9ce3dceee3d6ffa"></a>
 
-**参数说明：**启用SSL连接。请在使用这个选项之前阅读[使用gsql访问openGauss](使用gsql访问openGauss.md)。
+**参数说明：**启用SSL连接。请在使用这个选项之前阅读[使用gsql访问openGauss](../GettingStarted/使用gsql访问openGauss.md)。
 
 该参数属于POSTMASTER类型参数，请参考[表1](../DatabaseAdministrationGuide/参数设置.md#zh-cn_topic_0283137176_zh-cn_topic_0237121562_zh-cn_topic_0059777490_t91a6f212010f4503b24d7943aed6d846)中对应设置方法进行设置。
 
@@ -69,7 +69,7 @@
 
 ## require\_ssl<a name="zh-cn_topic_0283137371_zh-cn_topic_0237124696_section1652594319820"></a>
 
-**参数说明：**设置服务器端是否强制要求SSL连接，该参数只有当参数[ssl](#zh-cn_topic_0283137371_zh-cn_topic_0237124696_zh-cn_topic_0059778664_s8c4647db116f44c4b9ce3dceee3d6ffa)为on时才有效。请在使用这个选项之前阅读[使用gsql访问openGauss](使用gsql访问openGauss.md)。
+**参数说明：**设置服务器端是否强制要求SSL连接，该参数只有当参数[ssl](#zh-cn_topic_0283137371_zh-cn_topic_0237124696_zh-cn_topic_0059778664_s8c4647db116f44c4b9ce3dceee3d6ffa)为on时才有效。请在使用这个选项之前阅读[使用gsql访问openGauss](../GettingStarted/使用gsql访问openGauss.md)。
 
 该参数属于SIGHUP类型参数，请参考[表1](../DatabaseAdministrationGuide/参数设置.md#zh-cn_topic_0283137176_zh-cn_topic_0237121562_zh-cn_topic_0059777490_t91a6f212010f4503b24d7943aed6d846)中对应设置方法进行设置。
 

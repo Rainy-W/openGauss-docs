@@ -72,7 +72,7 @@ CREATE [ CONSTRAINT ] [ DEFINER=user ] TRIGGER [ IF NOT EXISTS ] trigger_name { 
 
 -   **trigger\_name**
 
-    触发器名称，该名称不能限定模式，因为触发器自动继承其所在表的模式，且同一个表的触发器不能重名。 对于约束触发器，使用[SET CONSTRAINTS](SET-CONSTRAINTS.md)修改触发器行为时也使用此名称。
+    触发器名称，该名称不能限定模式，因为触发器自动继承其所在表的模式，且同一个表的触发器不能重名。 对于约束触发器，使用[SET CONSTRAINTS](../SQLReference/SET-CONSTRAINTS.md)修改触发器行为时也使用此名称。
 
     取值范围：符合标识符命名规范的字符串，且最大长度不超过63个字符。
 
@@ -116,13 +116,13 @@ CREATE [ CONSTRAINT ] [ DEFINER=user ] TRIGGER [ IF NOT EXISTS ] trigger_name { 
 
     约束触发器的启动时机，仅作用于约束触发器。这两个关键字设置该约束是否可推迟。
 
-    详细介绍请参见[CREATE TABLE](CREATE-TABLE.md)。
+    详细介绍请参见[CREATE TABLE](../SQLReference/CREATE-TABLE.md)。
 
 -   **INITIALLY IMMEDIATE** **| INITIALLY DEFERRED**
 
     如果约束是可推迟的，则这个子句声明检查约束的缺省时间，仅作用于约束触发器。
 
-    详细介绍请参见[CREATE TABLE](CREATE-TABLE.md)。
+    详细介绍请参见[CREATE TABLE](../SQLReference/CREATE-TABLE.md)。
 
 -   **FOR EACH ROW | FOR EACH STATEMENT**
 
@@ -496,5 +496,5 @@ db_mysql=# create trigger animal_trigger_single
 
 ## 相关链接<a name="zh-cn_topic_0283137165_zh-cn_topic_0237122123_zh-cn_topic_0059778166_sf40b399700a74bd7b2d37e445d057f6e"></a>
 
-[ALTER TRIGGER](ALTER-TRIGGER.md)，[DROP TRIGGER](DROP-TRIGGER.md)，[ALTER TABLE](ALTER-TABLE.md)
+[ALTER TRIGGER](../SQLReference/ALTER-TRIGGER.md)，[DROP TRIGGER](../SQLReference/DROP-TRIGGER.md)，[ALTER TABLE](../SQLReference/ALTER-TABLE.md)
 
