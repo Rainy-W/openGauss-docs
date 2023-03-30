@@ -6,10 +6,9 @@
 
 ## 注意事项
 
-  添加的系统参数sql_note，是设置show warnings是否显示Note级别的信息开关。
+- 添加的系统参数sql_note，是设置show warnings是否显示Note级别的信息开关。
 
-  Code字段是信息的错误码。其数字含义对应ERRCODE中的宏定义。其中各种信息的状态宏都是由 MAKE_SQLSTATE(ch1, ch2, ch3, ch4, ch5)生成。
-  MAKE_SQLSTATE作用是把字符 ch1 ~ ch5 的ascii码减去'0'，再取其二进制的后六位得到 res1 ~ res5，然后把这5个数据从低到高位组成一个30位二进制结果(res5res4res3res2res1)，转换成一个十进制数字，即就是错误码的数字。
+- Code字段是信息的错误码。其数字含义对应ERRCODE中的宏定义。其中各种信息的状态宏都是由 MAKE_SQLSTATE(ch1, ch2, ch3, ch4, ch5)生成。MAKE_SQLSTATE作用是把字符 ch1 ~ ch5 的ascii码减去'0'，再取其二进制的后六位得到 res1 ~ res5，然后把这5个数据从低到高位组成一个30位二进制结果(res5res4res3res2res1)，转换成一个十进制数字，即就是错误码的数字。
   不同的错误码数字对应不同的状态宏。
 
 ## 语法格式
@@ -34,7 +33,7 @@ SHOW COUNT(*) ERRORS
 
 - **添加系统参数**
 
-  [sql_note](dolphin-GUC参数说明.md)
+  [sql_note](dolphin-GUC参数说明.md) 该参数是设置show warnings是否显示Note级别的信息开关
 
 ## 返回结果集
 
@@ -44,7 +43,7 @@ SHOW COUNT(*) ERRORS
 | Code                 | 整数类型                 | 信息状态对应的错误码               |
 | Message              | 字符类型                 | 信息内容                          |
 
-## 实例
+## 示例
 
 ```sql
 openGauss=# show sql_note;
