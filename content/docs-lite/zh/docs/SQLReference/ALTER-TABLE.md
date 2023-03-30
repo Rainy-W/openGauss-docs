@@ -199,7 +199,6 @@
   ```
   ADD [ COLUMN ] column_name data_type [ CHARACTER SET | CHARSET [ = ] charset ] [ compress_mode ] [ COLLATE collation ] [ column_constraint [ ... ] ] [ COMMENT {=| } 'text' ] [ FIRST | AFTER column_name ]       
   | MODIFY column_name data_type  
-  | MODIFY [ COLUMN ] column_name [ COMMENT 'text']      
   | MODIFY column_name [ CONSTRAINT constraint_name ] NOT NULL [ ENABLE ]
   | MODIFY column_name [ CONSTRAINT constraint_name ] NULL
   | MODIFY [ COLUMN ] column_name data_type [ CHARACTER SET | CHARSET [ = ] charset ] [{[ COLLATE collation ] | [ column_constraint ]} [ ... ] ] [FIRST | AFTER column_name]
@@ -218,15 +217,12 @@
 
   ![](public_sys-resources/icon-note.gif) **说明：** 
   
-  >- **ADD \[ COLUMN \] column\_name data\_type \[ compress\_mode \] \[ COLLATE collation \] \[ column\_constraint \[ ... \] \] \[ COMMENT {=| } 'text'\][ FIRST | AFTER column_name ]    **
+  >- **ADD \[ COLUMN \] column\_name data\_type \[ compress\_mode \] \[ COLLATE collation \] \[ column\_constraint \[ ... \] \] [ FIRST | AFTER column_name ]    **
   >  向表中增加一个新的字段。用ADD COLUMN增加一个字段，所有表中现有行都初始化为该字段的缺省值（如果没有声明DEFAULT子句，值为NULL）。其中FIRST | AFTER column\_name表示新增字段到某个位置。
   >
   >  - **ADD \( \{ column\_name data\_type \[ compress\_mode \] \} \[, ...\] \)**
   >    向表中增加多列。
   >
-  >
-  >  - **MODIFY \[ COLUMN \] column\_name \[ COMMENT {=| } 'text'\]**
-  >    修改字段注释。
   >
   >  - **MODIFY \( \{ column\_name data\_type | column\_name \[ CONSTRAINT constraint\_name \] NOT NULL \[ ENABLE \] | column\_name \[ CONSTRAINT constraint\_name \] NULL \} \[, ...\] \)**
   >    修改表已存在字段的数据类型。
@@ -293,11 +289,13 @@
                 DEFAULT default_expr  |
                 GENERATED ALWAYS AS ( generation_expr ) [STORED] |
                 AUTO_INCREMENT |
+                ON UPDATE update_expr |
                 UNIQUE [KEY] index_parameters |
                 PRIMARY KEY index_parameters |
                 ENCRYPTED WITH ( COLUMN_ENCRYPTION_KEY = column_encryption_key, ENCRYPTION_TYPE = encryption_type_value ) |                                                                                  
                 REFERENCES reftable [ ( refcolumn ) ] [ MATCH FULL | MATCH PARTIAL | MATCH SIMPLE ]
                     [ ON DELETE action ] [ ON UPDATE action ] }    [ DEFERRABLE | NOT DEFERRABLE | INITIALLY DEFERRED | INITIALLY IMMEDIATE ]
+  [ COMMENT 'text' ]
   ```
 
   
@@ -385,7 +383,7 @@
 
     ```
     ALTER TABLE [ IF EXISTS ] table_name 
-        MODIFY ( { column_name data_type | column_name [ CONSTRAINT constraint_name ] NOT NULL [ ENABLE ] | column_name [ CONSTRAINT constraint_name ] NULL } [, ...] );
+        MODIFY ( { column_name data_type [ CHARACTER SET | CHARSET charset ] [{[ COLLATE collation ] | [ column_constraint ]} [ ... ] ] [FIRST | AFTER column_name] | column_name [ CONSTRAINT constraint_name ] NOT NULL [ ENABLE ] | column_name [ CONSTRAINT constraint_name ] NULL } [, ...] );
     ```
 
 
